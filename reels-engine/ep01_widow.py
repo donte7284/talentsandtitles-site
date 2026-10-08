@@ -110,9 +110,9 @@ function scene(t){
  $('count').textContent=txt;$('count').style.color=col;$('count').style.opacity=txt?eo(pr(t,since,0.3)):0;
 }
 '''
-CAPS=[["The ",0,0],["oil ",0,0],["stops ",0,0],["when ",0,0],["she ",0,1],["runs ",1,0],["out ",1,0],["of ",1,0],["jars.",1,0]]
-p=['the','oil','stops','when','she','runs','out','of','jars']
-# caption is the approved summary line; each word lands as it is spoken (the recording adds "only")
+CAPS=[["The ",0,0],["oil ",0,0],["only ",0,0],["stops ",0,0],["when ",0,1],["she ",0,0],["runs ",1,0],["out ",1,0],["of ",1,0],["jars.",1,0]]
+p=['the','oil','only','stops','when','she','runs','out','of','jars']
+# each caption word lands as it is spoken
 i=next(i for i in range(len(toks)) if toks[i:i+2]==['the','oil']);capw=[]
 for w in p:
     while toks[i]!=w:i+=1
@@ -126,11 +126,11 @@ print('offset',round(OFF,2),'duration',round(END_AUDIO,2),'cues',T,'punchline',s
 # voice: trim, high-pass, two-pass loudness normalise to -14 LUFS, short fades
 os.makedirs(os.path.join(here,'out'),exist_ok=True)
 wav=os.path.join(here,'out','ep01_voice.wav')
-pre=f"atrim={OFF}:{OFF+END_AUDIO},asetpts=PTS-STARTPTS,pan=mono|c0=0.5*c0+0.5*c1,highpass=f=80"
+pre=f"atrim={OFF}:{OFF+END_AUDIO},asetpts=PTS-STARTPTS,aformat=channel_layouts=mono,highpass=f=80"
 m=subprocess.run(['ffmpeg','-hide_banner','-i',voice,'-af',pre+',loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json','-f','null','-'],capture_output=True,text=True).stderr
 L=json.loads(m[m.rindex('{'):m.rindex('}')+1])
 ln=f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={L['input_i']}:measured_TP={L['input_tp']}:measured_LRA={L['input_lra']}:measured_thresh={L['input_thresh']}:offset={L['target_offset']}:linear=true"
-subprocess.run(['ffmpeg','-y','-loglevel','error','-i',voice,'-af',f"{pre},{ln},afade=t=in:d=0.05,afade=t=out:st={END_AUDIO-0.4}:d=0.4",'-ar','48000',wav],check=True)
+subprocess.run(['ffmpeg','-y','-loglevel','error','-i',voice,'-af',f"{pre},{ln},apad=whole_dur={END_AUDIO},afade=t=in:d=0.05,afade=t=out:st={END_AUDIO-0.4}:d=0.4",'-ar','48000',wav],check=True)
 
 silent=os.path.join(here,'out','ep01_silent.mp4')
 subprocess.run([sys.executable,os.path.join(here,'render.py'),str(round(END_AUDIO,2)),silent,'ep01_widow.html'],check=True)
