@@ -23,12 +23,13 @@ Everything a fresh production session needs. Read this first, then `AGENTS.md` a
 ## Voice
 - **ElevenLabs Instant Voice Clone of Donte, voice ID `RZj1s99qJKmkDAEw69aI`.** The clone is the voice for the whole series, including episodes 1-3.
 - Model `eleven_multilingual_v2`, text-to-speech "with timestamps". The account is on the Starter tier: `mp3_44100_128` works, 192 kbps does not.
+- **Pace:** run `tts.py` with speed `0.92` (default 1.0 reads too fast, about 200 words a minute; 0.92 gives about 165). Mark dramatic pauses in the narration with `<break time="0.8s" />`, e.g. before a one-word answer and before the punchline; `tts.py` keeps them out of the word timings. A new take changes the whole read, not just the edited line.
 - Do not create or edit voices through the API.
 
 ## How to make an episode
 1. Pick the next story from the backlog; check the references with `verse.py`; write the narration (about 75-95 words) to `narration/epNN_name.txt`. Donte approves the script in the Cowork chat.
 2. Clone narration with word timestamps:
-   `python tts.py RZj1s99qJKmkDAEw69aI narration/epNN_name.txt work/epNN.wav work/epNN.stt.json`
+   `python tts.py RZj1s99qJKmkDAEw69aI narration/epNN_name.txt work/epNN.wav work/epNN.stt.json 0.92`
 3. Write `epNN_name.py` modelled on `ep02_tower.py`: a scene (SVG drawing code for `base.py`), cue times read with `v.at("spoken phrase")`, the caption words, and the cream-page lines and reference. `episode.py` does the rest (silence fix, audio clean-up to -14 LUFS, render, mux).
 4. `python epNN_name.py work/epNN.wav work/epNN.stt.json out/parable-NN-name.mp4` (about 2.5 s of render time per second of video). Check frames, send it for review.
 5. After approval: put it at `public/reels/parable-NN-name.mp4` on `main` (merge the working branch, or a worktree from `origin/main`), push, and wait for the Vercel status on the commit to read "Deployment has completed". The link is `https://talentsandtitles.vercel.app/reels/parable-NN-name.mp4`. This environment cannot open vercel.app itself; check the status with `curl https://api.github.com/repos/donte7284/talentsandtitles-site/commits/<sha>/status`.
@@ -42,7 +43,7 @@ Follow this exactly when Donte asks for the weekly run. It needs no other contex
 
 **b. Write four narrations.** Take the next four stories from the backlog in order, keeping about one in four from the Book of Mormon (if the next four have none, swap the fourth for the next Book of Mormon story). Number them on from the episode log. Write each narration in the series format (cold open in present tense, three beats, the turn, a question, "Send this to someone who...") at about 75-95 words, into `narration/epNN_slug.txt`. Check every detail with `python verse.py "<reference>"`. Nothing goes in that the text doesn't support: no invented numbers, names, dialogue or order of events. Quote KJV wording where you quote.
 
-**c. Voice, draw, time, render.** For each: `python tts.py RZj1s99qJKmkDAEw69aI narration/epNN_slug.txt work/epNN.wav work/epNN.stt.json`. Write `epNN_slug.py` with a new scene in the series style (gold line drawings and short caps labels, objects and symbols only, no people), every beat cued to its spoken word with `v.at(...)`, a caption line from the story, and the cream page with the turn line, the highlighted punchline and the reference. Render to `out/parable-NN-slug.mp4`.
+**c. Voice, draw, time, render.** For each: `python tts.py RZj1s99qJKmkDAEw69aI narration/epNN_slug.txt work/epNN.wav work/epNN.stt.json 0.92`. Write `epNN_slug.py` with a new scene in the series style (gold line drawings and short caps labels, objects and symbols only, no people), every beat cued to its spoken word with `v.at(...)`, a caption line from the story, and the cream page with the turn line, the highlighted punchline and the reference. Render to `out/parable-NN-slug.mp4`.
 
 **d. Check frames.** Pull about ten frames from each video (`ffmpeg ... select=...,tile=10x1`) and look at them: fonts are Lora and Inter (not a fallback), caption words appear and fit inside the frame, the reference line is right and readable, the status line, drawing and caption don't overlap, and the cream page covers the navy completely at the end. Fix and re-render anything wrong.
 
