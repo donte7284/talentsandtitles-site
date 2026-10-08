@@ -1,39 +1,14 @@
 """Parable No. 1, the widow's oil, timed to a voiceover.
 
-usage: python ep01_widow.py <voice.m4a> <stt.json> <out.mp4>
-stt.json is ElevenLabs speech-to-text output with word timestamps for that recording.
-Every animation cue below is a word from the recording, so a re-record only needs a new stt.json.
+usage: python ep01_widow.py <voice audio> <word timestamps json> <out.mp4>
+Every animation cue below is a word from the voiceover, so a re-record only needs new timestamps.
 """
-import json,os,re,subprocess,sys
+import json,os,sys
 from base import build
+from episode import Voice,HERE
 OIL_CSS='#count{top:1170px}#cap{top:1290px}#c2{font-size:110px}'  # same layout as the approved No. 1 test
 
-voice,stt,out=sys.argv[1:4]
-here=os.path.dirname(os.path.abspath(__file__))
-words=[w for w in json.load(open(stt))['words'] if w['type']=='word']
-# speech-to-text can start a word at the end of the previous one when a pause sits between them;
-# move any word start that falls inside a detected silence to where the voice actually begins
-sd=subprocess.run(['ffmpeg','-hide_banner','-i',voice,'-af','silencedetect=n=-40dB:d=0.15','-f','null','-'],capture_output=True,text=True).stderr
-sil=list(zip(map(float,re.findall(r'silence_start: ([\d.]+)',sd)),map(float,re.findall(r'silence_end: ([\d.]+)',sd))))
-for w in words:
-    for s0,s1 in sil:
-        if s0-0.1<=w['start']<s1-0.05 and s1<w['end']:print(f"snap {w['text']!r} {w['start']:.2f} -> {s1:.2f}");w['start']=s1
-norm=lambda s:re.sub(r"[^a-z']",'',s.lower())
-toks=[norm(w['text']) for w in words]
-
-LEAD,TAIL=0.35,0.9
-OFF=max(0,words[0]['start']-LEAD)
-END_AUDIO=words[-1]['end']+TAIL-OFF
-
-def at(phrase,nth=1,end=False):
-    """time (s, trimmed) of the nth occurrence of a phrase; its first word's start, or last word's end"""
-    p=[norm(x) for x in phrase.split()];n=0
-    for i in range(len(toks)-len(p)+1):
-        if toks[i:i+len(p)]==p:
-            n+=1
-            if n==nth:return round((words[i+len(p)-1]['end'] if end else words[i]['start'])-OFF,3)
-    raise SystemExit(f'phrase not in recording: {phrase!r} #{nth}')
-
+v=Voice(*sys.argv[1:3]);out=sys.argv[3];at=v.at
 T=dict(
  widow=at('widow'),debt=at('debt'),sons=at('two sons'),
  house=at('your house',1,end=True),nothing=at('nothing',1),jar=at('one jar of oil'),
@@ -110,29 +85,10 @@ function scene(t){
  $('count').textContent=txt;$('count').style.color=col;$('count').style.opacity=txt?eo(pr(t,since,0.3)):0;
 }
 '''
+
 CAPS=[["The ",0,0],["oil ",0,0],["only ",0,0],["stops ",0,0],["when ",0,1],["she ",0,0],["runs ",1,0],["out ",1,0],["of ",1,0],["jars.",1,0]]
-p=['the','oil','only','stops','when','she','runs','out','of','jars']
-# each caption word lands as it is spoken
-i=next(i for i in range(len(toks)) if toks[i:i+2]==['the','oil']);capw=[]
-for w in p:
-    while toks[i]!=w:i+=1
-    capw.append(round(words[i]['start']-OFF-0.08,3));i+=1
-html=os.path.join(here,'ep01_widow.html')
-SCENE=SCENE.replace('__T__',json.dumps(T))
-build(html,1,'The supply was never the limit.','The jars were.','2 KINGS 4 : 1–7',CAPS,capw[0],supply-0.1,SCENE,OIL_CSS,
+capw=v.capw(CAPS)
+html=os.path.join(HERE,'ep01_widow.html')
+build(html,1,'The supply was never the limit.','The jars were.','2 KINGS 4 : 1–7',CAPS,capw[0],supply-0.1,SCENE.replace('__T__',json.dumps(T)),OIL_CSS,
       capw=capw,cue=dict(c1=supply+0.15,c2=jarswere,hl=jarswere+0.25,ref=jarswere+0.9))
-print('offset',round(OFF,2),'duration',round(END_AUDIO,2),'cues',T,'punchline',supply,jarswere)
-
-# voice: trim, high-pass, two-pass loudness normalise to -14 LUFS, short fades
-os.makedirs(os.path.join(here,'out'),exist_ok=True)
-wav=os.path.join(here,'out','ep01_voice.wav')
-pre=f"atrim={OFF}:{OFF+END_AUDIO},asetpts=PTS-STARTPTS,aformat=channel_layouts=mono,highpass=f=80"
-m=subprocess.run(['ffmpeg','-hide_banner','-i',voice,'-af',pre+',loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json','-f','null','-'],capture_output=True,text=True).stderr
-L=json.loads(m[m.rindex('{'):m.rindex('}')+1])
-ln=f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={L['input_i']}:measured_TP={L['input_tp']}:measured_LRA={L['input_lra']}:measured_thresh={L['input_thresh']}:offset={L['target_offset']}:linear=true"
-subprocess.run(['ffmpeg','-y','-loglevel','error','-i',voice,'-af',f"{pre},{ln},apad=whole_dur={END_AUDIO},afade=t=in:d=0.05,afade=t=out:st={END_AUDIO-0.4}:d=0.4",'-ar','48000',wav],check=True)
-
-silent=os.path.join(here,'out','ep01_silent.mp4')
-subprocess.run([sys.executable,os.path.join(here,'render.py'),str(round(END_AUDIO,2)),silent,'ep01_widow.html'],check=True)
-subprocess.run(['ffmpeg','-y','-loglevel','error','-i',silent,'-i',wav,'-c:v','copy','-c:a','aac','-b:a','192k','-ac','2','-shortest','-movflags','+faststart',out],check=True)
-print('wrote',out)
+v.finish('ep01',html,out)
