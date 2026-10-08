@@ -11,13 +11,14 @@ Everything a fresh production session needs. Read this first, then `AGENTS.md` a
 - **Timing follows the voice.** Every drawing beat lands on the word it illustrates; the cream page wipes up as the punchline starts; caption words appear as they are spoken.
 
 ## Rules
-- Do not post, schedule or message anything on Donte's behalf. Reading Metricool is fine; scheduling is done from the Cowork chat.
+- Never publish to `main` or schedule anything in Metricool without Donte's reply approving it in the same session. Reading Metricool is always fine. Never message anyone on his behalf.
 - Do not touch the website's pages, components, config or dependencies. Only add files under `reels-engine/` and `public/reels/`.
-- Send every finished video in the chat for review before it is pushed. Once Donte approves an episode, pushing it to `public/reels/` on `main` is approved (commit only the video files; nothing else on the site).
+- Send every finished video in the chat for review before it goes to `main`. Once Donte approves, pushing it to `public/reels/` on `main` is fine (commit only the reel files and `reels-engine/`; never other site files).
 - Check every scripture detail against the text before it goes on screen or into a script: `python verse.py "2 Kings 4:1-7"`.
 - The voiced wording is the source of truth. Donte may reword lines; keep `narration/epNN_*.txt` in step.
 - Never print, request or look for the ElevenLabs API key; the environment adds it to requests to api.elevenlabs.io.
-- Develop on the working branch you are given; `main` gets only approved reels (and `reels-engine/` once Donte approves that merge).
+- Develop on the `claude/` working branch you are given; `main` gets only approved reels and `reels-engine/` updates.
+- `src/app/globals.css` has `@source not "../../reels-engine";` so Tailwind does not scan this folder. Keep it; without it the site's CSS picks up stray class names from these files.
 
 ## Voice
 - **ElevenLabs Instant Voice Clone of Donte, voice ID `RZj1s99qJKmkDAEw69aI`.** The clone is the voice for the whole series, including episodes 1-3.
@@ -30,9 +31,37 @@ Everything a fresh production session needs. Read this first, then `AGENTS.md` a
    `python tts.py RZj1s99qJKmkDAEw69aI narration/epNN_name.txt work/epNN.wav work/epNN.stt.json`
 3. Write `epNN_name.py` modelled on `ep02_tower.py`: a scene (SVG drawing code for `base.py`), cue times read with `v.at("spoken phrase")`, the caption words, and the cream-page lines and reference. `episode.py` does the rest (silence fix, audio clean-up to -14 LUFS, render, mux).
 4. `python epNN_name.py work/epNN.wav work/epNN.stt.json out/parable-NN-name.mp4` (about 2.5 s of render time per second of video). Check frames, send it for review.
-5. After approval: copy it to `public/reels/parable-NN-name.mp4` on `main` (a worktree from `origin/main`, commit only that file), push, and wait for the Vercel status on the commit to read "Deployment has completed". The link is `https://talentsandtitles.vercel.app/reels/parable-NN-name.mp4`. This environment cannot open vercel.app itself; check the status with `curl https://api.github.com/repos/donte7284/talentsandtitles-site/commits/<sha>/status`.
+5. After approval: put it at `public/reels/parable-NN-name.mp4` on `main` (merge the working branch, or a worktree from `origin/main`), push, and wait for the Vercel status on the commit to read "Deployment has completed". The link is `https://talentsandtitles.vercel.app/reels/parable-NN-name.mp4`. This environment cannot open vercel.app itself; check the status with `curl https://api.github.com/repos/donte7284/talentsandtitles-site/commits/<sha>/status`.
 
 Files: `base.py` (page template), `render.py` (Playwright frames to H.264), `episode.py` (shared voice/cue/render steps), `tts.py` (clone narration), `verse.py` + `scripture/` (source texts), `scenes.py` (the original silent tests), `ep01_widow.py`, `ep02_tower.py`, `ep03_nephi.py`. Generated HTML, frames, `out/` and `work/` are gitignored. The environment's setup script installs Python Playwright and the Lora font.
+
+## Weekly run
+Follow this exactly when Donte asks for the weekly run. It needs no other context.
+
+**a. Find this run's slots.** Read this file. In Metricool (brand 6944613, timezone America/Los_Angeles) call getScheduledPosts from today to 60 days ahead and find the last scheduled parable post (text contains `#ParablesForBuilders` or a "(Book C:V)" reference). The next four open Mon/Wed/Fri/Sun 10:00 AM Pacific slots after it are this run's slots. If no parable post is scheduled, start from the first slot after now. Skip any slot that already holds a post.
+
+**b. Write four narrations.** Take the next four stories from the backlog in order, keeping about one in four from the Book of Mormon (if the next four have none, swap the fourth for the next Book of Mormon story). Number them on from the episode log. Write each narration in the series format (cold open in present tense, three beats, the turn, a question, "Send this to someone who...") at about 75-95 words, into `narration/epNN_slug.txt`. Check every detail with `python verse.py "<reference>"`. Nothing goes in that the text doesn't support: no invented numbers, names, dialogue or order of events. Quote KJV wording where you quote.
+
+**c. Voice, draw, time, render.** For each: `python tts.py RZj1s99qJKmkDAEw69aI narration/epNN_slug.txt work/epNN.wav work/epNN.stt.json`. Write `epNN_slug.py` with a new scene in the series style (gold line drawings and short caps labels, objects and symbols only, no people), every beat cued to its spoken word with `v.at(...)`, a caption line from the story, and the cream page with the turn line, the highlighted punchline and the reference. Render to `out/parable-NN-slug.mp4`.
+
+**d. Check frames.** Pull about ten frames from each video (`ffmpeg ... select=...,tile=10x1`) and look at them: fonts are Lora and Inter (not a fallback), caption words appear and fit inside the frame, the reference line is right and readable, the status line, drawing and caption don't overlap, and the cream page covers the navy completely at the end. Fix and re-render anything wrong.
+
+**e. Save the work.** Copy the four videos to `public/reels/parable-NN-slug.mp4`, then commit them with the narrations and episode scripts to the `claude/` working branch and push it. Not `main`. This keeps everything if the session resets.
+
+**f. Ask, then stop.** In the session, post: the four videos (send the files), each narration, each Instagram caption and Facebook caption, and the proposed slot for each. Ask Donte to approve. Stop and wait.
+
+**g. Only after Donte replies in that session approving it:**
+1. Merge the working branch into `main` (only `public/reels/` and `reels-engine/` change) and push. Wait until the Vercel status on the merge commit reads "Deployment has completed" (`curl https://api.github.com/repos/donte7284/talentsandtitles-site/commits/<sha>/status`).
+2. For each episode create two Metricool posts with createScheduledPost, `blogId` 6944613, at its slot (`publicationDate` {dateTime "YYYY-MM-DDT10:00:00", timezone "America/Los_Angeles"}), `autoPublish` true, `media` [the public link `https://talentsandtitles.vercel.app/reels/parable-NN-slug.mp4`]:
+   - Instagram: providers [{network: instagram}], `instagramData` {type: "REEL", showReelOnFeed: true, isAiGenerated: true}, text = caption + blank line + the 5 hashtags.
+   - Facebook: providers [{network: facebook}], `facebookData` {type: "REEL"}, text = the same caption with no hashtags.
+3. Read them back with getScheduledPosts and check date, time, network, type, AI flag, text and media for each.
+4. Move the four stories from the backlog to the episode log (with file names and slots), commit and push.
+5. Report: links, slots, anything that went wrong.
+
+Only an approval of the posted batch counts; a change request means revise, re-post, and ask again.
+
+**h. Never publish or schedule without Donte's reply in that session.** If he doesn't reply, do nothing further.
 
 ## Episode log
 | No. | Title | Reference on screen | Public file | Length | Metricool (IG + FB) |
@@ -42,7 +71,7 @@ Files: `base.py` (page template), `render.py` (Playwright frames to H.264), `epi
 | 3 | Nephi's ship | 1 NEPHI 17 : 8–18 | `public/reels/parable-03-nephis-ship.mp4` | 28.4 s | Fri 16 Oct 2026, 10:00 PT |
 
 Notes:
-- No. 1 says Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Fine as a summary, but avoid the "just one" framing in future scripts.
+- No. 1 originally said Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Being changed to "The prophet asks her: what do you have in your house?" (re-voice made, waiting for Donte's OK to replace the published file and the Oct 12 posts).
 - No. 3 follows the text's order: ore question (17:9), tools made (17:16), "Our brother is a fool" (17:17).
 
 ## Story backlog
