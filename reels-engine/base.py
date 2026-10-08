@@ -44,21 +44,23 @@ const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
 const bounce=x=>{const n=7.5625,d=2.75;if(x<1/d)return n*x*x;if(x<2/d)return n*(x-=1.5/d)*x+.75;if(x<2.5/d)return n*(x-=2.25/d)*x+.9375;return n*(x-=2.625/d)*x+.984375};
 const GOLD='#c9a24a',BR='#e3bb5c',CR='#f4ecd8';
 const CAP=__CAP__;const CAPT=__CAPT__;const END=__END__;
+// optional: per-word caption times and cream-page cues, e.g. from voiceover timestamps
+const CAPW=__CAPW__;const CUE=Object.assign({c1:END+0.6,c2:END+1.9,hl:END+2.2,ref:END+3.0},__CUE__);
 const cap=$('cap');const ws=CAP.map(([w,g,br])=>{const s=document.createElement('span');s.textContent=w;if(g)s.className='g';cap.appendChild(s);if(br)cap.appendChild(document.createElement('br'));return s});
 __SCENE__
 window.render=function(t){
  $('ep').style.opacity=eo(pr(t,0.1,0.5));$('rule').style.width=120*eo(pr(t,0.2,0.6))+'px';
  scene(t);
- ws.forEach((s,i)=>{const a=eo(pr(t,CAPT+i*0.16,0.4));s.style.opacity=a;s.style.transform=`translateY(${(1-a)*24}px)`});
+ ws.forEach((s,i)=>{const a=eo(pr(t,CAPW?CAPW[i]:CAPT+i*0.16,0.4));s.style.opacity=a;s.style.transform=`translateY(${(1-a)*24}px)`});
  const w=eio(pr(t,END,0.7));$('cream').style.clipPath=`inset(${(1-w)*100}% 0 0 0)`;
- const a1=eo(pr(t,END+0.6,0.6));$('c1').style.opacity=a1;$('c1').style.transform=`translateY(${(1-a1)*30}px)`;
- $('c2').style.opacity=eo(pr(t,END+1.9,0.5));
- const h=eio(pr(t,END+2.2,0.6));$('hl').style.width=`calc(${h*100}% + ${36*h}px)`;
- $('ref').style.opacity=eo(pr(t,END+3.0,0.5));
+ const a1=eo(pr(t,CUE.c1,0.6));$('c1').style.opacity=a1;$('c1').style.transform=`translateY(${(1-a1)*30}px)`;
+ $('c2').style.opacity=eo(pr(t,CUE.c2,0.5));
+ const h=eio(pr(t,CUE.hl,0.6));$('hl').style.width=`calc(${h*100}% + ${36*h}px)`;
+ $('ref').style.opacity=eo(pr(t,CUE.ref,0.5));
 };
 render(0);
 </script></body></html>'''
-def build(path,num,c1,c2,ref,cap,capt,end,scene,css=''):
+def build(path,num,c1,c2,ref,cap,capt,end,scene,css='',capw=None,cue=None):
     import json
-    h=BASE.replace('__NUM__',str(num)).replace('__C1__',c1).replace('__C2__',c2).replace('__REF__',ref).replace('__CAP__',json.dumps(cap)).replace('__CAPT__',str(capt)).replace('__END__',str(end)).replace('__CSS__',css).replace('__SCENE__',scene)
+    h=BASE.replace('__NUM__',str(num)).replace('__C1__',c1).replace('__C2__',c2).replace('__REF__',ref).replace('__CAP__',json.dumps(cap)).replace('__CAPT__',str(capt)).replace('__END__',str(end)).replace('__CSS__',css).replace('__CAPW__',json.dumps(capw)).replace('__CUE__',json.dumps(cue or {})).replace('__SCENE__',scene)
     open(path,'w').write(h)
