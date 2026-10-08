@@ -67,12 +67,12 @@ Only an approval of the posted batch counts; a change request means revise, re-p
 ## Episode log
 | No. | Title | Reference on screen | Public file | Length | Metricool (IG + FB) |
 |---|---|---|---|---|---|
-| 1 | The widow's oil | 2 KINGS 4 : 1–7 | `public/reels/parable-01-widows-oil.mp4` | 34.5 s | Mon 12 Oct 2026, 10:00 PT |
+| 1 | The widow's oil | 2 KINGS 4 : 1–7 | `public/reels/parable-01-widows-oil.mp4` | 35.8 s | Mon 12 Oct 2026, 10:00 PT |
 | 2 | The unfinished tower | LUKE 14 : 28–30 | `public/reels/parable-02-tower.mp4` | 25.2 s | Wed 14 Oct 2026, 10:00 PT |
 | 3 | Nephi's ship | 1 NEPHI 17 : 8–18 | `public/reels/parable-03-nephis-ship.mp4` | 28.4 s | Fri 16 Oct 2026, 10:00 PT |
 
 Notes:
-- No. 1 originally said Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Being changed to "The prophet asks her: what do you have in your house?" (re-voice made, waiting for Donte's OK to replace the published file and the Oct 12 posts).
+- No. 1 originally said Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Changed to "The prophet asks her: what do you have in your house?" before it posted: re-voiced at speed 0.92 with pauses before "Nothing" and the punchline, `public/reels/parable-01-widows-oil.mp4` replaced, and both Oct 12 Metricool posts updated to the new video (media link `...parable-01-widows-oil.mp4?v=2`).
 - No. 3 follows the text's order: ore question (17:9), tools made (17:16), "Our brother is a fool" (17:17).
 
 ## Story backlog
