@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source not "../../reels-engine";
 
 @theme {
   --color-navy-950: #0b1426;
