@@ -70,20 +70,21 @@ Only an approval of the posted batch counts; a change request means revise, re-p
 | 1 | The widow's oil | 2 KINGS 4 : 1–7 | `public/reels/parable-01-widows-oil.mp4` | 35.8 s | Mon 12 Oct 2026, 10:00 PT |
 | 2 | The unfinished tower | LUKE 14 : 28–30 | `public/reels/parable-02-tower.mp4` | 25.2 s | Wed 14 Oct 2026, 10:00 PT |
 | 3 | Nephi's ship | 1 NEPHI 17 : 8–18 | `public/reels/parable-03-nephis-ship.mp4` | 28.4 s | Fri 16 Oct 2026, 10:00 PT |
+| 4 | Joseph's grain | GENESIS 41 : 47–57 | `public/reels/parable-04-joseph-grain.mp4` | 29.8 s | Wed 21 Oct 2026, 10:00 PT |
+| 5 | The wise and foolish builders | MATTHEW 7 : 24–27 | `public/reels/parable-05-wise-builders.mp4` | 28.8 s | Fri 23 Oct 2026, 10:00 PT |
+| 6 | Gideon's 300 | JUDGES 7 : 2–8 | `public/reels/parable-06-gideon-300.mp4` | 27.9 s | Sun 25 Oct 2026, 10:00 PT |
+| 7 | Nephi's broken bow | 1 NEPHI 16 : 18–32 | `public/reels/parable-07-nephi-bow.mp4` | 34.7 s | Mon 26 Oct 2026, 10:00 PT |
 
 Notes:
 - No. 1 originally said Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Changed to "The prophet asks her: what do you have in your house?" before it posted: re-voiced at speed 0.92 with pauses before "Nothing" and the punchline, `public/reels/parable-01-widows-oil.mp4` replaced, and both Oct 12 Metricool posts updated to the new video (media link `...parable-01-widows-oil.mp4?v=2`).
 - No. 3 follows the text's order: ore question (17:9), tools made (17:16), "Our brother is a fool" (17:17).
+- No. 4-7 come from the weekly run on branch `claude/busy-bardeen-rabemw` (Oct 17). An earlier run of the same four stories on `claude/busy-bardeen-aioc2z` (Oct 10) was not used. The Oct 18 slot had passed, so they went out Wed/Fri/Sun/Mon Oct 21-26.
 
 ## Story backlog
 Roughly one Book of Mormon story in every four. References checked against `scripture/`.
 
 | Story | Reference | The builder's turn (draft angle) |
 |---|---|---|
-| Joseph's grain | Genesis 41:47-57 | Store up in the good years; the famine finds out who planned. |
-| Wise and foolish builders | Matthew 7:24-27 | Same storm, same house; the difference was the foundation nobody sees. |
-| Gideon's 300 | Judges 7:2-8 | 32,000 cut to 300; the smaller team won. |
-| **Nephi's broken bow** (BoM) | 1 Nephi 16:18-32 | The tool broke; he made a new one from what he had and asked where to go. |
 | David's five stones | 1 Samuel 17:38-50 | He left Saul's armour and used the tools he'd practised with. |
 | Ruth gleaning | Ruth 2:1-17 | She showed up to the edge of someone else's field and worked it. |
 | Manna | Exodus 16:14-21 | Enough for today; hoarding it went bad overnight. |
