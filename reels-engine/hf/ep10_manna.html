@@ -30,7 +30,7 @@
         <g id="lidG"><ellipse cx="0" cy="0" rx="78" ry="16" fill="url(#woodV)"/><rect x="-12" y="-26" width="24" height="18" rx="6" fill="#5a3519"/></g>
       </svg>
       <svg id="worms" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
-      <div id="lblTomorrow" class="label" style="left:640px;top:820px">FOR TOMORROW</div>
+      <div id="lblTomorrow" class="label" style="left:690px;top:770px">FOR TOMORROW</div>
       <div id="lblRot" class="label warn c" style="top:640px;font-size:44px">ROTTED</div>
       <div id="lblOmer" class="label c" style="top:470px;font-size:36px">AN OMER EACH</div>
       <div id="lblMore" class="label" style="left:176px;top:860px;font-size:26px">MORE</div>
@@ -45,7 +45,7 @@
   // manna on the ground: small round flakes, laid out on a jittered grid (deterministic)
   const fl = document.getElementById("flakes"); let n = 0;
   for(let r=0;r<6;r++) for(let c=0;c<16;c++){
-    const x = 30 + c*66 + ((r*29 + c*17) % 34), y = 1120 + r*38 + ((c*13 + r*7) % 18);
+    const x = 30 + c*66 + ((r*29 + c*17) % 34), y = 1112 + r*28 + ((c*13 + r*7) % 18);
     const s = 4 + ((r + c*3) % 4);
     mk("circle", {cx:x, cy:y, r:s, fill:"#fbf7ec", opacity:.92, class:"fl", "data-i":n++}, fl);
   }

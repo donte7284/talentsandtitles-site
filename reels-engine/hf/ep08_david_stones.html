@@ -37,7 +37,7 @@
       <svg id="strike" class="obj" style="left:120px;top:540px" width="840" height="780" viewBox="0 0 840 780"><path id="strikeA" d="M70 60 L770 720" stroke="#d9735a" stroke-width="22" stroke-linecap="round" fill="none"/></svg>
       <div id="lblNP" class="label c warn" style="top:470px;font-size:44px">NOT PROVED</div>
 
-      <svg id="staff" class="obj" style="left:120px;top:420px" width="200" height="900" viewBox="0 0 200 900"><path d="M86 880 L110 120 Q114 40 160 30 Q190 26 186 60" fill="none" stroke="url(#wood)" stroke-width="30" stroke-linecap="round"/></svg>
+      <svg id="staff" class="obj" style="left:30px;top:560px" width="164" height="738" viewBox="0 0 200 900"><path d="M86 880 L110 120 Q114 40 160 30 Q190 26 186 60" fill="none" stroke="url(#wood)" stroke-width="30" stroke-linecap="round"/></svg>
       <svg id="brook" class="obj" style="left:-60px;top:560px" width="1200" height="380" viewBox="0 0 1200 380">
         <rect x="0" y="40" width="1200" height="300" fill="url(#water)"/>
         <g id="waves" fill="none" stroke-linecap="round">
@@ -82,11 +82,11 @@
         <g id="impact" transform="translate(930 700)" fill="none" stroke="#f6e2a6"><circle r="40" stroke-width="5"/><circle r="80" stroke-width="3" opacity=".6"/></g>
       </svg>
       <div id="lblOne" class="label c" style="top:470px;font-size:36px">ONE STONE</div>
-      <svg id="sword" class="obj" style="left:440px;top:440px" width="200" height="840" viewBox="0 0 200 840">
+      <svg id="sword" class="obj" style="left:454px;top:560px" width="172" height="720" viewBox="0 0 200 840">
         <path d="M100 20 L128 90 L128 600 L72 600 L72 90 Z" fill="url(#steel)"/><rect x="20" y="600" width="160" height="26" rx="10" fill="url(#brass)"/>
         <rect x="86" y="626" width="28" height="140" rx="8" fill="#4a2c14"/><circle cx="100" cy="790" r="26" fill="url(#brass)"/>
       </svg>
-      <svg id="strike2" class="obj" style="left:300px;top:520px" width="480" height="700" viewBox="0 0 480 700"><path id="strikeB" d="M40 40 L440 660" stroke="#d9735a" stroke-width="22" stroke-linecap="round" fill="none"/></svg>
+      <svg id="strike2" class="obj" style="left:300px;top:580px" width="480" height="700" viewBox="0 0 480 700"><path id="strikeB" d="M40 40 L440 660" stroke="#d9735a" stroke-width="22" stroke-linecap="round" fill="none"/></svg>
       <div id="lblSword" class="label c warn" style="top:470px;font-size:44px">NO SWORD</div>
 <!-- @js -->
 K.run(function(tl, K){
@@ -110,10 +110,11 @@ K.run(function(tl, K){
   tl.to("#stage", {x:-6, duration:.08, yoyo:true, repeat:5, ease:"none"}, T.cannot);
   tl.set("#strike", {opacity:1}, T.not); K.draw(tl, "#strikeA", T.not, .35, 960);
   K.show(tl, "#lblNP", T.not+.1, {scale:1.3}, .35);
-  tl.to("#helmet,#mail,#lblHelm,#lblMail", {opacity:.42, filter:"saturate(.4) brightness(.8)", duration:.4}, T.not+.2);
+  K.hide(tl, "#lblHelm,#lblMail", T.not-.15, {}, .2);
+  tl.to("#helmet,#mail", {opacity:.42, filter:"saturate(.4) brightness(.8)", duration:.4}, T.not+.2);
   tl.to("#helmet", {y:520, rotation:-14, opacity:0, duration:.9, ease:"power3.in"}, T.off);
   tl.to("#mail", {y:420, opacity:0, duration:.9, ease:"power3.in"}, T.off+.1);
-  K.hide(tl, "#strike,#lblNP,#lblHelm,#lblMail", T.off);
+  K.hide(tl, "#strike,#lblNP", T.off);
 
   // staff, brook, five stones rise out of the water one by one
   tl.fromTo("#brook", {opacity:0, y:60}, {opacity:1, y:0, duration:.9, ease:E}, T.off+.7);
