@@ -97,14 +97,14 @@ K.run(function(tl, K){
   K.hide(tl, "#lblClear", T.carries - .1);
   K.hide(tl, "#rock", T.carries, {y:40}, .5);
   tl.to("#gemGrid", {y:-60, duration:1.4, ease:K.IO}, T.carries);
-  tl.to("#mount", {y:"+=180", duration:1.4, ease:K.IO}, T.carries);
+  tl.to("#mount", {y:"+=290", duration:1.4, ease:K.IO}, T.carries);
   K.show(tl, "#lblTouch", T.lord, {y:16}, .35);
-  K.hide(tl, "#lblTouch", T.shine - .15);
+  K.hide(tl, "#lblTouch", T.shine - .3, {}, .25);
   K.show(tl, "#lblShine", T.shine, {y:16}, .35);
   tl.fromTo("#bgWarm", {opacity:0}, {opacity:.95, duration:1.4, ease:"sine.inOut"}, T.shine);
   tl.to("#beam1,#beam2", {opacity:.08, duration:1.2}, T.shine);
   tl.to("#mount", {opacity:.35, duration:1.2}, T.shine);
-  K.hide(tl, "#lblShine", T.stretches - .1);
+  K.hide(tl, "#lblShine", T.stretches - .3, {}, .25);
 
   // touched one by one: each stone lights
   K.show(tl, "#lblOne", T.stretches, {y:16}, .35);
