@@ -1,0 +1,143 @@
+<!-- @config -->
+{"no":9,
+ "hook_html":"Ruth goes to work in<br>a field that isn't hers",
+ "turn_at":"She showed up","turn_html":"She showed up at the edge, and <em>worked it.</em>","turn_size":96,"turn_hl":"and she worked",
+ "question_at":"Where is your field","question":"Where is your field?",
+ "ref":"RUTH 2 : 2–17","send":"Send this to someone who is just starting out.",
+ "theme":{"sky-a":"#2a3d63","sky-b":"#1a2d50","sky-c":"#0e1d38","sky-d":"#070f1f"}}
+<!-- @css -->
+#sun,#field,#stake,#lblNot,#lblGlean,#loose,#basket,#lblMorning,#handfuls,#lblPurpose,#lblEphah,#lblBoaz{opacity:0}
+#bgWarm{background:radial-gradient(1100px 900px at 50% 50%, #c47a4a 0%, #7a3f4f 38%, #2c1d3d 72%, #0d0b1c 100%)}
+#lblGlean small{display:block;margin-top:16px;font:500 26px/1 Inter;letter-spacing:.08em;color:rgba(244,236,216,.75)}
+<!-- @html -->
+      <svg id="sun" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><radialGradient id="sunG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff4d0"/><stop offset=".55" stop-color="#f3c66e"/><stop offset="1" stop-color="#e09a45" stop-opacity="0"/></radialGradient></defs>
+        <g id="sunDisc"><circle r="190" fill="url(#sunG)" opacity=".55"/><circle r="92" fill="#f8d98d"/></g>
+      </svg>
+      <svg id="field" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><linearGradient id="soil" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#5b4320"/><stop offset="1" stop-color="#1c1409"/></linearGradient></defs>
+        <rect x="-40" y="1110" width="1160" height="260" fill="url(#soil)"/>
+        <g id="rowBack"></g><g id="rowMid"></g><g id="rowFront"></g>
+      </svg>
+      <svg id="stake" class="obj" style="left:770px;top:760px" width="260" height="420" viewBox="0 0 260 420">
+        <rect x="112" y="60" width="26" height="360" rx="5" fill="url(#wood)"/>
+        <rect x="10" y="40" width="230" height="92" rx="10" fill="url(#woodV)" stroke="#2a170a" stroke-width="3"/>
+        <text x="125" y="100" text-anchor="middle" font-family="Lora" font-weight="700" font-size="40" fill="#f4ecd8">BOAZ</text>
+        <clipPath id="signClip"><rect x="10" y="40" width="230" height="92" rx="10"/></clipPath>
+        <rect id="stakeGlint" clip-path="url(#signClip)" x="-120" y="40" width="40" height="92" fill="url(#glintG)" opacity=".8"/>
+      </svg>
+      <div id="lblNot" class="label warn" style="left:580px;top:700px">NOT HER FIELD</div>
+      <div id="lblBoaz" class="label" style="left:640px;top:700px">FIELD OF BOAZ</div>
+      <div id="lblGlean" class="label c" style="top:470px;font-size:40px">GLEAN<small>gather what the reapers leave</small></div>
+      <svg id="sheaves" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <svg id="loose" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <svg id="basket" class="obj" style="left:330px;top:980px" width="420" height="320" viewBox="0 0 420 320">
+        <defs>
+          <pattern id="weave" width="26" height="20" patternUnits="userSpaceOnUse"><rect width="26" height="20" fill="#7a5226"/><path d="M0 5 Q13 0 26 5 M0 15 Q13 10 26 15" stroke="#c48d55" stroke-width="5" fill="none"/><path d="M13 0 V20" stroke="#4a2c14" stroke-width="3"/></pattern>
+          <clipPath id="bowl"><path d="M30 90 L390 90 Q370 290 210 300 Q50 290 30 90 Z"/></clipPath>
+        </defs>
+        <ellipse cx="210" cy="305" rx="190" ry="18" fill="url(#shadow)"/>
+        <g clip-path="url(#bowl)">
+          <rect width="420" height="320" fill="url(#weave)"/>
+          <rect width="420" height="320" fill="url(#mailShade2)" />
+          <g id="grainFill"><ellipse cx="210" cy="300" rx="200" ry="70" fill="url(#barley)"/></g>
+        </g>
+        <defs><linearGradient id="mailShade2" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".5"/><stop offset=".5" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></linearGradient></defs>
+        <ellipse cx="210" cy="90" rx="182" ry="26" fill="none" stroke="#c48d55" stroke-width="12"/>
+      </svg>
+      <div id="lblMorning" class="label c" style="top:470px;font-size:36px">FROM THE MORNING</div>
+      <svg id="handfuls" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lblPurpose" class="label c" style="top:470px;font-size:40px">ON PURPOSE</div>
+      <div id="lblEphah" class="label c" style="top:470px;font-size:40px">ABOUT AN EPHAH</div>
+<!-- @js -->
+(function(){
+  /* barley stalks drawn in code: stem, a head of grains, fine awns */
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  function stalk(parent, x, y, h, s, id){
+    const g = mk("g", {transform:`translate(${x} ${y}) scale(${s})`, class:"stalk"}, parent); if(id) g.id = id;
+    const sway = mk("g", {}, g);
+    mk("path", {d:`M0 0 Q6 ${-h*.5} 2 ${-h}`, stroke:"#a98034", "stroke-width":5, fill:"none"}, sway);
+    for(let i=0;i<7;i++){
+      const gy = -h - i*15, side = i%2 ? 1 : -1;
+      mk("ellipse", {cx:2+side*6, cy:gy, rx:7, ry:13, fill:"url(#barley)", transform:`rotate(${side*22} ${2+side*6} ${gy})`}, sway);
+      mk("path", {d:`M${2+side*9} ${gy-8} L${2+side*28} ${gy-46}`, stroke:"#f1d58c", "stroke-width":1.6, opacity:.8}, sway);
+    }
+    return sway;
+  }
+  const rows = [["rowBack",1120,90,.55,26],["rowMid",1150,120,.75,34],["rowFront",1200,150,1,46]];
+  rows.forEach(([id,y,h,s,step],ri) => { const g = document.getElementById(id); for(let x=-20, k=0; x<1110; x+=step, k++) stalk(g, x + ((k*37)%13), y + ((k*53)%14), h, s, `s${ri}_${k}`); });
+  const sh = document.getElementById("sheaves");
+  [[150,1150],[300,1130],[880,1140]].forEach(([x,y],i) => {
+    const g = mk("g", {id:"sheaf"+i}, sh); g.dataset.x = x; g.dataset.y = y;
+    for(let j=-4;j<=4;j++){ const st = stalk(g, j*6, 0, 170, 1); st.setAttribute("transform", `rotate(${j*4})`); }
+    mk("rect", {x:-30, y:-84, width:60, height:18, rx:6, fill:"#3a210f", stroke:"#e3bb5c", "stroke-width":2}, g);
+  });
+  const lo = document.getElementById("loose");
+  for(let i=0;i<8;i++){ const g = mk("g", {id:"lo"+i}, lo); const st = stalk(g, 0, 0, 90, .7); st.setAttribute("transform", "rotate(-78)"); }
+  const hf = document.getElementById("handfuls");
+  for(let i=0;i<3;i++){ const g = mk("g", {id:"hf"+i}, hf); for(let j=-2;j<=2;j++){ const st = stalk(g, j*7, 0, 120, .8); st.setAttribute("transform", `rotate(${j*6})`); } mk("rect", {x:-22, y:-55, width:44, height:10, rx:4, fill:"#5a3519"}, g); }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.field = at("a field that"); T.isnt = at("isn't hers"); T.naomi = at("Naomi"); T.glean = at("and glean");
+  T.reapers = at("after the reapers"); T.boaz = at("belonging to Boaz"); T.morning = at("from the morning");
+  T.sees = at("Boaz sees"); T.hand = at("let some handfuls"); T.purpose = at("on purpose");
+  T.evening = at("until evening"); T.ephah = at("an ephah");
+  K.camera(tl, [[0, T.reapers, 1, 1.06], [T.reapers, T.sees, 1.04, 1.09, 0, -14], [T.sees, K.EP.paper+.6, 1.02, 1.07]]);
+
+  // the field, and a marker that says whose it is
+  tl.set("#sunDisc", {x:540, y:1180}, 0);
+  K.show(tl, "#field", .1, {y:80}, .9);
+  tl.fromTo("#rowFront .stalk > g", {rotation:-3, transformOrigin:"50% 100%"}, {rotation:3, transformOrigin:"50% 100%", duration:1.6, ease:"sine.inOut", yoyo:true, repeat:Math.ceil(K.dur/1.6), stagger:.04}, 0);
+  tl.fromTo("#rowMid .stalk > g", {rotation:2, transformOrigin:"50% 100%"}, {rotation:-2, transformOrigin:"50% 100%", duration:1.9, ease:"sine.inOut", yoyo:true, repeat:Math.ceil(K.dur/1.9), stagger:.02}, 0);
+  K.show(tl, "#stake", T.field, {y:-120}, .7);
+  K.show(tl, "#lblNot", T.isnt, {scale:1.25}, .35);
+  K.hide(tl, "#lblNot", T.glean - .1);
+
+  // "glean": what the reapers leave behind
+  K.show(tl, "#lblGlean", T.glean, {y:16}, .4);
+  const SHX=[110,260,960], SHY=[1240,1228,1236];
+  for(let i=0;i<3;i++){ tl.set("#sheaf"+i, {x:SHX[i], y:SHY[i]+60, scale:.95, opacity:0}, 0); tl.to("#sheaf"+i, {y:SHY[i], opacity:1, duration:.5, ease:E}, T.reapers + i*.18); }
+  const LX=[180,260,340,430,610,690,780,860], LY=[1250,1262,1246,1258,1252,1264,1248,1258];
+  for(let i=0;i<8;i++) tl.set("#lo"+i, {x:LX[i], y:LY[i]}, 0);
+  K.show(tl, "#loose", T.reapers + .4, {y:20}, .5);
+  K.hide(tl, "#lblGlean", T.boaz - .1);
+  K.show(tl, "#lblBoaz", T.boaz, {x:20}, .35);
+  tl.fromTo("#stakeGlint", {attr:{x:-120}}, {attr:{x:300}, duration:.9, ease:"power2.inOut"}, T.boaz + .2);
+  K.hide(tl, "#lblBoaz", T.morning - .1);
+
+  // from the morning: the sun climbs, the basket fills one stalk at a time
+  tl.fromTo("#sun", {opacity:0}, {opacity:1, duration:1, immediateRender:false}, T.morning - .3);
+  tl.to("#sunDisc", {y:620, duration:3.2, ease:"power2.out"}, T.morning - .3);
+  K.show(tl, "#lblMorning", T.morning, {y:16}, .35);
+  K.show(tl, "#basket", T.morning, {y:100, scale:.92}, .6);
+  tl.set("#grainFill", {y:120}, 0);
+  for(let i=0;i<8;i++){
+    const t0 = T.morning + .5 + i*.32;
+    tl.to("#lo"+i, {x:540, y:1050, scale:.5, rotation:30, duration:.42, ease:"power3.in"}, t0);
+    tl.to("#lo"+i, {opacity:0, duration:.06}, t0 + .42);
+  }
+  tl.to("#grainFill", {y:80, duration:2.6, ease:"none"}, T.morning + .7);
+  K.hide(tl, "#lblMorning", T.sees - .2);
+
+  // handfuls let fall on purpose
+  const HX=[300,540,780];
+  for(let i=0;i<3;i++){
+    tl.set("#hf"+i, {x:HX[i], y:420, rotation:(i-1)*18}, 0);
+    tl.to("#hf"+i, {opacity:1, duration:.15}, T.hand + i*.28);
+    tl.to("#hf"+i, {y:1240, rotation:(i-1)*70+90, duration:.75, ease:"bounce.out"}, T.hand + i*.28);
+  }
+  tl.set("#handfuls", {opacity:1}, T.hand);
+  K.show(tl, "#lblPurpose", T.purpose, {scale:1.25}, .35);
+  tl.to("#grainFill", {y:40, duration:1.2, ease:"power2.out"}, T.purpose + .5);
+  K.hide(tl, "#lblPurpose", T.evening - .2);
+
+  // until evening: the light turns, the basket is full
+  tl.fromTo("#bgWarm", {opacity:0}, {opacity:.85, duration:2.4, ease:"sine.inOut"}, T.evening - .4);
+  tl.to("#sunDisc", {x:860, y:1080, duration:2.6, ease:"power2.in"}, T.evening - .4);
+  K.hide(tl, "#handfuls", T.evening, {y:30}, .5);
+  tl.to("#grainFill", {y:-10, duration:1.4, ease:"power2.out"}, T.evening);
+  tl.to("#basket", {scale:1.08, transformOrigin:"50% 100%", duration:1.8, ease:"sine.out"}, T.evening);
+  K.show(tl, "#lblEphah", T.ephah, {y:16}, .4);
+});

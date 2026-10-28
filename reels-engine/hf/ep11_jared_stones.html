@@ -1,0 +1,120 @@
+<!-- @config -->
+{"no":11,
+ "hook_html":"Light for eight boats,<br>from sixteen stones",
+ "turn_at":"He did the work","turn_html":"He did the work he could. <em>Then he asked.</em>","turn_size":96,"turn_hl":"Then he asked",
+ "question_at":"What can you make","question":"What can you make before you ask?",
+ "ref":"ETHER 3 : 1–6","send":"Send this to someone waiting for light.",
+ "theme":{"sky-a":"#1b2a4a","sky-b":"#111f3b","sky-c":"#0a152b","sky-d":"#040913","beam":"196,210,236"}}
+<!-- @css -->
+#sea,#barges,#lblBoats,#gems,#lblSixteen,#mount,#rock,#lblClear,#lblTouch,#lblShine,#lblOne{opacity:0}
+#bgWarm{background:radial-gradient(1000px 900px at 50% 40%, #0a1226 0%, #050a18 55%, #010308 100%)}
+<!-- @html -->
+      <svg id="sea" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <rect x="-40" y="1040" width="1160" height="330" fill="url(#water)"/>
+        <g id="swell" fill="none" stroke-linecap="round">
+          <path d="M-300 1110 Q-200 1092 -100 1110 T100 1110 T300 1110 T500 1110 T700 1110 T900 1110 T1100 1110 T1300 1110" stroke="#7fa9cf" stroke-opacity=".35" stroke-width="3"/>
+          <path d="M-300 1180 Q-200 1160 -100 1180 T100 1180 T300 1180 T500 1180 T700 1180 T900 1180 T1100 1180 T1300 1180" stroke="#5a88b6" stroke-opacity=".3" stroke-width="3"/>
+        </g>
+      </svg>
+      <svg id="barges" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lblBoats" class="label c" style="top:930px;font-size:32px">8 VESSELS · NO LIGHT</div>
+      <svg id="mount" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <path d="M-80 1320 L300 820 L400 880 L540 600 L700 860 L780 800 L1160 1320 Z" fill="url(#rock)"/>
+        <path d="M540 600 L620 760 L580 740 L540 800 L500 730 L470 760 Z" fill="#c9d2dc" opacity=".55"/>
+        <path d="M540 600 L700 860 L780 800 L1160 1320 L760 1320 Z" fill="#000" opacity=".28"/>
+      </svg>
+      <svg id="rock" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><radialGradient id="molten" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe2a0"/><stop offset=".5" stop-color="#f08a3c"/><stop offset="1" stop-color="#7a2a10" stop-opacity="0"/></radialGradient></defs>
+        <path d="M400 1180 Q420 1060 540 1040 Q680 1050 690 1180 Q600 1220 400 1180 Z" fill="url(#rock)" stroke="#8a95a2" stroke-width="2"/>
+        <ellipse id="heat" cx="545" cy="1130" rx="110" ry="60" fill="url(#molten)" opacity="0"/>
+      </svg>
+      <svg id="gems" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g id="gemGrid"></g></svg>
+      <div id="lblSixteen" class="label c" style="top:470px;font-size:40px">16 SMALL STONES</div>
+      <div id="lblClear" class="label c" style="top:470px;font-size:36px">WHITE AND CLEAR</div>
+      <div id="lblTouch" class="label c" style="top:470px;font-size:36px">LORD, TOUCH THESE STONES</div>
+      <div id="lblShine" class="label c" style="top:470px;font-size:36px">TO SHINE IN DARKNESS</div>
+      <div id="lblOne" class="label c" style="top:470px;font-size:36px">ONE BY ONE</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  // eight small, tight vessels on the water
+  const bg = document.getElementById("barges");
+  for(let i=0;i<8;i++){
+    const row = i < 4 ? 0 : 1, x = 150 + (i%4)*260 + (row ? 130 : 0) - (row ? 0 : 0), y = row ? 1215 : 1105, s = row ? 1 : .78;
+    const g = mk("g", {id:"barge"+i}, bg); g.dataset.x = x; g.dataset.y = y; g.dataset.s = s;
+    mk("ellipse", {cx:0, cy:30, rx:110, ry:14, fill:"url(#shadow)"}, g);
+    mk("path", {d:"M-110 0 Q-100 42 0 46 Q100 42 110 0 Q60 -30 0 -32 Q-60 -30 -110 0 Z", fill:"url(#woodV)"}, g);
+    mk("path", {d:"M-96 6 Q0 26 96 6 M-80 -14 Q0 2 80 -14", fill:"none", stroke:"#2a170a", "stroke-width":2.5, opacity:.8}, g);
+    mk("path", {d:"M-110 0 Q-60 -30 0 -32 Q60 -30 110 0", fill:"none", stroke:"#e3bb5c", "stroke-width":2.5, opacity:.6}, g);
+  }
+  // sixteen stones: glassy, with a light inside that is off until they are touched
+  const gg = document.getElementById("gemGrid");
+  for(let i=0;i<16;i++){
+    const r = Math.floor(i/4), c = i%4, x = 405 + c*90, y = 690 + r*80;
+    const g = mk("g", {id:"gem"+i, transform:`translate(${x} ${y})`}, gg);
+    mk("circle", {id:"halo"+i, r:70, fill:"url(#halo)", opacity:0}, g);
+    mk("ellipse", {rx:30, ry:24, fill:"url(#glass)", stroke:"#dfe8ef", "stroke-width":1.5, "stroke-opacity":.7}, g);
+    mk("ellipse", {id:"core"+i, rx:30, ry:24, fill:"url(#lit)", opacity:0}, g);
+    mk("ellipse", {cx:-10, cy:-9, rx:9, ry:5, fill:"#fff", opacity:.75}, g);
+  }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.eight = at("eight boats"); T.sixteen = at("sixteen stones"); T.mount = at("goes up the mount"); T.melts = at("melts sixteen");
+  T.rock = at("out of a rock"); T.white = at("white and clear"); T.carries = at("He carries"); T.lord = at("Lord touch");
+  T.shine = at("shine forth"); T.stretches = at("stretches forth"); T.touch = at("touches the stones"); T.one = at("one by one");
+  K.camera(tl, [[0, T.mount, 1, 1.05], [T.mount, T.carries, 1, 1.05, 0, -10], [T.carries, K.EP.paper+.6, 1.02, 1.08, 0, 20]]);
+  for(let i=0;i<8;i++){ const g = document.getElementById("barge"+i); tl.set(g, {x:+g.dataset.x, y:+g.dataset.y + 60, scale:+g.dataset.s, opacity:0}, 0); }
+
+  // hook: eight vessels in the dark, and the sixteen stones that will light them
+  K.show(tl, "#sea", .05, {y:60}, .8);
+  tl.fromTo("#swell", {x:0}, {x:-400, duration:K.dur, ease:"none"}, 0);
+  for(let i=0;i<8;i++){
+    tl.to("#barge"+i, {y:"-=60", opacity:1, duration:.5, ease:E}, Math.max(.1, T.eight - .5) + i*.07);
+    tl.to("#barge"+i, {rotation:i%2 ? 3 : -3, duration:1.4, yoyo:true, repeat:Math.ceil(K.dur/1.4), ease:"sine.inOut"}, 0);
+  }
+  tl.set("#barges", {opacity:1}, 0);
+  K.show(tl, "#lblBoats", T.eight + .2, {y:12}, .35);
+  K.hide(tl, "#lblBoats", T.sixteen - .1);
+  tl.set("#gems", {opacity:1}, T.sixteen - .05);
+  tl.fromTo("#gemGrid > g", {opacity:0, scale:.4, transformOrigin:"50% 50%"}, {opacity:1, scale:1, transformOrigin:"50% 50%", duration:.35, ease:"back.out(2)", stagger:.05}, T.sixteen);
+  tl.to("#gemGrid", {opacity:0, duration:.4}, T.mount - .2);
+
+  // up the mount; stones melted out of a rock
+  K.hide(tl, "#barges,#sea", T.mount, {y:120}, .7);
+  K.show(tl, "#mount", T.mount, {y:200}, .9);
+  K.show(tl, "#rock", T.melts - .3, {y:40}, .5);
+  tl.to("#heat", {opacity:1, duration:.6, ease:"sine.inOut", yoyo:true, repeat:1}, T.melts);
+  tl.set("#gemGrid", {y:300, opacity:1}, T.rock);
+  tl.fromTo("#gemGrid > g", {opacity:0, scale:.2, y:"+=40"}, {opacity:1, scale:1, y:"-=40", duration:.4, ease:"back.out(1.8)", stagger:.04, immediateRender:false}, T.rock);
+  K.show(tl, "#lblSixteen", T.melts + .2, {y:16}, .35);
+  K.hide(tl, "#lblSixteen", T.white - .1);
+  K.show(tl, "#lblClear", T.white, {y:16}, .35);
+  tl.to("#gemGrid > g", {scale:1.12, duration:.25, yoyo:true, repeat:1, stagger:.03, transformOrigin:"50% 50%"}, T.white + .2);
+
+  // carried to the top; the prayer; it gets darker
+  K.hide(tl, "#lblClear", T.carries - .1);
+  K.hide(tl, "#rock", T.carries, {y:40}, .5);
+  tl.to("#gemGrid", {y:-60, duration:1.4, ease:K.IO}, T.carries);
+  tl.to("#mount", {y:"+=110", duration:1.4, ease:K.IO}, T.carries);
+  K.show(tl, "#lblTouch", T.lord, {y:16}, .35);
+  K.hide(tl, "#lblTouch", T.shine - .15);
+  K.show(tl, "#lblShine", T.shine, {y:16}, .35);
+  tl.fromTo("#bgWarm", {opacity:0}, {opacity:.95, duration:1.4, ease:"sine.inOut"}, T.shine);
+  tl.to("#beam1,#beam2", {opacity:.08, duration:1.2}, T.shine);
+  tl.to("#mount", {opacity:.35, duration:1.2}, T.shine);
+  K.hide(tl, "#lblShine", T.stretches - .1);
+
+  // touched one by one: each stone lights
+  K.show(tl, "#lblOne", T.stretches, {y:16}, .35);
+  const L0 = T.touch, span = Math.max(1.4, K.EP.paper - L0 - 1.0);
+  for(let i=0;i<16;i++){
+    const t0 = L0 + span*i/16;
+    tl.to("#core"+i, {opacity:1, duration:.25, ease:"power2.out"}, t0);
+    tl.to("#halo"+i, {opacity:1, duration:.35, ease:"power2.out"}, t0);
+    tl.fromTo("#gem"+i, {scale:1}, {scale:1.15, duration:.15, yoyo:true, repeat:1, transformOrigin:"50% 50%", immediateRender:false}, t0);
+  }
+  tl.to("#gemGrid", {scale:1.06, transformOrigin:"50% 50%", duration:1.2, ease:"sine.out"}, L0 + span);
+  tl.to("#bgWarm", {opacity:.6, duration:1.0}, L0 + span);
+});

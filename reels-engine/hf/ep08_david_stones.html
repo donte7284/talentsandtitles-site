@@ -1,0 +1,169 @@
+<!-- @config -->
+{"no":8,
+ "hook_html":"David turns down<br>the king's armour",
+ "turn_at":"Use the tools","turn_html":"Use the tools you have <em>proved.</em>","turn_size":108,"turn_hl":"proved What",
+ "question_at":"What are you carrying","question":"What are you carrying that you have never tested?",
+ "ref":"1 SAMUEL 17 : 38–50","send":"Send this to someone borrowing another person's playbook."}
+<!-- @css -->
+#helmet,#mail,#lblHelm,#lblMail,#strike,#lblNP,#staff,#brook,.st,#lblStones,#count,#bag,#lblBag,#sling,#lblSling,#flight,#lblOne,#sword,#strike2,#lblSword{opacity:0}
+<!-- @html -->
+      <svg id="helmet" class="obj" style="left:330px;top:560px" width="420" height="400" viewBox="0 0 420 400">
+        <defs><clipPath id="helmClip"><path d="M60 250 C60 110 130 40 210 40 C290 40 360 110 360 250 L360 300 L250 300 L250 360 L170 360 L170 300 L60 300 Z"/></clipPath></defs>
+        <ellipse cx="210" cy="385" rx="170" ry="18" fill="url(#shadow)"/>
+        <path d="M60 250 C60 110 130 40 210 40 C290 40 360 110 360 250 L360 300 L250 300 L250 360 L170 360 L170 300 L60 300 Z" fill="url(#brass)"/>
+        <path d="M60 250 C60 110 130 40 210 40 C290 40 360 110 360 250 L360 300 L250 300 L250 360 L170 360 L170 300 L60 300 Z" fill="url(#brassV)"/>
+        <rect x="54" y="236" width="312" height="34" rx="6" fill="#5c4214"/><rect x="54" y="236" width="312" height="12" rx="6" fill="#e7c472" opacity=".55"/>
+        <rect x="196" y="40" width="28" height="200" fill="#6d4f18" opacity=".55"/><rect x="200" y="40" width="8" height="200" fill="#f6dc93" opacity=".5"/>
+        <g fill="#f8e3a3" opacity=".9"><circle cx="90" cy="253" r="5"/><circle cx="150" cy="253" r="5"/><circle cx="270" cy="253" r="5"/><circle cx="330" cy="253" r="5"/></g>
+        <ellipse cx="150" cy="120" rx="34" ry="62" fill="#fff6d8" opacity=".35" transform="rotate(24 150 120)"/>
+        <g clip-path="url(#helmClip)"><rect id="glint" x="-160" y="0" width="90" height="400" fill="url(#glintG)" transform="skewX(-18)"/></g>
+      </svg>
+      <svg id="mail" class="obj" style="left:240px;top:880px" width="600" height="420" viewBox="0 0 600 420">
+        <defs>
+          <pattern id="rings" width="22" height="18" patternUnits="userSpaceOnUse">
+            <circle cx="11" cy="9" r="7" fill="none" stroke="#c9c2ad" stroke-width="2.6"/>
+            <circle cx="0" cy="0" r="7" fill="none" stroke="#8f8876" stroke-width="2.6"/><circle cx="22" cy="0" r="7" fill="none" stroke="#8f8876" stroke-width="2.6"/>
+            <circle cx="0" cy="18" r="7" fill="none" stroke="#8f8876" stroke-width="2.6"/><circle cx="22" cy="18" r="7" fill="none" stroke="#8f8876" stroke-width="2.6"/>
+          </pattern>
+          <linearGradient id="mailShade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".65"/><stop offset=".45" stop-color="#fff" stop-opacity=".08"/><stop offset=".55" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".7"/></linearGradient>
+          <linearGradient id="mailV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></linearGradient>
+          <clipPath id="tunic"><path d="M170 20 L240 0 Q300 40 360 0 L430 20 L590 120 L540 210 L450 160 L450 410 L150 410 L150 160 L60 210 L10 120 Z"/></clipPath>
+        </defs>
+        <g clip-path="url(#tunic)"><rect width="600" height="420" fill="#3a382f"/><rect width="600" height="420" fill="url(#rings)"/><rect width="600" height="420" fill="url(#mailShade)"/><rect width="600" height="420" fill="url(#mailV)"/></g>
+        <path d="M240 0 Q300 40 360 0" fill="none" stroke="#e3bb5c" stroke-width="5"/><path d="M150 405 L450 405" stroke="#e3bb5c" stroke-width="6"/>
+      </svg>
+      <div id="lblHelm" class="label" style="left:110px;top:640px">BRASS<i></i></div>
+      <div id="lblMail" class="label" style="left:690px;top:1060px"><i></i>MAIL</div>
+      <svg id="strike" class="obj" style="left:120px;top:540px" width="840" height="780" viewBox="0 0 840 780"><path id="strikeA" d="M70 60 L770 720" stroke="#d9735a" stroke-width="22" stroke-linecap="round" fill="none"/></svg>
+      <div id="lblNP" class="label c warn" style="top:470px;font-size:44px">NOT PROVED</div>
+
+      <svg id="staff" class="obj" style="left:120px;top:420px" width="200" height="900" viewBox="0 0 200 900"><path d="M86 880 L110 120 Q114 40 160 30 Q190 26 186 60" fill="none" stroke="url(#wood)" stroke-width="30" stroke-linecap="round"/></svg>
+      <svg id="brook" class="obj" style="left:-60px;top:560px" width="1200" height="380" viewBox="0 0 1200 380">
+        <rect x="0" y="40" width="1200" height="300" fill="url(#water)"/>
+        <g id="waves" fill="none" stroke-linecap="round">
+          <path d="M-200 150 Q-100 130 0 150 T200 150 T400 150 T600 150 T800 150 T1000 150 T1200 150 T1400 150" stroke="#8fc0e6" stroke-opacity=".45" stroke-width="4"/>
+          <path d="M-200 200 Q-100 180 0 200 T200 200 T400 200 T600 200 T800 200 T1000 200 T1200 200 T1400 200" stroke="#6ea3d0" stroke-opacity=".35" stroke-width="3"/>
+          <path d="M-200 250 Q-100 232 0 250 T200 250 T400 250 T600 250 T800 250 T1000 250 T1200 250 T1400 250" stroke="#4f86b8" stroke-opacity=".3" stroke-width="3"/>
+        </g>
+        <g id="specs"><rect x="240" y="168" width="160" height="5" rx="3" fill="url(#spec)"/><rect x="640" y="222" width="220" height="5" rx="3" fill="url(#spec)"/><rect x="900" y="146" width="120" height="4" rx="2" fill="url(#spec)"/></g>
+      </svg>
+      <svg id="stones" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="st0" class="st"><ellipse cx="0" cy="44" rx="56" ry="12" fill="url(#shadow)"/><ellipse rx="58" ry="44" fill="url(#stoneG)"/><ellipse cx="-18" cy="-16" rx="18" ry="9" fill="#fff" opacity=".35"/></g>
+        <g id="st1" class="st"><ellipse cx="0" cy="40" rx="50" ry="11" fill="url(#shadow)"/><ellipse rx="50" ry="40" fill="url(#stoneG)"/><ellipse cx="-15" cy="-14" rx="16" ry="8" fill="#fff" opacity=".35"/></g>
+        <g id="st2" class="st"><ellipse cx="0" cy="46" rx="58" ry="12" fill="url(#shadow)"/><ellipse rx="62" ry="46" fill="url(#stoneG)"/><ellipse cx="-20" cy="-17" rx="20" ry="9" fill="#fff" opacity=".35"/></g>
+        <g id="st3" class="st"><ellipse cx="0" cy="38" rx="48" ry="10" fill="url(#shadow)"/><ellipse rx="48" ry="38" fill="url(#stoneG)"/><ellipse cx="-14" cy="-13" rx="15" ry="7" fill="#fff" opacity=".35"/></g>
+        <g id="st4" class="st"><ellipse cx="0" cy="42" rx="54" ry="11" fill="url(#shadow)"/><ellipse rx="54" ry="42" fill="url(#stoneG)"/><ellipse cx="-16" cy="-15" rx="17" ry="8" fill="#fff" opacity=".35"/></g>
+      </svg>
+      <div id="lblStones" class="label c" style="top:470px;font-size:36px">FIVE SMOOTH STONES</div>
+      <div id="count" class="big-num" style="top:530px">1</div>
+      <svg id="bag" class="obj" style="left:360px;top:820px" width="360" height="380" viewBox="0 0 360 380">
+        <ellipse cx="180" cy="362" rx="150" ry="16" fill="url(#shadow)"/>
+        <path d="M70 110 Q40 220 60 300 Q90 360 180 360 Q270 360 300 300 Q320 220 290 110 Q240 130 180 128 Q120 130 70 110 Z" fill="url(#leather)"/>
+        <path d="M70 110 Q120 132 180 130 Q240 132 290 110 Q260 70 180 72 Q100 70 70 110 Z" fill="#2a170a"/>
+        <path d="M78 124 Q130 146 180 144 Q232 146 282 124" fill="none" stroke="#e3bb5c" stroke-width="4" stroke-dasharray="10 9" opacity=".8"/>
+        <path d="M130 128 Q100 40 150 20 M230 128 Q262 40 210 20" fill="none" stroke="#5a3519" stroke-width="10" stroke-linecap="round"/>
+        <ellipse cx="130" cy="210" rx="40" ry="70" fill="#f2c58f" opacity=".12" transform="rotate(14 130 210)"/>
+      </svg>
+      <div id="lblBag" class="label c" style="top:1230px;font-size:28px">SHEPHERD'S BAG</div>
+      <svg id="sling" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="slingRig" transform="translate(540 600)">
+          <path id="cord1" d="M0 0 C-40 160 -60 300 -30 430" fill="none" stroke="#c89a5c" stroke-width="7" stroke-linecap="round"/>
+          <path id="cord2" d="M0 0 C40 160 60 300 30 430" fill="none" stroke="#a87c44" stroke-width="7" stroke-linecap="round"/>
+          <path d="M-56 420 Q0 490 56 420 Q0 448 -56 420 Z" fill="url(#leather)" stroke="#e3bb5c" stroke-width="2"/>
+          <ellipse cx="0" cy="440" rx="26" ry="20" fill="url(#stoneG)"/>
+          <circle cx="0" cy="0" r="12" fill="#e3bb5c"/>
+        </g>
+      </svg>
+      <div id="lblSling" class="label c" style="top:470px;font-size:36px">HIS SLING</div>
+      <svg id="flight" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><linearGradient id="trailG" x1="0" x2="1"><stop offset="0" stop-color="#e3bb5c" stop-opacity="0"/><stop offset="1" stop-color="#f6e2a6" stop-opacity=".9"/></linearGradient></defs>
+        <path id="arc" d="M160 1150 Q520 300 930 700" fill="none" stroke="url(#trailG)" stroke-width="10" stroke-linecap="round"/>
+        <g id="flyStone"><ellipse rx="34" ry="26" fill="url(#stoneG)"/><ellipse cx="-10" cy="-9" rx="10" ry="5" fill="#fff" opacity=".4"/></g>
+        <g id="impact" transform="translate(930 700)" fill="none" stroke="#f6e2a6"><circle r="40" stroke-width="5"/><circle r="80" stroke-width="3" opacity=".6"/></g>
+      </svg>
+      <div id="lblOne" class="label c" style="top:470px;font-size:36px">ONE STONE</div>
+      <svg id="sword" class="obj" style="left:440px;top:440px" width="200" height="840" viewBox="0 0 200 840">
+        <path d="M100 20 L128 90 L128 600 L72 600 L72 90 Z" fill="url(#steel)"/><rect x="20" y="600" width="160" height="26" rx="10" fill="url(#brass)"/>
+        <rect x="86" y="626" width="28" height="140" rx="8" fill="#4a2c14"/><circle cx="100" cy="790" r="26" fill="url(#brass)"/>
+      </svg>
+      <svg id="strike2" class="obj" style="left:300px;top:520px" width="480" height="700" viewBox="0 0 480 700"><path id="strikeB" d="M40 40 L440 660" stroke="#d9735a" stroke-width="22" stroke-linecap="round" fill="none"/></svg>
+      <div id="lblSword" class="label c warn" style="top:470px;font-size:44px">NO SWORD</div>
+<!-- @js -->
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.helm = at("helmet"); T.mail = at("mail"); T.walk = at("walk"); T.cannot = at("cannot");
+  T.not = at("not proved"); T.off = at("takes them off"); T.staff = at("staff"); T.five = at("five");
+  T.brook = at("brook"); T.puts = at("puts them"); T.bag = at("shepherd's"); T.sling = at("with his sling");
+  T.wins = at("wins"); T.stone = at("stone", {from:T.wins}); T.there = at("there is no"); T.sword = at("sword");
+  K.camera(tl, [[0, T.off+.9, 1, 1.07], [T.off+.9, T.wins-.3, 1, 1.06, 0, -10], [T.wins-.3, K.EP.paper+.6, 1.02, 1.08]]);
+
+  // hook: the king's armour arrives as the line is spoken
+  tl.fromTo("#helmet", {opacity:0, y:-260, scale:.92}, {opacity:1, y:0, scale:1, duration:.9, ease:"back.out(1.2)"}, .15);
+  tl.fromTo("#mail", {opacity:0, y:160}, {opacity:1, y:0, duration:.8, ease:E}, .55);
+  tl.fromTo("#glint", {attr:{x:-160}}, {attr:{x:560}, duration:1.1, ease:"power2.inOut"}, 1.0);
+  K.show(tl, "#lblHelm", T.helm, {x:-30}); K.show(tl, "#lblMail", T.mail, {x:30});
+  tl.fromTo("#glint", {attr:{x:-160}}, {attr:{x:560}, duration:1.1, ease:"power2.inOut", immediateRender:false}, T.helm);
+
+  // he tries to walk in it; not proved; he takes them off
+  tl.to("#helmet,#mail", {y:"+=10", duration:.22, ease:"sine.inOut", yoyo:true, repeat:5}, T.walk);
+  tl.to("#helmet", {rotation:-4, duration:.4, ease:"sine.inOut", yoyo:true, repeat:3, transformOrigin:"50% 100%"}, T.walk);
+  tl.to("#stage", {x:-6, duration:.08, yoyo:true, repeat:5, ease:"none"}, T.cannot);
+  tl.set("#strike", {opacity:1}, T.not); K.draw(tl, "#strikeA", T.not, .35, 960);
+  K.show(tl, "#lblNP", T.not+.1, {scale:1.3}, .35);
+  tl.to("#helmet,#mail,#lblHelm,#lblMail", {opacity:.42, filter:"saturate(.4) brightness(.8)", duration:.4}, T.not+.2);
+  tl.to("#helmet", {y:520, rotation:-14, opacity:0, duration:.9, ease:"power3.in"}, T.off);
+  tl.to("#mail", {y:420, opacity:0, duration:.9, ease:"power3.in"}, T.off+.1);
+  K.hide(tl, "#strike,#lblNP,#lblHelm,#lblMail", T.off);
+
+  // staff, brook, five stones rise out of the water one by one
+  tl.fromTo("#brook", {opacity:0, y:60}, {opacity:1, y:0, duration:.9, ease:E}, T.off+.7);
+  tl.fromTo("#waves", {x:0}, {x:-400, duration:12, ease:"none"}, T.off+.7);
+  tl.fromTo("#specs", {x:0, opacity:.4}, {x:-90, opacity:1, duration:5, ease:"sine.inOut", yoyo:true, repeat:1}, T.off+.7);
+  K.show(tl, "#staff", T.staff, {x:-120, rotation:-8}, .7);
+  const SX=[250,395,540,685,830], SY=[760,742,770,748,764];
+  for(let i=0;i<5;i++) tl.set("#st"+i, {x:SX[i], y:SY[i]+120, scale:.9, transformOrigin:"50% 50%"}, 0);
+  for(let i=0;i<5;i++){
+    const t0 = T.five + (T.brook - T.five + .3)*i/5;
+    tl.to("#st"+i, {opacity:1, y:SY[i]-40, scale:1, duration:.55, ease:"back.out(1.6)"}, t0);
+    tl.set("#count", {textContent:String(i+1)}, t0);
+  }
+  K.show(tl, "#lblStones", T.five, {y:16}, .35);
+  K.show(tl, "#count", T.five, {scale:.7}, .3);
+
+  // into the shepherd's bag
+  K.hide(tl, "#staff", T.puts, {x:-80}); K.hide(tl, "#brook", T.puts, {y:-40}, .6); K.hide(tl, "#count", T.puts);
+  K.show(tl, "#bag", T.puts-.1, {y:120, scale:.9}, .6);
+  for(let i=0;i<5;i++) tl.to("#st"+i, {x:540+(i-2)*22, y:960, scale:.55, duration:.5, ease:"power3.in"}, T.bag-.2+i*.1);
+  for(let i=0;i<5;i++) tl.to("#st"+i, {opacity:0, duration:.08}, T.bag+.3+i*.1);
+  tl.to("#bag", {y:"+=12", duration:.12, yoyo:true, repeat:3, ease:"sine.inOut"}, T.bag+.35);
+  K.show(tl, "#lblBag", T.bag, {y:16}, .35);
+  K.hide(tl, "#lblStones", T.sling-.1);
+
+  // the sling uncoils, swings, and lets one stone fly
+  K.hide(tl, "#bag,#lblBag", T.sling+.2, {y:220}, .6);
+  tl.fromTo("#sling", {opacity:0}, {opacity:1, duration:.4, immediateRender:false}, T.sling);
+  tl.fromTo("#cord1,#cord2", {strokeDasharray:520, strokeDashoffset:520}, {strokeDashoffset:0, duration:.7, ease:E}, T.sling);
+  K.show(tl, "#lblSling", T.sling+.2, {y:16}, .35);
+  tl.fromTo("#slingRig", {rotation:-8, svgOrigin:"540 600"}, {rotation:8, duration:.5, ease:"sine.inOut", yoyo:true, repeat:1, svgOrigin:"540 600"}, T.sling+.4);
+  K.hide(tl, "#lblSling", T.wins-.2, {}, .25);
+  tl.to("#slingRig", {rotation:360, svgOrigin:"540 600", duration:.7, ease:"power2.in"}, T.wins-.2);
+  K.hide(tl, "#sling", T.wins+.45, {}, .2);
+  tl.set("#flight", {opacity:1}, T.wins+.45);
+  K.draw(tl, "#arc", T.wins+.45, .75, 1300);
+  tl.set("#flyStone", {x:160, y:1150}, 0);
+  const fly = {t:0};
+  tl.fromTo(fly, {t:0}, {t:1, duration:.75, ease:"power2.out", onUpdate(){
+    const t = fly.t, x = (1-t)*(1-t)*160 + 2*(1-t)*t*520 + t*t*930, y = (1-t)*(1-t)*1150 + 2*(1-t)*t*300 + t*t*700;
+    gsap.set("#flyStone", {x, y, rotation:t*540});
+  }}, T.wins+.45);
+  tl.fromTo("#impact", {scale:.2, opacity:0, svgOrigin:"930 700"}, {scale:1.6, opacity:1, duration:.35, ease:E, svgOrigin:"930 700"}, T.wins+1.15);
+  tl.to("#impact", {opacity:0, duration:.6}, T.wins+1.5);
+  K.show(tl, "#lblOne", T.stone, {y:16}, .35);
+  K.hide(tl, "#flight,#lblOne", T.there-.25);
+
+  // no sword in his hand
+  K.show(tl, "#sword", T.there, {y:40, scale:.96}, .6);
+  tl.to("#sword", {opacity:.3, filter:"grayscale(1)", duration:.4}, T.sword+.2);
+  tl.set("#strike2", {opacity:1}, T.sword); K.draw(tl, "#strikeB", T.sword, .3, 740);
+  K.show(tl, "#lblSword", T.sword+.1, {scale:1.3}, .35);
+});

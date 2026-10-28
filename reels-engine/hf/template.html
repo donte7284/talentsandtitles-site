@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="assets/gsap.min.js"></script>
+<link rel="stylesheet" href="kit.css" />
+<style>
+{{SCENE_CSS}}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="{{DUR}}" data-width="1080" data-height="1920" data-fps="30">
+
+  <audio id="vo" class="clip" data-start="0" data-duration="{{DUR}}" data-track-index="9" src="voice.wav"></audio>
+
+  <div id="bg" class="layer clip" data-start="0" data-duration="{{DUR}}" data-track-index="0">
+    <div id="bgWarm" class="layer"></div>
+    <div id="beam1" class="beam"></div><div id="beam2" class="beam"></div>
+  </div>
+
+  <div id="stageWrap" class="clip" data-start="0" data-duration="{{DUR}}" data-track-index="1">
+    <!-- shared materials: brass, stone, leather, wood, steel, glass, water, shadow -->
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <linearGradient id="brass" x1="0" x2="1"><stop offset="0" stop-color="#4a3410"/><stop offset=".22" stop-color="#9a7428"/><stop offset=".42" stop-color="#f3d58a"/><stop offset=".52" stop-color="#d8ae52"/><stop offset=".78" stop-color="#7a5a1c"/><stop offset="1" stop-color="#2e2009"/></linearGradient>
+        <linearGradient id="brassV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff3c9" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient>
+        <radialGradient id="shadow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+        <linearGradient id="glintG" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        <radialGradient id="stoneG" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#e9e2d2"/><stop offset=".35" stop-color="#b3aa98"/><stop offset=".75" stop-color="#6c6556"/><stop offset="1" stop-color="#3a352c"/></radialGradient>
+        <radialGradient id="leather" cx=".38" cy=".35" r=".85"><stop offset="0" stop-color="#b77c45"/><stop offset=".5" stop-color="#7a4b25"/><stop offset="1" stop-color="#3a210f"/></radialGradient>
+        <linearGradient id="wood" x1="0" x2="1"><stop offset="0" stop-color="#3b2412"/><stop offset=".45" stop-color="#9b6a3c"/><stop offset=".6" stop-color="#c48d55"/><stop offset="1" stop-color="#2c1a0c"/></linearGradient>
+        <linearGradient id="woodV" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b07a46"/><stop offset=".5" stop-color="#6e4422"/><stop offset="1" stop-color="#2a170a"/></linearGradient>
+        <linearGradient id="steel" x1="0" x2="1"><stop offset="0" stop-color="#5d6672"/><stop offset=".45" stop-color="#e8eef5"/><stop offset=".55" stop-color="#9aa6b3"/><stop offset="1" stop-color="#3a414b"/></linearGradient>
+        <radialGradient id="clay" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#d79a66"/><stop offset=".5" stop-color="#9c5f35"/><stop offset="1" stop-color="#4a2913"/></radialGradient>
+        <radialGradient id="glass" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset=".35" stop-color="#dfeaf2" stop-opacity=".75"/><stop offset=".8" stop-color="#8fa6ba" stop-opacity=".55"/><stop offset="1" stop-color="#4c6075" stop-opacity=".6"/></radialGradient>
+        <radialGradient id="lit" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#fffdf3"/><stop offset=".45" stop-color="#fff1c4"/><stop offset="1" stop-color="#f2c770"/></radialGradient>
+        <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff1c4" stop-opacity=".55"/><stop offset="1" stop-color="#fff1c4" stop-opacity="0"/></radialGradient>
+        <linearGradient id="water" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2b5a8a" stop-opacity="0"/><stop offset=".35" stop-color="#2d6597" stop-opacity=".75"/><stop offset=".7" stop-color="#173c66" stop-opacity=".95"/><stop offset="1" stop-color="#0b1f3d" stop-opacity="0"/></linearGradient>
+        <linearGradient id="spec" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#f6e2a6" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        <linearGradient id="barley" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6dc93"/><stop offset=".5" stop-color="#d9ae52"/><stop offset="1" stop-color="#8a6420"/></linearGradient>
+        <linearGradient id="rock" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#6f7a86"/><stop offset=".5" stop-color="#3f4752"/><stop offset="1" stop-color="#1d222a"/></linearGradient>
+      </defs>
+    </svg>
+    <div id="stage">
+      <div id="hook"><div class="kick">{{HOOK_KICK}}</div><div class="big">{{HOOK_HTML}}</div><div class="rule"></div></div>
+{{SCENE_HTML}}
+    </div>
+  </div>
+
+  <div id="vignette" class="layer clip" data-start="0" data-duration="{{DUR}}" data-track-index="2"></div>
+  <div id="grain" class="layer clip" data-start="0" data-duration="{{DUR}}" data-track-index="3"></div>
+
+  <div id="chrome" class="clip" data-start="0" data-duration="{{DUR}}" data-track-index="4">
+    <div id="header"><span></span>PARABLE NO. {{NO}}</div>
+    <div id="mark">@talentsandtitles</div>
+    <div id="cap"></div>
+  </div>
+
+  <div id="paper" class="clip" data-start="{{PAPER_START}}" data-duration="{{PAPER_DUR}}" data-track-index="5">
+    <div class="tex"></div>
+    <div class="pm">PARABLE NO. {{NO}}</div>
+    <div class="col">
+      <div class="eyebrow">FOR BUILDERS</div>
+      <div class="turn" style="--turn-size:{{TURN_SIZE}}px">{{TURN_HTML}}</div>
+      <div class="q">{{QUESTION}}</div>
+      <div class="ref">{{REF}}</div>
+      <div class="send">{{SEND}}</div>
+    </div>
+  </div>
+</div>
+<script>window.EP = {{EP_JSON}};</script>
+<script src="kit.js"></script>
+<script>
+{{SCENE_JS}}
+</script>
+<script>
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = K.tl;
+  K.tl.seek(0);
+</script>
+</body>
+</html>

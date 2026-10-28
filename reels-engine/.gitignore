@@ -4,3 +4,9 @@ frames/
 out/
 __pycache__/
 work/
+
+# HyperFrames engine: keep episode scenes, ignore installs
+!hf/*.html
+!hf/**/*.html
+hf/node_modules
+hf/.chrome

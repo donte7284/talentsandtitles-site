@@ -1,0 +1,143 @@
+<!-- @config -->
+{"no":10,
+ "hook_html":"The bread they saved<br>rots overnight",
+ "turn_at":"Enough for today","turn_html":"Enough <em>for today.</em>","turn_size":128,"turn_hl":"for today What",
+ "question_at":"What are you holding","question":"What are you holding past its day?",
+ "ref":"EXODUS 16 : 14–20","send":"Send this to someone who is afraid to let go.",
+ "theme":{"sky-a":"#33456a","sky-b":"#1f3154","sky-c":"#101f3b","sky-d":"#070f1f"}}
+<!-- @css -->
+#dunes,#flakes,.jar,#lblTomorrow,#lblRot,#lblFrost,#lblBread,#lblOmer,#lblMore,#lblLess,#lblEnough,#lblNone,#moon,#worms,#lblStinks,#lid{opacity:0}
+#bgWarm{background:radial-gradient(1100px 900px at 50% 40%, #12203f 0%, #0a1430 45%, #050a1a 80%, #02040c 100%)}
+<!-- @html -->
+      <svg id="moon" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="moonDisc" transform="translate(870 660)"><circle r="70" fill="#e9e6da"/><circle r="70" cx="26" cy="-10" fill="#0e1a35"/></g>
+      </svg>
+      <svg id="dunes" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <linearGradient id="sand" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d6a868"/><stop offset=".4" stop-color="#9c6e3c"/><stop offset="1" stop-color="#3a2614"/></linearGradient>
+          <linearGradient id="sand2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b88a50"/><stop offset="1" stop-color="#4a3018"/></linearGradient>
+        </defs>
+        <path d="M-60 1040 Q200 960 420 1010 T900 990 T1160 1000 L1160 1400 L-60 1400 Z" fill="url(#sand2)" opacity=".85"/>
+        <path d="M-60 1110 Q260 1050 560 1100 T1160 1080 L1160 1400 L-60 1400 Z" fill="url(#sand)"/>
+        <path id="duneLight" d="M120 1088 Q360 1056 600 1096" fill="none" stroke="#f6dc93" stroke-width="3" opacity=".6"/>
+      </svg>
+      <svg id="flakes" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lblFrost" class="label c" style="top:470px;font-size:36px">FINE AS FROST</div>
+      <div id="lblBread" class="label c" style="top:470px;font-size:34px">THE BREAD THE LORD HAS GIVEN</div>
+
+      <svg id="jars" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <svg id="lid" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="lidG"><ellipse cx="0" cy="0" rx="78" ry="16" fill="url(#woodV)"/><rect x="-12" y="-26" width="24" height="18" rx="6" fill="#5a3519"/></g>
+      </svg>
+      <svg id="worms" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lblTomorrow" class="label" style="left:640px;top:820px">FOR TOMORROW</div>
+      <div id="lblRot" class="label warn c" style="top:640px;font-size:44px">ROTTED</div>
+      <div id="lblOmer" class="label c" style="top:470px;font-size:36px">AN OMER EACH</div>
+      <div id="lblMore" class="label" style="left:176px;top:860px;font-size:26px">MORE</div>
+      <div id="lblLess" class="label" style="left:780px;top:860px;font-size:26px">LESS</div>
+      <div id="lblEnough" class="label c" style="top:470px;font-size:36px">NOT TOO MUCH · NOT TOO LITTLE</div>
+      <div id="lblNone" class="label c" style="top:470px;font-size:36px">NONE TILL MORNING</div>
+      <div id="lblStinks" class="label c warn" style="top:470px;font-size:44px">IT STINKS</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  // manna on the ground: small round flakes, laid out on a jittered grid (deterministic)
+  const fl = document.getElementById("flakes"); let n = 0;
+  for(let r=0;r<6;r++) for(let c=0;c<16;c++){
+    const x = 30 + c*66 + ((r*29 + c*17) % 34), y = 1120 + r*38 + ((c*13 + r*7) % 18);
+    const s = 4 + ((r + c*3) % 4);
+    mk("circle", {cx:x, cy:y, r:s, fill:"#fbf7ec", opacity:.92, class:"fl", "data-i":n++}, fl);
+  }
+  // clay jars: [x, y, scale]
+  const J = [[540,1000,1.25],[250,1060,.9],[540,1060,.9],[830,1060,.9]];
+  const jars = document.getElementById("jars");
+  J.forEach(([x,y,s],i) => {
+    const g = mk("g", {id:"jar"+i, class:"jar"}, jars); g.dataset.x = x; g.dataset.y = y; g.dataset.s = s;
+    mk("ellipse", {cx:0, cy:150, rx:105, ry:16, fill:"url(#shadow)"}, g);
+    mk("clipPath", {id:"jc"+i}, g).appendChild(mk("path", {d:"M-60 -70 Q-110 -20 -95 60 Q-80 140 0 145 Q80 140 95 60 Q110 -20 60 -70 Z"}));
+    mk("path", {d:"M-60 -70 Q-110 -20 -95 60 Q-80 140 0 145 Q80 140 95 60 Q110 -20 60 -70 Z", fill:"url(#clay)"}, g);
+    const fill = mk("g", {"clip-path":`url(#jc${i})`}, g);
+    mk("rect", {id:"fill"+i, x:-120, y:150, width:240, height:220, fill:"#f3ecd9"}, fill);
+    mk("rect", {id:"rot"+i, x:-120, y:-80, width:240, height:240, fill:"#3d4a2a", opacity:0}, fill);
+    mk("ellipse", {cx:0, cy:-70, rx:66, ry:14, fill:"#5a3216"}, g);
+    mk("ellipse", {cx:0, cy:-74, rx:72, ry:12, fill:"none", stroke:"#d79a66", "stroke-width":8}, g);
+    mk("ellipse", {cx:-40, cy:20, rx:18, ry:44, fill:"#ffe1bb", opacity:.16}, g);
+  });
+  // worms: short wiggles that crawl up out of the kept jar
+  const wm = document.getElementById("worms");
+  for(let i=0;i<5;i++) mk("path", {id:"wm"+i, d:"M0 0 q8 -10 16 0 t16 0 t16 0", fill:"none", stroke:"#e9dcc2", "stroke-width":5, "stroke-linecap":"round"}, wm);
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.saved = at("saved"); T.rots = at("rots overnight"); T.morning = at("Morning in"); T.small = at("small and round");
+  T.frost = at("fine as frost"); T.moses = at("Moses says this"); T.gather = at("Gather an omer"); T.more = at("some gather more");
+  T.less = at("some less"); T.nobody = at("nobody has"); T.then = at("Then Moses"); T.leave = at("leave none");
+  T.anyway = at("Some do anyway"); T.worms = at("breeds worms"); T.stinks = at("it stinks");
+  K.camera(tl, [[0, T.morning, 1, 1.05], [T.morning, T.gather, 1, 1.05, 0, -8], [T.gather, T.then, 1, 1.04], [T.then, K.EP.paper+.6, 1.02, 1.08]]);
+  const place = i => { const g = document.getElementById("jar"+i); tl.set(g, {x:+g.dataset.x, y:+g.dataset.y, scale:+g.dataset.s, transformOrigin:"50% 100%"}, 0); };
+  [0,1,2,3].forEach(place);
+
+  // hook: a jar kept for tomorrow, and what tomorrow did to it
+  K.show(tl, "#dunes", .1, {y:60}, .8);
+  tl.set("#fill0", {attr:{y:-40}}, 0);
+  K.show(tl, "#jar0", .15, {y:80}, .7);
+  K.show(tl, "#lblTomorrow", T.saved, {x:30}, .35);
+  tl.to("#rot0", {opacity:.85, duration:.6}, T.rots);
+  tl.to("#fill0", {attr:{fill:"#6d7340"}, duration:.6}, T.rots);
+  K.show(tl, "#lblRot", T.rots + .1, {scale:1.25}, .35);
+  K.hide(tl, "#lblTomorrow,#lblRot,#jar0", T.morning - .35);
+
+  // morning: the ground is covered, small and round, fine as frost
+  tl.fromTo("#duneLight", {opacity:0}, {opacity:.8, duration:1.2}, T.morning);
+  tl.set("#flakes", {opacity:1}, T.small - .05);
+  tl.fromTo("#flakes .fl", {opacity:0, scale:0, transformOrigin:"50% 50%"}, {opacity:.92, scale:1, transformOrigin:"50% 50%", duration:.3, ease:"back.out(2)", stagger:{each:(T.frost - T.small + .6)/96}}, T.small);
+  K.show(tl, "#lblFrost", T.frost, {y:16}, .35);
+  K.hide(tl, "#lblFrost", T.moses - .1);
+  K.show(tl, "#lblBread", T.moses + .3, {y:16}, .35);
+  K.hide(tl, "#lblBread", T.gather - .1);
+
+  // gather an omer each: more, less, and it comes out even
+  tl.set("#jar0", {opacity:0}, T.gather - .1);
+  for(let i=1;i<4;i++){ tl.set("#fill"+i, {attr:{y:150}}, 0); K.show(tl, "#jar"+i, T.gather + (i-1)*.15, {y:70}, .5); }
+  tl.to("#flakes", {opacity:.35, duration:.6}, T.gather);
+  K.show(tl, "#lblOmer", T.gather + .2, {y:16}, .35);
+  tl.to("#fill1", {attr:{y:-40}, duration:.7, ease:"power2.out"}, T.more);
+  K.show(tl, "#lblMore", T.more + .2, {y:12}, .3);
+  tl.to("#fill2", {attr:{y:40}, duration:.7, ease:"power2.out"}, T.more + .2);
+  tl.to("#fill3", {attr:{y:90}, duration:.7, ease:"power2.out"}, T.less);
+  K.show(tl, "#lblLess", T.less + .1, {y:12}, .3);
+  K.hide(tl, "#lblOmer", T.nobody - .1);
+  tl.to("#fill1,#fill2,#fill3", {attr:{y:20}, duration:.9, ease:"power2.inOut"}, T.nobody + .3);
+  K.hide(tl, "#lblMore,#lblLess", T.nobody + .2);
+  K.show(tl, "#lblEnough", T.nobody + .3, {y:16}, .35);
+  K.hide(tl, "#lblEnough", T.then - .1);
+
+  // leave none till morning: night falls; one jar gets a lid anyway
+  tl.fromTo("#bgWarm", {opacity:0}, {opacity:.9, duration:1.4, ease:"sine.inOut"}, T.then);
+  K.hide(tl, "#flakes", T.then, {}, .8);
+  K.show(tl, "#moon", T.then + .2, {y:40}, .9);
+  K.show(tl, "#lblNone", T.leave, {y:16}, .35);
+  tl.to("#fill1,#fill2", {attr:{y:150}, duration:.6, ease:"power2.in"}, T.leave + .5);
+  K.hide(tl, "#lblNone", T.anyway - .1);
+  tl.set("#lidG", {x:830, y:880}, 0);
+  K.show(tl, "#lid", T.anyway, {y:-60}, .45);
+  tl.to("#jar3,#lidG", {x:"-=290", duration:.8, ease:K.IO}, T.anyway + .4);
+  K.hide(tl, "#jar1,#jar2", T.anyway + .4, {}, .5);
+  tl.to("#jar3", {scale:1.25, duration:.8, ease:K.IO}, T.anyway + .4);
+  tl.to("#lidG", {y:"-=30", scale:1.25, duration:.8, ease:K.IO}, T.anyway + .4);
+
+  // it breeds worms, and it stinks
+  tl.to("#lidG", {y:"-=120", rotation:-18, duration:.5, ease:"power2.out"}, T.worms - .2);
+  tl.to("#rot3", {opacity:.9, duration:.5}, T.worms);
+  tl.to("#fill3", {attr:{fill:"#6d7340"}, duration:.5}, T.worms);
+  const WX=[480,520,560,600,500];
+  for(let i=0;i<5;i++){
+    tl.set("#wm"+i, {x:WX[i], y:900, rotation:-90 + i*30, transformOrigin:"0% 50%"}, 0);
+    tl.fromTo("#wm"+i, {opacity:0, y:900}, {opacity:1, y:820 - i*14, duration:.6, ease:"sine.out", immediateRender:false}, T.worms + .15 + i*.12);
+    tl.to("#wm"+i, {rotation:"+=24", duration:.3, yoyo:true, repeat:7, ease:"sine.inOut"}, T.worms + .2 + i*.12);
+  }
+  tl.set("#worms", {opacity:1}, T.worms + .1);
+  tl.to("#stage", {x:-5, duration:.07, yoyo:true, repeat:5, ease:"none"}, T.stinks);
+  K.show(tl, "#lblStinks", T.stinks, {scale:1.3}, .35);
+});
