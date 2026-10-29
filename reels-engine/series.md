@@ -83,21 +83,22 @@ Only an approval of the posted batch counts; a change request means revise, re-p
 | 5 | The wise and foolish builders | MATTHEW 7 : 24–27 | `public/reels/parable-05-wise-builders.mp4` | 28.8 s | Fri 23 Oct 2026, 10:00 PT |
 | 6 | Gideon's 300 | JUDGES 7 : 2–8 | `public/reels/parable-06-gideon-300.mp4` | 27.9 s | Sun 25 Oct 2026, 10:00 PT |
 | 7 | Nephi's broken bow | 1 NEPHI 16 : 18–32 | `public/reels/parable-07-nephi-bow.mp4` | 34.7 s | Mon 26 Oct 2026, 10:00 PT |
+| 8 | David's five stones | 1 SAMUEL 17 : 38–50 | `public/reels/parable-08-david-stones.mp4` | 34.0 s | Fri 30 Oct 2026, 10:00 PT |
+| 9 | Ruth gleaning | RUTH 2 : 2–17 | `public/reels/parable-09-ruth-gleaning.mp4` | 34.6 s | Sun 1 Nov 2026, 10:00 PT |
+| 10 | Manna | EXODUS 16 : 14–20 | `public/reels/parable-10-manna.mp4` | 37.4 s | Mon 2 Nov 2026, 10:00 PT |
+| 11 | The brother of Jared's stones | ETHER 3 : 1–6 | `public/reels/parable-11-jared-stones.mp4` | 33.1 s | Wed 4 Nov 2026, 10:00 PT |
 
 Notes:
 - No. 1 originally said Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Changed to "The prophet asks her: what do you have in your house?" before it posted: re-voiced at speed 0.92 with pauses before "Nothing" and the punchline, `public/reels/parable-01-widows-oil.mp4` replaced, and both Oct 12 Metricool posts updated to the new video (media link `...parable-01-widows-oil.mp4?v=2`).
 - No. 3 follows the text's order: ore question (17:9), tools made (17:16), "Our brother is a fool" (17:17).
 - No. 4-7 come from the weekly run on branch `claude/busy-bardeen-rabemw` (Oct 17). An earlier run of the same four stories on `claude/busy-bardeen-aioc2z` (Oct 10) was not used. The Oct 18 slot had passed, so they went out Wed/Fri/Sun/Mon Oct 21-26.
+- No. 8-11 are the first episodes on the HyperFrames engine, built on `claude/hyperframes-engine` (Oct 28). The narrations run 91-105 spoken words, above the usual 75-95, so the videos are 33-37 s. Nothing was scheduled when the run started, and the Wed Oct 28 slot had passed, so they went out Fri/Sun/Mon/Wed Oct 30-Nov 4.
 
 ## Story backlog
 Roughly one Book of Mormon story in every four. References checked against `scripture/`.
 
 | Story | Reference | The builder's turn (draft angle) |
 |---|---|---|
-| David's five stones | 1 Samuel 17:38-50 | He left Saul's armour and used the tools he'd practised with. |
-| Ruth gleaning | Ruth 2:1-17 | She showed up to the edge of someone else's field and worked it. |
-| Manna | Exodus 16:14-21 | Enough for today; hoarding it went bad overnight. |
-| **The brother of Jared's stones** (BoM) | Ether 3:1-6 | He did the work he could (sixteen stones) and asked for the rest. |
 | The ant | Proverbs 6:6-8 | No overseer, no boss; she works in summer for the winter. |
 | Noah | Genesis 6:13-22 | He built for rain nobody had seen. |
 | The unjust steward | Luke 16:1-9 | Even the dishonest manager planned ahead; "wiser in their generation". |
