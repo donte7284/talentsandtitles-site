@@ -1,0 +1,98 @@
+<!-- @config -->
+{"no":13,
+ "hook_html":"Noah builds an ark<br>before the flood comes",
+ "turn_at":"He built it","turn_html":"He built it <em>first.</em>","turn_size":128,"turn_hl":"first What",
+ "question_at":"What are you building","question":"What are you building before you need it?",
+ "ref":"GENESIS 6 : 13–22","send":"Send this to someone waiting for the storm."}
+<!-- @css -->
+#ark,#lblArk,#lblWood,#pitch,#lblPitch,#dims,.dim,#lblSize,#win,#door,#lblWin,#lblDoor,.deck,#lblStories,#food,#lblFood,#plank,#sacks>g{opacity:0}
+<!-- @html -->
+      <svg id="ark" class="obj" style="left:60px;top:760px" width="960" height="520" viewBox="0 0 960 520">
+        <defs><clipPath id="hullClip"><path d="M30 190 L930 190 Q900 400 760 470 L200 470 Q60 400 30 190 Z"/></clipPath></defs>
+        <ellipse cx="480" cy="500" rx="400" ry="16" fill="url(#shadow)"/>
+        <path d="M30 190 L930 190 Q900 400 760 470 L200 470 Q60 400 30 190 Z" fill="url(#wood)"/>
+        <g clip-path="url(#hullClip)" stroke="#2a170a" stroke-width="3" opacity=".55">
+          <path d="M0 240 L960 240"/><path d="M0 290 L960 290"/><path d="M0 340 L960 340"/><path d="M0 390 L960 390"/><path d="M0 440 L960 440"/>
+          <path d="M120 190 L120 470 M260 190 L260 470 M400 190 L400 470 M540 190 L540 470 M680 190 L680 470 M820 190 L820 470" opacity=".5"/>
+        </g>
+        <path d="M30 190 L930 190 Q900 400 760 470 L200 470 Q60 400 30 190 Z" fill="url(#woodV)"/>
+        <rect x="260" y="110" width="440" height="90" fill="url(#wood)"/><rect x="250" y="96" width="460" height="22" fill="#4a2c14"/>
+        <rect x="260" y="110" width="440" height="90" fill="url(#woodV)"/>
+        <ellipse cx="300" cy="260" rx="160" ry="30" fill="#fff" opacity=".07"/>
+        <path id="pitchPath" d="M30 190 L930 190 Q900 400 760 470 L200 470 Q60 400 30 190" fill="none" stroke="#0b0805" stroke-width="16" stroke-linejoin="round"/>
+        <g id="decks" stroke="#e3bb5c" stroke-width="5" stroke-dasharray="14 10"><path class="deck" d="M70 275 L890 275"/><path class="deck" d="M110 345 L850 345"/><path class="deck" d="M170 415 L790 415"/></g>
+        <rect id="win" x="440" y="124" width="80" height="50" rx="6" fill="url(#glass)" stroke="#e3bb5c" stroke-width="4"/>
+        <rect id="door" x="780" y="230" width="70" height="110" rx="8" fill="#1d0f06" stroke="#e3bb5c" stroke-width="4"/>
+      </svg>
+      <div id="lblArk" class="label c" style="top:470px;font-size:36px">THE ARK</div>
+      <div id="lblWood" class="label c" style="top:470px;font-size:36px">GOPHER WOOD</div>
+      <div id="lblPitch" class="label c" style="top:470px;font-size:36px">PITCH · WITHIN AND WITHOUT</div>
+      <div id="lblSize" class="label c" style="top:470px;font-size:36px">CUBITS</div>
+      <div id="dims" class="obj" style="position:absolute;left:0;right:0;top:560px;text-align:center">
+        <div class="big-num dim" id="d1" style="position:static;display:inline-block;margin:0 22px">300</div><div class="big-num dim" id="d2" style="position:static;display:inline-block;margin:0 22px">50</div><div class="big-num dim" id="d3" style="position:static;display:inline-block;margin:0 22px">30</div>
+        <div class="label c dim" style="position:static;font-size:26px;margin-top:6px;letter-spacing:.4em">LONG &nbsp;·&nbsp; WIDE &nbsp;·&nbsp; HIGH</div>
+      </div>
+      <div id="lblWin" class="label c" style="top:470px;font-size:36px">A WINDOW ABOVE</div>
+      <div id="lblDoor" class="label c" style="top:470px;font-size:36px">A DOOR IN THE SIDE</div>
+      <div id="lblStories" class="label c" style="top:470px;font-size:36px">THREE STORIES</div>
+      <svg id="food" class="obj" style="left:0;top:600px" width="1080" height="200" viewBox="0 0 1080 200">
+        <g id="sacks">
+          <g transform="translate(250 100)"><path d="M-60 80 Q-80 0 -30 -40 Q0 -60 30 -40 Q80 0 60 80 Z" fill="url(#leather)"/><path d="M-30 -40 Q0 -20 30 -40" stroke="#e3bb5c" stroke-width="4" fill="none"/></g>
+          <g transform="translate(540 100)"><path d="M-60 80 Q-80 0 -30 -40 Q0 -60 30 -40 Q80 0 60 80 Z" fill="url(#leather)"/><path d="M-30 -40 Q0 -20 30 -40" stroke="#e3bb5c" stroke-width="4" fill="none"/><ellipse cx="0" cy="-48" rx="30" ry="10" fill="url(#barley)"/></g>
+          <g transform="translate(830 100)"><path d="M-60 80 Q-80 0 -30 -40 Q0 -60 30 -40 Q80 0 60 80 Z" fill="url(#leather)"/><path d="M-30 -40 Q0 -20 30 -40" stroke="#e3bb5c" stroke-width="4" fill="none"/></g>
+        </g>
+      </svg>
+      <div id="lblFood" class="label c" style="top:470px;font-size:36px">FOOD · GATHERED</div>
+<!-- @js -->
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.ark = at("make thee an ark"); T.wood = at("gopher wood"); T.pitch = at("pitch"); T.three = at("three hundred");
+  T.fifty = at("fifty"); T.thirty = at("thirty"); T.window = at("a window"); T.door = at("a door"); T.lower = at("lower");
+  T.food = at("food"); T.thus = at("thus did noah");
+  K.camera(tl, [[0, T.pitch, 1, 1.06], [T.pitch, T.window, 1.02, 1.07, 0, -8], [T.window, K.EP.paper+.6, 1.03, 1.09]]);
+
+  // hook: the hull rises
+  tl.fromTo("#ark", {opacity:0, y:140, scale:.94}, {opacity:1, y:0, scale:1, duration:1.1, ease:"power3.out"}, .15);
+  K.show(tl, "#lblWood", T.wood, {y:16}, .35);
+  K.hide(tl, "#lblWood", T.pitch-.2, {}, .2);
+
+  // pitch coat drawn round the hull
+  K.show(tl, "#lblPitch", T.pitch, {y:16}, .35);
+  K.draw(tl, "#pitchPath", T.pitch, T.three-T.pitch-.3, 2600);
+  K.hide(tl, "#lblPitch", T.three-.2, {}, .2);
+
+  // the size: 300, 50, 30, then the ark shrinks back to where it was
+  tl.to("#ark", {y:200, scale:.9, duration:.5, ease:E}, T.three-.2);
+  K.show(tl, "#lblSize", T.three, {y:16}, .35);
+  tl.set("#dims", {opacity:1}, 0);
+  K.show(tl, "#d1", T.three, {scale:.7}, .3); K.show(tl, "#d2", T.fifty, {scale:.7}, .3); K.show(tl, "#d3", T.thirty, {scale:.7}, .3);
+  tl.fromTo(".dim:last-child", {opacity:0}, {opacity:1, duration:.3, immediateRender:false}, T.fifty);
+  K.hide(tl, "#dims,#lblSize", T.window-.25, {y:-20}, .3);
+  tl.to("#ark", {y:0, scale:1, duration:.6, ease:E}, T.window-.25);
+
+  // window, door, three stories
+  K.show(tl, "#lblWin", T.window, {y:16}, .35);
+  tl.fromTo("#win", {opacity:0}, {opacity:1, duration:.4, immediateRender:false}, T.window);
+  tl.fromTo("#win", {attr:{fill:"#dfeaf2"}}, {attr:{fill:"url(#glass)"}, duration:.1, immediateRender:false}, T.window+.4);
+  K.hide(tl, "#lblWin", T.door-.15, {}, .2);
+  K.show(tl, "#lblDoor", T.door, {y:16}, .35);
+  tl.fromTo("#door", {opacity:0}, {opacity:1, duration:.4, immediateRender:false}, T.door);
+  K.hide(tl, "#lblDoor", T.lower-.15, {}, .2);
+  K.show(tl, "#lblStories", T.lower, {y:16}, .35);
+  const d = document.querySelectorAll(".deck");
+  tl.fromTo(d[0], {opacity:0}, {opacity:1, duration:.3, immediateRender:false}, T.lower);
+  tl.fromTo(d[1], {opacity:0}, {opacity:1, duration:.3, immediateRender:false}, at("second"));
+  tl.fromTo(d[2], {opacity:0}, {opacity:1, duration:.3, immediateRender:false}, at("third"));
+  K.hide(tl, "#lblStories", T.food-.15, {}, .2);
+
+  // food gathered in
+  K.show(tl, "#lblFood", T.food, {y:16}, .35);
+  tl.set("#food", {opacity:1}, 0);
+  ["250","540","830"].forEach((x,i)=>{});
+  for(let i=0;i<3;i++){
+    const t0 = T.food + i*.4;
+    tl.fromTo("#sacks > g:nth-child("+(i+1)+")", {opacity:0, y:-70}, {opacity:1, y:0, duration:.4, ease:"back.out(1.4)", immediateRender:false}, t0);
+    tl.to("#sacks > g:nth-child("+(i+1)+")", {y:330, scale:.6, opacity:0, duration:.5, ease:"power3.in", svgOrigin:[250,540,830][i]+" 100"}, t0+.55);
+  }
+  K.hide(tl, "#lblFood", T.thus-.1, {}, .3);
+});

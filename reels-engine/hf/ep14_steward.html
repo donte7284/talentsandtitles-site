@@ -1,0 +1,90 @@
+<!-- @config -->
+{"no":14,
+ "hook_html":"He'll lose his job<br>so he plans ahead",
+ "turn_at":"He used the time","turn_html":"He used the time he had left <em>to prepare.</em>","turn_size":88,"turn_hl":"to prepare",
+ "question_at":"What are you preparing","question":"What are you preparing for the day your role ends?",
+ "ref":"LUKE 16 : 1–9","send":"Send this to someone with no plan B."}
+<!-- @css -->
+#keys,#lblKeys,#lblLose,#shovel,#bowl,#lblDig,#lblBeg,#strikeS,#bill1,#bill2,#lblBills,#seal,#lblWise,#lblAfter,#strikeK{opacity:0}
+.bill{position:absolute;width:380px;height:300px;border-radius:10px;background:linear-gradient(160deg,#f6ecd2,#e0cfa4 60%,#c4ad7a);box-shadow:0 30px 40px rgba(0,0,0,.5),inset 0 0 0 3px rgba(120,90,30,.35);font-family:Lora;color:#2a1c0a;text-align:center}
+.bill .k{font:800 26px/1 Inter;letter-spacing:.3em;margin-top:34px;color:#6a4a14}
+.bill .n{font:700 130px/1 Lora;margin-top:26px;position:relative;display:inline-block}
+.bill .n s{color:#9a3a22;text-decoration-thickness:10px;position:absolute;left:-90px;top:0;opacity:.55;font-size:96px}
+.bill .old{font:700 96px/1 Lora;color:#9a3a22;opacity:.7}
+.bill .new{font:700 140px/1 Lora;color:#1a4a2a}
+<!-- @html -->
+      <svg id="keys" class="obj" style="left:290px;top:600px" width="500" height="600" viewBox="0 0 500 600">
+        <ellipse cx="250" cy="580" rx="170" ry="16" fill="url(#shadow)"/>
+        <circle cx="250" cy="120" r="90" fill="none" stroke="url(#brass)" stroke-width="22"/>
+        <g id="k1" transform="rotate(-18 250 210)"><rect x="232" y="200" width="36" height="260" rx="10" fill="url(#brass)"/><circle cx="250" cy="480" r="46" fill="url(#brass)"/><circle cx="250" cy="480" r="20" fill="#1a1206"/><rect x="268" y="240" width="46" height="22" fill="url(#brass)"/><rect x="268" y="290" width="34" height="22" fill="url(#brass)"/></g>
+        <g id="k2" transform="rotate(14 250 210)"><rect x="232" y="200" width="36" height="300" rx="10" fill="url(#brass)"/><circle cx="250" cy="520" r="42" fill="url(#brass)"/><circle cx="250" cy="520" r="18" fill="#1a1206"/><rect x="198" y="260" width="34" height="22" fill="url(#brass)"/><rect x="198" y="310" width="46" height="22" fill="url(#brass)"/></g>
+        <ellipse cx="205" cy="90" rx="14" ry="40" fill="#fff6d8" opacity=".35" transform="rotate(30 205 90)"/>
+      </svg>
+      <div id="lblKeys" class="label c" style="top:470px;font-size:36px">THE STEWARD'S KEYS</div>
+      <div id="lblLose" class="label c warn" style="top:470px;font-size:44px">NO LONGER STEWARD</div>
+      <svg id="strikeK" class="obj" style="left:240px;top:580px" width="600" height="640" viewBox="0 0 600 640"><path id="sK" d="M40 40 L560 600" stroke="#d9735a" stroke-width="22" stroke-linecap="round" fill="none"/></svg>
+      <svg id="shovel" class="obj" style="left:130px;top:640px" width="330" height="620" viewBox="0 0 330 620">
+        <rect x="150" y="20" width="30" height="400" rx="10" fill="url(#wood)"/><rect x="110" y="10" width="110" height="26" rx="12" fill="url(#wood)"/>
+        <path d="M80 400 L250 400 Q270 480 165 600 Q60 480 80 400 Z" fill="url(#steel)"/><ellipse cx="130" cy="470" rx="14" ry="44" fill="#fff" opacity=".3"/>
+      </svg>
+      <svg id="bowl" class="obj" style="left:600px;top:860px" width="380" height="300" viewBox="0 0 380 300">
+        <ellipse cx="190" cy="270" rx="150" ry="16" fill="url(#shadow)"/>
+        <path d="M30 80 Q40 250 190 260 Q340 250 350 80 Z" fill="url(#clay)"/><ellipse cx="190" cy="80" rx="160" ry="30" fill="#2a170a"/><ellipse cx="190" cy="80" rx="160" ry="30" fill="none" stroke="#e3a46c" stroke-width="5"/>
+      </svg>
+      <div id="lblDig" class="label warn" style="left:100px;top:540px;font-size:34px">CANNOT DIG</div>
+      <div id="lblBeg" class="label warn" style="left:600px;top:540px;font-size:28px">ASHAMED TO BEG</div>
+      <svg id="strikeS" class="obj" style="left:0;top:560px" width="1080" height="760" viewBox="0 0 1080 760">
+        <path id="sS1" d="M110 80 L440 700" stroke="#d9735a" stroke-width="20" stroke-linecap="round" fill="none"/>
+        <path id="sS2" d="M640 100 L970 600" stroke="#d9735a" stroke-width="20" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div id="bill1" class="bill" style="left:80px;top:780px;transform:rotate(-5deg)"><div class="k">OIL</div><div class="n"><span class="old" id="o1">100</span><span class="new" id="w1" style="display:none">50</span></div></div>
+      <div id="bill2" class="bill" style="left:620px;top:820px;transform:rotate(4deg)"><div class="k">WHEAT</div><div class="n"><span class="old" id="o2">100</span><span class="new" id="w2" style="display:none">80</span></div></div>
+      <div id="lblBills" class="label c" style="top:470px;font-size:36px">THE DEBTORS' BILLS</div>
+      <svg id="seal" class="obj" style="left:340px;top:700px" width="400" height="400" viewBox="0 0 400 400">
+        <circle cx="200" cy="210" r="150" fill="url(#brass)"/><circle cx="200" cy="210" r="118" fill="none" stroke="#5c4214" stroke-width="6"/>
+        <path d="M130 215 L180 265 L275 150" fill="none" stroke="#2a1c06" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M140 150 Q200 80 250 110" fill="none" stroke="#fff6d8" stroke-width="10" stroke-linecap="round" opacity=".4"/>
+      </svg>
+      <div id="lblWise" class="label c" style="top:470px;font-size:36px">COMMENDED · DONE WISELY</div>
+      <div id="lblAfter" class="label c" style="top:470px;font-size:36px">FOR WHAT COMES AFTER</div>
+<!-- @js -->
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.lose = at("lose his job"); T.dig = at("cannot dig"); T.beg = at("beg"); T.calls = at("he calls");
+  T.oil = at("oil"); T.fifty = at("fifty"); T.wheat = at("wheat"); T.four = at("fourscore");
+  T.commend = at("commends"); T.after = at("after");
+  K.camera(tl, [[0, T.dig, 1, 1.06], [T.dig, T.commend, 1.02, 1.07, 0, -8], [T.commend, K.EP.paper+.6, 1.03, 1.09]]);
+
+  // hook: the keys of the stewardship swing in
+  tl.fromTo("#keys", {opacity:0, y:-200, rotation:-6, transformOrigin:"50% 0%"}, {opacity:1, y:0, rotation:0, duration:1, ease:"back.out(1.3)"}, .15);
+  tl.to("#keys", {rotation:4, duration:.5, yoyo:true, repeat:5, ease:"sine.inOut", transformOrigin:"50% 0%"}, 1.2);
+  tl.fromTo("#glint", {attr:{x:-160}}, {attr:{x:560}, duration:1}, 1.0);
+
+  // he will lose it
+  tl.set("#strikeK", {opacity:1}, T.lose+.3); K.draw(tl, "#sK", T.lose+.3, .35, 760);
+  tl.to("#keys", {y:260, rotation:12, opacity:0, duration:.8, ease:"power3.in"}, T.dig-.9);
+  K.hide(tl, "#strikeK", T.dig-.5, {}, .3);
+
+  // cannot dig, ashamed to beg
+  K.show(tl, "#shovel", T.dig-.1, {y:60, rotation:-6}, .6); K.show(tl, "#lblDig", T.dig, {y:16}, .35);
+  K.show(tl, "#bowl", T.beg-.3, {y:60}, .6); K.show(tl, "#lblBeg", T.beg-.2, {y:16}, .35);
+  tl.set("#strikeS", {opacity:1}, T.dig+.4); K.draw(tl, "#sS1", T.dig+.4, .3, 760); K.draw(tl, "#sS2", T.beg+.1, .3, 600);
+  K.hide(tl, "#shovel,#bowl,#lblDig,#lblBeg,#strikeS", T.calls-.1, {y:40}, .4);
+
+  // the two bills are rewritten
+  K.show(tl, "#lblBills", T.calls, {y:16}, .35);
+  K.show(tl, "#bill1", T.calls+.3, {y:120, rotation:-8}, .6);
+  tl.set("#o1", {textDecoration:"line-through"}, T.fifty-.15);
+  tl.set("#o1", {display:"none"}, T.fifty); tl.set("#w1", {display:"inline"}, T.fifty);
+  tl.fromTo("#w1", {scale:.6}, {scale:1, duration:.4, ease:"back.out(2)", immediateRender:false}, T.fifty);
+  K.show(tl, "#bill2", T.wheat-.3, {y:120, rotation:8}, .6);
+  tl.set("#o2", {display:"none"}, T.four); tl.set("#w2", {display:"inline"}, T.four);
+  tl.fromTo("#w2", {scale:.6}, {scale:1, duration:.4, ease:"back.out(2)", immediateRender:false}, T.four);
+  K.hide(tl, "#bill1,#bill2,#lblBills", T.commend-.3, {y:40}, .35);
+
+  // commended: done wisely; time left used to prepare
+  K.show(tl, "#seal", T.commend, {scale:.5}, .5); K.show(tl, "#lblWise", T.commend, {y:16}, .35);
+  tl.to("#seal", {rotation:6, duration:.6, yoyo:true, repeat:3, ease:"sine.inOut"}, T.commend+.6);
+  tl.fromTo("#glint", {attr:{x:-160}}, {attr:{x:560}, duration:1}, T.commend+.3);
+  K.hide(tl, "#lblWise", T.after-.1, {}, .25); K.show(tl, "#lblAfter", T.after, {y:16}, .35);
+});
