@@ -1,0 +1,100 @@
+<!-- @config -->
+{"no":13,
+ "hook_html":"God tells Noah to build an ark<br>before the flood has come",
+ "turn_at":"Thus did Noah","turn_html":"Thus did Noah. <em>So did he.</em>","turn_size":110,"turn_hl":"So did he",
+ "question_at":"What are you building","question":"What are you building before you can see the need?",
+ "ref":"GENESIS 6 : 13–22","send":"Send this to someone building while the sky is clear.",
+ "theme":{"sky-a":"#2a3f66","sky-b":"#182a4d","sky-c":"#0d1a33","sky-d":"#060d1d"}}
+<!-- @css -->
+#land,#hull,#pitch,#deck0,#deck1,#deck2,#win,#door,#dims,#sacks,.lb,.plank{opacity:0}
+#bgWarm{background:radial-gradient(1100px 900px at 50% 40%, #12203f 0%, #0a1430 55%, #050a1a 100%)}
+<!-- @html -->
+      <svg id="land" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <path d="M-60 1210 Q300 1186 560 1206 T1160 1196 L1160 1420 L-60 1420 Z" fill="url(#rock)"/>
+        <path d="M-60 1210 Q300 1186 560 1206 T1160 1196" fill="none" stroke="#9aa6b3" stroke-width="3" opacity=".5"/>
+      </svg>
+      <svg id="ark" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><clipPath id="hullClip"><path d="M110 1030 L970 1030 L900 1200 Q540 1250 180 1200 Z"/></clipPath></defs>
+        <ellipse cx="540" cy="1215" rx="480" ry="18" fill="url(#shadow)"/>
+        <g id="hull">
+          <path d="M110 1030 L970 1030 L900 1200 Q540 1250 180 1200 Z" fill="url(#woodV)"/>
+          <g id="planks" clip-path="url(#hullClip)"></g>
+          <path d="M110 1030 L970 1030" stroke="#e3bb5c" stroke-width="3" opacity=".7"/>
+        </g>
+        <rect id="pitch" x="90" y="1020" width="900" height="240" fill="#0b0805" opacity="0" clip-path="url(#hullClip)"/>
+        <g id="deck0"><path d="M150 1090 L930 1090" stroke="#e3bb5c" stroke-width="4" opacity=".8"/></g>
+        <g id="deck1"><path d="M165 1140 L915 1140" stroke="#e3bb5c" stroke-width="4" opacity=".8"/></g>
+        <g id="deck2"><path d="M190 1190 L890 1190" stroke="#e3bb5c" stroke-width="4" opacity=".8"/></g>
+        <g id="cabin"><path d="M300 1030 L300 930 L780 930 L780 1030 Z" fill="url(#wood)" stroke="#3b2412" stroke-width="3"/><path d="M270 930 L540 860 L810 930 Z" fill="url(#leather)"/></g>
+        <g id="win"><rect x="500" y="950" width="80" height="50" rx="6" fill="#0a152b" stroke="url(#brass)" stroke-width="8"/><rect x="505" y="955" width="70" height="40" fill="url(#lit)" opacity=".35"/></g>
+        <g id="door"><rect x="780" y="1060" width="70" height="120" rx="6" fill="#241309" stroke="url(#brass)" stroke-width="6"/><circle cx="836" cy="1122" r="5" fill="#f3d58a"/></g>
+      </svg>
+      <svg id="dims" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g stroke="#e3bb5c" stroke-width="3" fill="none"><path d="M110 1290 L970 1290 M110 1276 L110 1304 M970 1276 L970 1304"/><path d="M1020 1030 L1020 1200 M1006 1030 L1034 1030 M1006 1200 L1034 1200"/></g>
+      </svg>
+      <svg id="sacks" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+            <div id="lbWood" class="label c lb" style="top:470px;font-size:38px">GOPHER WOOD</div>
+      <div id="lbPitch" class="label c lb" style="top:470px;font-size:38px">PITCH · WITHIN AND WITHOUT</div>
+      <div id="lbDims" class="label c lb" style="top:470px;font-size:36px">300 × 50 × 30 CUBITS</div>
+      <div id="lbWin" class="label c lb" style="top:470px;font-size:36px">A WINDOW · A DOOR</div>
+      <div id="lbStories" class="label c lb" style="top:470px;font-size:36px">THREE STORIES</div>
+      <div id="lbFood" class="label c lb" style="top:470px;font-size:36px">ALL THE FOOD THAT IS EATEN</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  const pl = document.getElementById("planks");
+  for(let r=0;r<8;r++){ mk("rect", {class:"plank", x:100, y:1030 + r*28, width:880, height:26, fill:r%2?"#8a5a30":"#a87646", stroke:"#2a170a", "stroke-width":2.5}, pl); }
+  const s = document.getElementById("sacks");
+  for(let i=0;i<6;i++){ const x = 230 + i*100, y = 1160; const g = mk("g", {class:"sk", transform:`translate(${x} ${y})`}, s);
+    mk("ellipse", {cx:0, cy:40, rx:40, ry:8, fill:"url(#shadow)"}, g);
+    mk("path", {d:"M-34 36 Q-44 -6 -14 -22 L-18 -34 L18 -34 L14 -22 Q44 -6 34 36 Z", fill:"url(#leather)", stroke:"#3a210f", "stroke-width":2}, g);
+    mk("path", {d:"M-16 -26 L16 -26", stroke:"#e3bb5c", "stroke-width":4}, g); }
+})();
+K.run(function(tl, K){
+  const at = K.at, T = {};
+  T.ark = at("an ark"); T.flood = at("the flood"); T.wood = at("Gopher wood"); T.pitch = at("pitch within"); T.dims = at("Three hundred");
+  T.fifty = at("fifty wide"); T.thirty = at("thirty high"); T.win = at("A window"); T.door = at("a door in the side"); T.three = at("three stories");
+  T.food = at("He gathers"); T.thus = at("Thus did Noah");
+  K.camera(tl, [[0, T.wood, 1, 1.05], [T.wood, T.food, 1.02, 1.07, 0, -6], [T.food, K.EP.paper+.6, 1.03, 1.09, 0, 8]]);
+  tl.set("#ark", {opacity:1}, 0);
+  tl.set("#hull", {opacity:0}, 0);
+  tl.set("#cabin", {opacity:0}, 0);
+
+  // hook: a dry hull rising on dry land
+  K.show(tl, "#land", .05, {y:60}, .8);
+  K.show(tl, "#hull", T.ark, {y:90}, .9);
+  K.show(tl, "#cabin", T.ark + .5, {y:-30}, .6);
+
+  // gopher wood: planks laid course by course
+  K.show(tl, "#lbWood", T.wood, {y:14}, .3);
+  tl.fromTo(".plank", {opacity:0, y:-12}, {opacity:1, y:0, duration:.25, stagger:.12, immediateRender:false}, T.wood);
+  tl.set(".plank", {opacity:1}, 0.0001);
+  K.hide(tl, "#lbWood", T.pitch - .1);
+  // pitch within and without
+  K.show(tl, "#lbPitch", T.pitch, {y:14}, .3);
+  tl.fromTo("#pitch", {opacity:0}, {opacity:.78, duration:1.4, ease:"sine.inOut"}, T.pitch);
+  K.hide(tl, "#lbPitch", T.dims - .1);
+  // dimensions
+  K.show(tl, "#lbDims", T.dims, {y:14}, .3);
+  K.show(tl, "#dims", T.dims + .2, {}, .5);
+  tl.fromTo("#dims", {scaleX:.6, transformOrigin:"50% 50%"}, {scaleX:1, duration:.9, ease:"power2.out"}, T.dims + .2);
+  K.hide(tl, "#lbDims", T.win - .1);
+  // window and door
+  K.show(tl, "#lbWin", T.win, {y:14}, .3);
+  K.show(tl, "#win", T.win, {scale:.6}, .4);
+  K.show(tl, "#door", T.door, {x:-30}, .4);
+  K.hide(tl, "#dims", T.three - .1, {}, .4);
+  K.hide(tl, "#lbWin", T.three - .1);
+  // three stories
+  K.show(tl, "#lbStories", T.three, {y:14}, .3);
+  K.show(tl, "#deck0", T.three, {x:-60}, .35);
+  K.show(tl, "#deck1", T.three + .25, {x:-60}, .35);
+  K.show(tl, "#deck2", T.three + .5, {x:-60}, .35);
+  K.hide(tl, "#lbStories", T.food - .1);
+  // food: sacks loaded into the lower deck
+  K.show(tl, "#lbFood", T.food, {y:14}, .3);
+  tl.set("#sacks", {opacity:1}, T.food);
+  tl.fromTo(".sk", {opacity:0, y:-60}, {opacity:1, y:0, duration:.35, ease:"bounce.out", stagger:.25, immediateRender:false}, T.food + .2);
+  tl.to("#sacks", {y:-18, duration:.1}, T.food + 1.9);
+});

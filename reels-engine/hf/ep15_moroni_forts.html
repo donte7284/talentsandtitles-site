@@ -1,0 +1,89 @@
+<!-- @config -->
+{"no":15,
+ "hook_html":"Captain Moroni builds walls<br>before the enemy arrives",
+ "turn_at":"Where are your weakest","turn_html":"Fortify <em>before the attack.</em>","turn_size":110,"turn_hl":"weakest walls",
+ "question_at":"Where are your weakest","question":"Where are your weakest walls?",
+ "ref":"ALMA 48 : 7–10 · 49 : 1–9","send":"Send this to someone who prepares in peacetime.",
+ "theme":{"sky-a":"#2a3f66","sky-b":"#182a4d","sky-c":"#0d1a33","sky-d":"#060d1d"}}
+<!-- @css -->
+#land,#bank,#wall,#shields,#foe,#arrows,.lb{opacity:0}
+#bgWarm{background:radial-gradient(1100px 900px at 50% 40%, #12203f 0%, #0a1430 55%, #050a1a 100%)}
+<!-- @html -->
+      <svg id="land" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <path d="M-60 1200 Q300 1180 560 1198 T1160 1190 L1160 1420 L-60 1420 Z" fill="url(#rock)"/>
+      </svg>
+      <svg id="bank" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><linearGradient id="earth" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9a6a3a"/><stop offset=".5" stop-color="#5a3719"/><stop offset="1" stop-color="#2a170a"/></linearGradient></defs>
+        <path d="M-60 1200 L120 1010 Q260 960 420 1000 L520 1200 Z" fill="url(#earth)"/>
+        <path d="M120 1010 Q260 960 420 1000" fill="none" stroke="#e0b277" stroke-width="3" opacity=".6"/>
+      </svg>
+      <svg id="wall" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g id="blocks"></g><ellipse cx="780" cy="1206" rx="320" ry="14" fill="url(#shadow)"/></svg>
+      <svg id="shields" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <svg id="foe" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <svg id="arrows" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lbEarth" class="label c lb" style="top:900px;font-size:36px">BANKS OF EARTH</div>
+      <div id="lbStone" class="label c lb" style="top:470px;font-size:36px">WALLS OF STONE</div>
+      <div id="lbWeak" class="label c lb" style="top:470px;font-size:36px">WEAKEST WALL · MOST SHIELDS</div>
+      <div id="lbCome" class="label c lb" style="top:470px;font-size:36px">AMMONIHAH</div>
+      <div id="lbRidge" class="label c lb" style="top:470px;font-size:36px">A RIDGE TOO HIGH</div>
+      <div id="lbAston" class="label c lb" style="top:470px;font-size:36px">ASTONISHED EXCEEDINGLY</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  // stone wall: 5 courses of blocks from x 520 to 1060
+  const b = document.getElementById("blocks");
+  for(let r=0;r<5;r++){ for(let c=0;c<7;c++){ const off = r%2 ? 40 : 0, x = 500 + c*80 - off, y = 1200 - (r+1)*52, w = 76;
+    if(x + w < 500 || x > 1090) continue;
+    mk("rect", {class:"blk", x:Math.max(x,500), y:y, width:Math.min(w, 1090 - Math.max(x,500)), height:48, rx:4, fill:"url(#stoneG)", stroke:"#2c2820", "stroke-width":3}, b); } }
+  // shields on the weakest stretch (right end): a stacked cluster of round steel shields
+  const s = document.getElementById("shields");
+  [[840,1100,52],[930,1100,52],[885,1030,52],[885,960,46],[800,1160,46],[885,1160,52],[975,1160,46]].forEach(([x,y,r],i)=>{
+    if(!r) return; const g = mk("g", {class:"sh", transform:`translate(${x} ${y})`}, s);
+    mk("circle", {r:r, fill:"url(#steel)", stroke:"#2c3138", "stroke-width":4}, g);
+    mk("circle", {r:r*.62, fill:"none", stroke:"#e3bb5c", "stroke-width":3, opacity:.8}, g);
+    mk("circle", {r:7, fill:"#e3bb5c"}, g); });
+  // incoming arrows and stones (fixed formulas)
+  const a = document.getElementById("arrows");
+  for(let i=0;i<7;i++){ const g = mk("g", {class:"ar", id:"ar"+i}, a);
+    mk("path", {d:"M0 0 L90 0", stroke:"#dfe8ef", "stroke-width":5, "stroke-linecap":"round"}, g);
+    mk("path", {d:"M90 0 L74 -9 M90 0 L74 9", stroke:"#dfe8ef", "stroke-width":5, "stroke-linecap":"round"}, g); }
+  const f = document.getElementById("foe");
+  [[-20,1020],[60,1070]].forEach(([x,y])=>{ mk("circle", {cx:x, cy:y, r:14, fill:"url(#stoneG)"}, f); });
+})();
+K.run(function(tl, K){
+  const at = K.at, T = {};
+  T.walls = at("builds walls"); T.enemy = at("the enemy arrives"); T.banks = at("banks of earth"); T.stone = at("walls of stone");
+  T.weak = at("weakest fortifications"); T.more = at("greater number"); T.come = at("the Lamanites come"); T.ridge = at("a ridge of earth");
+  T.arrows = at("stones and arrows"); T.chief = at("chief captains"); T.aston = at("astonished exceedingly"); T.where = at("Where are your weakest");
+  K.camera(tl, [[0, T.banks, 1, 1.05], [T.banks, T.come, 1.02, 1.07, 0, -6], [T.come, K.EP.paper+.6, 1.03, 1.09, 0, 8]]);
+  // hook: walls going up before anyone has come
+  K.show(tl, "#land", .05, {y:60}, .8);
+  tl.set("#wall", {opacity:1}, 0);
+  tl.fromTo(".blk", {opacity:0, y:-30}, {opacity:1, y:0, duration:.25, ease:"back.out(1.6)", stagger:.09, immediateRender:false}, T.walls);
+  // banks of earth
+  K.show(tl, "#bank", T.banks, {y:100}, .8);
+  K.show(tl, "#lbEarth", T.banks + .1, {y:14}, .3);
+  K.hide(tl, "#lbEarth", T.stone - .1);
+  K.show(tl, "#lbStone", T.stone, {y:14}, .3);
+  tl.fromTo("#wall", {x:0}, {x:0, duration:.1}, T.stone);
+  K.hide(tl, "#lbStone", T.weak - .5, {}, .2);
+  // weakest stretch gets the most shields
+  K.show(tl, "#lbWeak", T.weak, {y:14}, .3);
+  tl.set("#shields", {opacity:1}, T.more - .6);
+  tl.fromTo(".sh", {opacity:0, scale:.3, transformOrigin:"50% 50%"}, {opacity:1, scale:1, transformOrigin:"50% 50%", duration:.35, ease:"back.out(2)", stagger:.18, immediateRender:false}, T.more - .6);
+  K.hide(tl, "#lbWeak", T.come - .1);
+  // the Lamanites come: arrows and stones, they fall short of the high ridge
+  K.show(tl, "#lbCome", T.come, {y:14}, .3);
+  K.hide(tl, "#lbCome", T.ridge - .1);
+  K.show(tl, "#lbRidge", T.ridge, {y:14}, .3);
+  tl.set("#arrows", {opacity:1}, T.ridge);
+  for(let i=0;i<7;i++){ const t0 = T.ridge + .2 + i*.45, y0 = 780 + (i%4)*60;
+    tl.set("#ar"+i, {x:-120, y:y0, rotation:-12, scale:1.7, opacity:0}, 0);
+    tl.to("#ar"+i, {opacity:1, duration:.05}, t0);
+    tl.to("#ar"+i, {x:250 + (i%3)*30, y:y0 + 330 + (i%3)*20, rotation:48, duration:.9, ease:"power1.in"}, t0);
+    tl.to("#ar"+i, {opacity:0, duration:.3}, t0 + .9); }
+  K.hide(tl, "#lbRidge", T.chief - .1);
+  K.show(tl, "#lbAston", T.aston - .8, {y:14}, .3);
+  tl.to("#bank", {scale:1.04, transformOrigin:"20% 100%", duration:1.2, ease:"sine.out"}, T.aston - .8);
+});
