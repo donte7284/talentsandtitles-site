@@ -1,0 +1,197 @@
+<!-- @config -->
+{"no":14,
+ "hook_html":"A dishonest steward,<br>praised for<br>thinking ahead",
+ "turn_at":"Even a dishonest","turn_html":"Even a dishonest man <em>planned ahead.</em>","turn_size":100,"turn_hl":"planned ahead",
+ "question_at":"What is your plan","question":"What is your plan for the day the job ends?",
+ "ref":"LUKE 16 : 1–9","send":"Send this to someone who needs a plan B.",
+ "theme":{"sky-a":"#22355a","sky-b":"#15284a","sky-c":"#0b1932","sky-d":"#050c1a"}}
+<!-- @css -->
+#hook .big{font-size:92px}
+#key,#purse,#coins,#lblWaste,#ledger,#lblAccount,#strikeK,#lblNo,#spade,#bowl,#strikeS,#strikeB,#lblDig,#lblBeg,#bills,#lblDebtors,#lblOil,#lblWheat,#seal,#lblWisely{opacity:0}
+.bt{font:800 34px/1 Inter;letter-spacing:.28em;fill:#3a2a12}
+.bn{font:700 120px/1 Lora;fill:#2a1d0c}
+.bnew{font:700 120px/1 Lora;fill:#b48a2c}
+.st{font:800 26px/1 Inter;letter-spacing:.22em;fill:#3a2408}
+<!-- @html -->
+      <svg id="key" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><clipPath id="keyClip"><path d="M540 640 m-80 0 a80 80 0 1 0 160 0 a80 80 0 1 0 -160 0 Z M520 716 L560 716 L560 1080 L620 1080 L620 1110 L560 1110 L560 1140 L610 1140 L610 1170 L560 1170 L560 1200 L520 1200 Z"/></clipPath></defs>
+        <g id="keyG">
+          <ellipse cx="540" cy="1250" rx="140" ry="14" fill="url(#shadow)"/>
+          <circle cx="540" cy="640" r="80" fill="none" stroke="url(#brass)" stroke-width="30"/>
+          <circle cx="540" cy="640" r="80" fill="none" stroke="url(#brassV)" stroke-width="30"/>
+          <path d="M520 716 L560 716 L560 1080 L620 1080 L620 1110 L560 1110 L560 1140 L610 1140 L610 1170 L560 1170 L560 1200 L520 1200 Z" fill="url(#brass)"/>
+          <path d="M520 716 L560 716 L560 1200 L520 1200 Z" fill="url(#brassV)" opacity=".7"/>
+          <g clip-path="url(#keyClip)"><rect id="glint" x="300" y="500" width="70" height="800" fill="url(#glintG)" transform="skewX(-18)"/></g>
+        </g>
+      </svg>
+      <svg id="strikeK" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><path id="skl" d="M340 600 L740 1230" stroke="#d9735a" stroke-width="20" stroke-linecap="round" fill="none"/></svg>
+      <svg id="purse" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="purseG">
+          <ellipse cx="300" cy="1150" rx="150" ry="16" fill="url(#shadow)"/>
+          <path d="M200 900 Q160 1020 190 1110 Q220 1150 300 1150 Q380 1150 410 1110 Q440 1020 400 900 Q350 920 300 918 Q250 920 200 900 Z" fill="url(#leather)"/>
+          <path d="M200 900 Q250 922 300 920 Q350 922 400 900 Q370 870 300 872 Q230 870 200 900 Z" fill="#2a170a"/>
+          <path d="M214 916 Q300 944 386 916" fill="none" stroke="#e3bb5c" stroke-width="4" stroke-dasharray="10 9" opacity=".8"/>
+        </g>
+      </svg>
+      <svg id="coins" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lblWaste" class="label c warn" style="top:470px;font-size:32px">WASTING HIS MASTER'S GOODS</div>
+      <svg id="ledger" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <ellipse cx="540" cy="1150" rx="400" ry="20" fill="url(#shadow)"/>
+        <path d="M150 760 L540 790 L930 760 L930 1130 L540 1160 L150 1130 Z" fill="url(#leather)"/>
+        <path d="M172 770 L540 798 L540 1140 L172 1112 Z" fill="#f1e4c3"/><path d="M908 770 L540 798 L540 1140 L908 1112 Z" fill="#e9dab4"/>
+        <g stroke="#9c8a62" stroke-width="2" opacity=".7">
+          <path d="M200 830 L510 852 M200 880 L510 902 M200 930 L510 952 M200 980 L510 1002 M200 1030 L510 1052"/>
+          <path d="M570 852 L880 830 M570 902 L880 880 M570 952 L880 930 M570 1002 L880 980 M570 1052 L880 1030"/>
+        </g>
+        <path d="M540 798 L540 1140" stroke="#5a3a1e" stroke-width="5"/>
+        <path d="M520 830 L560 830" stroke="#d9735a" stroke-width="0"/>
+      </svg>
+      <div id="lblAccount" class="label c" style="top:470px;font-size:38px">GIVE AN ACCOUNT</div>
+      <div id="lblNo" class="label c warn" style="top:470px;font-size:38px">NO LONGER STEWARD</div>
+      <svg id="spade" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <ellipse cx="300" cy="1230" rx="120" ry="12" fill="url(#shadow)"/>
+        <rect x="288" y="640" width="24" height="400" rx="10" fill="url(#wood)"/>
+        <rect x="250" y="620" width="100" height="26" rx="12" fill="url(#woodV)"/>
+        <path d="M230 1030 L370 1030 L370 1140 Q300 1230 230 1140 Z" fill="url(#steel)"/>
+        <path d="M244 1040 L262 1040 L262 1140 Q252 1150 244 1140 Z" fill="#fff" opacity=".35"/>
+      </svg>
+      <svg id="strikeS" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><path id="ssl" d="M170 640 L430 1220" stroke="#d9735a" stroke-width="18" stroke-linecap="round" fill="none"/></svg>
+      <svg id="bowl" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <ellipse cx="780" cy="1150" rx="170" ry="18" fill="url(#shadow)"/>
+        <path d="M620 960 Q630 1130 780 1140 Q930 1130 940 960 Z" fill="url(#clay)"/>
+        <ellipse cx="780" cy="960" rx="160" ry="34" fill="#3a1f0c"/>
+        <ellipse cx="780" cy="960" rx="160" ry="34" fill="none" stroke="#e0a874" stroke-width="5"/>
+        <path d="M660 1000 Q680 1090 740 1110" stroke="#fff" stroke-width="6" opacity=".2" fill="none"/>
+      </svg>
+      <svg id="strikeB" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><path id="sbl" d="M620 880 L940 1200" stroke="#d9735a" stroke-width="18" stroke-linecap="round" fill="none"/></svg>
+      <div id="lblDig" class="label c warn" style="top:470px;font-size:38px">CANNOT DIG</div>
+      <div id="lblBeg" class="label c warn" style="top:470px;font-size:38px">ASHAMED TO BEG</div>
+      <svg id="bills" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><linearGradient id="parch" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f3e3bd"/><stop offset="1" stop-color="#cfb27a"/></linearGradient></defs>
+        <g id="bill0">
+          <ellipse cx="300" cy="1186" rx="190" ry="14" fill="url(#shadow)"/>
+          <rect x="120" y="640" width="360" height="540" rx="10" fill="url(#parch)"/><rect x="134" y="654" width="332" height="512" rx="6" fill="none" stroke="#9c7a2f" stroke-width="2.5"/>
+          <text x="300" y="712" text-anchor="middle" class="bt">OIL</text>
+          <g transform="translate(300 830)"><path d="M-40 60 Q-58 0 -28 -38 L-20 -58 L20 -58 L28 -38 Q58 0 40 60 Z" fill="url(#clay)"/><rect x="-24" y="-66" width="48" height="12" rx="5" fill="#5a3519"/><path d="M-26 -10 Q-34 20 -24 48" stroke="#fff" stroke-width="5" opacity=".3" fill="none"/></g>
+          <text id="n0" x="300" y="1060" text-anchor="middle" class="bn">100</text>
+          <path id="x0" d="M180 1040 L420 1000" stroke="#d9735a" stroke-width="12" stroke-linecap="round"/>
+          <text id="m0" x="300" y="1150" text-anchor="middle" class="bnew" style="font-size:88px">50</text>
+        </g>
+        <g id="bill1">
+          <ellipse cx="780" cy="1186" rx="190" ry="14" fill="url(#shadow)"/>
+          <rect x="600" y="640" width="360" height="540" rx="10" fill="url(#parch)"/><rect x="614" y="654" width="332" height="512" rx="6" fill="none" stroke="#9c7a2f" stroke-width="2.5"/>
+          <text x="780" y="712" text-anchor="middle" class="bt">WHEAT</text>
+          <g id="ear" transform="translate(780 830)"></g>
+          <text id="n1" x="780" y="1060" text-anchor="middle" class="bn">100</text>
+          <path id="x1" d="M660 1040 L900 1000" stroke="#d9735a" stroke-width="12" stroke-linecap="round"/>
+          <text id="m1" x="780" y="1150" text-anchor="middle" class="bnew" style="font-size:88px">80</text>
+        </g>
+      </svg>
+      <div id="lblDebtors" class="label c" style="top:470px;font-size:38px">HIS LORD'S DEBTORS</div>
+      <div id="lblOil" class="label c" style="top:470px;font-size:34px">100 MEASURES OF OIL → 50</div>
+      <div id="lblWheat" class="label c" style="top:470px;font-size:34px">100 OF WHEAT → FOURSCORE</div>
+      <svg id="seal" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="sealG">
+          <ellipse cx="540" cy="1000" rx="150" ry="20" fill="url(#shadow)"/>
+          <circle cx="540" cy="900" r="136" fill="url(#brass)"/><circle cx="540" cy="900" r="136" fill="url(#brassV)"/>
+          <circle cx="540" cy="900" r="108" fill="none" stroke="#5c4214" stroke-width="4"/>
+          <circle cx="540" cy="900" r="96" fill="none" stroke="#f6dc93" stroke-width="2" opacity=".7"/>
+          <text x="540" y="890" text-anchor="middle" class="st">DONE</text>
+          <text x="540" y="928" text-anchor="middle" class="st">WISELY</text>
+        </g>
+      </svg>
+      <div id="lblWisely" class="label c" style="top:470px;font-size:34px">THE LORD COMMENDS HIM</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  const cn = document.getElementById("coins");
+  for(let i=0;i<9;i++){ const g = mk("g", {class:"coin", id:"coin"+i}, cn);
+    mk("ellipse", {cx:0, cy:0, rx:30, ry:30, fill:"url(#brass)"}, g); mk("ellipse", {cx:0, cy:0, rx:22, ry:22, fill:"none", stroke:"#5c4214", "stroke-width":3}, g);
+    mk("ellipse", {cx:-9, cy:-10, rx:8, ry:5, fill:"#fff", opacity:.4}, g); }
+  const ear = document.getElementById("ear");
+  mk("path", {d:"M0 70 L0 -60", stroke:"#b88a3a", "stroke-width":5}, ear);
+  for(let k=0;k<6;k++){ const y = -50 + k*20; mk("ellipse", {cx:-12, cy:y, rx:10, ry:18, fill:"url(#barley)", transform:`rotate(-28 -12 ${y})`}, ear); mk("ellipse", {cx:12, cy:y+8, rx:10, ry:18, fill:"url(#barley)", transform:`rotate(28 12 ${y+8})`}, ear); }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.praised = at("praised"); T.accused = at("accused"); T.wasting = at("wasting"); T.give = at("give an account"); T.no = at("no longer");
+  T.thinks = at("He thinks"); T.dig = at("cannot dig"); T.beg = at("to beg"); T.calls = at("calls in"); T.oil = at("A hundred measures of oil");
+  T.fifty = at("Write fifty"); T.wheat = at("A hundred measures of wheat"); T.four = at("Write fourscore"); T.lord = at("And the lord");
+  T.commends = at("commends"); T.wisely = at("done wisely");
+  K.camera(tl, [[0, T.thinks, 1, 1.06], [T.thinks, T.calls, 1, 1.04, 0, -10], [T.calls, K.EP.paper+.6, 1.01, 1.07, 0, 10]]);
+
+  // hook: the steward's key, catching the light
+  tl.set("#keyG", {y:60, scale:.8, svgOrigin:"540 900"}, 0);
+  K.show(tl, "#key", .15, {y:80, rotation:-6}, .8);
+  tl.fromTo("#glint", {attr:{x:300}}, {attr:{x:760}, duration:1.1, ease:"power2.inOut"}, T.praised);
+
+  // accused: the purse tips and the goods roll out
+  tl.to("#keyG", {x:200, y:60, scale:.6, svgOrigin:"540 900", duration:.7, ease:K.IO}, T.accused - .2);
+  K.show(tl, "#purse", T.accused, {y:60}, .5);
+  tl.to("#purseG", {rotation:-38, svgOrigin:"300 1150", duration:.5, ease:"power2.inOut"}, T.wasting);
+  tl.set("#coins", {opacity:1}, T.wasting);
+  for(let i=0;i<9;i++){
+    tl.set("#coin"+i, {x:220, y:930, opacity:0}, 0);
+    tl.to("#coin"+i, {opacity:1, duration:.1}, T.wasting + .3 + i*.08);
+    tl.to("#coin"+i, {x:420 + i*62, y:1160 - (i%3)*30, rotation:360 + i*40, duration:.8, ease:"bounce.out"}, T.wasting + .3 + i*.08);
+  }
+  K.show(tl, "#lblWaste", T.wasting, {scale:1.2}, .35);
+  K.hide(tl, "#lblWaste", T.give - .2, {}, .2);
+
+  // give an account: the ledger opens
+  K.hide(tl, "#purse,#coins,#key", T.give - .3, {y:80}, .4);
+  K.show(tl, "#ledger", T.give - .1, {y:60, scale:.9}, .55);
+  K.show(tl, "#lblAccount", T.give, {y:16}, .35);
+  K.hide(tl, "#lblAccount", T.no - .2, {}, .2);
+
+  // no longer steward: the key returns, struck
+  tl.set("#keyG", {x:0, y:0, scale:.9, svgOrigin:"540 900"}, T.no - .3);
+  K.hide(tl, "#ledger", T.no - .3, {y:60}, .3);
+  K.show(tl, "#key", T.no - .2, {y:-60}, .35);
+  tl.set("#strikeK", {opacity:1}, T.no + .2); K.draw(tl, "#skl", T.no + .2, .3, 760);
+  tl.to("#key", {opacity:.4, filter:"saturate(.3) brightness(.7)", duration:.3}, T.no + .3);
+  K.show(tl, "#lblNo", T.no, {scale:1.25}, .35);
+  K.hide(tl, "#key,#strikeK,#lblNo", T.thinks - .1, {y:60}, .5);
+
+  // I cannot dig; to beg I am ashamed
+  K.show(tl, "#spade", T.thinks + .2, {y:60, rotation:-5}, .5);
+  K.show(tl, "#bowl", T.thinks + .4, {y:60}, .5);
+  tl.set("#strikeS", {opacity:1}, T.dig + .1); K.draw(tl, "#ssl", T.dig + .1, .3, 640);
+  tl.to("#spade", {opacity:.4, filter:"saturate(.3)", duration:.3}, T.dig + .25);
+  K.show(tl, "#lblDig", T.dig, {scale:1.2}, .3);
+  K.hide(tl, "#lblDig", T.beg - .15, {}, .2);
+  tl.set("#strikeB", {opacity:1}, T.beg + .5); K.draw(tl, "#sbl", T.beg + .5, .3, 460);
+  tl.to("#bowl", {opacity:.4, filter:"saturate(.3)", duration:.3}, T.beg + .65);
+  K.show(tl, "#lblBeg", T.beg, {scale:1.2}, .3);
+  K.hide(tl, "#spade,#bowl,#strikeS,#strikeB,#lblBeg", T.calls - .2, {y:60}, .4);
+
+  // the debtors' bills: oil 100 -> 50, wheat 100 -> 80
+  tl.set("#bills", {opacity:1}, T.calls);
+  tl.set("#x0,#x1,#m0,#m1", {opacity:0}, 0);
+  tl.fromTo("#bill0", {x:-500, rotation:-6, svgOrigin:"300 900"}, {x:0, rotation:-2, duration:.6, ease:E, svgOrigin:"300 900"}, T.calls);
+  tl.fromTo("#bill1", {x:500, rotation:6, svgOrigin:"780 900"}, {x:0, rotation:2, duration:.6, ease:E, svgOrigin:"780 900"}, T.calls + .2);
+  K.show(tl, "#lblDebtors", T.calls + .1, {y:16}, .35);
+  K.hide(tl, "#lblDebtors", T.oil - .2, {}, .2);
+  tl.to("#bill1", {opacity:.35, duration:.3}, T.oil);
+  tl.to("#bill0", {scale:1.08, svgOrigin:"300 900", duration:.4, ease:E}, T.oil);
+  K.show(tl, "#lblOil", T.oil, {y:16}, .35);
+  tl.fromTo("#x0", {opacity:1, strokeDasharray:250, strokeDashoffset:250}, {strokeDashoffset:0, duration:.3, ease:E, immediateRender:false}, T.fifty);
+  tl.to("#n0", {opacity:.4, duration:.3}, T.fifty + .2);
+  K.show(tl, "#m0", T.fifty + .3, {y:20, scale:.8}, .35);
+  K.hide(tl, "#lblOil", T.wheat - .2, {}, .2);
+  tl.to("#bill0", {opacity:.35, scale:1, svgOrigin:"300 900", duration:.4}, T.wheat);
+  tl.to("#bill1", {opacity:1, scale:1.08, svgOrigin:"780 900", duration:.4, ease:E}, T.wheat);
+  K.show(tl, "#lblWheat", T.wheat, {y:16}, .35);
+  tl.fromTo("#x1", {opacity:1, strokeDasharray:250, strokeDashoffset:250}, {strokeDashoffset:0, duration:.3, ease:E, immediateRender:false}, T.four);
+  tl.to("#n1", {opacity:.4, duration:.3}, T.four + .2);
+  K.show(tl, "#m1", T.four + .3, {y:20, scale:.8}, .35);
+  K.hide(tl, "#lblWheat", T.lord - .2, {}, .2);
+
+  // the lord commends him: a seal comes down between the bills
+  tl.to("#bill0,#bill1", {opacity:.45, scale:1, duration:.4}, T.lord);
+  tl.fromTo("#seal", {opacity:0, scale:1.6, transformOrigin:"540px 900px"}, {opacity:1, scale:1, duration:.4, ease:"power4.in", immediateRender:false}, T.commends);
+  tl.to("#stage", {x:-6, duration:.06, yoyo:true, repeat:3, ease:"none"}, T.commends + .4);
+  tl.fromTo("#sealG", {filter:"brightness(1)"}, {filter:"brightness(1.35)", duration:.3, yoyo:true, repeat:1}, T.wisely);
+  K.show(tl, "#lblWisely", T.commends, {y:16}, .35);
+});

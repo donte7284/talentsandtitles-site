@@ -1,0 +1,204 @@
+<!-- @config -->
+{"no":15,
+ "hook_html":"An army comes<br>for an easy target,<br>and finds walls",
+ "turn_at":"Build the wall","turn_html":"Build the wall <em>before</em> the army comes.","turn_size":100,"turn_hl":"before the army",
+ "question_at":"Where is your","question":"Where is your weakest wall?",
+ "ref":"ALMA 48 : 8–9 · 49 : 1–5","send":"Send this to someone bracing for a hard season."}
+<!-- @css -->
+#hook .big{font-size:88px}
+#ground,#city,#host,#wallH,#lblWalls,#plan,#forts,#banks,#stoneRing,#seams,#weak,#tokens,#lblForts,#lblBanks,#lblStone,#lblWeak,#lblMost,#lblAmm,#lblPrey,#ridge,#arrows,#lblRidge,#lblEffect,#lblAston{opacity:0}
+<!-- @html -->
+      <svg id="ground" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <linearGradient id="earthG" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7a5532"/><stop offset=".5" stop-color="#4a3220" stop-opacity=".85"/><stop offset="1" stop-color="#1f150c" stop-opacity="0"/></linearGradient>
+          <linearGradient id="stoneW" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#cfc6b2"/><stop offset=".5" stop-color="#958b78"/><stop offset="1" stop-color="#5a5446"/></linearGradient>
+          <linearGradient id="mound" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#a77a48"/><stop offset=".4" stop-color="#6e4a28"/><stop offset="1" stop-color="#3a2614"/></linearGradient>
+        </defs>
+        <path d="M-60 1100 L1140 1100 L1140 1300 L-60 1300 Z" fill="url(#earthG)"/>
+        <path d="M-60 1100 L1140 1100" stroke="#e3bb5c" stroke-width="3" opacity=".35"/>
+      </svg>
+      <svg id="city" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <ellipse cx="380" cy="1104" rx="260" ry="14" fill="url(#shadow)"/>
+        <g id="bldgs"></g>
+      </svg>
+      <svg id="host" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g id="hostG"></g></svg>
+      <svg id="wallH" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="wallHG"><rect x="590" y="900" width="70" height="200" fill="url(#stoneW)"/>
+          <g stroke="#4a4438" stroke-width="2.5"><path d="M590 940 L660 940 M590 980 L660 980 M590 1020 L660 1020 M590 1060 L660 1060 M625 900 L625 940 M610 940 L610 980 M640 980 L640 1020 M612 1020 L612 1060 M630 1060 L630 1100"/></g>
+          <path d="M590 900 L660 900" stroke="#e3bb5c" stroke-width="3" opacity=".7"/></g>
+      </svg>
+      <div id="lblWalls" class="label c" style="top:660px;font-size:34px">WALLS</div>
+
+      <svg id="plan" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <circle cx="540" cy="920" r="340" fill="#0a1428" opacity=".5"/>
+        <g id="planCity"></g>
+      </svg>
+      <svg id="banks" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <circle id="bankC" cx="540" cy="920" r="215" fill="none" stroke="url(#mound)" stroke-width="40"/>
+        <circle cx="540" cy="920" r="232" fill="none" stroke="#c49a62" stroke-width="3" opacity=".45"/>
+      </svg>
+      <svg id="stoneRing" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <circle id="ringC" cx="540" cy="920" r="270" fill="none" stroke="url(#stoneW)" stroke-width="26" transform="rotate(-90 540 920)"/>
+      </svg>
+      <svg id="seams" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <circle cx="540" cy="920" r="270" fill="none" stroke="#4a4438" stroke-width="26" stroke-dasharray="3 34"/>
+        <circle cx="540" cy="920" r="283" fill="none" stroke="#e3bb5c" stroke-width="2" opacity=".5"/>
+      </svg>
+      <svg id="forts" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <svg id="weak" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <path id="weakArc" d="M804 864 A270 270 0 0 1 804 976" fill="none" stroke="#d9735a" stroke-width="34" stroke-linecap="round" opacity=".9"/>
+      </svg>
+      <svg id="tokens" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lblForts" class="label c" style="top:470px;font-size:38px">SMALL FORTS</div>
+      <div id="lblBanks" class="label c" style="top:470px;font-size:38px">BANKS OF EARTH</div>
+      <div id="lblStone" class="label c" style="top:470px;font-size:38px">WALLS OF STONE</div>
+      <div id="lblWeak" class="label c warn" style="top:470px;font-size:38px">THE WEAKEST PLACE</div>
+      <div id="lblMost" class="label c" style="top:470px;font-size:38px">THE MOST MEN</div>
+
+      <svg id="ridge" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="ridgeG">
+          <path d="M540 1100 Q580 860 640 818 L750 812 Q790 840 810 1100 Z" fill="url(#mound)"/>
+          <path d="M750 812 Q790 840 810 1100 L760 1100 Q750 880 720 816 Z" fill="#000" opacity=".28"/>
+          <path d="M572 960 Q600 850 642 822 L748 816" stroke="#e8c48c" stroke-width="5" fill="none" opacity=".5"/>
+          <g fill="#2a1a0c" opacity=".5"><circle cx="620" cy="900" r="5"/><circle cx="700" cy="960" r="4"/><circle cx="650" cy="1040" r="6"/><circle cx="730" cy="870" r="4"/></g>
+        </g>
+      </svg>
+      <svg id="arrows" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <div id="lblAmm" class="label c" style="top:470px;font-size:38px">AMMONIHAH</div>
+      <div id="lblPrey" class="label c warn" style="top:470px;font-size:38px">"AN EASY PREY"</div>
+      <div id="lblRidge" class="label c" style="top:470px;font-size:36px">A RIDGE OF EARTH · SO HIGH</div>
+      <div id="lblEffect" class="label c" style="top:470px;font-size:34px">STONES AND ARROWS · NO EFFECT</div>
+      <div id="lblAston" class="label c" style="top:470px;font-size:34px">ASTONISHED EXCEEDINGLY</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  // side-view city: stone houses and a tower
+  const B = [[160,990,90,110],[260,940,110,160],[380,1000,80,100],[470,960,100,140],[300,870,50,70]];
+  const bl = document.getElementById("bldgs");
+  B.forEach(b => { mk("rect", {x:b[0], y:b[1], width:b[2], height:b[3], fill:"url(#stoneW)"}, bl);
+    mk("rect", {x:b[0], y:b[1], width:b[2], height:8, fill:"#e8dfcc", opacity:.6}, bl);
+    mk("rect", {x:b[0] + b[2]/2 - 10, y:b[1] + b[3] - 40, width:20, height:40, fill:"#1d1810"}, bl); });
+  // the host: spears and shields, in ranks
+  const hg = document.getElementById("hostG");
+  for(let r=0;r<3;r++) for(let c=0;c<5;c++){
+    const x = 740 + c*70 + r*30, y = 1100 - r*16, g = mk("g", {class:"sp"}, hg);
+    mk("path", {d:`M${x} ${y} L${x} ${y-200}`, stroke:"url(#wood)", "stroke-width":6}, g);
+    mk("path", {d:`M${x-9} ${y-196} L${x} ${y-236} L${x+9} ${y-196} Z`, fill:"url(#steel)"}, g);
+    mk("ellipse", {cx:x, cy:y-50, rx:26, ry:34, fill:r%2 ? "url(#leather)" : "url(#brass)", stroke:"#2a170a", "stroke-width":2}, g);
+  }
+  // plan view: city blocks, forts, men
+  const pc = document.getElementById("planCity");
+  for(let i=0;i<9;i++){ const x = 470 + (i%3)*48, y = 850 + Math.floor(i/3)*48; mk("rect", {x, y, width:40, height:40, rx:4, fill:"url(#stoneW)"}, pc); }
+  const ft = document.getElementById("forts");
+  for(let i=0;i<6;i++){ const a = (i*60 + 30)*Math.PI/180, x = 540 + 330*Math.cos(a), y = 920 + 330*Math.sin(a), g = mk("g", {class:"ft"}, ft);
+    mk("circle", {cx:x, cy:y, r:30, fill:"url(#stoneW)", stroke:"#e3bb5c", "stroke-width":3}, g);
+    mk("circle", {cx:x, cy:y, r:16, fill:"#4a4438"}, g); }
+  const tk = document.getElementById("tokens");
+  for(let i=0;i<16;i++){
+    let x, y;
+    if(i < 4){ const a = (90 + i*60)*Math.PI/180; x = 540 + 240*Math.cos(a); y = 920 + 240*Math.sin(a); }
+    else { const k = i - 4, row = Math.floor(k/4), col = k%4; x = 720 - row*34; y = 866 + col*36; }
+    const g = mk("g", {class:"tk", id:"tk"+i}, tk); g.dataset.x = x; g.dataset.y = y;
+    mk("circle", {cx:0, cy:0, r:14, fill:"url(#brass)", stroke:"#2a170a", "stroke-width":1.5}, g);
+    mk("circle", {cx:-4, cy:-4, r:4, fill:"#fff", opacity:.5}, g);
+  }
+  // arrows and stones flying from the host at the ridge
+  const ar = document.getElementById("arrows");
+  for(let i=0;i<7;i++){
+    const sx = 1000 - (i%3)*30, sy = 860 + (i%4)*20, ex = 800 - (i%2)*12, ey = 846 + i*34;
+    mk("path", {class:"arc", id:"arc"+i, d:`M${sx} ${sy} Q${(sx+ex)/2} ${sy-120} ${ex} ${ey}`, fill:"none", stroke:"#e8eef5", "stroke-width":5, "stroke-opacity":.9, "stroke-linecap":"round"}, ar);
+    const g = mk("g", {class:"hit", id:"hit"+i, transform:`translate(${ex} ${ey})`}, ar);
+    if(i%2){ mk("ellipse", {rx:12, ry:10, fill:"url(#stoneG)"}, g); }
+    else { mk("path", {d:"M0 0 L40 -10", stroke:"url(#wood)", "stroke-width":4}, g); mk("path", {d:"M0 0 L10 -8 L8 4 Z", fill:"url(#steel)"}, g); }
+  }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.army = at("army"); T.walls = at("walls"); T.moroni = at("Captain Moroni"); T.forts = at("small forts"); T.banks = at("banks of earth");
+  T.stone = at("walls of stone"); T.round = at("round about"); T.weak = at("weakest places"); T.most = at("the most men");
+  T.lam = at("The Lamanites"); T.amm = at("Ammonihah"); T.destroyed = at("destroyed"); T.prey = at("easy prey"); T.but = at("But the Nephites");
+  T.dug = at("dug"); T.high = at("so high"); T.stones = at("stones and arrows"); T.effect = at("cannot take effect"); T.chief = at("The chief captains");
+  T.aston = at("astonished");
+  K.camera(tl, [[0, T.moroni, 1, 1.05], [T.moroni, T.lam, 1, 1.05, 0, -10], [T.lam, K.EP.paper+.6, 1.01, 1.08, 0, 10]]);
+
+  // hook: a city, a host coming, and a wall that rises in its path
+  K.show(tl, "#ground", .05, {y:60}, .7);
+  K.show(tl, "#city", .2, {y:60}, .7);
+  tl.set("#host", {opacity:1}, 0);
+  tl.fromTo("#hostG", {x:500}, {x:0, duration:2.2, ease:"power2.out"}, T.army);
+  tl.set("#wallH", {opacity:1}, T.walls - .1);
+  tl.fromTo("#wallHG", {scaleY:0, svgOrigin:"625 1100"}, {scaleY:1, svgOrigin:"625 1100", duration:.45, ease:"back.out(1.4)"}, T.walls - .1);
+  tl.to("#stage", {y:6, duration:.06, yoyo:true, repeat:3, ease:"none"}, T.walls + .3);
+  tl.to("#hostG", {x:60, duration:.5, ease:"power2.out"}, T.walls + .3);
+
+  // Moroni's preparations, seen from above
+  tl.set("#plan,#forts,#banks,#stoneRing,#seams,#weak,#tokens", {scale:.9, y:-30, transformOrigin:"540px 920px"}, 0);
+  K.hide(tl, "#ground,#city,#host,#wallH", T.moroni - .2, {y:40}, .5);
+  K.show(tl, "#plan", T.moroni, {scale:.9}, .7);
+  tl.set("#forts", {opacity:1}, T.forts - .1);
+  tl.fromTo(".ft", {opacity:0, scale:.3, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)", stagger:.1}, T.forts - .1);
+  K.show(tl, "#lblForts", T.forts, {y:16}, .35);
+  K.hide(tl, "#lblForts", T.banks - .15, {}, .2);
+  tl.set("#banks", {opacity:1}, T.banks);
+  K.draw(tl, "#bankC", T.banks, .8, 1360);
+  K.show(tl, "#lblBanks", T.banks, {y:16}, .35);
+  K.hide(tl, "#lblBanks", T.stone - .15, {}, .2);
+  tl.set("#stoneRing", {opacity:1}, T.stone);
+  K.draw(tl, "#ringC", T.stone, 1.4, 1700);
+  K.show(tl, "#seams", T.round, {}, .5);
+  K.show(tl, "#lblStone", T.stone, {y:16}, .35);
+  K.hide(tl, "#lblStone", T.weak - .15, {}, .2);
+
+  // the weakest place gets the most men
+  tl.set("#weak", {opacity:1}, T.weak);
+  tl.fromTo("#weakArc", {opacity:0}, {opacity:.95, duration:.2, yoyo:true, repeat:3, ease:"none"}, T.weak);
+  K.show(tl, "#lblWeak", T.weak, {scale:1.2}, .35);
+  tl.set("#tokens", {opacity:1}, T.weak + .4);
+  for(let i=0;i<16;i++){ const g = document.getElementById("tk"+i);
+    tl.set(g, {x:540, y:920, opacity:0}, 0);
+    tl.to(g, {x:+g.dataset.x, y:+g.dataset.y, opacity:1, duration:.5, ease:E}, (i < 4 ? T.weak + .5 : T.most) + (i < 4 ? i*.08 : (i-4)*.06)); }
+  K.hide(tl, "#lblWeak", T.most - .15, {}, .2);
+  K.show(tl, "#lblMost", T.most, {y:16}, .35);
+  tl.to("#weakArc", {stroke:"#e3bb5c", duration:.5}, T.most + .9);
+  K.hide(tl, "#lblMost", T.lam - .2, {}, .2);
+
+  // Ammonihah: the host comes back for easy prey
+  K.hide(tl, "#plan,#forts,#banks,#stoneRing,#seams,#weak,#tokens", T.lam - .2, {scale:1.1}, .5);
+  tl.set("#wallH", {opacity:0}, T.lam);
+  K.show(tl, "#ground", T.lam, {y:40}, .5);
+  K.show(tl, "#city", T.lam + .1, {y:40}, .5);
+  tl.set("#host", {opacity:1}, T.lam);
+  tl.fromTo("#hostG", {x:520}, {x:60, duration:2.4, ease:"power1.out", immediateRender:false}, T.lam);
+  K.show(tl, "#lblAmm", T.amm, {y:16}, .35);
+  tl.to("#city", {filter:"brightness(.6)", duration:.4, yoyo:true, repeat:1}, T.destroyed);
+  K.hide(tl, "#lblAmm", T.prey - .2, {}, .2);
+  K.show(tl, "#lblPrey", T.prey, {scale:1.2}, .35);
+  K.hide(tl, "#lblPrey", T.dug - .2, {}, .2);
+
+  // a ridge of earth, so high
+  tl.set("#ridge", {opacity:1}, T.dug);
+  tl.fromTo("#ridgeG", {scaleY:0, svgOrigin:"675 1100"}, {scaleY:1, svgOrigin:"675 1100", duration:1.1, ease:"power2.out"}, T.dug);
+  tl.to("#stage", {y:6, duration:.07, yoyo:true, repeat:5, ease:"none"}, T.dug + .2);
+  K.show(tl, "#lblRidge", T.dug, {y:16}, .35);
+  tl.to("#hostG", {x:120, duration:.6, ease:"power2.out"}, T.high);
+  K.hide(tl, "#lblRidge", T.stones - .2, {}, .2);
+
+  // stones and arrows fly and fall short
+  tl.set("#arrows", {opacity:1}, T.stones);
+  tl.set(".hit", {opacity:0}, 0);
+  for(let i=0;i<7;i++){
+    const t0 = T.stones + i*.2;
+    tl.fromTo("#arc"+i, {strokeDasharray:400, strokeDashoffset:400, opacity:1}, {strokeDashoffset:0, duration:.35, ease:"power1.in", immediateRender:false}, t0);
+    tl.to("#arc"+i, {opacity:0, duration:.3}, t0 + .4);
+    tl.to("#hit"+i, {opacity:1, duration:.05}, t0 + .33);
+    tl.to("#hit"+i, {y:"+=" + (250 - i*34), rotation:i%2 ? 0 : 50, duration:.5, ease:"power2.in"}, t0 + .4);
+  }
+  K.show(tl, "#lblEffect", T.effect, {y:16}, .35);
+  K.hide(tl, "#lblEffect", T.chief - .2, {}, .2);
+
+  // the chief captains are astonished
+  tl.to("#hostG", {x:260, opacity:.5, duration:1.6, ease:"power1.inOut"}, T.chief);
+  tl.to("#ridgeG", {filter:"brightness(1.3)", duration:.8, ease:"sine.inOut"}, T.aston);
+  K.show(tl, "#lblAston", T.aston, {scale:1.2}, .4);
+});

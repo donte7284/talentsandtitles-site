@@ -1,0 +1,168 @@
+<!-- @config -->
+{"no":12,
+ "hook_html":"Go to school<br>with an ant",
+ "turn_at":"Nobody is coming","turn_html":"Nobody is coming to <em>make you start.</em>","turn_size":100,"turn_hl":"make you start",
+ "question_at":"What would you build","question":"What would you build this week if no one was watching?",
+ "ref":"PROVERBS 6 : 6–8","send":"Send this to someone who just became their own boss.",
+ "theme":{"sky-a":"#24375a","sky-b":"#162a4c","sky-c":"#0c1a33","sky-d":"#050c1a"}}
+<!-- @css -->
+#ground,#ant,#scroll,#lblWays,.plaque,.pstrike,#lblNoOne,#lblAlone,#sun,#stalks,#lblSummer,#store,#lblHarvest,#lblBefore{opacity:0}
+#bgWarm{background:radial-gradient(1100px 900px at 50% 30%, #6b4a1c 0%, #3a2a14 40%, #170f08 80%, #070402 100%)}
+.ptxt{font:800 34px/1 Inter;letter-spacing:.24em;fill:#2a1d0c}
+<!-- @html -->
+      <svg id="sun" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><radialGradient id="sunG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3c9"/><stop offset=".35" stop-color="#f3c96a" stop-opacity=".9"/><stop offset="1" stop-color="#e3a33c" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="820" cy="660" r="190" fill="url(#sunG)"/>
+      </svg>
+      <svg id="ground" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <linearGradient id="soil" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#8a5f34"/><stop offset=".25" stop-color="#5a3a1e"/><stop offset=".8" stop-color="#1f130a" stop-opacity=".7"/><stop offset="1" stop-color="#1f130a" stop-opacity="0"/></linearGradient>
+          <pattern id="grit" width="40" height="30" patternUnits="userSpaceOnUse"><circle cx="6" cy="8" r="2" fill="#c49a62" opacity=".35"/><circle cx="26" cy="20" r="1.6" fill="#2a1a0c" opacity=".5"/><circle cx="34" cy="4" r="1.2" fill="#e0b97c" opacity=".3"/></pattern>
+        </defs>
+        <path d="M-60 1020 Q240 990 540 1006 T1140 1000 L1140 1310 L-60 1310 Z" fill="url(#soil)"/>
+        <path d="M-60 1020 Q240 990 540 1006 T1140 1000 L1140 1260 L-60 1260 Z" fill="url(#grit)" opacity=".7"/>
+        <path d="M-60 1020 Q240 990 540 1006 T1140 1000" fill="none" stroke="#e3bb5c" stroke-width="3" opacity=".45"/>
+      </svg>
+      <svg id="stalks" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+      <svg id="store" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs><clipPath id="chamberClip"><ellipse cx="760" cy="1190" rx="170" ry="92"/></clipPath></defs>
+        <path d="M600 1012 Q620 1080 680 1120" fill="none" stroke="#120a04" stroke-width="34" stroke-linecap="round"/>
+        <ellipse cx="760" cy="1190" rx="176" ry="98" fill="#120a04"/>
+        <ellipse cx="760" cy="1190" rx="170" ry="92" fill="#1e1309"/>
+        <g clip-path="url(#chamberClip)"><g id="pile"></g></g>
+        <ellipse cx="760" cy="1190" rx="170" ry="92" fill="none" stroke="#e3bb5c" stroke-width="2.5" opacity=".5"/>
+      </svg>
+      <svg id="ant" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <radialGradient id="chitin" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#e09a5a"/><stop offset=".3" stop-color="#7a3a16"/><stop offset=".75" stop-color="#2e1206"/><stop offset="1" stop-color="#120602"/></radialGradient>
+        </defs>
+        <g id="antRig">
+          <ellipse cx="0" cy="62" rx="150" ry="14" fill="url(#shadow)"/>
+          <g id="legsA" stroke="#2a1206" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M-20 10 L-70 -10 L-110 58"/><path d="M0 14 L-20 -14 L-40 60"/><path d="M20 12 L60 -14 L96 58"/>
+          </g>
+          <g id="legsB" stroke="#3a1a08" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M-14 16 L-56 4 L-80 60"/><path d="M8 16 L28 -8 L22 60"/><path d="M26 14 L80 0 L128 56"/>
+          </g>
+          <ellipse cx="-96" cy="4" rx="70" ry="44" fill="url(#chitin)"/>
+          <ellipse cx="-110" cy="-14" rx="24" ry="10" fill="#fff" opacity=".28"/>
+          <ellipse cx="-24" cy="6" rx="12" ry="10" fill="#2a1206"/>
+          <ellipse cx="10" cy="4" rx="36" ry="22" fill="url(#chitin)"/>
+          <ellipse cx="2" cy="-6" rx="12" ry="5" fill="#fff" opacity=".28"/>
+          <ellipse cx="76" cy="-6" rx="38" ry="32" fill="url(#chitin)"/>
+          <ellipse cx="66" cy="-22" rx="12" ry="6" fill="#fff" opacity=".3"/>
+          <circle cx="94" cy="-14" r="6" fill="#0a0402"/><circle cx="92" cy="-16" r="2" fill="#fff" opacity=".6"/>
+          <g id="antennae" stroke="#2a1206" stroke-width="5" fill="none" stroke-linecap="round"><path d="M90 -32 L110 -84 L150 -96"/><path d="M80 -34 L86 -92 L124 -116"/></g>
+          <path d="M108 6 L126 18 M110 12 L124 -2" stroke="#2a1206" stroke-width="5" stroke-linecap="round"/>
+          <g id="carry" opacity="0"><ellipse cx="146" cy="6" rx="26" ry="15" fill="url(#barley)" transform="rotate(-20 146 6)"/><path d="M130 6 L162 2" stroke="#8a6420" stroke-width="2"/></g>
+        </g>
+      </svg>
+      <div id="lblWays" class="label c" style="top:470px;font-size:36px">CONSIDER HER WAYS</div>
+      <svg class="plaque obj" id="pl0" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <ellipse cx="540" cy="700" rx="250" ry="16" fill="url(#shadow)"/>
+        <rect x="300" y="590" width="480" height="100" rx="12" fill="url(#brass)"/><rect x="300" y="590" width="480" height="100" rx="12" fill="url(#brassV)"/>
+        <rect x="312" y="602" width="456" height="76" rx="8" fill="none" stroke="#5c4214" stroke-width="3"/>
+        <text x="540" y="652" text-anchor="middle" dominant-baseline="middle" class="ptxt">GUIDE</text>
+      </svg>
+      <svg class="pstrike obj" id="ps0" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><path id="psl0" d="M280 670 L800 612" stroke="#d9735a" stroke-width="16" stroke-linecap="round" fill="none"/></svg>
+      <svg class="plaque obj" id="pl1" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <ellipse cx="540" cy="830" rx="250" ry="16" fill="url(#shadow)"/>
+        <rect x="300" y="720" width="480" height="100" rx="12" fill="url(#brass)"/><rect x="300" y="720" width="480" height="100" rx="12" fill="url(#brassV)"/>
+        <rect x="312" y="732" width="456" height="76" rx="8" fill="none" stroke="#5c4214" stroke-width="3"/>
+        <text x="540" y="782" text-anchor="middle" dominant-baseline="middle" class="ptxt">OVERSEER</text>
+      </svg>
+      <svg class="pstrike obj" id="ps1" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><path id="psl1" d="M280 800 L800 742" stroke="#d9735a" stroke-width="16" stroke-linecap="round" fill="none"/></svg>
+      <svg class="plaque obj" id="pl2" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <ellipse cx="540" cy="960" rx="250" ry="16" fill="url(#shadow)"/>
+        <rect x="300" y="850" width="480" height="100" rx="12" fill="url(#brass)"/><rect x="300" y="850" width="480" height="100" rx="12" fill="url(#brassV)"/>
+        <rect x="312" y="862" width="456" height="76" rx="8" fill="none" stroke="#5c4214" stroke-width="3"/>
+        <text x="540" y="912" text-anchor="middle" dominant-baseline="middle" class="ptxt">RULER</text>
+      </svg>
+      <svg class="pstrike obj" id="ps2" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><path id="psl2" d="M280 930 L800 872" stroke="#d9735a" stroke-width="16" stroke-linecap="round" fill="none"/></svg>
+      <div id="lblNoOne" class="label c warn" style="top:470px;font-size:40px">NO ONE OVER HER</div>
+      <div id="lblAlone" class="label c" style="top:470px;font-size:36px">NO ONE GIVING ORDERS</div>
+      <div id="lblSummer" class="label c" style="top:470px;font-size:40px">SUMMER</div>
+      <div id="lblHarvest" class="label c" style="top:470px;font-size:36px">HARVEST · STORED</div>
+      <div id="lblBefore" class="label c" style="top:470px;font-size:34px">BEFORE ANYONE MAKES HER</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  // barley stalks along the back of the field
+  const st = document.getElementById("stalks");
+  for(let i=0;i<9;i++){
+    const x = 60 + i*120 + (i%2)*30, h = 300 + (i%3)*60, base = 1010;
+    const g = mk("g", {id:"stalk"+i}, st);
+    mk("path", {d:`M${x} ${base} Q${x+10} ${base-h/2} ${x+4} ${base-h}`, stroke:"#b88a3a", "stroke-width":5, fill:"none"}, g);
+    for(let k=0;k<6;k++){ const y = base - h + 10 + k*22;
+      mk("ellipse", {cx:x-10, cy:y, rx:9, ry:16, fill:"url(#barley)", transform:`rotate(-28 ${x-10} ${y})`}, g);
+      mk("ellipse", {cx:x+18, cy:y+8, rx:9, ry:16, fill:"url(#barley)", transform:`rotate(28 ${x+18} ${y+8})`}, g); }
+  }
+  // grain stored in the chamber, filled row by row
+  const pile = document.getElementById("pile");
+  for(let i=0;i<48;i++){
+    const r = Math.floor(i/12), c = i%12, x = 610 + c*27 + (r%2)*12, y = 1262 - r*24;
+    mk("ellipse", {class:"gr", cx:x, cy:y, rx:13, ry:8, fill:"url(#barley)", transform:`rotate(${(c%3-1)*18} ${x} ${y})`}, pile);
+  }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {};
+  T.go = at("Go to the ant"); T.consider = at("consider"); T.look = at("Look at what"); T.guide = at("guide");
+  T.over = at("overseer"); T.ruler = at("ruler"); T.nobody = at("Nobody stands"); T.tells = at("nobody tells");
+  T.still = at("Still"); T.summer = at("summer"); T.gathers = at("gathers"); T.harvest = at("harvest");
+  T.before = at("before anyone");
+  K.camera(tl, [[0, T.look, 1, 1.06], [T.look, T.still, 1, 1.05, 0, -10], [T.still, K.EP.paper+.6, 1.02, 1.08, 0, 10]]);
+
+  // hook: one small ant on the ground, walking in
+  K.show(tl, "#ground", .05, {y:80}, .8);
+  tl.set("#antRig", {x:1240, y:960, scale:1.25}, 0);
+  tl.set("#ant", {opacity:1}, 0);
+  tl.to("#antRig", {x:540, duration:2.2, ease:"power2.out"}, .2);
+  tl.to("#legsA", {rotation:6, svgOrigin:"0 14", duration:.18, yoyo:true, repeat:Math.ceil(K.dur/.18), ease:"sine.inOut"}, 0);
+  tl.to("#legsB", {rotation:-6, svgOrigin:"0 14", duration:.18, yoyo:true, repeat:Math.ceil(K.dur/.18), ease:"sine.inOut"}, 0);
+  tl.to("#antennae", {rotation:4, svgOrigin:"86 -32", duration:.6, yoyo:true, repeat:Math.ceil(K.dur/.6), ease:"sine.inOut"}, 0);
+
+  // go to the ant: the camera leans in on her
+  tl.to("#antRig", {scale:1.9, y:920, duration:1.4, ease:K.IO}, T.go);
+  K.show(tl, "#lblWays", T.consider, {y:16}, .35);
+  K.hide(tl, "#lblWays", T.look - .15);
+
+  // what she doesn't have: three brass plates, struck one by one
+  tl.to("#antRig", {scale:1.1, y:1130, x:540, duration:.8, ease:K.IO}, T.look);
+  const PT = [T.guide, T.over, T.ruler];
+  for(let i=0;i<3;i++){
+    K.show(tl, "#pl"+i, PT[i] - .35, {y:30, scale:.94}, .4);
+    tl.set("#ps"+i, {opacity:1}, PT[i] + .15);
+    K.draw(tl, "#psl"+i, PT[i] + .15, .3, 540);
+    tl.to("#pl"+i, {opacity:.45, filter:"saturate(.3) brightness(.75)", duration:.3}, PT[i] + .3);
+  }
+  K.show(tl, "#lblNoOne", T.nobody, {scale:1.25}, .35);
+  K.hide(tl, ".plaque,.pstrike", T.nobody + .1, {y:-30}, .5);
+  tl.to("#antRig", {scale:1.6, y:960, duration:1.0, ease:K.IO}, T.nobody + .2);
+  K.hide(tl, "#lblNoOne", T.tells - .15, {}, .25);
+  K.show(tl, "#lblAlone", T.tells, {y:16}, .35);
+  K.hide(tl, "#lblAlone", T.still - .2, {}, .25);
+
+  // summer: warm light, barley rises, she carries grain to the store
+  tl.to("#bgWarm", {opacity:.85, duration:1.2, ease:"sine.inOut"}, T.still);
+  K.show(tl, "#sun", T.still, {y:60, scale:.8}, 1.0);
+  tl.set("#stalks", {opacity:1}, T.still);
+  tl.fromTo("#stalks > g", {opacity:0, y:120}, {opacity:1, y:0, duration:.7, ease:E, stagger:.07}, T.still + .1);
+  tl.to("#antRig", {scale:1.05, x:300, y:1000, duration:1.0, ease:K.IO}, T.still + .2);
+  K.show(tl, "#lblSummer", T.summer - .1, {y:16}, .35);
+  tl.to("#carry", {opacity:1, duration:.2}, T.summer);
+  tl.to("#antRig", {x:560, duration:1.1, ease:"none"}, T.summer + .2);
+
+  // harvest: the chamber fills
+  K.hide(tl, "#lblSummer", T.gathers - .15, {}, .25);
+  K.show(tl, "#store", T.gathers - .2, {y:40}, .5);
+  tl.to("#antRig", {x:640, y:1080, scale:.8, duration:.7, ease:"power2.in"}, T.gathers);
+  tl.to("#carry", {opacity:0, duration:.15}, T.gathers + .7);
+  tl.to("#antRig", {x:430, y:1000, scale:1.05, duration:.8, ease:K.IO}, T.gathers + .8);
+  K.show(tl, "#lblHarvest", T.harvest, {y:16}, .35);
+  tl.fromTo("#pile .gr", {opacity:0, y:-30}, {opacity:1, y:0, duration:.25, ease:"back.out(2)", stagger:(T.before - T.gathers + .6)/48, immediateRender:false}, T.gathers + .3);
+  tl.set("#pile .gr", {opacity:0}, 0);
+  K.hide(tl, "#lblHarvest", T.before - .15, {}, .25);
+  K.show(tl, "#lblBefore", T.before, {y:16}, .35);
+  tl.to("#stalks > g", {rotation:3, svgOrigin:"540 1010", duration:1.2, yoyo:true, repeat:2, ease:"sine.inOut"}, T.still + 1);
+});
