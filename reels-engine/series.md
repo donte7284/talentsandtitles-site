@@ -89,22 +89,23 @@ Only an approval of the posted batch counts; a change request means revise, re-p
 | 9 | Ruth gleaning | RUTH 2 : 2–17 | `public/reels/parable-09-ruth-gleaning.mp4` | 34.6 s | Sun 1 Nov 2026, 10:00 PT |
 | 10 | Manna | EXODUS 16 : 14–20 | `public/reels/parable-10-manna.mp4` | 37.4 s | Mon 2 Nov 2026, 10:00 PT |
 | 11 | The brother of Jared's stones | ETHER 3 : 1–6 | `public/reels/parable-11-jared-stones.mp4` | 33.1 s | Wed 4 Nov 2026, 10:00 PT |
+| 12 | The ant (ink_wash) | PROVERBS 6 : 6–8 | `public/reels/parable-12-ant.mp4` | 30.9 s | Fri 20 Nov 2026, 10:00 PT |
+| 13 | Noah (stained_glass) | GENESIS 6 : 13–22 | `public/reels/parable-13-noah.mp4` | 37.6 s | Sun 22 Nov 2026, 10:00 PT |
+| 14 | The unjust steward (paper_cutout) | LUKE 16 : 1–9 | `public/reels/parable-14-unjust-steward.mp4` | 35.0 s | Mon 23 Nov 2026, 10:00 PT |
+| 15 | Captain Moroni's fortifications (claymation) | ALMA 48 : 8–9 · 49 : 1–9 | `public/reels/parable-15-moroni-forts.mp4` | 35.4 s | Wed 25 Nov 2026, 10:00 PT |
 
 Notes:
 - No. 1 originally said Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Changed to "The prophet asks her: what do you have in your house?" before it posted: re-voiced at speed 0.92 with pauses before "Nothing" and the punchline, `public/reels/parable-01-widows-oil.mp4` replaced, and both Oct 12 Metricool posts updated to the new video (media link `...parable-01-widows-oil.mp4?v=2`).
 - No. 3 follows the text's order: ore question (17:9), tools made (17:16), "Our brother is a fool" (17:17).
 - No. 4-7 come from the weekly run on branch `claude/busy-bardeen-rabemw` (Oct 17). An earlier run of the same four stories on `claude/busy-bardeen-aioc2z` (Oct 10) was not used. The Oct 18 slot had passed, so they went out Wed/Fri/Sun/Mon Oct 21-26.
 - No. 8-11 are the first episodes on the HyperFrames engine, built on `claude/hyperframes-engine` (Oct 28). The narrations run 91-105 spoken words, above the usual 75-95, so the videos are 33-37 s. Nothing was scheduled when the run started, and the Wed Oct 28 slot had passed, so they went out Fri/Sun/Mon/Wed Oct 30-Nov 4.
+- No. 12-15 are the first styled episodes (weekly run on `claude/stoic-rubin-gjs0lp`, Nov 18), in rotation order ink_wash, stained_glass, paper_cutout, claymation. Nothing was scheduled; the Wed Nov 18 slot had passed, so they go out Fri/Sun/Mon/Wed Nov 20-25. Donte approved the batch in the session. No. 14 rendered at 119 MB and was re-encoded (x264 crf 23) to 15 MB. Light story backgrounds (ink wash, paper, clay) need a dark band behind the captions. Don't use template ids (glass, wood, stone...) for episode elements.
 
 ## Story backlog
 Roughly one Book of Mormon story in every four. References checked against `scripture/`.
 
 | Story | Reference | The builder's turn (draft angle) |
 |---|---|---|
-| The ant | Proverbs 6:6-8 | No overseer, no boss; she works in summer for the winter. |
-| Noah | Genesis 6:13-22 | He built for rain nobody had seen. |
-| The unjust steward | Luke 16:1-9 | Even the dishonest manager planned ahead; "wiser in their generation". |
-| **Captain Moroni's fortifications** (BoM) | Alma 48:7-10; 49:1-9 | Prepared before the attack; the enemy was astonished. |
 | The mustard seed | Matthew 13:31-32 | The least of all seeds becomes the tree. |
 | The ten virgins | Matthew 25:1-13 | Five brought extra oil; preparation can't be borrowed at midnight. |
 | **Small and simple things** (BoM) | Alma 37:6-7 | Great things come by small means. |
