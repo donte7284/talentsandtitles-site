@@ -14,9 +14,9 @@ Everything a fresh production session needs. Read this first, then `AGENTS.md` a
 - **Timing follows the voice.** Every drawing beat lands on the word it illustrates; the cream page wipes up as the punchline starts; caption words appear as they are spoken.
 
 ## Rules
-- Never publish to `main` or schedule anything in Metricool without Donte's reply approving it in the same session. Reading Metricool is always fine. Never message anyone on his behalf.
+- Weekly runs publish to `main` and schedule in Metricool without waiting for Donte's reply (his decision, Nov 18 2026), but only episodes that pass every step-d check and whose details were verified with `verse.py`; anything else is held back and listed in the report. Reading Metricool is always fine. Never message anyone on his behalf.
 - Do not touch the website's pages, components, config or dependencies. Only add files under `reels-engine/` and `public/reels/`.
-- Send every finished video in the chat for review before it goes to `main`. Once Donte approves, pushing it to `public/reels/` on `main` is fine (commit only the reel files and `reels-engine/`; never other site files).
+- On `main`, commit only the reel files in `public/reels/` and `reels-engine/`; never other site files. Donte reviews after the fact and can pull or edit any post in Metricool before its slot.
 - Check every scripture detail against the text before it goes on screen or into a script: `python verse.py "2 Kings 4:1-7"`.
 - The voiced wording is the source of truth. Donte may reword lines; keep `narration/epNN_*.txt` in step.
 - Never print, request or look for the ElevenLabs API key; the environment adds it to requests to api.elevenlabs.io.
@@ -73,7 +73,7 @@ Follow this exactly when Donte asks for the weekly run. It needs no other contex
 
 Only an approval of the posted batch counts; a change request means revise, re-post, and ask again.
 
-**h. Never publish or schedule without Donte's reply in that session.** If he doesn't reply, do nothing further.
+**h. No approval wait on weekly runs.** Since Nov 18 2026 the Saturday scheduled task does step g itself after step d passes, then ends with a short report for Donte (each episode's title, style, slot, link and caption; anything held back and why; "To change or pull one, edit it in Metricool before its slot"). Steps f and g's approval wording apply only when Donte runs an episode by hand and asks to review it first.
 
 ## Episode log
 | No. | Title | Reference on screen | Public file | Length | Metricool (IG + FB) |
