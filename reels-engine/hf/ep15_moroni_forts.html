@@ -1,0 +1,287 @@
+<!-- @config -->
+{"no":15,
+ "hook_html":"They expect<br>easy prey",
+ "turn_at":"The work was done","turn_html":"The work was done <em>before the war came.</em>","turn_size":86,"turn_hl":"before the war came",
+ "question_at":"Where is your weakest wall","question":"Where is your weakest wall?",
+ "ref":"ALMA 48 : 8–9 · 49 : 1–9","send":"Send this to someone building before they need it.",
+ "theme":{"sky-a":"#3b2716","sky-b":"#2a1a0e","sky-c":"#1c1109","sky-d":"#100904","beam":"255,222,170"}}
+<!-- @css -->
+/* claymation set: a lit warm-tan clay diorama between a dark studio band on top (hook, labels)
+   and a dark band below (captions at y 1330 stay cream on dark) */
+#bgWarm{opacity:1;inset:auto;left:26px;right:26px;top:574px;height:722px;border-radius:46px;
+  background:
+    radial-gradient(760px 300px at 50% 12%, rgba(255,242,214,.55), rgba(255,242,214,0) 70%),
+    linear-gradient(180deg,#f8d8a4 0%,#f2c98a 27%,#e7ad6c 31%,#dc9452 48%,#c47a3e 78%,#a45f2b 100%);
+  box-shadow:inset 0 -40px 70px rgba(70,30,6,.45), inset 0 18px 30px rgba(255,255,255,.18), 0 30px 90px rgba(0,0,0,.65)}
+.beam{opacity:.18}
+#lblPrep,#lblForts,#lblBanks,#lblWalls,#lblRound,#lblWeak,#lblMost,#lblCome,#lblShield,#lblRidge,#lblNo,#lblShots,#lblChief,#lblAst,#lblBuilt{opacity:0}
+.label{text-shadow:0 3px 14px rgba(0,0,0,.6)}
+<!-- @html -->
+      <svg id="scene" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <radialGradient id="cTan" cx=".34" cy=".28" r=".85"><stop offset="0" stop-color="#fff0cf"/><stop offset=".45" stop-color="#f2c98a"/><stop offset="1" stop-color="#b9793d"/></radialGradient>
+          <radialGradient id="cCream" cx=".34" cy=".28" r=".9"><stop offset="0" stop-color="#fffdf2"/><stop offset=".5" stop-color="#efe6cf"/><stop offset="1" stop-color="#b5a582"/></radialGradient>
+          <radialGradient id="cEarth" cx=".34" cy=".2" r=".95"><stop offset="0" stop-color="#f0b679"/><stop offset=".45" stop-color="#c97f42"/><stop offset="1" stop-color="#7a4320"/></radialGradient>
+          <radialGradient id="cLand" cx=".42" cy=".3" r=".8"><stop offset="0" stop-color="#f6c88c"/><stop offset=".55" stop-color="#e2a262"/><stop offset="1" stop-color="#b06a33"/></radialGradient>
+          <radialGradient id="cRed" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#ff9a80"/><stop offset=".45" stop-color="#e94f37"/><stop offset="1" stop-color="#8a2313"/></radialGradient>
+          <radialGradient id="cPot" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#ec8f72"/><stop offset=".45" stop-color="#c8553d"/><stop offset="1" stop-color="#6e2618"/></radialGradient>
+          <radialGradient id="cBlue" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#9fd0f6"/><stop offset=".45" stop-color="#3f88c5"/><stop offset="1" stop-color="#1b4572"/></radialGradient>
+          <radialGradient id="cStone" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#f4ecdc"/><stop offset=".45" stop-color="#bfb09a"/><stop offset="1" stop-color="#6b5d4b"/></radialGradient>
+          <radialGradient id="cGold" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#fff0a6"/><stop offset=".45" stop-color="#f6c90e"/><stop offset="1" stop-color="#8f6a04"/></radialGradient>
+          <radialGradient id="cBronze" cx=".32" cy=".24" r=".9"><stop offset="0" stop-color="#ffe0a0"/><stop offset=".45" stop-color="#c99446"/><stop offset="1" stop-color="#5e3d12"/></radialGradient>
+          <linearGradient id="cPole" x1="0" x2="1"><stop offset="0" stop-color="#a8642a"/><stop offset=".5" stop-color="#8a4b16"/><stop offset="1" stop-color="#4f2a0b"/></linearGradient>
+          <radialGradient id="softSh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3a1a06" stop-opacity=".5"/><stop offset=".6" stop-color="#3a1a06" stop-opacity=".22"/><stop offset="1" stop-color="#3a1a06" stop-opacity="0"/></radialGradient>
+          <!-- fingerprint-y matte clay: faint thumb arcs -->
+          <pattern id="fp" width="90" height="70" patternUnits="userSpaceOnUse">
+            <g fill="none" stroke-linecap="round">
+              <path d="M10 30 Q25 14 42 28" stroke="#fff" stroke-opacity=".16" stroke-width="2"/>
+              <path d="M14 36 Q27 24 40 35" stroke="#fff" stroke-opacity=".10" stroke-width="2"/>
+              <path d="M52 58 Q66 44 82 56" stroke="#5a2a0a" stroke-opacity=".12" stroke-width="2"/>
+              <path d="M56 64 Q67 54 78 62" stroke="#5a2a0a" stroke-opacity=".08" stroke-width="2"/>
+              <path d="M60 14 Q70 8 80 16" stroke="#fff" stroke-opacity=".10" stroke-width="2"/>
+            </g>
+          </pattern>
+        </defs>
+        <g transform="translate(-72 -114) scale(1.12)">
+        <g id="land" opacity="0">
+          <ellipse cx="612" cy="1000" rx="410" ry="150" fill="url(#softSh)"/>
+          <ellipse cx="600" cy="962" rx="372" ry="160" fill="url(#cLand)"/>
+          <ellipse cx="600" cy="962" rx="372" ry="160" fill="url(#fp)"/>
+          <ellipse cx="560" cy="920" rx="210" ry="70" fill="#fff4dc" opacity=".16"/>
+        </g>
+        <g id="piles"></g>
+        <g id="ringBack"></g>
+        <g id="city"></g>
+        <g id="men"></g>
+        <g id="ringFront"></g>
+        <ellipse id="weakMark" cx="300" cy="950" rx="62" ry="78" fill="none" stroke="#d9735a" stroke-width="8" stroke-dasharray="18 12" opacity="0"/>
+        <g id="enemy" transform="translate(22 0)"></g>
+        <g id="shots"></g>
+        <g id="coins" opacity="0"></g>
+        </g>
+      </svg>
+      <div id="lblPrep" class="label c" style="top:470px;font-size:34px">MORONI · PREPARING</div>
+      <div id="lblForts" class="label c" style="top:470px;font-size:36px">SMALL FORTS</div>
+      <div id="lblBanks" class="label c" style="top:470px;font-size:36px">BANKS OF EARTH</div>
+      <div id="lblWalls" class="label c" style="top:470px;font-size:36px">WALLS OF STONE</div>
+      <div id="lblRound" class="label c" style="top:470px;font-size:32px">ROUND ABOUT THE LAND</div>
+      <div id="lblWeak" class="label c warn" style="top:470px;font-size:34px">WEAKEST PLACES</div>
+      <div id="lblMost" class="label c" style="top:470px;font-size:30px">WEAKEST PLACES · MOST MEN</div>
+      <div id="lblCome" class="label c warn" style="top:470px;font-size:36px">THEY COME</div>
+      <div id="lblShield" class="label c warn" style="top:470px;font-size:30px">SHIELDS · BREASTPLATES</div>
+      <div id="lblRidge" class="label c" style="top:470px;font-size:30px">A RIDGE OF EARTH · SO HIGH</div>
+      <div id="lblShots" class="label c warn" style="top:470px;font-size:34px">STONES · ARROWS</div>
+      <div id="lblNo" class="label c warn" style="top:470px;font-size:40px">NO EFFECT</div>
+      <div id="lblChief" class="label c warn" style="top:470px;font-size:34px">CHIEF CAPTAINS</div>
+      <div id="lblAst" class="label c warn" style="top:470px;font-size:30px">CHIEF CAPTAINS · ASTONISHED</div>
+      <div id="lblBuilt" class="label c" style="top:470px;font-size:32px">BUILT BEFORE THE NEED</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  const $ = id => document.getElementById(id);
+  const CX = 600, CY = 950, RX = 300, RY = 118, N = 16, FORTS = [2,6,10,14], WEAK = 8;
+  window.EP15 = {CX, CY, RX, RY, N, FORTS, WEAK};
+
+  // the ring: earth bank + stone wall per segment, back half behind the city, front half in front
+  const segs = [];
+  for(let i=0;i<N;i++){ const a = i*2*Math.PI/N; segs.push({i, x:CX+RX*Math.cos(a), y:CY+RY*Math.sin(a), s:Math.sin(a)}); }
+  segs.slice().sort((p,q) => p.y - q.y).forEach(sg => {
+    const i = sg.i, weak = i === WEAK, w = 66 + 52*Math.abs(sg.s), h = weak ? 20 : 34;
+    const outer = mk("g", {transform:`translate(${sg.x.toFixed(1)} ${sg.y.toFixed(1)})`}, sg.s < -0.01 ? $("ringBack") : $("ringFront"));
+    mk("ellipse", {id:"segSh"+i, cx:10, cy:6, rx:w/2+14, ry:13, fill:"url(#softSh)", opacity:0}, outer);
+    const bank = mk("g", {id:"bank"+i, opacity:0}, outer);
+    const d = `M${-w/2} 2 C${-w/2} ${-h*1.25} ${w/2} ${-h*1.25} ${w/2} 2 Z`;
+    mk("path", {d, fill:"url(#cEarth)"}, bank); mk("path", {d, fill:"url(#fp)"}, bank);
+    mk("ellipse", {cx:-w*.14, cy:-h*.62, rx:w*.22, ry:h*.16, fill:"#fff2d8", opacity:.28}, bank);
+    const st = mk("g", {id:"stw"+i}, outer); const sti = mk("g", {id:"st"+i, opacity:0}, st);
+    const n1 = weak ? 2 : 3, sw = w/(n1+.4);
+    for(let k=0;k<n1;k++) mk("ellipse", {cx:(k-(n1-1)/2)*sw, cy:-h*.92-9, rx:sw*.56, ry:12, fill:"url(#cStone)", stroke:"#6b5d4b", "stroke-opacity":.35, "stroke-width":1.5}, sti);
+    if(!weak) for(let k=0;k<n1-1;k++) mk("ellipse", {cx:(k-(n1-2)/2)*sw, cy:-h*.92-28, rx:sw*.54, ry:11, fill:"url(#cStone)", stroke:"#6b5d4b", "stroke-opacity":.35, "stroke-width":1.5}, sti);
+    if(FORTS.includes(i)){
+      const f = mk("g", {id:"fort"+i, opacity:0}, outer);
+      mk("ellipse", {cx:12, cy:6, rx:58, ry:16, fill:"url(#softSh)"}, f);
+      mk("path", {d:"M-40 0 L-40 -78 Q-40 -86 -32 -86 L32 -86 Q40 -86 40 -78 L40 0 Q0 14 -40 0 Z", fill:"url(#cStone)"}, f);
+      mk("path", {d:"M-40 0 L-40 -78 Q-40 -86 -32 -86 L32 -86 Q40 -86 40 -78 L40 0 Q0 14 -40 0 Z", fill:"url(#fp)"}, f);
+      for(let k=0;k<4;k++) mk("rect", {x:-40+k*22, y:-104, width:16, height:22, rx:6, fill:"url(#cStone)"}, f);
+      mk("rect", {x:-10, y:-44, width:20, height:40, rx:10, fill:"#5a3a1c"}, f);
+      mk("ellipse", {cx:-20, cy:-62, rx:8, ry:16, fill:"#fff", opacity:.25}, f);
+    }
+  });
+
+  // a clay banner token: pole, pennant, round base (no figures)
+  function token(parent, x, y, col, id, big){
+    const o = mk("g", {transform:`translate(${x} ${y})`}, parent);
+    const m = mk("g", {id:id+"m"}, o); const hp = mk("g", {id:id, opacity:0}, m);
+    const s = big ? 1.25 : 1;
+    mk("ellipse", {cx:8, cy:4, rx:30*s, ry:9*s, fill:"url(#softSh)"}, hp);
+    mk("ellipse", {cx:0, cy:0, rx:16*s, ry:8*s, fill:"url(#cPole)"}, hp);
+    mk("rect", {x:-5*s, y:-96*s, width:10*s, height:96*s, rx:5*s, fill:"url(#cPole)"}, hp);
+    const pen = mk("g", {id:id+"p", transform:`translate(${4*s} ${-92*s})`}, hp);
+    mk("path", {d:`M0 0 Q${30*s} ${4*s} ${54*s} ${16*s} Q${30*s} ${26*s} 0 ${34*s} Z`, fill:`url(#${col})`}, pen);
+    mk("circle", {cx:0, cy:-100*s, r:8*s, fill:"url(#cGold)"}, hp);
+    return hp;
+  }
+  // the city: rounded clay houses
+  const H = [[520,890,1],[610,878,1.1],[700,896,.95],[455,936,.9],[560,944,1.15],[662,950,1],[750,940,.9],[505,992,.85],[620,1004,.95]];
+  H.slice().sort((p,q) => p[1]-q[1]).forEach((h, k) => {
+    const o = mk("g", {transform:`translate(${h[0]} ${h[1]})`}, $("city")); const g = mk("g", {class:"hs", opacity:0}, o); const s = h[2];
+    mk("ellipse", {cx:10, cy:4, rx:42*s, ry:10*s, fill:"url(#softSh)"}, g);
+    mk("rect", {x:-30*s, y:-46*s, width:60*s, height:48*s, rx:12*s, fill:"url(#cCream)"}, g);
+    mk("path", {d:`M${-38*s} ${-40*s} Q${-36*s} ${-48*s} ${-26*s} ${-58*s} L${-6*s} ${-78*s} Q0 ${-84*s} ${6*s} ${-78*s} L${26*s} ${-58*s} Q${36*s} ${-48*s} ${38*s} ${-40*s} Z`, fill:k%3===1 ? "url(#cGold)" : "url(#cPot)"}, g);
+    mk("rect", {x:-8*s, y:-24*s, width:16*s, height:26*s, rx:8*s, fill:"#6a4022"}, g);
+  });
+  // the defenders' banners: most at the weak place, one at each fort
+  const MEN = [[352,912],[384,936],[350,960],[392,972],[426,948],[366,992],[420,1000]];
+  MEN.forEach((p, k) => token($("men"), p[0], p[1], "cBlue", "man"+k));
+  [[790,1026],[410,1026],[410,884],[790,884]].forEach((p, k) => token($("men"), p[0], p[1], "cBlue", "guard"+k));
+  // the Lamanite column: red pennants; the chief captains carry gold
+  const EN = [[110,968],[200,1004],[86,1046],[178,1086],[248,1120],[104,1140]];
+  EN.forEach((p, k) => {
+    const hp = token($("enemy"), p[0], p[1], k===0||k===3 ? "cGold" : "cRed", "en"+k, k===0||k===3);
+    const s = (k===0||k===3) ? 1.25 : 1;
+    const bp = mk("g", {id:"bp"+k, opacity:0, transform:`translate(0 ${-58*s})`}, hp);
+    mk("path", {d:"M-20 -16 Q0 -24 20 -16 L18 12 Q0 24 -18 12 Z", fill:"url(#cBronze)", stroke:"#5e3d12", "stroke-opacity":.4, "stroke-width":1.5}, bp);
+    mk("path", {d:"M0 -18 L0 16", stroke:"#5e3d12", "stroke-opacity":.35, "stroke-width":2}, bp);
+    const sh = mk("g", {id:"sh"+k, opacity:0, transform:`translate(16 ${-24*s})`}, hp);
+    mk("circle", {r:24, fill:"url(#cRed)", stroke:"#8a2313", "stroke-width":2}, sh);
+    mk("circle", {r:14, fill:"none", stroke:"#f6c90e", "stroke-width":5, "stroke-opacity":.9}, sh);
+    mk("circle", {r:5, fill:"url(#cGold)"}, sh);
+  });
+  // stockpiles while preparing: stone heaps and lumps of earth
+  [[470,1150,"cStone"],[540,1172,"cEarth"],[650,1166,"cStone"],[740,1150,"cEarth"],[820,1120,"cStone"],[400,1120,"cEarth"]].forEach((p, k) => {
+    const o = mk("g", {transform:`translate(${p[0]} ${p[1]})`}, $("piles")); const g = mk("g", {class:"pile", opacity:0}, o);
+    mk("ellipse", {cx:8, cy:6, rx:46, ry:11, fill:"url(#softSh)"}, g);
+    [[-20,0,18],[16,0,17],[-2,-8,19],[-8,-26,15],[12,-22,14]].forEach(b => mk("ellipse", {cx:b[0], cy:b[1], rx:b[2], ry:b[2]*.8, fill:`url(#${p[2]})`}, g));
+  });
+  // thrown stones and arrows
+  for(let k=0;k<5;k++){ const g = mk("g", {id:"ps"+k, opacity:0}, $("shots")); mk("ellipse", {rx:18, ry:15, fill:"url(#cStone)", stroke:"#6b5d4b", "stroke-opacity":.4, "stroke-width":1.5}, g); }
+  for(let k=0;k<4;k++){
+    const g0 = mk("g", {id:"pa"+k, opacity:0}, $("shots")); const g = mk("g", {transform:"scale(1.35)"}, g0);
+    mk("rect", {x:-30, y:-3, width:58, height:6, rx:3, fill:"url(#cPole)"}, g);
+    mk("path", {d:"M26 -9 Q40 0 26 9 Z", fill:"url(#cStone)"}, g);
+    mk("path", {d:"M-32 -9 L-22 0 L-32 9 Q-38 0 -32 -9 Z", fill:"url(#cRed)"}, g);
+  }
+  // the modern turn: walls become savings built before the need (a stack of clay coins)
+  for(let k=0;k<9;k++){
+    const g = mk("g", {id:"coin"+k, transform:`translate(600 ${1010 - k*22})`}, $("coins"));
+    mk("ellipse", {cx:0, cy:8, rx:78, ry:24, fill:"#8f6a04"}, g);
+    mk("ellipse", {cx:0, cy:0, rx:78, ry:24, fill:"url(#cGold)"}, g);
+    mk("ellipse", {cx:-18, cy:-6, rx:30, ry:7, fill:"#fff", opacity:.3}, g);
+  }
+  mk("ellipse", {cx:612, cy:1022, rx:120, ry:26, fill:"url(#softSh)"}, $("coins")).parentNode.insertBefore($("coins").lastChild, $("coins").firstChild);
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {}, P = K.EP.paper, D = K.dur, G = window.EP15;
+  T.army = at("army marches"); T.destroyed = at("destroyed"); T.once = at("once"); T.expect = at("expecting");
+  T.prep = at("But Moroni"); T.preparing = at("preparing"); T.forts = at("Small forts"); T.banks = at("Banks of earth"); T.walls = at("Walls of stone");
+  T.round = at("round about"); T.weak = at("In the weakest"); T.puts = at("he puts"); T.most = at("most men");
+  T.come = at("The Lamanites"); T.shields = at("shields"); T.bp = at("breastplates"); T.find = at("They find");
+  T.ridge = at("ridge of earth"); T.high = at("so high"); T.stones = at("their stones"); T.arrows = at("arrows");
+  T.cannot = at("cannot take"); T.chief = at("Their chief"); T.ast = at("astonished"); T.exc = at("exceedingly");
+  K.camera(tl, [[0, T.prep, 1, 1.04], [T.prep, T.weak, 1.0, 1.05], [T.weak, T.come, 1.03, 1.09, 0, -24],
+                [T.come, T.find, 1.0, 1.05], [T.find, T.chief, 1.02, 1.08, 0, -16], [T.chief, P + .6, 1.03, 1.08, -10, -24]]);
+  const pop = (sel, t, st, d) => tl.fromTo(sel, {opacity:0, scaleX:1.35, scaleY:.25, transformOrigin:"50% 100%"},
+    {opacity:1, scaleX:1, scaleY:1, transformOrigin:"50% 100%", duration:d||.6, ease:"elastic.out(1,.5)", stagger:st||0, immediateRender:false}, t);
+  const sw = (lbl, t, prev) => { if(prev) K.hide(tl, prev, t - .12, {}, .14); K.show(tl, lbl, t, {y:14}, .3); };
+  const ids = (p, list) => list.map(k => "#"+p+k).join(",");
+  const range = (a, b) => { const r = []; for(let i=a;i<=b;i++) r.push(i % G.N); return r; };
+
+  // hook: the land, the city, and a column of red banners marching on it
+  tl.fromTo("#land", {opacity:0, scaleY:.6, transformOrigin:"50% 100%"}, {opacity:1, scaleY:1, duration:.6, ease:"back.out(1.6)"}, .05);
+  pop(".hs", .2, .05);
+  for(let k=0;k<6;k++){
+    tl.set("#en"+k+"m", {x:-460}, 0); tl.set("#en"+k, {opacity:1}, 0);
+    tl.to("#en"+k+"m", {x:0, duration:2.2, ease:"power2.out"}, Math.max(.1, T.army - .25) + k*.06);
+    tl.fromTo("#en"+k, {y:0, scaleY:1}, {y:-12, scaleY:1.06, transformOrigin:"50% 100%", duration:.2, yoyo:true, repeat:Math.ceil(D/.2), ease:"sine.inOut"}, k*.07);
+    tl.to("#en"+k+"p", {scaleX:.78, transformOrigin:"0% 50%", duration:.32, yoyo:true, repeat:Math.ceil(D/.32), ease:"sine.inOut"}, k*.05);
+  }
+  // the city it destroyed once: houses squash flat, then stand again
+  tl.to(".hs", {scaleY:.18, scaleX:1.3, opacity:.55, transformOrigin:"50% 100%", duration:.22, ease:"power2.in", stagger:.025}, T.destroyed);
+  tl.to(".hs", {scaleY:1, scaleX:1, opacity:1, duration:.55, ease:"elastic.out(1,.45)", stagger:.025}, T.once);
+  tl.to(ids("en", [0,1,2,3,4,5]).split(",").map(s => s+"m").join(","), {x:46, duration:1.4, ease:"power1.inOut"}, T.expect);
+
+  // Moroni has been preparing: the column is gone, stockpiles of stone and earth arrive
+  tl.to(ids("en", [0,1,2,3,4,5]).split(",").map(s => s+"m").join(","), {x:-520, duration:.8, ease:"power2.in", stagger:.04}, T.prep - .1);
+  sw("#lblPrep", Math.max(T.prep, K.EP.hookOff + .45));
+  tl.fromTo(".pile", {opacity:0, y:-260}, {opacity:1, y:0, duration:.5, ease:"bounce.out", stagger:.22, immediateRender:false}, T.prep + .3);
+  tl.to(".pile", {scaleY:1.12, scaleX:.92, transformOrigin:"50% 100%", duration:.18, yoyo:true, repeat:1, stagger:.1}, T.preparing + .5);
+
+  // small forts, banks of earth, walls of stone, round about the land
+  sw("#lblForts", T.forts, "#lblPrep");
+  G.FORTS.forEach((f, k) => pop("#fort"+f, T.forts + k*.16, 0, .7));
+  const half = range(4, 12), rest = range(13, 19);
+  sw("#lblBanks", T.banks, "#lblForts");
+  pop(ids("bank", half), T.banks, .07); tl.to(ids("segSh", half), {opacity:1, duration:.3, stagger:.07}, T.banks);
+  tl.to(".pile", {opacity:0, scale:.3, transformOrigin:"50% 100%", duration:.35, stagger:.06}, T.banks + .2);
+  sw("#lblWalls", T.walls, "#lblBanks");
+  pop(ids("st", half), T.walls, .08, .5);
+  sw("#lblRound", T.round, "#lblWalls");
+  rest.forEach((i, k) => { pop("#bank"+i, T.round + k*.12, 0, .5); pop("#st"+i, T.round + .18 + k*.12, 0, .5); tl.to("#segSh"+i, {opacity:1, duration:.3}, T.round + k*.12); });
+  const all = range(0, 15);
+  tl.to(ids("stw", all), {y:-8, duration:.16, yoyo:true, repeat:1, ease:"sine.out", stagger:.04}, T.round + 1.0);
+
+  // the weakest places get the most men
+  sw("#lblWeak", T.weak, "#lblRound");
+  tl.fromTo("#weakMark", {opacity:0, scale:.6, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.4, ease:"back.out(2)"}, T.weak + .1);
+  tl.to("#weakMark", {scale:1.12, duration:.3, yoyo:true, repeat:3, ease:"sine.inOut"}, T.weak + .5);
+  tl.to("#bank8,#st8", {x:-4, duration:.08, yoyo:true, repeat:5}, T.weak + .25);
+  sw("#lblMost", T.puts, "#lblWeak");
+  tl.fromTo(ids("man", [0,1,2,3,4,5,6]), {opacity:0, y:-220}, {opacity:1, y:0, duration:.55, ease:"bounce.out", stagger:.1, immediateRender:false}, T.puts);
+  pop(ids("guard", [0,1,2,3]), T.most + .1, .08);
+  for(let k=0;k<7;k++) tl.to("#man"+k+"p", {scaleX:.78, transformOrigin:"0% 50%", duration:.3, yoyo:true, repeat:Math.ceil(D/.3), ease:"sine.inOut"}, T.puts + k*.04);
+  tl.to(ids("man", [0,1,2,3,4,5,6]), {scaleY:1.12, scaleX:.92, transformOrigin:"50% 100%", duration:.16, yoyo:true, repeat:1, stagger:.06}, T.most + .9);
+  K.hide(tl, "#weakMark", T.come - .4, {}, .3);
+
+  // the Lamanites come, with shields and breastplates
+  sw("#lblCome", T.come, "#lblMost");
+  for(let k=0;k<6;k++) tl.to("#en"+k+"m", {x:0, duration:1.0, ease:"power2.out"}, T.come + k*.06);
+  sw("#lblShield", T.shields, "#lblCome");
+  pop(ids("sh", [0,1,2,3,4,5]), T.shields, .07, .5);
+  pop(ids("bp", [0,1,2,3,4,5]), T.bp, .07, .5);
+  tl.to(ids("en", [0,1,2,3,4,5]).split(",").map(s => s+"m").join(","), {x:34, duration:.9, ease:"power2.inOut", stagger:.05}, T.bp + .6);
+
+  // a ridge of earth so high
+  sw("#lblRidge", T.find, "#lblShield");
+  const grow = (k, t) => all.forEach((i, j) => {
+    const h = i === G.WEAK ? 20 : 34;
+    tl.to("#bank"+i, {scaleY:k, scaleX:1 + (k-1)*.08, transformOrigin:"50% 100%", duration:.55, ease:"elastic.out(1,.55)"}, t + j*.03);
+    tl.to("#stw"+i, {y:-h*1.25*(k-1)*.78, duration:.55, ease:"elastic.out(1,.55)"}, t + j*.03);
+  });
+  grow(1.9, T.ridge); grow(2.6, T.high);
+
+  // their stones and arrows cannot take effect
+  const lob = (sel, t, x0, y0, x1, y1, peak, d, fx, fy, r0, r1, rf) => {
+    tl.set(sel, {x:x0, y:y0, rotation:r0, opacity:0}, 0); tl.set(sel, {opacity:1}, t);
+    tl.to(sel, {x:x1, rotation:r1, duration:d, ease:"none"}, t);
+    tl.to(sel, {y:peak, duration:d/2, ease:"power2.out"}, t); tl.to(sel, {y:y1, duration:d/2, ease:"power2.in"}, t + d/2);
+    tl.to(sel, {scaleX:.6, scaleY:1.3, duration:.08, yoyo:true, repeat:1}, t + d);
+    tl.to(sel, {x:fx, rotation:rf, duration:.6, ease:"power1.out"}, t + d); tl.to(sel, {y:fy, duration:.6, ease:"bounce.out"}, t + d);
+  };
+  sw("#lblShots", T.stones, "#lblRidge");
+  [[120,940,286,905],[200,990,282,930],[90,1020,280,960],[180,1060,292,985],[240,1090,300,1000]].forEach((p, k) =>
+    lob("#ps"+k, T.stones + k*.14, p[0], p[1], p[2], p[3], 720 + k*12, .5, p[2] - 46 - k*6, 1050 + k*14, 0, 160, 300));
+  [[150,930,276,900],[110,1000,278,935],[210,1050,286,975],[150,1100,294,1000]].forEach((p, k) =>
+    lob("#pa"+k, T.arrows + k*.12, p[0], p[1], p[2], p[3], 740 + k*10, .45, p[2] - 52 - k*8, 1064 + k*12, -40, 30, 170));
+  sw("#lblNo", T.cannot, "#lblShots");
+  tl.fromTo("#lblNo", {scale:1}, {scale:1.12, duration:.18, yoyo:true, repeat:1, transformOrigin:"50% 50%", immediateRender:false}, T.cannot);
+  tl.to(ids("en", [0,1,2,3,4,5]).split(",").map(s => s+"m").join(","), {x:0, duration:.8, ease:"power2.inOut", stagger:.05}, T.cannot + .9);
+
+  // their chief captains are astonished exceedingly
+  sw("#lblChief", T.chief, "#lblNo");
+  tl.to("#en0,#en3", {scaleY:1.3, scaleX:.85, transformOrigin:"50% 100%", duration:.22, yoyo:true, repeat:1, ease:"power2.out"}, T.chief + .2);
+  sw("#lblAst", T.ast, "#lblChief");
+  for(let k=0;k<6;k++){
+    tl.to("#en"+k+"m", {rotation:-16, x:-8, transformOrigin:"50% 100%", duration:.35, ease:"back.out(3)"}, T.ast + k*.05);
+    tl.to("#en"+k+"m", {rotation:-6, duration:.25, yoyo:true, repeat:2, ease:"sine.inOut"}, T.ast + .45 + k*.05);
+    tl.to("#en"+k+"m", {rotation:-24, x:-30, duration:.5, ease:"power2.out"}, T.exc + k*.04);
+  }
+
+  // turn: the walls become what you build before you need it
+  const tt = Math.min(T.exc + .25, P - .9);
+  sw("#lblBuilt", tt, "#lblAst");
+  tl.to(ids("st", all), {opacity:0, scale:.2, y:-60, transformOrigin:"50% 50%", duration:.3, stagger:.012, ease:"power2.in"}, tt);
+  tl.to(".hs,#men,#enemy,#shots", {opacity:0, duration:.3}, tt);
+  tl.set("#coins", {opacity:1}, tt + .1);
+  tl.fromTo("#coins > g", {opacity:0, y:"-=200"}, {opacity:1, y:"+=200", duration:.35, ease:"bounce.out", stagger:.05, immediateRender:false}, tt + .12);
+});
