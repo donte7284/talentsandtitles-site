@@ -1,0 +1,294 @@
+<!-- @config -->
+{"no":12,
+ "hook_html":"Sent to an ant<br>to learn",
+ "turn_at":"Nobody is coming","turn_html":"Nobody is coming to make you. <em>Gather in the summer.</em>","turn_size":80,"turn_hl":"Gather in the summer",
+ "question_at":"What are you gathering","question":"What are you gathering while nobody's watching?",
+ "ref":"PROVERBS 6 : 6–8","send":"Send this to someone who works without a boss."}
+<!-- @css -->
+/* ink wash (styles/build_fix.py ink_wash): rice paper #efe8d8, sumi ink, one red sun */
+#inkbg,#capband{position:absolute;inset:0;pointer-events:none}
+#inkbg{clip-path:circle(0px at 540px 900px)}
+#inkbg canvas{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:540px 900px}
+#capband{opacity:0}
+#hook{z-index:3}
+.label{color:#1b1b1d}
+.label.warn{color:#c4583f}
+#lblGo,#lblConsider,#lblWise,#lblNobody,#lblSummer,#lblHarvest,#lblIn,#lblNoOne,#count,#countSub{opacity:0}
+#hookAnt,#hills,#ground,#line1,#enso,#trail,#mark0,#mark1,#mark2,#strike0,#strike1,#strike2,#loneAnt,#wheat,#sun,#under,#heap,#carry,#card{opacity:0}
+#count{position:absolute;left:0;right:0;top:560px;text-align:center;font:700 128px/1 Lora;color:#1b1b1d}
+#countSub{position:absolute;left:0;right:0;top:700px;text-align:center;font:800 26px/1 Inter;letter-spacing:.34em;color:#5a5650}
+<!-- @html -->
+      <svg id="scene" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <filter id="wash" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="22" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation="2.4"/></filter>
+          <linearGradient id="soil" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1a1a1c" stop-opacity=".78"/><stop offset=".5" stop-color="#1a1a1c" stop-opacity=".5"/><stop offset="1" stop-color="#1a1a1c" stop-opacity=".22"/></linearGradient>
+          <radialGradient id="sunG" cx=".45" cy=".42" r=".6"><stop offset="0" stop-color="#d9735a"/><stop offset=".8" stop-color="#c85a40"/><stop offset="1" stop-color="#b44a34"/></radialGradient>
+          <clipPath id="carryClip"><rect x="300" y="900" width="232" height="140"/></clipPath>
+        </defs>
+        <g id="hookAnt"></g>
+        <g id="hills"></g>
+        <g id="sun"><circle cx="860" cy="700" r="92" fill="url(#sunG)" filter="url(#wash)" opacity=".92"/></g>
+        <g id="under">
+          <path d="M-60 1012 Q200 1000 420 1010 Q540 1016 700 1006 Q900 998 1140 1012 L1140 1310 L-60 1310 Z" fill="url(#soil)" filter="url(#wash)"/>
+          <path id="tunnel" d="M540 1004 Q520 1040 556 1062 Q590 1080 560 1100" fill="none" stroke="#efe8d8" stroke-width="30" stroke-linecap="round" filter="url(#rough)"/>
+          <ellipse id="chamber" cx="540" cy="1178" rx="262" ry="92" fill="#efe8d8" filter="url(#wash)"/>
+          <ellipse cx="540" cy="1178" rx="262" ry="92" fill="none" stroke="#1a1a1c" stroke-opacity=".35" stroke-width="5" filter="url(#rough)"/>
+        </g>
+        <g id="heap"></g>
+        <g id="wheat"></g>
+        <g id="ground"></g>
+        <g id="trail"></g>
+        <g id="line1"></g>
+        <g id="carry" clip-path="url(#carryClip)"></g>
+        <g id="loneAnt"></g>
+        <path id="enso" d="M676 880 C706 960 640 1060 540 1062 C430 1064 364 990 372 920 C380 840 460 790 548 794 C620 798 664 834 680 868" fill="none" stroke="#1a1a1c" stroke-width="16" stroke-linecap="round" filter="url(#rough)" opacity=".85"/>
+        <g font-family="Inter" font-weight="800" font-size="74" letter-spacing="6" fill="#1b1b1d" text-anchor="middle">
+          <text id="mark0" x="540" y="660">NO GUIDE</text>
+          <text id="mark1" x="540" y="800">NO OVERSEER</text>
+          <text id="mark2" x="540" y="940">NO RULER</text>
+        </g>
+        <path id="strike0" d="M290 632 Q540 618 792 628" fill="none" stroke="#d9735a" stroke-width="13" stroke-linecap="round" filter="url(#rough)"/>
+        <path id="strike1" d="M206 772 Q540 758 876 768" fill="none" stroke="#d9735a" stroke-width="13" stroke-linecap="round" filter="url(#rough)"/>
+        <path id="strike2" d="M290 912 Q540 898 792 908" fill="none" stroke="#d9735a" stroke-width="13" stroke-linecap="round" filter="url(#rough)"/>
+        <g id="card">
+          <rect x="232" y="560" width="616" height="430" rx="10" fill="#f7f2e6"/>
+          <rect x="232" y="560" width="616" height="430" rx="10" fill="none" stroke="#1b1b1d" stroke-width="5" filter="url(#rough)"/>
+          <text x="290" y="630" font-family="Inter" font-weight="800" font-size="26" letter-spacing="7" fill="#5a5650">ASSIGNED BY</text>
+          <text x="290" y="715" font-family="Lora" font-weight="700" font-size="72" fill="#1b1b1d">No one</text>
+          <g id="rows"></g>
+        </g>
+      </svg>
+      <div id="lblGo" class="label c" style="top:470px">GO TO THE ANT</div>
+      <div id="lblConsider" class="label c" style="top:470px">CONSIDER HER WAYS</div>
+      <div id="lblWise" class="label c" style="top:470px">AND BE WISE</div>
+      <div id="lblNobody" class="label c" style="top:470px">NOBODY STANDS OVER HER</div>
+      <div id="lblSummer" class="label c" style="top:470px">IN THE SUMMER</div>
+      <div id="lblHarvest" class="label c" style="top:470px">IN THE HARVEST</div>
+      <div id="lblIn" class="label c" style="top:470px">SHE GATHERS IT IN</div>
+      <div id="lblNoOne" class="label c warn" style="top:470px">NO ONE MAKES HER</div>
+      <div id="count">0</div>
+      <div id="countSub">SEEDS STORED</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg", INK = "#141416";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  const $ = id => document.getElementById(id);
+  let seed = 12; const rng = () => (seed = (seed*16807) % 2147483647, (seed-1)/2147483646);
+
+  /* --- ink-wash paper: port of the ink_wash shader (value-noise fbm ridges, wet wash, dry brush, mist), drawn once --- */
+  const h = (x,y) => { const s = Math.sin(x*127.1 + y*311.7)*43758.5453; return s - Math.floor(s); };
+  const n2 = (x,y) => { const ix=Math.floor(x), iy=Math.floor(y); let fx=x-ix, fy=y-iy; fx=fx*fx*(3-2*fx); fy=fy*fy*(3-2*fy);
+    const a=h(ix,iy), b=h(ix+1,iy), c=h(ix,iy+1), d=h(ix+1,iy+1); return a+(b-a)*fx + (c-a)*fy + (a-b-c+d)*fx*fy; };
+  const fbm = (x,y,o) => { let s=0, a=.5; for(let i=0;i<(o||5);i++){ s+=a*n2(x,y); x=x*2.03+1.7; y=y*2.03+9.2; a*=.5; } return s; };
+  const ridge = (x,sd,sh) => Math.pow(Math.abs(Math.sin(x*1.3+sd)),sh)*.55 + fbm(x*2.2,sd,4)*.55 + Math.pow(Math.abs(Math.sin(x*3.1+sd*2)),sh*1.4)*.18;
+  const W = 270, H = 480, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const X = cv.getContext("2d"), img = X.createImageData(W, H), px = img.data;
+  const tops = [0,1,2].map(L => { const r = []; for(let i=0;i<W;i++){ const x = (i/W)*.5625*(1.1+L*.4) + L*3.7; r.push(.468 + ridge(x, L*5.3+1, 2+L)*(.07+L*.018) - L*.012); } return r; });
+  for(let j=0;j<H;j++) for(let i=0;i<W;i++){
+    const u = i/W*.5625, y = 1 - j/H;
+    let pr = .965 - fbm(u*30, y*20, 3)*.025 - fbm(u*14, y*14, 4)*.05, pg = .925 - fbm(u*30, y*20, 3)*.025 - fbm(u*14, y*14, 4)*.05, pb = .845 - fbm(u*14+3, y*14, 3)*.05;
+    let ink = 0;
+    for(let L=0;L<3;L++){
+      const x = u*(1.1+L*.4) + L*3.7, top = tops[L][i], d = top - y;
+      if(d <= -.004) continue;
+      const edge = Math.min(1, (d+.004)/.008);
+      const wet = fbm(x*4, y*3+L, 4);
+      const body = Math.exp(-d*(34-L*7))*(.75+.4*wet);
+      let dens = (.13+L*.11)*edge*Math.min(1, body);
+      dens *= 1 - .4 + .4*(.55+.9*fbm(x*30, y*90, 3));
+      const m = .474 - y; dens *= 1 - .85*Math.max(0, Math.min(1, 1 - Math.abs(m - .02)/.03));
+      ink = ink + (1-ink)*dens;
+    }
+    const k = (j*W+i)*4;
+    px[k] = 255*(pr*(1-ink) + .07*ink); px[k+1] = 255*(pg*(1-ink) + .07*ink); px[k+2] = 255*(pb*(1-ink) + .08*ink); px[k+3] = 255;
+  }
+  X.putImageData(img, 0, 0);
+  const big = document.createElement("canvas"); big.width = 1080; big.height = 1920; const B = big.getContext("2d");
+  B.imageSmoothingEnabled = true; B.drawImage(cv, 0, 0, 1080, 1920);
+  for(let i=0;i<5200;i++){ B.fillStyle = `rgba(110,88,56,${(rng()*.06).toFixed(3)})`; B.fillRect(rng()*1080, rng()*1920, 2+rng()*34, 1); }
+  for(let i=0;i<1600;i++){ B.fillStyle = `rgba(255,255,255,${(rng()*.18).toFixed(3)})`; B.fillRect(rng()*1080, rng()*1920, 1, 1+rng()*3); }
+  const vg = B.createRadialGradient(540, 860, 520, 540, 860, 1250); vg.addColorStop(0, "rgba(90,70,40,0)"); vg.addColorStop(1, "rgba(90,70,40,.20)");
+  B.fillStyle = vg; B.fillRect(0, 0, 1080, 1920);
+  const bgWrap = document.createElement("div"); bgWrap.id = "inkbg"; bgWrap.appendChild(big);
+  const stage = $("stage"); stage.parentNode.insertBefore(bgWrap, stage);
+
+  /* --- sumi band behind the captions (keeps cream captions readable on paper) --- */
+  const band = document.createElement("canvas"); band.width = 1080; band.height = 1920; const C = band.getContext("2d");
+  C.fillStyle = "rgba(20,20,22,.86)"; C.beginPath();
+  for(let x=-20;x<=1100;x+=20) C.lineTo(x, 1300 + Math.sin(x*.013)*7 + Math.sin(x*.047+1)*4);
+  for(let x=1100;x>=-20;x-=20) C.lineTo(x, 1508 + Math.sin(x*.011+2)*8 + Math.sin(x*.053)*4);
+  C.closePath(); C.fill();
+  for(let i=0;i<220;i++){ const y = 1290 + rng()*228, x0 = -40 + rng()*300, len = 700 + rng()*500; C.strokeStyle = `rgba(20,20,22,${(.10+rng()*.22).toFixed(3)})`; C.lineWidth = 1 + rng()*3.5; C.beginPath(); C.moveTo(x0, y); C.lineTo(x0+len, y + (rng()-.5)*6); C.stroke(); }
+  const bw = document.createElement("div"); bw.id = "capband"; bw.appendChild(band); stage.parentNode.insertBefore(bw, stage.nextSibling);
+
+  /* --- brush helpers --- */
+  function taper(pts, w){ // filled stroke that swells in the middle, like the style's brush helper
+    const L = [], R = [];
+    for(let i=0;i<pts.length;i++){
+      const a = pts[Math.max(0,i-1)], b = pts[Math.min(pts.length-1,i+1)], dx = b[0]-a[0], dy = b[1]-a[1], l = Math.hypot(dx,dy)||1;
+      const u = i/(pts.length-1), ww = w*(.15 + .85*Math.sin(u*Math.PI)) * (.85 + .3*h(i, w));
+      L.push([pts[i][0] - dy/l*ww/2, pts[i][1] + dx/l*ww/2]); R.push([pts[i][0] + dy/l*ww/2, pts[i][1] - dx/l*ww/2]);
+    }
+    return "M" + L.map(p => p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L") + " L" + R.reverse().map(p => p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L") + " Z";
+  }
+  function ant(parent, x, y, s, col, carry){
+    const g = mk("g", {transform:`translate(${x} ${y}) scale(${s})`}, parent), f = col || INK;
+    const legs = (k, cls) => { const lg = mk("g", {class:cls}, g);
+      [[-4,-18],[2,-12],[8,-18]].forEach(([lx], i) => {
+        const sw = (i-1)*12 + (k ? 9 : -9);
+        mk("path", {d:`M${lx} 0 Q${lx+sw*.5} -14 ${lx+sw} -6 L${lx+sw*1.3} 6`, fill:"none", stroke:f, "stroke-width":2.6, "stroke-linecap":"round"}, lg);
+        mk("path", {d:`M${lx} 0 Q${lx-sw*.4} 14 ${lx-sw} 8 L${lx-sw*1.3} 20`, fill:"none", stroke:f, "stroke-width":2.6, "stroke-linecap":"round"}, lg);
+      }); return lg; };
+    legs(0, "legA"); legs(1, "legB");
+    mk("ellipse", {cx:-24, cy:-2, rx:17, ry:12, fill:f}, g);
+    mk("ellipse", {cx:-24, cy:-6, rx:8, ry:3, fill:"#fff", opacity:col ? 0 : .14}, g);
+    mk("ellipse", {cx:2, cy:-3, rx:10, ry:6.5, fill:f}, g);
+    mk("circle", {cx:19, cy:-6, r:8.5, fill:f}, g);
+    mk("path", {d:"M22 -12 Q30 -30 40 -26 M18 -13 Q22 -32 32 -34", fill:"none", stroke:f, "stroke-width":2.2, "stroke-linecap":"round"}, g);
+    if(carry) mk("ellipse", {cx:30, cy:-2, rx:9, ry:6, fill:"#b48a2c", stroke:INK, "stroke-width":1.5, transform:"rotate(-20 30 -2)"}, g);
+    return g;
+  }
+
+  // hook: one cream ant on the navy
+  ant($("hookAnt"), 0, 0, 2.2, "#f4ecd8");
+  // ground: a long dry brush line
+  const gpts = []; for(let x=-60;x<=1140;x+=30) gpts.push([x, 1010 + Math.sin(x*.009)*5 + Math.sin(x*.031+2)*2.5]);
+  mk("path", {d:taper(gpts, 14), fill:INK, filter:"url(#rough)", opacity:.9}, $("ground"));
+  for(let i=0;i<26;i++){ const x = 20 + i*41 + (i%3)*9, hh = 26 + (i*17)%34, lean = ((i*29)%20) - 10;
+    mk("path", {d:taper([[x,1012],[x+lean*.4,1012-hh*.5],[x+lean,1012-hh]], 5), fill:INK, opacity:.7, filter:"url(#rough)"}, $("ground")); }
+  // the line of ants
+  for(let i=0;i<9;i++) ant($("line1"), 540 - i*96, 994, 1.15);
+  // the trail behind them
+  for(let i=0;i<22;i++) mk("circle", {cx:500 - i*40, cy:1000 + Math.sin(i*.9)*3, r:3.2, fill:INK, opacity:.55}, $("trail"));
+  // lone ant
+  ant($("loneAnt"), 0, 0, 1.6);
+  // wheat on the left: stems + ears
+  const ears = [];
+  for(let i=0;i<7;i++){
+    const x = 70 + i*44, top = 760 + ((i*37)%70), bend = 18 + (i%3)*10;
+    const st = mk("path", {class:"stem", d:`M${x} 1012 Q${x+4} ${(top+1012)/2} ${x+bend} ${top}`, fill:"none", stroke:INK, "stroke-width":4.5, "stroke-linecap":"round", filter:"url(#rough)"}, $("wheat"));
+    for(let k=0;k<6;k++){ const ex = x+bend - k*1.5, ey = top + 6 + k*13;
+      ears.push(mk("ellipse", {class:"ear", cx:ex - 7, cy:ey, rx:9, ry:5, fill:INK, transform:`rotate(-35 ${ex-7} ${ey})`}, $("wheat")));
+      ears.push(mk("ellipse", {class:"ear", cx:ex + 7, cy:ey, rx:9, ry:5, fill:INK, transform:`rotate(35 ${ex+7} ${ey})`}, $("wheat"))); }
+    mk("path", {d:`M${x+bend} ${top} L${x+bend+4} ${top-30}`, stroke:INK, "stroke-width":1.5, fill:"none"}, $("wheat"));
+  }
+  // ants carrying seed toward the hole
+  for(let i=0;i<4;i++){ const g = ant($("carry"), 0, 0, 1.0, null, true); g.parentNode.removeChild(g); const w = mk("g", {id:"ca"+i}, $("carry")); w.appendChild(g); }
+  // heap: seeds fill the chamber from the floor up
+  const rowsN = [11,10,9,8,6,4]; let k = 0;
+  rowsN.forEach((n, r) => { for(let c=0;c<n;c++){ const x = 540 + (c-(n-1)/2)*22 + (r%2)*4, y = 1240 - r*13;
+    mk("ellipse", {id:"seed"+k, cx:x, cy:y, rx:10, ry:6, fill:"#b48a2c", stroke:INK, "stroke-width":1.6, transform:`rotate(${(k*37)%50-25} ${x} ${y})`, opacity:0}, $("heap")); k++; } });
+  // checklist rows on the card
+  for(let i=0;i<3;i++){ const y = 790 + i*62;
+    mk("rect", {x:290, y:y-22, width:38, height:38, rx:4, fill:"none", stroke:INK, "stroke-width":4, filter:"url(#rough)"}, $("rows"));
+    mk("path", {d:taper([[350,y],[520,y-2],[700-i*60,y+1]], 12), fill:INK, opacity:.75, filter:"url(#rough)"}, $("rows"));
+    mk("path", {id:"tick"+i, d:`M292 ${y-4} L306 ${y+12} L336 ${y-32}`, fill:"none", stroke:"#c4583f", "stroke-width":8, "stroke-linecap":"round", "stroke-linejoin":"round", filter:"url(#rough)"}, $("rows"));
+  }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {}, D = K.dur, P = K.EP.paper;
+  T.ant = at("ant to learn"); T.go = at("Go to the ant"); T.antComma = at("ant thou"); T.slug = at("sluggard");
+  T.consider = at("consider"); T.ways = at("ways"); T.wise = at("be wise");
+  T.she = at("She has no guide"); T.g = at("no guide"); T.o = at("No overseer"); T.r = at("No ruler"); T.nobody = at("Nobody stands");
+  T.yet = at("Yet she provides"); T.meat = at("meat"); T.summer = at("summer"); T.g1 = at("gathers her food"); T.harvest = at("harvest");
+  T.g2 = at("gathers", {from:T.harvest}); T.in = at("in and no"); T.noOne = at("no one makes"); T.makes = at("makes her");
+  T.do = at("do it"); T.it = at("it", {from:T.do});
+  K.camera(tl, [[0, T.go, 1, 1.03], [T.go, T.she, 1.0, 1.07, 0, -10], [T.she, T.yet, 1.0, 1.05], [T.yet, P + .6, 1.0, 1.07, 0, -14]]);
+
+  // legs: two poses, stepped
+  tl.set(".legB", {opacity:0}, 0);
+  tl.to(".legA", {opacity:0, duration:.14, ease:"steps(1)", yoyo:true, repeat:Math.ceil(D/.14)}, 0);
+  tl.to(".legB", {opacity:1, duration:.14, ease:"steps(1)", yoyo:true, repeat:Math.ceil(D/.14)}, 0);
+
+  // 1. hook on navy: an ant walks in under the card
+  tl.set("#hookAnt", {x:-140, y:905}, 0);
+  tl.set("#hookAnt", {opacity:1}, T.ant - .3);
+  tl.to("#hookAnt", {x:540, duration:T.go - T.ant + .3, ease:"power1.out"}, T.ant - .3);
+
+  // 2. "Go to the ant": the paper bleeds out from the ant, ink world appears
+  tl.to("#inkbg", {clipPath:"circle(1400px at 540px 900px)", duration:.9, ease:"power2.in"}, T.go - .1);
+  tl.fromTo("#inkbg canvas", {scale:1}, {scale:1.05, duration:P - T.go, ease:"none"}, T.go);
+  tl.to("#capband", {opacity:1, duration:.5}, T.go + .2);
+  tl.to("#vignette", {opacity:0, duration:.8}, T.go);
+  tl.to("#header", {color:"#8a6a26", duration:.6}, T.go + .2);
+  tl.to("#mark", {color:"rgba(30,28,24,.6)", duration:.6}, T.go + .2);
+  tl.to("#hookAnt", {opacity:0, duration:.3}, T.go + .45);
+  K.show(tl, "#lblGo", T.go + .65, {y:14}, .35);
+  K.show(tl, "#ground", T.go + .3, {y:20}, .5);
+  tl.set("#line1", {opacity:1, x:-560}, T.go);
+  tl.to("#line1", {x:0, duration:T.consider - T.go, ease:"power1.out"}, T.go + .3);
+  K.show(tl, "#trail", T.ways, {x:-40}, .5);
+  tl.fromTo("#trail circle", {opacity:0}, {opacity:.55, duration:.1, stagger:.025, immediateRender:false}, T.ways);
+  tl.fromTo("#ground path:not(:first-child)", {scaleY:0, transformOrigin:"50% 100%"}, {scaleY:1, transformOrigin:"50% 100%", duration:.4, stagger:.02, ease:E, immediateRender:false}, T.slug);
+
+  // consider her ways: an enso circles the lead ant
+  K.hide(tl, "#lblGo", T.consider - .15, {}, .2);
+  K.show(tl, "#lblConsider", T.consider, {y:14}, .35);
+  tl.set("#enso", {opacity:.85}, T.consider);
+  K.draw(tl, "#enso", T.consider, .9, 820);
+  tl.to("#line1", {x:60, duration:T.she - T.consider, ease:"none"}, T.consider);
+  K.hide(tl, "#lblConsider", T.wise - .15, {}, .2);
+  K.show(tl, "#lblWise", T.wise, {y:14}, .35);
+  tl.to("#enso", {scale:1.08, transformOrigin:"50% 50%", duration:.4, yoyo:true, repeat:1, ease:"sine.inOut"}, T.wise);
+
+  // 3. no guide, no overseer, no ruler: each mark on its word, then struck
+  K.hide(tl, "#lblWise", T.she - .2, {}, .2);
+  K.hide(tl, "#enso,#trail", T.she - .1, {}, .3);
+  tl.to("#line1", {x:700, duration:1.2, ease:"power1.in"}, T.she);
+  tl.to("#line1", {opacity:0, duration:.3}, T.she + .9);
+  [[T.g, T.o], [T.o, T.r], [T.r, T.nobody]].forEach(([t0, t1], i) => {
+    K.show(tl, "#mark"+i, t0, {y:20, scale:.92}, .35);
+    tl.set("#strike"+i, {opacity:1}, t0 + .45);
+    K.draw(tl, "#strike"+i, t0 + .45, .3, 640);
+    tl.to("#mark"+i, {fill:"#8a857c", duration:.3}, t0 + .55);
+  });
+  tl.set("#loneAnt", {x:-80, y:1000, opacity:1}, T.nobody - .2);
+  tl.to("#loneAnt", {x:540, duration:T.yet - T.nobody + .2, ease:"power1.out"}, T.nobody - .2);
+  K.show(tl, "#lblNobody", T.nobody + .1, {y:14}, .35);
+  tl.to("#mark0,#mark1,#mark2,#strike0,#strike1,#strike2", {y:-30, duration:T.yet - T.nobody, ease:"sine.inOut"}, T.nobody);
+
+  // 4. summer and harvest: wheat, the red sun, ants carry seed down to the store
+  K.hide(tl, "#lblNobody", T.yet - .2, {}, .2);
+  K.hide(tl, "#mark0,#mark1,#mark2,#strike0,#strike1,#strike2", T.yet - .1, {y:-30}, .35);
+  K.hide(tl, "#loneAnt", T.yet + .1, {x:40}, .3);
+  tl.set("#wheat", {opacity:1}, T.yet);
+  tl.set(".stem", {strokeDasharray:300, strokeDashoffset:300}, 0);
+  tl.to(".stem", {strokeDashoffset:0, duration:.6, stagger:.07, ease:E}, T.yet);
+  tl.fromTo(".ear", {opacity:0}, {opacity:1, duration:.15, stagger:.012, immediateRender:false}, T.yet + .35);
+  tl.set("#carry", {opacity:1}, T.meat - .3);
+  for(let i=0;i<4;i++){
+    tl.set("#ca"+i, {x:280, y:996}, 0);
+    tl.fromTo("#ca"+i, {x:280}, {x:556, duration:2.4, ease:"none", repeat:Math.ceil((P - T.meat)/2.4) + 1, immediateRender:false}, T.meat - .3 + i*.6);
+  }
+  tl.fromTo("#sun", {opacity:0, y:180}, {opacity:1, y:0, duration:1.0, ease:E, immediateRender:false}, T.summer - .2);
+  tl.to("#sun", {y:-20, duration:P - T.summer, ease:"none"}, T.summer + .8);
+  K.show(tl, "#lblSummer", T.summer, {y:14}, .35);
+  // the store opens and fills
+  tl.fromTo("#under", {opacity:0, clipPath:"inset(0 0 100% 0)"}, {opacity:1, clipPath:"inset(0 0 0% 0)", duration:.6, ease:E, immediateRender:false}, T.g1 - .1);
+  tl.set("#heap", {opacity:1}, T.g1);
+  K.show(tl, "#count,#countSub", T.g1 + .1, {y:16}, .35);
+  K.hide(tl, "#lblSummer", T.harvest - .15, {}, .2);
+  K.show(tl, "#lblHarvest", T.harvest, {y:14}, .35);
+  tl.to(".ear", {fill:"#b48a2c", duration:.5, stagger:.006}, T.harvest);
+  const N = 48, S0 = T.g1 + .35, S1 = T.in + .45;
+  for(let i=0;i<N;i++){
+    const tl0 = S0 + (S1 - S0)*i/N, el = "#seed"+i;
+    tl.fromTo(el, {opacity:0, x:0, y:-200}, {opacity:1, duration:.08, immediateRender:false}, tl0 - .25);
+    tl.to(el, {y:0, duration:.28, ease:"power2.in"}, tl0 - .25);
+  }
+  const cnt = {n:0}, cel = document.getElementById("count");
+  tl.to(cnt, {n:N, duration:S1 - S0, ease:"none", onUpdate:() => { cel.textContent = Math.round(cnt.n); }}, S0);
+  K.hide(tl, "#lblHarvest", T.g2 - .15, {}, .2);
+  K.show(tl, "#lblIn", T.g2, {y:14}, .35);
+  tl.to("#count", {scale:1.12, duration:.18, yoyo:true, repeat:1, ease:"sine.inOut"}, T.in);
+  tl.to("#heap", {scale:1.05, transformOrigin:"50% 100%", duration:.2, yoyo:true, repeat:1}, S1);
+
+  // 5. no one makes her: the same work, now nobody assigned it
+  K.hide(tl, "#lblIn", T.noOne - .15, {}, .2);
+  K.show(tl, "#lblNoOne", T.noOne, {y:14}, .35);
+  K.hide(tl, "#count,#countSub", T.noOne - .1, {y:-20}, .25);
+  tl.to("#sun", {opacity:.35, duration:.4}, T.noOne);
+  K.show(tl, "#card", T.noOne, {y:60, scale:.94}, .45);
+  [T.makes, T.do, T.it].forEach((t, i) => { tl.set("#tick"+i, {opacity:1}, 0); K.draw(tl, "#tick"+i, t, .25, 90); });
+});
