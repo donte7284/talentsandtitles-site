@@ -248,6 +248,7 @@ K.run(function(tl, K){
   T.and = at("And the lord"); T.commends = at("commends"); T.unjust = at("unjust steward"); T.because = at("because");
   T.wisely = at("done wisely");
   const hookOff = K.EP.hookOff;
+  tl.fromTo("#hook", {opacity:0}, {opacity:1, duration:.15, ease:"none", immediateRender:true}, .05); // panel arrives with its text
   K.camera(tl, [[0, T.thinks - .6, 1, 1.05], [T.thinks - .6, T.so - .2, 1.0, 1.045], [T.so - .2, T.and - .1, 1.0, 1.05], [T.and - .1, P + .6, 1.01, 1.06]]);
 
   // paper-cutout arrival: drop in from above with a little spin, settle with a bounce (build_b.py)
@@ -361,8 +362,8 @@ K.run(function(tl, K){
   lbl("#lblUnjust", T.unjust, T.wisely - .15);
   tl.to("#key", {rotation:-2, duration:.45, yoyo:true, repeat:1, ease:"sine.inOut"}, T.unjust + .9);
   // the stamp: done wisely
-  tl.fromTo("#stamp", {opacity:0, y:-520}, {opacity:1, y:-60, duration:.45, ease:"power2.out", immediateRender:false}, T.because - .1);
-  tl.to("#stamp", {y:140, duration:.16, ease:"power4.in"}, T.wisely - .12);
+  tl.fromTo("#stamp", {opacity:0, y:-520}, {opacity:1, y:50, duration:.45, ease:"power2.out", immediateRender:false}, T.because - .1);
+  tl.to("#stamp", {y:150, duration:.16, ease:"power4.in"}, T.wisely - .12);
   tl.set("#imprint", {opacity:1}, T.wisely + .04);
   tl.fromTo("#imprint", {scale:1.12, transformOrigin:"50% 50%"}, {scale:1, duration:.2, ease:E, immediateRender:false}, T.wisely + .04);
   tl.to("#stage", {x:-7, duration:.05, yoyo:true, repeat:3, ease:"none"}, T.wisely + .04);
