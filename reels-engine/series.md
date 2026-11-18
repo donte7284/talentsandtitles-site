@@ -110,7 +110,19 @@ Roughly one Book of Mormon story in every four. References checked against `scri
 | The ten virgins | Matthew 25:1-13 | Five brought extra oil; preparation can't be borrowed at midnight. |
 | **Small and simple things** (BoM) | Alma 37:6-7 | Great things come by small means. |
 
+| The talents | Matthew 25:14-29 | The one who buried his talent kept it safe and still lost it. (The account's namesake.) |
+| Nehemiah's wall | Nehemiah 4:6, 17 | Half the wall done because "the people had a mind to work"; one hand building, the other ready. |
+| Jethro's advice | Exodus 18:13-24 | Moses judged from morning to evening alone; "thou wilt surely wear away." Delegate. |
+| **Don't run faster than your strength** (BoM) | Mosiah 4:27 | Diligent, but in wisdom and order. Pace beats burnout. |
+| The lost coin | Luke 15:8-10 | One of ten missing; she lit a candle and swept until she found it. Track every unit. |
+| Waiting for perfect weather | Ecclesiastes 11:4-6 | "He that observeth the wind shall not sow." Start before conditions are ideal. |
+| Field before house | Proverbs 24:27 | Prepare the work in the field first, then build your house. Income before lifestyle. |
+| **The seed experiment** (BoM) | Alma 32:28-43 | Plant it, watch it swell, nourish it with patience. Test an idea small, then tend it. |
+| **Air in the barges** (BoM) | Ether 2:16-20 | The barges were built "tight like unto a dish"; he asked how they would breathe. Find the flaw before launch. |
+| **Line upon line** (BoM) | 2 Nephi 28:30 | "Here a little and there a little." Skills compound in small pieces. |
 Add new ideas at the bottom; mark a story done by moving it to the episode log.
+
+**Keep the backlog stocked (every weekly run):** before writing narrations, if fewer than eight stories would remain after this run's four, add new ones to the bottom until at least eight remain: stories that fit the series (a concrete action a builder can learn from), every reference checked with `verse.py`, about one in four from the Book of Mormon, no story already in the episode log. Name the added stories in the report.
 
 ## Captions
 - 1-3 lines, include the scripture reference, e.g. `(Luke 14:28–30)`. End on the episode's question.
