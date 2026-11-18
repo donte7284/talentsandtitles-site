@@ -1,0 +1,308 @@
+<!-- @config -->
+{"no":13,
+ "hook_html":"A blueprint,<br>down to the cubit",
+ "turn_at":"Not most of the plan","turn_html":"Not most of the plan. <em>All of it.</em>","turn_size":100,"turn_hl":"All of it",
+ "question_at":"Which part of the plan","question":"Which part of the plan are you skipping?",
+ "ref":"GENESIS 6 : 13–22","send":"Send this to someone halfway through the build.",
+ "theme":{"sky-a":"#2a1a10","sky-b":"#1d120a","sky-c":"#120a06","sky-d":"#070302","beam":"236,180,110"}}
+<!-- @css -->
+#sgCanvas{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.dl{position:absolute;font:800 26px/1 Inter;letter-spacing:.24em;color:var(--gold-hi);white-space:nowrap;opacity:0}
+.dl b{display:inline-block;font-weight:800;padding:9px 14px 8px 18px;background:rgba(18,10,6,.82);border:2px solid rgba(201,162,74,.6);border-radius:6px}
+#dLen{left:180px;width:580px;top:1142px;text-align:center}
+#dWid{left:92px;top:716px}
+#dHgt{left:15px;top:962px;width:220px;text-align:center;transform:rotate(-90deg)}
+#top{position:absolute;left:0;right:0;top:470px;text-align:center;height:40px}
+#top .t{position:absolute;left:0;right:0;opacity:0;font-size:30px;letter-spacing:.22em}
+#top .t s{text-decoration:none;opacity:0}
+#pips{position:absolute;left:0;right:0;top:522px;text-align:center;opacity:0;font-size:0}
+#pips i{display:inline-block;width:22px;height:22px;margin:0 9px;transform:rotate(45deg);background:#2a1a10;border:3px solid #0d0805;box-shadow:inset 0 0 0 2px rgba(201,162,74,.35)}
+#plan{position:absolute;left:110px;right:110px;top:905px;opacity:0;background:linear-gradient(180deg,#24170e,#160d07);border:4px solid #0d0805;border-radius:10px;box-shadow:0 0 0 3px rgba(201,162,74,.45),0 24px 60px rgba(0,0,0,.6);padding:14px 20px 12px}
+#plan .ph{position:relative;height:34px;font:800 24px/34px Inter;letter-spacing:.26em;color:var(--gold-hi)}
+#plan .ph span{position:absolute;left:0;top:0}
+#phB,#cnt span{opacity:0}
+#cnt{position:absolute;right:0;top:0;width:120px;height:34px}
+#cnt span{position:absolute;right:0;top:0}
+#plan .bar{height:8px;margin:6px 0 10px;background:#0d0805;border-radius:4px;overflow:hidden}
+#plan .bar b{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#b5651d,#f4a300,#e3bb5c)}
+#plan .row{position:relative;height:33px;margin:3px 0;display:flex;align-items:center}
+#plan .box{position:relative;width:28px;height:28px;flex:none;border:3px solid #0d0805;background:#3a2414;border-radius:4px;margin-right:18px}
+#plan .box b{position:absolute;inset:0;background:radial-gradient(circle at 35% 30%,#ffe7a3,#f4a300 55%,#9a5a0a);opacity:0}
+#plan .box svg{position:absolute;left:2px;top:1px;opacity:0}
+#plan .tx{position:relative;flex:1;height:33px;font:600 25px/33px Inter;letter-spacing:.12em;color:#f4ecd8}
+#plan .tx span{position:absolute;left:0;top:0;white-space:nowrap}
+#plan .tx .b{opacity:0;color:#f6dc93}
+<!-- @html -->
+      <canvas id="sgCanvas" width="1080" height="1920"></canvas>
+      <div id="dLen" class="dl"><b>300 CUBITS</b></div>
+      <div id="dWid" class="dl"><b>50 CUBITS</b></div>
+      <div id="dHgt" class="dl"><b>30 CUBITS</b></div>
+      <div id="top">
+        <div id="tWood" class="label c t">OF GOPHER WOOD</div>
+        <div id="tDims" class="label c t"><s id="d1">300</s><s id="d2"> · 50</s><s id="d3"> · 30 CUBITS</s></div>
+        <div id="tPitch" class="label c t">PITCH <s id="p1">WITHIN</s><s id="p2"> AND WITHOUT</s></div>
+        <div id="tRooms" class="label c t"><s id="r1">ROOMS</s><s id="r2"> · A WINDOW</s><s id="r3"> · A DOOR</s></div>
+        <div id="tStory" class="label c t"><s id="s1">LOWER</s><s id="s2"> · SECOND</s><s id="s3"> · THIRD</s></div>
+        <div id="tTwo" class="label c t">TWO OF EVERY SORT</div>
+        <div id="tFood" class="label c t"><s id="f1">ALL THE FOOD</s><s id="f2"> · GATHERED IN</s></div>
+        <div id="tThus" class="label c t">THUS DID NOAH</div>
+        <div id="tAll" class="label c t">ACCORDING TO ALL</div>
+        <div id="tSo" class="label c t">SO DID HE</div>
+      </div>
+      <div id="pips"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div id="plan">
+        <div class="ph"><span id="phA">THE PLAN · GENESIS 6</span><span id="phB">YOUR BUILD PLAN</span><div id="cnt"></div></div>
+        <div class="bar"><b id="barFill"></b></div>
+        <div id="rows"></div>
+      </div>
+<!-- @js -->
+(function(){
+  /* stained glass, ported from styles/build_a.py page('stained_glass'): jewel panes lit from behind,
+     dark lead lines, stone surround; redrawn from the timeline clock (pure function of t) */
+  const cv = document.getElementById("sgCanvas"), X = cv.getContext("2d");
+  const pr = (t,a,d) => Math.max(0, Math.min(1, (t-a)/d)), eo = x => 1 - Math.pow(1-x, 3), eio = x => x<.5 ? 4*x*x*x : 1 - Math.pow(-2*x+2, 3)/2;
+  const hash = i => { const s = Math.sin(i*12.9898 + 78.233)*43758.5453; return s - Math.floor(s); };
+  const hex = h => [parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)];
+  const rgb = (c, k, w) => { k = k==null ? 1 : k; w = w || 0; return `rgb(${c.map(v => Math.round(Math.min(255, v*k*(1-w) + 255*w))).join(",")})`; };
+  const J = {red:hex("#c1121f"), blue:hex("#1d4ed8"), gold:hex("#f4a300"), teal:hex("#0f766e"), violet:hex("#7c3aed"), orange:hex("#e85d04"), blue2:hex("#2563eb"), green:hex("#15803d")};
+  const WOOD = ["#b5651d","#c98a3a","#8a4b1a","#d9a043","#a35a1e","#bf7a2a"].map(hex);
+  const SKY = ["#1e3a8a","#312e81","#1d4ed8","#3b2a7a","#1e40af"].map(hex);
+  const SEA = ["#0f766e","#155e75","#1d4ed8","#115e59"].map(hex);
+  const ROOMC = [J.teal, J.blue2, J.violet, J.green, J.blue, J.teal];
+  const poly = pts => { X.beginPath(); X.moveTo(pts[0][0], pts[0][1]); for(let i=1;i<pts.length;i++) X.lineTo(pts[i][0], pts[i][1]); X.closePath(); };
+  const bbox = pts => { let a=1e9,b=1e9,c=-1e9,d=-1e9; pts.forEach(p => {a=Math.min(a,p[0]);b=Math.min(b,p[1]);c=Math.max(c,p[0]);d=Math.max(d,p[1]);}); return [a,b,c,d]; };
+  // one glass pane: dark base, jewel colour by how lit it is, top-light / bottom-shade, lead line
+  function pane(pts, col, lit, show, lead, white){
+    if(show <= 0) return;
+    poly(pts); X.globalAlpha = show; X.fillStyle = "#0b0604"; X.fill();
+    X.globalAlpha = show*(.16 + .84*lit); X.fillStyle = rgb(col, 1, white||0); X.fill();
+    if(lit > 0){ const b = bbox(pts), g = X.createLinearGradient(b[0], b[1], b[0]+(b[2]-b[0])*.3, b[3]);
+      g.addColorStop(0, "rgba(255,244,214,.34)"); g.addColorStop(.45, "rgba(255,244,214,0)"); g.addColorStop(1, "rgba(0,0,0,.42)");
+      X.globalAlpha = show*lit; X.fillStyle = g; X.fill(); }
+    X.globalAlpha = show; X.strokeStyle = "#0d0805"; X.lineWidth = lead || 7; X.lineJoin = "round"; X.stroke(); X.globalAlpha = 1;
+  }
+  // window panel (segmental arch) and geometry of the ark (a box: front, deck, end, roof with the window)
+  const WX0 = 90, WX1 = 990, WY0 = 650, WTOP = 600, WY1 = 1262, R = 2050, CY = WTOP + R;
+  const a0 = Math.atan2(WY0-CY, WX0-540), a1 = Math.atan2(WY0-CY, WX1-540);
+  const winPath = (o) => { X.beginPath(); X.moveTo(WX0-o, WY1+o); X.lineTo(WX0-o, WY0); X.arc(540, CY, R+o, a0, a1); X.lineTo(WX1+o, WY0); X.lineTo(WX1+o, WY1+o); X.closePath(); };
+  const FX0 = 180, FX1 = 760, FY0 = 850, FY1 = 1110, DX = 90, DY = -60, CW = (FX1-FX0)/6, SH = (FY1-FY0)/3;
+  const sy = k => FY0 + k*SH;              // story k: 0 = third (top), 1 = second, 2 = lower
+  const cells = [];                        // front cells, assembled column by column
+  for(let c=0;c<6;c++) for(let k=0;k<3;k++){
+    const x0 = FX0 + c*CW, x1 = x0 + CW, y0 = sy(k), y1 = sy(k+1); let pts = [[x0,y0],[x1,y0],[x1,y1],[x0,y1]];
+    if(k===2 && c===0) pts = [[x0,y0],[x1,y0],[x1,y1],[x0+28,y1],[x0,y1-28]];
+    if(k===2 && c===5) pts = [[x0,y0],[x1,y0],[x1,y1-28],[x1-28,y1],[x0,y1]];
+    cells.push({c, k, x0, x1, y0, y1, pts, col:WOOD[(c*3+k)%WOOD.length], ph:hash(c*7+k)*6});
+  }
+  const deck = [], end = [];
+  for(let c=0;c<6;c++){ const x0 = FX0 + c*CW, x1 = x0 + CW; deck.push([[x0,FY0],[x1,FY0],[x1+DX,FY0+DY],[x0+DX,FY0+DY]]); }
+  for(let k=0;k<3;k++){ const y0 = sy(k), y1 = sy(k+1); end.push(k<2 ? [[FX1,y0],[FX1+DX,y0+DY],[FX1+DX,y1+DY],[FX1,y1]] : [[FX1,y0],[FX1+DX,y0+DY],[FX1+DX,y1+DY-28],[FX1,y1-28]]); }
+  const RX0 = 250, RX1 = 780, RY0 = 776, RY1 = 820, RDX = 45, RDY = -30, NW = 8;
+  const roofWin = []; for(let i=0;i<NW;i++){ const x0 = RX0 + i*(RX1-RX0)/NW, x1 = x0 + (RX1-RX0)/NW; roofWin.push([[x0,RY0],[x1,RY0],[x1,RY1],[x0,RY1]]); }
+  const roofTop = [[RX0-8,RY0],[RX1+8,RY0],[RX1+RDX+8,RY0+RDY],[RX0+RDX-8,RY0+RDY]];
+  const roofEnd = [[RX1,RY1],[RX1+RDX,RY1+RDY],[RX1+RDX,RY0+RDY],[RX1,RY0]];
+  const doorC = cells.find(q => q.k===2 && q.c===4);
+  const door = (() => { const x0 = doorC.x0+24, x1 = doorC.x1-24, y0 = doorC.y0+18, y1 = doorC.y1; const pts = [[x0,y1],[x0,y0+16]];
+    for(let i=0;i<=8;i++){ const a = Math.PI + i/8*Math.PI; pts.push([(x0+x1)/2 + Math.cos(a)*(x1-x0)/2, y0+16 + Math.sin(a)*16]); } pts.push([x1,y1]); return pts; })();
+  // sky quarries (diamond lattice) and sea panes
+  const quarries = []; let qi = 0;
+  for(let r=0;r<16;r++) for(let c=-1;c<13;c++){
+    const cx = WX0 + c*80 + (r%2 ? 40 : 0), cy = WTOP - 20 + r*50;
+    quarries.push({pts:[[cx,cy-50],[cx+40,cy],[cx,cy+50],[cx-40,cy]], col:SKY[Math.floor(hash(qi*3+1)*SKY.length)], cy, ph:hash(qi++)*6});
+  }
+  const sea = [];
+  for(let r=0;r<3;r++) for(let c=0;c<9;c++){
+    const yA = 1070 + r*64, x0 = WX0 + c*100 - (r%2)*50, x1 = x0 + 100, top = [], bot = [];
+    for(let i=0;i<=5;i++){ const x = x0 + i*20; top.push([x, yA]); bot.unshift([x, yA+64]); }
+    sea.push({x0, yA, top, bot, col:SEA[(c+r*2)%SEA.length], ph:hash(200+r*9+c)*6});
+  }
+  // animal silhouettes, facing right, feet at (0,0), about 36px tall
+  const E = (x,y,rx,ry) => { X.moveTo(x+rx, y); X.ellipse(x, y, rx, ry, 0, 0, Math.PI*2); };
+  const Rr = (x,y,w,h) => X.rect(x, y, w, h);
+  const ANIMALS = [
+    function sheep(){ E(0,-17,14,9); E(13,-21,5.5,4.5); Rr(-10,-10,3,10); Rr(-4,-10,3,10); Rr(4,-10,3,10); Rr(9,-10,3,10); },
+    function giraffe(){ E(-2,-20,11,7); X.moveTo(4,-22); X.lineTo(12,-44); X.lineTo(16,-43); X.lineTo(10,-20); X.closePath(); E(16,-45,5,3); Rr(-11,-15,2.5,15); Rr(-6,-15,2.5,15); Rr(3,-15,2.5,15); Rr(7,-15,2.5,15); },
+    function elephant(){ E(-2,-18,14,11); E(12,-21,7,7); X.moveTo(16,-20); X.quadraticCurveTo(22,-10,19,-2); X.lineTo(16,-3); X.quadraticCurveTo(17,-10,13,-16); X.closePath(); Rr(-12,-10,5,10); Rr(-4,-10,5,10); Rr(4,-10,5,10); },
+    function dove(){ E(0,-14,10,6); E(9,-18,4,3.5); X.moveTo(-8,-15); X.lineTo(-18,-20); X.lineTo(-17,-10); X.closePath(); X.moveTo(-4,-17); X.lineTo(4,-17); X.lineTo(-6,-32); X.closePath(); X.moveTo(13,-18); X.lineTo(17,-17); X.lineTo(13,-16); X.closePath(); Rr(-1,-9,2,9); Rr(3,-9,2,9); },
+    function camel(){ E(-1,-21,12,6); E(-3,-27,6,5.5); X.moveTo(7,-23); X.lineTo(13,-34); X.lineTo(16,-33); X.lineTo(11,-20); X.closePath(); E(17,-34,5,3); Rr(-10,-16,2.5,16); Rr(-5,-16,2.5,16); Rr(4,-16,2.5,16); Rr(8,-16,2.5,16); },
+    function rabbit(){ E(-3,-8,9,7); E(6,-13,5,4.5); E(4,-23,2,6.5); E(8,-22,2,6); E(-12,-9,3,3); },
+    function lion(){ E(-2,-15,12,7); E(11,-19,8,8); E(13,-19,4.5,4.5); Rr(-11,-9,3,9); Rr(-5,-9,3,9); Rr(4,-9,3,9); Rr(8,-9,3,9); X.moveTo(-13,-16); X.quadraticCurveTo(-22,-14,-20,-24); X.lineTo(-18,-23); X.quadraticCurveTo(-19,-17,-13,-14); X.closePath(); }
+  ];
+  const ACOL = [J.gold, hex("#f1e3c0"), J.red, J.orange, hex("#c4b5fd"), J.gold, hex("#f1e3c0")];
+  const pairRooms = cells.filter(q => q.k===2 && q.c!==4).concat(cells.filter(q => q.k===1));   // 5 lower + 6 second = 11 pairs
+  const foodRooms = cells.filter(q => q.k===0);
+  function animal(fn, x, y, s, flip, col, a){
+    if(a <= 0) return;
+    X.save(); X.translate(x, y); X.scale(flip ? -s : s, s); X.beginPath(); fn();
+    X.globalAlpha = a; X.fillStyle = rgb(col); X.fill("nonzero"); X.lineWidth = 2.4/s; X.strokeStyle = "#0d0805"; X.stroke(); X.restore(); X.globalAlpha = 1;
+  }
+  window.NOAH = {cv, X, pr, eo, eio, hash, rgb, J, pane, poly, winPath, cells, deck, end, roofWin, roofTop, roofEnd, door, doorC, quarries, sea, ANIMALS, ACOL, pairRooms, foodRooms, animal, ROOMC,
+    g:{WX0, WX1, WY0, WY1, WTOP, FX0, FX1, FY0, FY1, DX, DY, CW, SH, sy}};
+  // checklist rows: the ark's plan, then the same plan for your build
+  const items = [["ARK OF GOPHER WOOD","THE MATERIALS"],["300 · 50 · 30 CUBITS","THE EXACT MEASUREMENTS"],["PITCH WITHIN AND WITHOUT","THE FINISH WORK"],
+    ["ROOMS · WINDOW · DOOR","THE LAYOUT"],["LOWER · SECOND · THIRD","EVERY FLOOR"],["TWO OF EVERY SORT","THE RIGHT PEOPLE"],["ALL THE FOOD, GATHERED IN","THE SUPPLIES"]];
+  const rows = document.getElementById("rows");
+  items.forEach((it, i) => { const r = document.createElement("div"); r.className = "row"; r.id = "row"+i;
+    r.innerHTML = `<i class="box"><b></b><svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 12 L9.5 18.5 L21 5" fill="none" stroke="#0d0805" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></i><div class="tx"><span class="a">${it[0]}</span><span class="b">${it[1]}</span></div>`;
+    rows.appendChild(r); });
+  const cnt = document.getElementById("cnt");
+  for(let i=0;i<=7;i++){ const s = document.createElement("span"); s.id = "c"+i; s.textContent = i+" / 7"; cnt.appendChild(s); }
+})();
+K.run(function(tl, K){
+  const N = window.NOAH, X = N.X, pr = N.pr, eo = N.eo, eio = N.eio, g = N.g, at = K.at, T = {};
+  T.blue = at("blueprint"); T.cubit = at("down to the cubit"); T.ark = at("an ark"); T.gopher = at("gopher");
+  T.three = at("Three hundred"); T.fifty = at("fifty"); T.thirty = at("thirty"); T.pitch = at("Pitch"); T.within = at("within"); T.without = at("without");
+  T.rooms = at("Rooms inside"); T.window = at("A window"); T.door = at("A door"); T.lower = at("Lower"); T.second = at("second"); T.third = at("third");
+  T.two = at("Two of every"); T.food = at("all the food"); T.gathered = at("gathered in"); T.thus = at("Thus did Noah"); T.according = at("according to all");
+  T.so = at("so did he"); T.paper = K.EP.paper;
+
+  function draw(t){
+    X.clearRect(0, 0, 1080, 1920);
+    const frame = eo(pr(t, .02, .5));
+    // coloured light falling from the window onto the floor
+    X.save(); X.globalCompositeOperation = "lighter";
+    [["#c1121f",-300],["#1d4ed8",-150],["#f4a300",0],["#0f766e",150],["#7c3aed",300]].forEach(([c,o], i) => {
+      const gr = X.createLinearGradient(0, g.WY1, 0, 1920); gr.addColorStop(0, c+"55"); gr.addColorStop(1, c+"00");
+      X.fillStyle = gr; X.globalAlpha = .45*frame*(.8 + .2*Math.sin(t*1.1 + i)); X.beginPath();
+      X.moveTo(540+o*.9-70, g.WY1); X.lineTo(540+o*.9+70, g.WY1); X.lineTo(540+o*1.5+150, 1920); X.lineTo(540+o*1.5-150, 1920); X.closePath(); X.fill(); });
+    X.restore(); X.globalAlpha = 1;
+    // stone surround with block joints
+    X.globalAlpha = frame; N.winPath(40); X.fillStyle = "#3b2a20"; X.fill();
+    X.save(); N.winPath(40); X.clip(); X.strokeStyle = "#1c120b"; X.lineWidth = 4;
+    for(let y=g.WTOP-60; y<g.WY1+60; y+=58){ X.beginPath(); X.moveTo(0, y); X.lineTo(1080, y); X.stroke();
+      for(let x=((y/58)%2 ? 30 : 0); x<1080; x+=120){ X.beginPath(); X.moveTo(x, y); X.lineTo(x, y+58); X.stroke(); } }
+    const sg = X.createLinearGradient(0, g.WTOP, 0, g.WY1+40); sg.addColorStop(0, "rgba(255,226,170,.16)"); sg.addColorStop(1, "rgba(0,0,0,.35)"); X.fillStyle = sg; X.fillRect(0, 0, 1080, 1400);
+    X.restore();
+    N.winPath(14); X.fillStyle = "#1a0f08"; X.fill(); X.globalAlpha = 1;
+    // glass inside the window
+    X.save(); N.winPath(0); X.clip();
+    N.quarries.forEach((q, i) => { const lit = .42*eo(pr(t, .1 + (q.cy - g.WTOP)/700*.9, .5))*(.85 + .15*Math.sin(t*1.3 + q.ph));
+      N.pane(q.pts, q.col, lit, frame, 6); });
+    N.sea.forEach((s, i) => { const lit = .55*eo(pr(t, .5 + s.x0/1080*.6, .5))*(.8 + .2*Math.sin(t*2.2 + s.ph + s.x0*.01));
+      const w = 6*Math.sin(t*1.6 + s.x0*.02 + s.yA*.05); const top = s.top.map(p => [p[0], p[1] + w*Math.sin(p[0]*.05)]), bot = s.bot.map(p => [p[0], p[1] + w*Math.sin(p[0]*.05 + 1)]);
+      N.pane(top.concat(bot), s.col, lit, frame, 6); });
+    // the ark: blueprint leads first, then each pane lit, wood grain, pitch, rooms, window, door, stories
+    const pitchK = 1 - .28*eo(pr(t, T.without, .6));
+    const shown = i => eo(pr(t, T.blue + i*.035, .25)), litA = i => eo(pr(t, T.ark + i*.05, .3));
+    const glint = x => { const c = 140 + 820*(.5 + .5*Math.sin(t*.42 - 1.4)); return .16*Math.exp(-Math.pow((x - c)/120, 2)); };
+    N.end.forEach((p, i) => N.pane(p, [120,64,22], .75*litA(18+i)*pitchK, shown(18+i), 7));
+    N.deck.forEach((p, i) => N.pane(p, [150,88,40], .8*litA(21+i)*pitchK, shown(21+i), 7));
+    const rShow = shown(27), rLit = eo(pr(t, T.window, .5));
+    N.pane(N.roofEnd, [110,60,20], .7*litA(28)*pitchK, rShow, 6);
+    N.pane(N.roofTop, [140,80,34], .8*litA(28)*pitchK, rShow, 6);
+    N.roofWin.forEach((p, i) => { const li = eo(pr(t, T.window + i*.05, .3)); N.pane(p, li > 0 ? [244,163+40*li,40*li] : [130,74,30], (.7*litA(27) + .3*li)*(li > 0 ? 1 : pitchK), rShow, 6, .25*li); });
+    const grain = eo(pr(t, T.gopher, .5));
+    N.cells.forEach((q, i) => {
+      const lit = litA(i)*(.86 + .14*Math.sin(t*1.7 + q.ph));
+      N.pane(q.pts, q.col, lit*pitchK, shown(i), 8, glint(q.x0 + 48));
+      if(grain > 0 && lit > 0){ X.save(); N.poly(q.pts); X.clip(); X.globalAlpha = .35*grain*lit; X.strokeStyle = "#4a2508"; X.lineWidth = 2;
+        for(let j=0;j<5;j++){ const y = q.y0 + 12 + j*16; X.beginPath(); X.moveTo(q.x0, y); X.bezierCurveTo(q.x0+30, y-5 + j%2*8, q.x0+60, y+6, q.x1, y-2); X.stroke(); } X.restore(); X.globalAlpha = 1; }
+    });
+    // pitch within: dark glossy coat traced inside every cell
+    const pw = pr(t, T.within, .7);
+    if(pw > 0) N.cells.forEach((q, i) => { const a = eo(pr(pw, i/18*.6, .4)); if(a <= 0) return;
+      X.globalAlpha = a; X.strokeStyle = "#140903"; X.lineWidth = 6; X.strokeRect(q.x0+9, q.y0+9, q.x1-q.x0-18, q.y1-q.y0-18);
+      X.strokeStyle = "rgba(255,214,150,.45)"; X.lineWidth = 1.5; X.strokeRect(q.x0+7, q.y0+7, q.x1-q.x0-14, q.y1-q.y0-14); X.globalAlpha = 1; });
+    // rooms: interiors light up, with the stories outlined in turn
+    const st = [T.third, T.second, T.lower].map(s => eo(pr(t, s, .35)));   // index by story k (0 top)
+    const stOff = 1 - .6*eo(pr(t, T.two - .2, .6));
+    N.cells.forEach((q, i) => {
+      if(q === N.doorC) return;
+      const order = q.k*6 + q.c, a = eo(pr(t, T.rooms + order*.045, .3)); if(a <= 0) return;
+      const ip = [[q.x0+13,q.y0+13],[q.x1-13,q.y0+13],[q.x1-13,q.y1-13],[q.x0+13,q.y1-13]];
+      const boost = .25*st[q.k]*Math.max(0, 1 - pr(t, [T.third,T.second,T.lower][q.k] + .5, .8)*.6);
+      N.pane(ip, N.ROOMC[(q.c + q.k*2)%6], Math.min(1, .78*a + boost), a, 4, .12*boost);
+    });
+    // food stores: the third story fills
+    N.foodRooms.forEach((q, i) => { const f = eio(pr(t, T.food + .25 + i*.27, .9)); if(f <= 0) return;
+      const x0 = q.x0+13, x1 = q.x1-13, y1 = q.y1-13, h = (q.y1-q.y0-26)*f;
+      const gr = X.createLinearGradient(0, y1-h, 0, y1); gr.addColorStop(0, "#ffd36b"); gr.addColorStop(.5, "#f4a300"); gr.addColorStop(1, "#9a5a0a");
+      X.fillStyle = gr; X.fillRect(x0, y1-h, x1-x0, h); X.strokeStyle = "#0d0805"; X.lineWidth = 3;
+      for(let y=y1-15; y>y1-h; y-=15){ X.beginPath(); X.moveTo(x0, y); X.lineTo(x1, y); X.stroke(); }
+      for(let j=1;j<3;j++){ const x = x0 + j*(x1-x0)/3, yy = y1 - Math.min(h, 30); X.beginPath(); X.moveTo(x, y1); X.lineTo(x, yy); X.stroke(); } });
+    // two of every sort, a pair to a room
+    N.pairRooms.forEach((q, j) => { const t0 = T.two + .15 + j*.13, a = eo(pr(t, t0, .18)), b = eo(pr(t, t0 + .07, .18));
+      const fn = N.ANIMALS[j % N.ANIMALS.length], col = N.ACOL[j % N.ACOL.length], cx = (q.x0+q.x1)/2, y = q.y1 - 15, sc = .92;
+      N.animal(fn, cx - 17, y, sc*(.6 + .4*a), false, col, a); N.animal(fn, cx + 17, y, sc*(.6 + .4*b), true, col, b); });
+    // the door in the side
+    const dr = eo(pr(t, T.door + .19, .4)); if(dr > 0) N.pane(N.door, [193,18,31], dr, dr, 6, .1*dr);
+    // story outlines in gold
+    st.forEach((a, k) => { if(a <= 0) return; X.globalAlpha = a*stOff; X.strokeStyle = "#e3bb5c"; X.lineWidth = 5;
+      X.strokeRect(g.FX0 + 4, g.sy(k) + 4, g.FX1 - g.FX0 - 8, g.SH - 8); X.globalAlpha = 1; });
+    // pitch without: the hull's outer seam
+    const po = eo(pr(t, T.without, .6));
+    if(po > 0){ X.globalAlpha = po; X.lineWidth = 12; X.strokeStyle = "#120802"; X.lineJoin = "round";
+      N.poly([[g.FX0,g.FY0],[g.FX0+g.DX,g.FY0+g.DY],[g.FX1+g.DX,g.FY0+g.DY],[g.FX1+g.DX,g.FY1+g.DY-28],[g.FX1,g.FY1-28],[g.FX1-28,g.FY1],[g.FX0+28,g.FY1],[g.FX0,g.FY1-28]]); X.stroke();
+      X.lineWidth = 2; X.strokeStyle = "rgba(255,214,150,.5)"; X.stroke(); X.globalAlpha = 1; }
+    // dimension lines (gold, on dark)
+    const dimOff = 1 - eo(pr(t, T.rooms - .3, .4));
+    const dim = (x0, y0, x1, y1, p, tick) => { if(p <= 0 || dimOff <= 0) return; const xe = x0 + (x1-x0)*p, ye = y0 + (y1-y0)*p, nx = -(y1-y0), ny = x1-x0, L = Math.hypot(nx, ny), ux = nx/L*12, uy = ny/L*12;
+      [["#0d0805", 8], ["#e3bb5c", 3.5]].forEach(([c, w]) => { X.strokeStyle = c; X.lineWidth = w; X.globalAlpha = dimOff; X.beginPath(); X.moveTo(x0, y0); X.lineTo(xe, ye);
+        X.moveTo(x0-ux, y0-uy); X.lineTo(x0+ux, y0+uy); if(p >= 1){ X.moveTo(x1-ux, y1-uy); X.lineTo(x1+ux, y1+uy); } X.stroke(); }); X.globalAlpha = 1; };
+    // the cubit ruler under the hull (every ten cubits), drawn on "down to the cubit"
+    const cr = pr(t, T.cubit, .9);
+    if(cr > 0 && dimOff > 0){ for(let i=0;i<=30;i++){ const a = pr(cr, i/30*.8, .2); if(a <= 0) continue; const x = g.FX0 + i*(g.FX1-g.FX0)/30, h = i%5 ? 7 : 13;
+      X.globalAlpha = a*dimOff; X.strokeStyle = "#0d0805"; X.lineWidth = 6; X.beginPath(); X.moveTo(x, 1128-h); X.lineTo(x, 1128+h); X.stroke();
+      X.strokeStyle = "#e3bb5c"; X.lineWidth = 2.5; X.stroke(); } X.globalAlpha = 1;
+      dim(g.FX0, 1128, g.FX1, 1128, eo(cr), true); }
+    dim(g.FX0 - 18, g.FY0 - 14, g.FX0 + g.DX - 18, g.FY0 + g.DY - 14, eo(pr(t, T.fifty, .4)));
+    dim(150, g.FY1, 150, g.FY0, eo(pr(t, T.thirty, .4)));
+    if(pr(t, T.three, .5) > 0 && dimOff > 0){ const a = eo(pr(t, T.three, .5)); X.globalAlpha = a*dimOff; X.strokeStyle = "#f6dc93"; X.lineWidth = 6; X.beginPath(); X.moveTo(g.FX0, 1128); X.lineTo(g.FX0 + (g.FX1-g.FX0)*a, 1128); X.stroke(); X.globalAlpha = 1; }
+    // a slow glint of light moving across the glass
+    X.globalCompositeOperation = "lighter"; const cx = 140 + 820*(.5 + .5*Math.sin(t*.42 - 1.4)); const sh = X.createLinearGradient(cx - 200, 0, cx + 200, 0);
+    sh.addColorStop(0, "rgba(255,226,170,0)"); sh.addColorStop(.5, "rgba(255,226,170,.07)"); sh.addColorStop(1, "rgba(255,226,170,0)"); X.fillStyle = sh; X.globalAlpha = frame; X.fillRect(0, 0, 1080, 1400);
+    X.globalCompositeOperation = "source-over"; X.globalAlpha = 1;
+    X.restore();
+  }
+  const clock = {}; let now = -1;
+  Object.defineProperty(clock, "t", {get(){ return now; }, set(v){ now = v; draw(v); }});
+  tl.fromTo(clock, {t:0}, {t:K.dur, duration:K.dur, ease:"none", immediateRender:true}, 0);
+
+  K.camera(tl, [[0, T.thus, 1, 1.045, 0, -6], [T.thus, T.paper + .6, 1.0, 1.035, 0, 0]]);
+
+  // top labels, one beat at a time
+  const lab = (id, t0, t1) => { K.show(tl, id, t0, {y:14}, .3); if(t1) K.hide(tl, id, t1 - .12, {}, .2); };
+  const part = (id, t0) => tl.fromTo(id, {opacity:0}, {opacity:1, duration:.25, immediateRender:false}, t0);
+  lab("#tWood", T.gopher, T.three);
+  lab("#tDims", T.three, T.pitch); tl.set("#d1", {opacity:1}, T.three); part("#d2", T.fifty); part("#d3", T.thirty);
+  lab("#tPitch", T.pitch, T.rooms); part("#p1", T.within); part("#p2", T.without);
+  lab("#tRooms", T.rooms, T.lower); tl.set("#r1", {opacity:1}, T.rooms); part("#r2", T.window); part("#r3", T.door);
+  lab("#tStory", T.lower, T.two); tl.set("#s1", {opacity:1}, T.lower); part("#s2", T.second); part("#s3", T.third);
+  lab("#tTwo", T.two, T.food);
+  lab("#tFood", T.food, T.thus); tl.set("#f1", {opacity:1}, T.food); part("#f2", T.gathered);
+  lab("#tThus", T.thus, T.according); lab("#tAll", T.according, T.so); lab("#tSo", T.so);
+
+  // dimension labels on the drawing
+  K.show(tl, "#dLen", T.three + .15, {y:10}, .3);
+  K.show(tl, "#dWid", T.fifty, {y:10}, .3);
+  tl.set("#dHgt", {rotation:-90}, 0); K.show(tl, "#dHgt", T.thirty, {x:-10}, .3);
+  K.hide(tl, "#dLen,#dWid,#dHgt", T.rooms - .3, {}, .3);
+
+  // the plan's seven parts, a pip lights for each as it is given
+  const pips = document.querySelectorAll("#pips i");
+  K.show(tl, "#pips", T.gopher, {y:8}, .3);
+  [T.gopher, T.thirty, T.without, T.door, T.third, T.two, T.gathered].forEach((t0, i) =>
+    tl.fromTo(pips[i], {background:"#2a1a10", scale:1}, {background:"#f4a300", scale:1.25, duration:.25, ease:"back.out(3)", immediateRender:false}, t0 + .1));
+  K.hide(tl, "#pips", T.thus, {}, .3);
+
+  // "Thus did Noah": the ark steps up, the checklist fills to complete
+  tl.to("#sgCanvas", {scale:.45, y:-4, transformOrigin:"540px 600px", duration:.7, ease:K.IO}, T.thus - .15);
+  K.show(tl, "#plan", T.thus + .2, {y:40}, .45);
+  tl.set("#c0", {opacity:1}, T.thus + .2);
+  const tick0 = T.thus + .7, step = (T.so - .1 - tick0)/6;
+  for(let i=0;i<7;i++){
+    const t0 = tick0 + i*step;
+    tl.to(`#row${i} .box b`, {opacity:1, duration:.15}, t0);
+    tl.fromTo(`#row${i} .box svg`, {opacity:0, scale:.3}, {opacity:1, scale:1, duration:.25, ease:"back.out(3)", immediateRender:false}, t0);
+    tl.to(`#row${i} .tx`, {color:"#f6dc93", duration:.2}, t0);
+    tl.set(`#c${i}`, {opacity:0}, t0); tl.set(`#c${i+1}`, {opacity:1}, t0);
+    tl.to("#barFill", {scaleX:(i+1)/7, duration:.3, ease:K.E}, t0);
+  }
+  // the turn: the ark's plan becomes your build plan, every line ticked
+  tl.to("#phA", {opacity:0, y:-10, duration:.25}, T.so); tl.fromTo("#phB", {opacity:0, y:10}, {opacity:1, y:0, duration:.3, immediateRender:false}, T.so + .1);
+  for(let i=0;i<7;i++){
+    tl.to(`#row${i} .a`, {opacity:0, y:-10, duration:.2}, T.so + .1 + i*.05);
+    tl.fromTo(`#row${i} .b`, {opacity:0, y:10}, {opacity:1, y:0, duration:.25, immediateRender:false}, T.so + .18 + i*.05);
+  }
+  tl.to("#sgCanvas", {opacity:.35, duration:.4}, T.so);
+});
