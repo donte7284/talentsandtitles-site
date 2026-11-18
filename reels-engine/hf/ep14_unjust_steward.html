@@ -1,0 +1,378 @@
+<!-- @config -->
+{"no":14,
+ "hook_html":"Praised by the master<br>he's shortchanging",
+ "turn_at":"Even he planned","turn_html":"Even he planned for <em>the day after.</em>","turn_size":104,"turn_hl":"the day after",
+ "question_at":"What's your plan","question":"What's your plan for the day this job ends?",
+ "ref":"LUKE 16 : 1–9","send":"Send this to someone who sees the writing on the wall.",
+ "theme":{"beam":"255,244,222"}}
+<!-- @css -->
+/* paper_cutout story palette: warm paper, layered cut shapes, soft drop shadows (styles/build_b.py) */
+#bg{background:radial-gradient(1100px 1200px at 50% 38%, #f1e6d4 0%, #e9dcc9 55%, #dccab0 100%)}
+.beam{display:none}
+#vignette{background:radial-gradient(900px 1300px at 50% 40%, rgba(0,0,0,0) 55%, rgba(74,46,24,.28) 100%)}
+#grain{opacity:.07}
+#header{color:#7a5418;opacity:1}
+#header span{background:#9c7a2f}
+#mark{color:rgba(74,46,24,.62)}
+/* hook card on a dark cut-paper panel so the cream type reads on the light page */
+#hook{z-index:5;background:#33241a;padding:46px 30px 44px;border-radius:8px;box-shadow:0 16px 30px rgba(58,36,22,.38), 0 3px 0 #4a3424 inset}
+#hook .big{font-size:86px}
+/* labels: darker ink for the light paper */
+.label{color:#6e4810}
+.label.warn{color:#a8432c}
+#world,#front{position:absolute;left:0;top:0}
+#ledger,#key,#seal,#coins > g,#spade,#bowl,#pile,#bill1,#bill2,#spike,#stamp,#imprint,#plan,#strikes > path,#ledStrike,
+#lblWaste,#lblAccount,#lblNoLonger,#lblDig,#lblBeg,#lblDebtors,#lblOil,#lblFifty,#lblWheat,#lblEighty,#lblCommend,#lblUnjust,#lblWisely,#lblPlan{opacity:0}
+<!-- @html -->
+      <svg id="world" class="obj" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <filter id="cut" x="-15%" y="-15%" width="130%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="g"/>
+            <feComposite in="SourceGraphic" in2="g" operator="arithmetic" k1="0" k2="1" k3="-.08" k4="0" result="tex"/><feDropShadow in="tex" dx="6" dy="12" stdDeviation="7" flood-color="#3a2416" flood-opacity=".35"/></filter>
+          <filter id="cutHi" x="-20%" y="-20%" width="140%" height="150%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="5" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="g"/>
+            <feComposite in="SourceGraphic" in2="g" operator="arithmetic" k1="0" k2="1" k3="-.08" k4="0" result="tex"/><feDropShadow in="tex" dx="10" dy="22" stdDeviation="12" flood-color="#3a2416" flood-opacity=".38"/></filter>
+        </defs>
+        <!-- back layers: arch, recess, pillars, desk top -->
+        <g id="back">
+          <path d="M40 1240 L40 560 L130 520 L130 1240 Z" fill="#d9c2a3" filter="url(#cut)"/>
+          <path d="M1040 1240 L1040 560 L950 520 L950 1240 Z" fill="#d9c2a3" filter="url(#cut)"/>
+          <path d="M160 1240 L160 650 Q160 390 540 390 Q920 390 920 650 L920 1240 Z" fill="#f4eadb" filter="url(#cut)"/>
+          <path d="M215 1240 L215 670 Q215 455 540 455 Q865 455 865 670 L865 1240 Z" fill="#e4d1b6" filter="url(#cut)"/>
+          <path d="M270 1240 L270 700 Q270 525 540 525 Q810 525 810 700 L810 1240 Z" fill="#d8c09f" filter="url(#cut)"/>
+          <path d="M-10 1200 L1090 1200 L1090 1275 L-10 1275 Z" fill="#b07a4f" filter="url(#cut)"/>
+          <path d="M-10 1200 L1090 1200 L1090 1212 L-10 1212 Z" fill="#c89466"/>
+        </g>
+
+        <!-- the account book -->
+        <g transform="translate(540 975)"><g id="ledger">
+          <rect x="-312" y="-218" width="624" height="436" rx="16" fill="#7a4a2e" filter="url(#cut)"/>
+          <g filter="url(#cut)">
+            <path d="M-294 -202 L-8 -192 L-8 202 L-294 206 Z" fill="#fffaf0"/>
+            <path d="M8 -192 L294 -202 L294 206 L8 202 Z" fill="#fbf2e2"/>
+            <rect x="-8" y="-192" width="16" height="394" fill="#d9c7ab"/>
+          </g>
+          <g id="rules" stroke="#e4d4ba" stroke-width="2"></g>
+          <text x="-150" y="-140" text-anchor="middle" font-family="Lora" font-weight="700" font-size="34" fill="#264653" letter-spacing="2">ACCOUNT</text>
+          <rect x="-250" y="-126" width="200" height="4" fill="#2a9d8f"/>
+          <g id="leftBars" fill="#3d4a5c"></g>
+          <g id="colBars" fill="#264653"></g>
+          <path id="ledStrike" d="M40 -160 L270 180" stroke="#d9735a" stroke-width="16" stroke-linecap="round" fill="none"/>
+        </g></g>
+        <g transform="translate(390 1100)"><g id="seal" filter="url(#cutHi)">
+          <path d="M-30 20 L-52 110 L-28 96 L-14 120 L4 30 Z M30 20 L52 110 L28 96 L14 120 L-4 30 Z" fill="#9c3424"/>
+          <circle r="58" fill="#b5452f"/><circle r="44" fill="none" stroke="#8f3220" stroke-width="5"/>
+          <path d="M-28 14 L-28 -18 L-14 -2 L0 -26 L14 -2 L28 -18 L28 14 Z" fill="#e9c46a"/>
+        </g></g>
+
+        <!-- goods: a stack of coins beside the book -->
+        <g id="coins"></g>
+
+        <!-- the steward's key with its tag -->
+        <g transform="translate(610 900) rotate(-14)"><g id="key">
+          <g filter="url(#cut)">
+            <path d="M-120 30 Q-150 60 -170 80" fill="none" stroke="#7a4a2e" stroke-width="4"/>
+            <g transform="translate(-205 105) rotate(12)"><path d="M-70 -34 L50 -34 L74 0 L50 34 L-70 34 Z" fill="#fffaf0"/><circle cx="52" cy="0" r="6" fill="#d8c09f"/>
+              <text x="-10" y="10" text-anchor="middle" font-family="Inter" font-weight="800" font-size="24" letter-spacing="3" fill="#264653">STEWARD</text></g>
+          </g>
+          <g filter="url(#cut)">
+            <path fill-rule="evenodd" fill="#e9c46a" d="M-140 0 a50 50 0 1 0 100 0 a50 50 0 1 0 -100 0 Z M-110 0 a20 20 0 1 0 40 0 a20 20 0 1 0 -40 0 Z"/>
+            <rect x="-44" y="-11" width="250" height="22" rx="4" fill="#e9c46a"/>
+            <rect x="170" y="10" width="20" height="44" fill="#e9c46a"/><rect x="140" y="10" width="16" height="30" fill="#e9c46a"/>
+            <rect x="-44" y="-11" width="250" height="7" fill="#f6dc93"/>
+            <circle cx="-90" cy="0" r="36" fill="none" stroke="#c9a24a" stroke-width="5"/>
+          </g>
+        </g></g>
+
+        <!-- I cannot dig; to beg I am ashamed -->
+        <g transform="translate(330 960)"><g id="spade">
+          <g filter="url(#cut)">
+            <rect x="-14" y="-300" width="28" height="380" fill="#8c5a3c"/>
+            <path d="M-60 -330 L60 -330 L60 -300 L-60 -300 Z" fill="#7a4a2e"/>
+          </g>
+          <g filter="url(#cut)">
+            <path d="M-86 60 L86 60 L76 210 Q0 290 -76 210 Z" fill="#8a98a3"/>
+            <path d="M-86 60 L0 60 L0 270 Q-40 255 -76 210 Z" fill="#a9b6c0"/>
+            <rect x="-30" y="48" width="60" height="26" rx="6" fill="#5d6a74"/>
+          </g>
+        </g></g>
+        <g transform="translate(750 1110)"><g id="bowl">
+          <g filter="url(#cut)">
+            <path d="M-160 -30 L160 -30 Q150 80 0 92 Q-150 80 -160 -30 Z" fill="#c98a6b"/>
+            <path d="M-160 -30 L0 -30 L0 92 Q-150 80 -160 -30 Z" fill="#d79a78"/>
+          </g>
+          <ellipse cx="0" cy="-30" rx="160" ry="28" fill="#e2ac8a" filter="url(#cut)"/>
+          <ellipse cx="0" cy="-28" rx="134" ry="18" fill="#7a4a2e"/>
+        </g></g>
+        <g id="strikes" fill="none" stroke="#d9735a" stroke-width="22" stroke-linecap="round">
+          <path id="keyStrike" d="M380 720 L860 1100"/>
+          <path id="spadeStrike" d="M180 620 L490 1250"/>
+          <path id="bowlStrike" d="M560 960 L940 1200"/>
+        </g>
+
+        <!-- the debtors' bills: a pile, then two bills rewritten -->
+        <g transform="translate(540 1050)"><g id="pile"></g></g>
+
+        <g transform="translate(905 1200)"><g id="spike">
+          <path d="M0 -260 L0 -28" stroke="#7d8b94" stroke-width="7" stroke-linecap="round"/>
+          <path d="M0 -270 L-6 -250 L6 -250 Z" fill="#7d8b94"/>
+          <g filter="url(#cut)"><rect x="-84" y="-34" width="168" height="34" rx="4" fill="#8c5a3c"/></g>
+          <text x="0" y="-11" text-anchor="middle" font-family="Inter" font-weight="800" font-size="16" letter-spacing="3" fill="#fffaf0">REWRITTEN</text>
+        </g></g>
+
+        <g transform="translate(540 900)"><g id="bill1">
+          <g filter="url(#cutHi)"><rect x="-280" y="-210" width="560" height="420" rx="6" fill="#fffaf0"/></g>
+          <rect x="-280" y="-210" width="560" height="62" fill="#2a9d8f"/>
+          <text x="-250" y="-168" font-family="Inter" font-weight="800" font-size="26" letter-spacing="6" fill="#fffaf0">BILL</text>
+          <g id="jar" transform="translate(-150 20)" filter="url(#cut)">
+            <path d="M-46 -78 L46 -78 L38 -56 Q84 -24 74 50 Q64 96 0 96 Q-64 96 -74 50 Q-84 -24 -38 -56 Z" fill="#2a9d8f"/>
+            <path d="M-38 -56 Q-84 -24 -74 50 Q-64 96 0 96 L0 -56 Z" fill="#33b0a0"/>
+            <rect x="-52" y="-92" width="104" height="18" rx="6" fill="#264653"/>
+            <path d="M0 -20 Q22 8 22 22 a22 22 0 0 1 -44 0 Q-22 8 0 -20 Z" fill="#e9c46a"/>
+          </g>
+          <text x="-150" y="172" text-anchor="middle" font-family="Inter" font-weight="800" font-size="40" letter-spacing="6" fill="#264653">OIL</text>
+          <g id="old1"><text x="130" y="-38" text-anchor="middle" font-family="Lora" font-weight="700" font-size="116" fill="#264653">100</text>
+            <text x="130" y="0" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" letter-spacing="5" fill="#6b6a62">MEASURES</text></g>
+          <path id="b1strike" d="M20 -76 L240 -86" stroke="#d9735a" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <text id="new1" x="130" y="150" text-anchor="middle" font-family="Lora" font-style="italic" font-weight="500" font-size="138" fill="#b5452f" opacity="0">50</text>
+          <g id="quill1" opacity="0"><path d="M0 0 L22 -40 Q90 -190 170 -230 Q150 -140 40 -44 Z" fill="#264653"/><path d="M0 0 L150 -214" stroke="#fffaf0" stroke-width="3"/></g>
+        </g></g>
+
+        <g transform="translate(540 900)"><g id="bill2">
+          <g filter="url(#cutHi)"><rect x="-280" y="-210" width="560" height="420" rx="6" fill="#fffaf0"/></g>
+          <rect x="-280" y="-210" width="560" height="62" fill="#2a9d8f"/>
+          <text x="-250" y="-168" font-family="Inter" font-weight="800" font-size="26" letter-spacing="6" fill="#fffaf0">BILL</text>
+          <g id="sheaf" transform="translate(-150 20)" filter="url(#cut)">
+            <g fill="#c99a3e"><path d="M-4 96 L-30 -40 L-22 -42 L4 96 Z"/><path d="M-4 96 L0 -60 L8 -60 L4 96 Z"/><path d="M-4 96 L30 -40 L38 -38 L4 96 Z"/></g>
+            <g fill="#e9c46a"><ellipse cx="-30" cy="-62" rx="14" ry="30" transform="rotate(-12 -30 -62)"/><ellipse cx="4" cy="-86" rx="14" ry="32"/><ellipse cx="38" cy="-60" rx="14" ry="30" transform="rotate(14 38 -60)"/></g>
+            <rect x="-30" y="30" width="64" height="16" rx="4" fill="#8c5a3c"/>
+          </g>
+          <text x="-150" y="172" text-anchor="middle" font-family="Inter" font-weight="800" font-size="40" letter-spacing="6" fill="#264653">WHEAT</text>
+          <g id="old2"><text x="130" y="-38" text-anchor="middle" font-family="Lora" font-weight="700" font-size="116" fill="#264653">100</text>
+            <text x="130" y="0" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" letter-spacing="5" fill="#6b6a62">MEASURES</text></g>
+          <path id="b2strike" d="M20 -76 L240 -86" stroke="#d9735a" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <text id="new2" x="130" y="150" text-anchor="middle" font-family="Lora" font-style="italic" font-weight="500" font-size="138" fill="#b5452f" opacity="0">80</text>
+          <g id="quill2" opacity="0"><path d="M0 0 L22 -40 Q90 -190 170 -230 Q150 -140 40 -44 Z" fill="#264653"/><path d="M0 0 L150 -214" stroke="#fffaf0" stroke-width="3"/></g>
+        </g></g>
+
+        <!-- the commendation: a stamp, then the modern plan -->
+        <g transform="translate(540 960) rotate(-8)"><g id="imprint">
+          <rect x="-250" y="-62" width="500" height="124" rx="12" fill="#fffaf0" fill-opacity=".55" stroke="#b5452f" stroke-width="9"/>
+          <rect x="-236" y="-48" width="472" height="96" rx="8" fill="none" stroke="#b5452f" stroke-width="3"/>
+          <text x="0" y="22" text-anchor="middle" font-family="Inter" font-weight="800" font-size="60" letter-spacing="6" fill="#b5452f">DONE WISELY</text>
+        </g></g>
+        <g transform="translate(540 760)"><g id="stamp">
+          <g filter="url(#cutHi)">
+            <ellipse cx="0" cy="-210" rx="58" ry="46" fill="#8c5a3c"/>
+            <rect x="-22" y="-176" width="44" height="120" fill="#7a4a2e"/>
+            <path d="M-170 -60 L170 -60 L190 0 L-190 0 Z" fill="#8c5a3c"/>
+            <rect x="-200" y="0" width="400" height="34" rx="6" fill="#b5452f"/>
+          </g>
+        </g></g>
+        <g transform="translate(540 930)"><g id="plan">
+          <g filter="url(#cutHi)"><rect x="-250" y="-290" width="500" height="580" rx="34" fill="#264653"/></g>
+          <rect x="-222" y="-262" width="444" height="524" rx="18" fill="#fffaf0"/>
+          <text x="0" y="-190" text-anchor="middle" font-family="Inter" font-weight="800" font-size="40" letter-spacing="4" fill="#264653">YOUR PLAN</text>
+          <text x="0" y="-140" text-anchor="middle" font-family="Inter" font-weight="800" font-size="40" letter-spacing="4" fill="#2a9d8f">FOR AFTER</text>
+          <g id="checks"></g>
+        </g></g>
+      </svg>
+
+      <!-- the desk front: a dark paper band that carries the captions -->
+      <svg id="front" class="obj" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <rect x="-20" y="1272" width="1120" height="690" fill="#3a281c"/>
+        <g filter="url(#cut)"><path d="M-20 1262 L1100 1262 L1100 1960 L-20 1960 Z" fill="#3a281c"/></g>
+        <path d="M-20 1262 L1100 1262 L1100 1272 L-20 1272 Z" fill="#5a3d29"/>
+        <g stroke="#45301f" stroke-width="3" fill="none" opacity=".9">
+          <path d="M0 1560 Q300 1540 540 1566 T1080 1552"/><path d="M0 1640 Q360 1660 620 1630 T1080 1646"/><path d="M0 1730 Q260 1712 520 1740 T1080 1724"/>
+        </g>
+      </svg>
+
+      <div id="lblWaste" class="label c warn" style="top:470px;font-size:38px">WASTING HIS GOODS</div>
+      <div id="lblAccount" class="label c" style="top:470px;font-size:40px">GIVE AN ACCOUNT</div>
+      <div id="lblNoLonger" class="label c warn" style="top:470px;font-size:38px">NO LONGER STEWARD</div>
+      <div id="lblDig" class="label c warn" style="top:470px;font-size:40px">I CANNOT DIG</div>
+      <div id="lblBeg" class="label c warn" style="top:470px;font-size:40px">ASHAMED TO BEG</div>
+      <div id="lblDebtors" class="label c" style="top:470px;font-size:40px">CALLS IN THE DEBTORS</div>
+      <div id="lblOil" class="label c" style="top:470px;font-size:38px">OIL · 100 MEASURES</div>
+      <div id="lblFifty" class="label c warn" style="top:470px;font-size:40px">WRITE FIFTY · 50</div>
+      <div id="lblWheat" class="label c" style="top:470px;font-size:38px">WHEAT · 100 MEASURES</div>
+      <div id="lblEighty" class="label c warn" style="top:470px;font-size:40px">FOURSCORE · 80</div>
+      <div id="lblCommend" class="label c" style="top:470px;font-size:38px">THE LORD COMMENDS</div>
+      <div id="lblUnjust" class="label c warn" style="top:470px;font-size:38px">THE UNJUST STEWARD</div>
+      <div id="lblWisely" class="label c" style="top:470px;font-size:44px">DONE WISELY</div>
+      <div id="lblPlan" class="label c" style="top:470px;font-size:38px">YOUR PLAN FOR AFTER</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  // ledger ruling and entries (fixed formulas, no randomness)
+  const rules = document.getElementById("rules"), lb = document.getElementById("leftBars"), cb = document.getElementById("colBars");
+  for(let k=0;k<9;k++){ const y = -104 + k*36; mk("path", {d:`M-276 ${y} L-24 ${y} M24 ${y} L276 ${y}`}, rules); }
+  for(let k=0;k<8;k++){ const y = -96 + k*36; mk("rect", {x:-260, y, width:120 + ((k*53)%90), height:7, rx:3}, lb); mk("rect", {x:-80, y, width:40, height:7, rx:3}, lb); }
+  for(let k=0;k<8;k++){ const y = -96 + k*36, w = 110 + ((k*37)%80); mk("rect", {class:"cbar", x:250 - w, y, width:w, height:9, rx:3}, cb); }
+  // a stack of coins on the desk
+  const coins = document.getElementById("coins");
+  for(let i=0;i<6;i++){
+    const g = mk("g", {id:"coin"+i, transform:`translate(${945 + (i%2 ? 4 : -4)} ${1176 - i*16})`}, coins);
+    const inner = mk("g", {filter:"url(#cut)"}, g);
+    mk("ellipse", {cx:0, cy:6, rx:56, ry:16, fill:"#c9a24a"}, inner);
+    mk("ellipse", {cx:0, cy:0, rx:56, ry:16, fill:"#e9c46a"}, inner);
+    mk("ellipse", {cx:0, cy:0, rx:38, ry:9, fill:"none", stroke:"#c9a24a", "stroke-width":3}, g);
+  }
+  // the pile of bills (no count is shown; it reads as a stack)
+  const pile = document.getElementById("pile");
+  for(let i=0;i<7;i++){
+    const g = mk("g", {id:"slip"+i, class:"slip"}, pile);
+    const r = (i%2 ? 1 : -1)*(2 + (i*3)%5), dx = ((i*29)%40) - 20, dy = -i*12;
+    const s = mk("g", {transform:`translate(${dx} ${dy}) rotate(${r})`, filter:"url(#cut)"}, g);
+    mk("rect", {x:-150, y:-100, width:300, height:200, rx:5, fill:"#fffaf0"}, s);
+    mk("rect", {x:-150, y:-100, width:300, height:32, fill:"#2a9d8f"}, s);
+    for(let k=0;k<3;k++) mk("rect", {x:-120, y:-40 + k*38, width:150 + ((i+k)*41)%90, height:9, rx:4, fill:"#9aa3a6"}, s);
+  }
+  // modern plan checklist
+  const ch = document.getElementById("checks");
+  for(let k=0;k<3;k++){
+    const y = -50 + k*100, g = mk("g", {id:"chk"+k}, ch);
+    mk("rect", {x:-180, y:y-28, width:56, height:56, rx:10, fill:"none", stroke:"#2a9d8f", "stroke-width":6}, g);
+    mk("path", {d:`M-170 ${y} L-154 ${y+16} L-126 ${y-20}`, fill:"none", stroke:"#2a9d8f", "stroke-width":8, "stroke-linecap":"round", "stroke-linejoin":"round"}, g);
+    mk("rect", {x:-96, y:y-8, width:220 - k*40, height:16, rx:8, fill:"#264653", opacity:.8}, g);
+  }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {}, P = K.EP.paper;
+  T.way = at("way out"); T.praised = at("praised"); T.master = at("master"); T.short = at("shortchanging");
+  T.accused = at("accused"); T.wasting = at("wasting"); T.give = at("Give an account"); T.you = at("you may be");
+  T.noLonger = at("no longer"); T.thinks = at("He thinks"); T.dig = at("dig"); T.toBeg = at("to beg"); T.beg = at("beg");
+  T.ashamed = at("ashamed"); T.so = at("So he calls"); T.calls = at("calls"); T.debtors = at("debtors");
+  T.h1 = at("A hundred"); T.oil = at("oil"); T.w1 = at("Write"); T.fifty = at("fifty");
+  T.h2 = at("A hundred", {nth:2}); T.wheat = at("wheat"); T.w2 = at("Write", {from:T.wheat}); T.four = at("fourscore");
+  T.and = at("And the lord"); T.commends = at("commends"); T.unjust = at("unjust steward"); T.because = at("because");
+  T.wisely = at("done wisely");
+  const hookOff = K.EP.hookOff;
+  K.camera(tl, [[0, T.thinks - .6, 1, 1.05], [T.thinks - .6, T.so - .2, 1.0, 1.045], [T.so - .2, T.and - .1, 1.0, 1.05], [T.and - .1, P + .6, 1.01, 1.06]]);
+
+  // paper-cutout arrival: drop in from above with a little spin, settle with a bounce (build_b.py)
+  const drop = (sel, t, rot, d) => tl.fromTo(sel, {opacity:0, y:"-=220", rotation:rot||-6, transformOrigin:"50% 50%"},
+    {opacity:1, y:"+=220", rotation:0, duration:d||.6, ease:"back.out(1.4)", immediateRender:false}, t);
+  const lbl = (sel, t, tOff) => { K.show(tl, sel, t, {y:14}, .3); if(tOff) K.hide(tl, sel, tOff, {}, .2); };
+
+  // hook: the account book, the steward's key, the master's seal, the column shortchanged
+  drop("#ledger", .1, -4, .7);
+  tl.fromTo("#coins > g", {opacity:0, y:"-=140"}, {opacity:1, y:"+=140", duration:.4, ease:"back.out(1.6)", stagger:.06, immediateRender:false}, .35);
+  drop("#key", .55, 10, .55);
+  tl.to("#key", {x:330, rotation:16, duration:.7, ease:"power2.inOut"}, T.way);
+  tl.fromTo("#seal", {opacity:0, scale:1.7, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.32, ease:"power4.in", immediateRender:false}, T.praised - .1);
+  tl.to("#ledger", {y:"+=6", duration:.08, yoyo:true, repeat:1}, T.praised + .22);
+  tl.fromTo("#seal", {rotation:0}, {rotation:-8, duration:.5, ease:"sine.inOut", yoyo:true, repeat:1, transformOrigin:"50% 50%", immediateRender:false}, T.master);
+  tl.set("#ledStrike", {opacity:1}, T.short); K.draw(tl, "#ledStrike", T.short, .4, 420);
+  tl.to(".cbar", {attr:{width:(i, el) => Math.round(+el.getAttribute("width")*.45), x:(i, el) => 250 - Math.round(+el.getAttribute("width")*.45)}, fill:"#d9735a", duration:.5, stagger:.06, ease:E}, T.short + .3);
+
+  // accused of wasting his goods: the coins slide off the desk
+  tl.to("#ledger", {x:-10, duration:.07, yoyo:true, repeat:5, ease:"none"}, T.accused);
+  lbl("#lblWaste", Math.max(T.wasting, hookOff + .1), T.give - .15);
+  for(let i=5;i>=0;i--){
+    const t0 = T.wasting + (5-i)*.11;
+    tl.to("#coin"+i, {x:"+=" + (60 + i*10), y:"+=" + (520 + i*20), rotation:(i%2 ? 40 : -40), duration:.65, ease:"power2.in"}, t0);
+  }
+  tl.set("#coins", {opacity:0}, T.give);
+
+  // give an account; no longer steward
+  lbl("#lblAccount", T.give, T.noLonger - .15);
+  tl.to("#ledger", {scale:1.05, duration:.35, ease:E, transformOrigin:"50% 50%"}, T.give);
+  tl.to("#seal", {opacity:0, y:"+=30", duration:.3}, T.give);
+  tl.to("#key", {x:20, y:-40, rotation:0, scale:1.15, duration:.6, ease:"back.out(1.3)"}, T.you);
+  tl.set("#keyStrike", {opacity:1}, T.noLonger); K.draw(tl, "#keyStrike", T.noLonger, .35, 620);
+  lbl("#lblNoLonger", T.noLonger + .05, T.thinks - .3);
+  tl.to("#key", {opacity:.45, filter:"grayscale(1)", duration:.4}, T.noLonger + .3);
+  // the book and key drop behind the desk
+  tl.to("#key,#keyStrike", {y:"+=700", rotation:"+=20", duration:.8, ease:"power3.in"}, T.thinks - .75);
+  tl.to("#ledger", {y:"+=760", duration:.85, ease:"power3.in"}, T.thinks - .65);
+  tl.set("#keyStrike,#ledStrike", {opacity:0}, T.thinks + .3);
+
+  // I cannot dig; to beg I am ashamed
+  tl.fromTo("#spade", {opacity:0, y:520}, {opacity:1, y:0, duration:.7, ease:"back.out(1.2)", immediateRender:false}, T.thinks);
+  tl.to("#spade", {rotation:-4, duration:.25, yoyo:true, repeat:1, ease:"sine.inOut", transformOrigin:"50% 100%"}, T.dig - .45);
+  tl.set("#spadeStrike", {opacity:1}, T.dig); K.draw(tl, "#spadeStrike", T.dig, .3, 720);
+  lbl("#lblDig", T.dig, T.toBeg - .1);
+  tl.to("#spade", {opacity:.5, duration:.3}, T.dig + .25);
+  tl.fromTo("#bowl", {opacity:0, y:420}, {opacity:1, y:0, duration:.6, ease:"back.out(1.3)", immediateRender:false}, T.toBeg - .15);
+  lbl("#lblBeg", T.beg, T.so - .1);
+  tl.set("#bowlStrike", {opacity:1}, T.ashamed); K.draw(tl, "#bowlStrike", T.ashamed, .3, 460);
+  tl.to("#bowl", {opacity:.5, duration:.3}, T.ashamed + .25);
+  tl.to("#spade,#spadeStrike", {y:"+=700", duration:.75, ease:"power3.in"}, T.ashamed + .75);
+  tl.to("#bowl,#bowlStrike", {y:"+=600", duration:.75, ease:"power3.in"}, T.ashamed + .9);
+
+  // he calls in the debtors: bills arrive and pile up
+  tl.set("#pile", {opacity:1}, T.so);
+  for(let i=0;i<7;i++){
+    const t0 = T.so + .1 + i*.17, fromX = (i%2 ? 640 : -640);
+    tl.fromTo("#slip"+i, {opacity:0, x:fromX, y:-380, rotation:(i%2 ? 30 : -30)}, {opacity:1, x:0, y:0, rotation:0, duration:.55, ease:"back.out(1.2)", immediateRender:false}, t0);
+  }
+  lbl("#lblDebtors", T.calls, T.h1 - .1);
+  tl.to("#pile", {y:"+=10", duration:.1, yoyo:true, repeat:1}, T.debtors + .25);
+
+  // bill one: oil, 100 -> 50
+  tl.to("#pile", {x:-365, y:60, scale:.5, duration:.6, ease:K.IO}, T.h1 - .15);
+  tl.fromTo("#spike", {opacity:0, y:300}, {opacity:1, y:0, duration:.5, ease:"back.out(1.2)", immediateRender:false}, T.h1);
+  tl.fromTo("#bill1", {opacity:0, x:-385, y:210, scale:.4, rotation:-8}, {opacity:1, x:0, y:0, scale:1, rotation:0, duration:.6, ease:"back.out(1.2)", immediateRender:false}, T.h1);
+  tl.fromTo("#old1", {opacity:0, scale:.6, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)", immediateRender:false}, T.h1 + .3);
+  tl.fromTo("#jar", {opacity:0, y:40}, {opacity:1, y:0, duration:.35, ease:"back.out(2)", immediateRender:false}, T.oil - .1);
+  lbl("#lblOil", T.h1 + .2, T.fifty - .15);
+  tl.to("#jar", {rotation:-6, duration:.3, yoyo:true, repeat:1, ease:"sine.inOut", transformOrigin:"50% 100%"}, T.oil + .45);
+  tl.set("#quill1", {opacity:1, x:0, y:-70}, T.w1 - .05);
+  tl.to("#quill1", {x:240, duration:.33, ease:"power2.inOut"}, T.w1 - .05);
+  tl.set("#b1strike", {opacity:1}, T.w1); K.draw(tl, "#b1strike", T.w1, .3, 240);
+  tl.to("#old1", {opacity:.5, duration:.3}, T.w1 + .2);
+  tl.to("#quill1", {x:80, y:110, duration:.25, ease:"power2.inOut"}, T.w1 + .32);
+  tl.fromTo("#new1", {opacity:0, scale:1.4, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)", immediateRender:false}, T.fifty);
+  tl.to("#quill1", {x:200, y:90, duration:.3, ease:"sine.inOut"}, T.fifty);
+  tl.to("#quill1", {opacity:0, y:-60, duration:.25}, T.fifty + .35);
+  lbl("#lblFifty", T.fifty, T.h2 - .1);
+  // onto the tally spike
+  tl.to("#bill1", {x:365, y:205, scale:.27, rotation:-4, duration:.55, ease:"power3.inOut"}, T.h2 - .45);
+
+  // bill two: wheat, 100 -> fourscore
+  tl.fromTo("#bill2", {opacity:0, x:-385, y:210, scale:.4, rotation:-8}, {opacity:1, x:0, y:0, scale:1, rotation:0, duration:.6, ease:"back.out(1.2)", immediateRender:false}, T.h2);
+  tl.to("#pile", {scale:.46, y:70, duration:.3}, T.h2);
+  tl.fromTo("#old2", {opacity:0, scale:.6, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)", immediateRender:false}, T.h2 + .3);
+  tl.fromTo("#sheaf", {opacity:0, y:40}, {opacity:1, y:0, duration:.35, ease:"back.out(2)", immediateRender:false}, T.wheat - .1);
+  lbl("#lblWheat", T.h2 + .2, T.four - .15);
+  tl.set("#quill2", {opacity:1, x:0, y:-70}, T.w2 - .05);
+  tl.to("#quill2", {x:240, duration:.3, ease:"power2.inOut"}, T.w2 - .05);
+  tl.set("#b2strike", {opacity:1}, T.w2); K.draw(tl, "#b2strike", T.w2, .28, 240);
+  tl.to("#old2", {opacity:.5, duration:.3}, T.w2 + .2);
+  tl.fromTo("#new2", {opacity:0, scale:1.4, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)", immediateRender:false}, T.four);
+  tl.to("#quill2", {x:200, y:90, duration:.3, ease:"sine.inOut"}, T.four - .1);
+  tl.to("#quill2", {opacity:0, y:-60, duration:.25}, T.four + .4);
+  lbl("#lblEighty", T.four, T.and - .1);
+  tl.to("#sheaf", {rotation:5, duration:.35, yoyo:true, repeat:1, ease:"sine.inOut", transformOrigin:"50% 100%"}, T.four + .5);
+  tl.to("#bill2", {x:365, y:175, scale:.27, rotation:5, duration:.55, ease:"power3.inOut"}, T.four + .8);
+  tl.to("#bill1", {y:"+=10", duration:.1, yoyo:true, repeat:1}, T.four + 1.35);
+  tl.to("#spike", {scale:1.06, duration:.15, yoyo:true, repeat:1, transformOrigin:"50% 100%"}, T.four + 1.35);
+
+  // the lord commends: both rewritten bills come forward
+  tl.to("#pile", {y:"+=700", duration:.7, ease:"power3.in"}, T.and);
+  tl.to("#spike", {y:"+=420", duration:.7, ease:"power3.in"}, T.and + .45);
+  tl.to("#bill1", {x:-95, y:20, scale:.72, rotation:-6, duration:.7, ease:"back.out(1.1)"}, T.and);
+  tl.to("#bill2", {x:95, y:60, scale:.72, rotation:5, duration:.7, ease:"back.out(1.1)"}, T.and + .12);
+  lbl("#lblCommend", T.commends, T.unjust - .1);
+  tl.to("#bill1,#bill2", {y:"-=14", duration:.3, yoyo:true, repeat:1, ease:"sine.inOut", stagger:.12}, T.commends);
+  tl.set("#key", {x:-270, y:300, rotation:-20, scale:.9, filter:"none"}, T.unjust - .5);
+  tl.to("#key", {opacity:1, x:-290, y:190, rotation:-8, duration:.55, ease:"back.out(1.3)"}, T.unjust - .1);
+  lbl("#lblUnjust", T.unjust, T.wisely - .15);
+  tl.to("#key", {rotation:-2, duration:.45, yoyo:true, repeat:1, ease:"sine.inOut"}, T.unjust + .9);
+  // the stamp: done wisely
+  tl.fromTo("#stamp", {opacity:0, y:-520}, {opacity:1, y:-60, duration:.45, ease:"power2.out", immediateRender:false}, T.because - .1);
+  tl.to("#stamp", {y:140, duration:.16, ease:"power4.in"}, T.wisely - .12);
+  tl.set("#imprint", {opacity:1}, T.wisely + .04);
+  tl.fromTo("#imprint", {scale:1.12, transformOrigin:"50% 50%"}, {scale:1, duration:.2, ease:E, immediateRender:false}, T.wisely + .04);
+  tl.to("#stage", {x:-7, duration:.05, yoyo:true, repeat:3, ease:"none"}, T.wisely + .04);
+  tl.to("#stamp", {y:-620, opacity:0, duration:.4, ease:"power2.in"}, T.wisely + .25);
+  lbl("#lblWisely", T.wisely, P - .5);
+
+  // the turn: the old bills become the modern plan
+  const tp = P - .55;
+  tl.to("#bill1,#bill2,#imprint,#key", {scale:(i, el) => gsap.getProperty(el, "scale")*.2, opacity:0, duration:.3, ease:"power2.in", transformOrigin:"50% 50%"}, tp);
+  tl.fromTo("#plan", {opacity:0, scaleX:0, rotation:-6, transformOrigin:"50% 50%"}, {opacity:1, scaleX:1, rotation:0, duration:.4, ease:"back.out(1.4)", immediateRender:false}, tp + .12);
+  tl.fromTo("#checks > g", {opacity:0, x:-20}, {opacity:1, x:0, duration:.18, stagger:.1, immediateRender:false}, tp + .35);
+  lbl("#lblPlan", P - .45);
+});
