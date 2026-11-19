@@ -34,3 +34,14 @@ The episode stays a HyperFrames file (`hf/epNN_slug.html`) so the voice cueing (
 - Port the style's drawing code into the episode's `@html/@css/@js` (canvas or SVG layer inside the objects area, y 560-1300), driven from the GSAP timeline instead of `render(t)`: add a tween on a proxy object `{t:0}` and redraw on its `onUpdate`. Three.js pages need the same WebGL Chrome flags `render.py` uses.
 - Keep the episode's own objects and labels (short Inter caps), cued to the spoken words; the style is how they are drawn, not a separate clip.
 - Background colour, light beams, grain: use the style's own palette for the story section (ink wash = paper `#efe8d8`, stained glass = dark stone `#120a06`, paper cutout = warm paper, claymation = warm tan); header, captions and the cream ending keep the series colours.
+
+## Map engine (fantasy / simple / modern)
+- `build_mapset.py`: the shared map engine (`CORE`) plus campaign, bridge, territory and the burning-realm map. Run it to rebuild `s/map_{fantasy,simple,modern}_{campaign,bridge,territory}.html` and `s/map_fantasy_burning.html`.
+- `build_ww2.py`: World War II in Europe & North Africa, month by month (Aug 1939 to May 1945), in all three styles. The Axis and the land it holds is drawn as fire; armies are flags (Germany uses the old imperial black-white-red flag, never the Nazi flag).
+  - `ww2/geo.py` projects the coastlines and rasterizes the countries (needs `npm install` for world-atlas) and writes `ww2/geo.json`.
+  - `ww2/data.py` holds the front lines by date and writes `ww2/fronts.json`.
+  - `ww2/story.py` holds the armies, battles and captions, and the pacing, and writes `ww2/story.json`.
+  - A new war or era reuses the engine: write new data and story files.
+
+## Faster rendering
+`python3 render_fast.py <page> [<page> ...] [--workers N] [--scale 0.5]` splits each video into chunks rendered in parallel (one per CPU core by default) and grabs frames straight from the page's canvas when the page sets `window.CAPTURE`. Use `--scale 0.5` for a quick half-size draft. Serve the folder first with `python3 -m http.server 8765`.
