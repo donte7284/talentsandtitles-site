@@ -2,7 +2,6 @@ import os
 _B=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Armies (flags), battles and captions for the WW2 map.
 import json
-import sys;sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from data import M
 def F(code,pts,end='hide',off=None):return {'f':code,'k':[[round(M(d),3),lo,la] for d,lo,la in pts],'end':end}
 FL=[
@@ -69,5 +68,12 @@ for m in range(-1,69):
     ST.append(round(t,3));t+=1.05 if m in CAP else 0.3
 ST.append(round(t,3))
 DUR=round(t+3.4,2)
-json.dump({'flags':FL,'clash':[[round(M(a),3),round(M(b),3),lo,la,n] for a,b,lo,la,n in CL],'cap':CAP,'st':ST,'dur':DUR},open(_B+'/ww2/story.json','w'))
+EXTRA=dict(title=['The Second World War in Europe & North Africa','World War II · Europe & North Africa'],epoch=1939*12+8,nm=70,
+ labels=[['Great Britain',-2.2,53.6],['France',2.4,46.4],['Spain',-3.6,39.6],['Italy',13.6,43.0],['Germany',10.2,50.6],['Poland',18.6,51.3],['Soviet Union',38.5,58.6],['Sweden',15.2,63.2],['Norway',9.2,61.6],['Finland',26.6,63.6],['Turkey',34.5,39.0],['Egypt',29.6,26.6],['Libya',17.5,27.2],['Algeria',3.0,29.0],['Romania',25.0,45.4],['Yugoslavia',18.6,43.9],['Greece',21.9,39.3],['Hungary',19.4,47.0]],big=['Soviet Union'],
+ seas=[['Atlantic Ocean',-8.6,47.0],['Mediterranean Sea',18.5,35.0],['Black Sea',34.4,43.3],['North Sea',3.4,56.2],['Baltic Sea',19.6,57.3]],
+ cities=[['London',-0.12,51.5],['Paris',2.35,48.86],['Berlin',13.4,52.52],['Rome',12.5,41.9],['Moscow',37.62,55.75],['Leningrad',30.3,59.94],['Stalingrad',44.5,48.7],['Warsaw',21.0,52.23],['Cairo',31.24,30.04],['Athens',23.73,37.98],['Madrid',-3.7,40.42],['Kiev',30.52,50.45],['Vienna',16.37,48.21],['Tunis',10.18,36.8],['Belgrade',20.46,44.8]],
+ legend=[['Axis & occupied lands',0],['Allies',2],['Soviet Union',3],['Vichy France',4],['Neutral',5]],
+ flagkey=[['de','Germany*'],['it','Italy'],['gb','Britain'],['us','United States'],['fr','France'],['su','Soviet Union'],['pl','Poland'],['gr','Greece'],['ro','Romania'],['hu','Hungary'],['fi','Finland'],['yp','Yugoslavia']],
+ foot='*Germany is shown in its old imperial colours',ring=['Elbe link-up'],flash=[])
+json.dump({**EXTRA,'flags':FL,'clash':[[round(M(a),3),round(M(b),3),lo,la,n] for a,b,lo,la,n in CL],'cap':CAP,'st':ST,'dur':DUR},open(_B+'/ww2/story.json','w'))
 print(len(FL),'flags',len(CL),'battles',len(CAP),'captions; duration',DUR)
