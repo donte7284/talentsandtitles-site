@@ -17,11 +17,13 @@ The pages are generated: edit the Python builder, then run it. `mk.py` holds the
 - `build_office_styles.py` – shared 3D office scene (`s/office.js`): thermal, hologram, cyberpunk, claymation, blueprint (isometric is hand-written in `s/isometric.html`)
 - `build_a.py` particle, stained_glass, neon, low_poly · `build_b.py` paper_cutout, watercolor · `build_c.py` liquid_chrome, toy_miniature, black_hole, teardown
 - `build_d.py` the 14 business blocks (map_route, stat_chart, headline, paper_desk, before_after, iso_flow, notifications, day_counter, rent_vs_buy, bar_chart, social_card, app_mockup, globe_arcs, laptop_reveal)
+- `build_maps.py` map styles (Nov 18 2026): `map_simple` (clean flat map) and `map_modern` (dark tactical map with contours, CONTACT ping). Armies are formations of troop shapes: ▲ cavalry in front, ■ infantry in the middle, ● archers at the rear, with a legend; they march out of their cities along a route and clash, front ranks jostling and some fading as losses. Both share one invented land in the GEO block (cities, ROUTE_A, ROUTE_B, CLASH, FORM for the troop mix): change those to tell a real story. The builder also makes `map_fantasy` (parchment); it is not approved, so its page is not kept here.
 - `build_fix.py` (run last) – the Nov 18 reworks: ascii, crystal_glass, ink_wash, ukiyo_e
 
 ## Approved for use (Donte, Nov 18 2026)
 - **Parables for Builders:** `ink_wash`, `stained_glass`, `paper_cutout`, `claymation`. **Not** `ukiyo_e` (reads as AI-made).
 - **Real-estate / landlord reels:** `rent_vs_buy`, `notifications`, `iso_flow` (step flow), `stat_chart`, `before_after`, `day_counter`.
+- **Maps (armies moving and clashing, any series):** `map_simple`, `map_modern`. In scripture stories name only places the text names.
 - Everything else is a reference to borrow techniques from, not a look to post as-is.
 
 ## Not built yet (hard)
