@@ -93,6 +93,10 @@ Only an approval of the posted batch counts; a change request means revise, re-p
 | 13 | Noah (stained_glass) | GENESIS 6 : 13–22 | `public/reels/parable-13-noah.mp4` | 37.6 s | Sun 22 Nov 2026, 10:00 PT |
 | 14 | The unjust steward (paper_cutout) | LUKE 16 : 1–9 | `public/reels/parable-14-unjust-steward.mp4` | 35.0 s | Mon 23 Nov 2026, 10:00 PT |
 | 15 | Captain Moroni's fortifications (claymation) | ALMA 48 : 8–9 · 49 : 1–9 | `public/reels/parable-15-moroni-forts.mp4` | 35.4 s | Wed 25 Nov 2026, 10:00 PT |
+| 16 | The mustard seed (ink_wash) | MATTHEW 13 : 31–32 | `public/reels/parable-16-mustard-seed.mp4` | 30.8 s | Fri 27 Nov 2026, 10:00 PT |
+| 17 | The ten virgins (stained_glass) | MATTHEW 25 : 1–13 | `public/reels/parable-17-ten-virgins.mp4` | 33.2 s | Sun 29 Nov 2026, 10:00 PT |
+| 18 | Small and simple things (paper_cutout) | ALMA 37 : 1–8 | `public/reels/parable-18-small-simple.mp4` | 35.2 s | Mon 30 Nov 2026, 10:00 PT |
+| 19 | The talents (claymation) | MATTHEW 25 : 14–29 | `public/reels/parable-19-talents.mp4` | 36.8 s | Wed 2 Dec 2026, 10:00 PT |
 
 Notes:
 - No. 1 originally said Elisha "asks just one question"; 2 Kings 4:2 has him ask "What shall I do for thee? tell me, what hast thou in the house?" Changed to "The prophet asks her: what do you have in your house?" before it posted: re-voiced at speed 0.92 with pauses before "Nothing" and the punchline, `public/reels/parable-01-widows-oil.mp4` replaced, and both Oct 12 Metricool posts updated to the new video (media link `...parable-01-widows-oil.mp4?v=2`).
@@ -100,17 +104,13 @@ Notes:
 - No. 4-7 come from the weekly run on branch `claude/busy-bardeen-rabemw` (Oct 17). An earlier run of the same four stories on `claude/busy-bardeen-aioc2z` (Oct 10) was not used. The Oct 18 slot had passed, so they went out Wed/Fri/Sun/Mon Oct 21-26.
 - No. 8-11 are the first episodes on the HyperFrames engine, built on `claude/hyperframes-engine` (Oct 28). The narrations run 91-105 spoken words, above the usual 75-95, so the videos are 33-37 s. Nothing was scheduled when the run started, and the Wed Oct 28 slot had passed, so they went out Fri/Sun/Mon/Wed Oct 30-Nov 4.
 - No. 12-15 are the first styled episodes (weekly run on `claude/stoic-rubin-gjs0lp`, Nov 18), in rotation order ink_wash, stained_glass, paper_cutout, claymation. Nothing was scheduled; the Wed Nov 18 slot had passed, so they go out Fri/Sun/Mon/Wed Nov 20-25. Donte approved the batch in the session. No. 14 rendered at 119 MB and was re-encoded (x264 crf 23) to 15 MB. Light story backgrounds (ink wash, paper, clay) need a dark band behind the captions. Don't use template ids (glass, wood, stone...) for episode elements.
+- No. 16-19 are the Nov 21 scheduled weekly run (branch `claude/stoic-rubin-ffg6b9`), published without Donte's review under his Nov 18 decision; rotation ink_wash, stained_glass, paper_cutout, claymation. The last parable was Wed Nov 25, so they go out Fri/Sun/Mon/Wed Nov 27-Dec 2. No. 18 uses Alma 37:1-8 (Alma hands Helaman the records; 37:6 is the line) and rendered at 103 MB, re-encoded (crf 23) to 15.6 MB. Metricool returned "not found" for some media links in the first minute after the Vercel deploy; a retry a minute later worked.
 
 ## Story backlog
 Roughly one Book of Mormon story in every four. References checked against `scripture/`.
 
 | Story | Reference | The builder's turn (draft angle) |
 |---|---|---|
-| The mustard seed | Matthew 13:31-32 | The least of all seeds becomes the tree. |
-| The ten virgins | Matthew 25:1-13 | Five brought extra oil; preparation can't be borrowed at midnight. |
-| **Small and simple things** (BoM) | Alma 37:6-7 | Great things come by small means. |
-
-| The talents | Matthew 25:14-29 | The one who buried his talent kept it safe and still lost it. (The account's namesake.) |
 | Nehemiah's wall | Nehemiah 4:6, 17 | Half the wall done because "the people had a mind to work"; one hand building, the other ready. |
 | Jethro's advice | Exodus 18:13-24 | Moses judged from morning to evening alone; "thou wilt surely wear away." Delegate. |
 | **Don't run faster than your strength** (BoM) | Mosiah 4:27 | Diligent, but in wisdom and order. Pace beats burnout. |
