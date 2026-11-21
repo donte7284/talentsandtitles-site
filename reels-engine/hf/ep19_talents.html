@@ -1,0 +1,399 @@
+<!-- @config -->
+{"no":19,
+ "hook_html":"The one who<br>plays it safe<br>loses it",
+ "turn_at":"He kept it safe","turn_html":"He kept it safe, <em>and still lost it.</em>","turn_size":92,"turn_hl":"and still lost it",
+ "question_at":"What are you burying","question":"What are you burying because you're afraid to lose it?",
+ "ref":"MATTHEW 25 : 14–29","send":"Send this to someone sitting on a gift.",
+ "theme":{"sky-a":"#3b2716","sky-b":"#2a1a0e","sky-c":"#1c1109","sky-d":"#100904","beam":"255,222,170"}}
+<!-- @css -->
+/* claymation set: a lit warm-tan clay diorama between a dark studio band on top (hook, labels)
+   and a dark band below (captions at y 1330 stay cream on dark) */
+#bgWarm{opacity:1;inset:auto;left:26px;right:26px;top:574px;height:722px;border-radius:46px;
+  background:
+    radial-gradient(760px 300px at 50% 12%, rgba(255,242,214,.55), rgba(255,242,214,0) 70%),
+    linear-gradient(180deg,#f8d8a4 0%,#f2c98a 27%,#e7ad6c 31%,#dc9452 48%,#c47a3e 78%,#a45f2b 100%);
+  box-shadow:inset 0 -40px 70px rgba(70,30,6,.45), inset 0 18px 30px rgba(255,255,255,.18), 0 30px 90px rgba(0,0,0,.65)}
+.beam{opacity:.18}
+#hook{top:205px}
+#hook .big{font-size:88px}
+#lblFive,#lblTwo,#lblOne,#lblTrade,#lblOther5,#lblGain,#lblOther2,#lblDig,#lblHid,#lblLong,#lblReck,#lblWell,#lblGood,#lblTheOne,#lblAfraid,#lblTaken{opacity:0}
+.label{text-shadow:0 3px 14px rgba(0,0,0,.6)}
+<!-- @html -->
+      <svg id="scene" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <radialGradient id="cCream" cx=".34" cy=".28" r=".9"><stop offset="0" stop-color="#fffdf2"/><stop offset=".5" stop-color="#efe6cf"/><stop offset="1" stop-color="#b5a582"/></radialGradient>
+          <radialGradient id="cEarth" cx=".34" cy=".2" r=".95"><stop offset="0" stop-color="#f0b679"/><stop offset=".45" stop-color="#c97f42"/><stop offset="1" stop-color="#7a4320"/></radialGradient>
+          <radialGradient id="cLand" cx=".42" cy=".3" r=".8"><stop offset="0" stop-color="#f6c88c"/><stop offset=".55" stop-color="#e2a262"/><stop offset="1" stop-color="#b06a33"/></radialGradient>
+          <radialGradient id="cRed" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#ff9a80"/><stop offset=".45" stop-color="#e94f37"/><stop offset="1" stop-color="#8a2313"/></radialGradient>
+          <radialGradient id="cPot" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#ec8f72"/><stop offset=".45" stop-color="#c8553d"/><stop offset="1" stop-color="#6e2618"/></radialGradient>
+          <radialGradient id="cBlue" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#9fd0f6"/><stop offset=".45" stop-color="#3f88c5"/><stop offset="1" stop-color="#1b4572"/></radialGradient>
+          <radialGradient id="cStone" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#f4ecdc"/><stop offset=".45" stop-color="#bfb09a"/><stop offset="1" stop-color="#6b5d4b"/></radialGradient>
+          <radialGradient id="cGold" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#fff0a6"/><stop offset=".45" stop-color="#f6c90e"/><stop offset="1" stop-color="#8f6a04"/></radialGradient>
+          <radialGradient id="cGreen" cx=".32" cy=".26" r=".9"><stop offset="0" stop-color="#b9f0a0"/><stop offset=".45" stop-color="#5bb153"/><stop offset="1" stop-color="#2c6a28"/></radialGradient>
+          <radialGradient id="cHole" cx=".5" cy=".35" r=".7"><stop offset="0" stop-color="#2a1205"/><stop offset=".7" stop-color="#4a2412"/><stop offset="1" stop-color="#7a4320"/></radialGradient>
+          <linearGradient id="cPole" x1="0" x2="1"><stop offset="0" stop-color="#a8642a"/><stop offset=".5" stop-color="#8a4b16"/><stop offset="1" stop-color="#4f2a0b"/></linearGradient>
+          <linearGradient id="cPed" x1="0" x2="1"><stop offset="0" stop-color="#b5a582"/><stop offset=".3" stop-color="#fff8e6"/><stop offset=".55" stop-color="#efe6cf"/><stop offset="1" stop-color="#9c8a66"/></linearGradient>
+          <radialGradient id="softSh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3a1a06" stop-opacity=".5"/><stop offset=".6" stop-color="#3a1a06" stop-opacity=".22"/><stop offset="1" stop-color="#3a1a06" stop-opacity="0"/></radialGradient>
+          <!-- fingerprint-y matte clay: faint thumb arcs -->
+          <pattern id="fp" width="90" height="70" patternUnits="userSpaceOnUse">
+            <g fill="none" stroke-linecap="round">
+              <path d="M10 30 Q25 14 42 28" stroke="#fff" stroke-opacity=".16" stroke-width="2"/>
+              <path d="M14 36 Q27 24 40 35" stroke="#fff" stroke-opacity=".10" stroke-width="2"/>
+              <path d="M52 58 Q66 44 82 56" stroke="#5a2a0a" stroke-opacity=".12" stroke-width="2"/>
+              <path d="M56 64 Q67 54 78 62" stroke="#5a2a0a" stroke-opacity=".08" stroke-width="2"/>
+              <path d="M60 14 Q70 8 80 16" stroke="#fff" stroke-opacity=".10" stroke-width="2"/>
+            </g>
+          </pattern>
+        </defs>
+        <g id="ground" opacity="0">
+          <ellipse cx="552" cy="1150" rx="500" ry="150" fill="url(#softSh)"/>
+          <ellipse cx="540" cy="1132" rx="476" ry="146" fill="url(#cLand)"/>
+          <ellipse cx="540" cy="1132" rx="476" ry="146" fill="url(#fp)"/>
+          <ellipse cx="480" cy="1080" rx="260" ry="50" fill="#fff4dc" opacity=".16"/>
+        </g>
+        <g id="holeG"></g>
+        <g id="trays"></g>
+        <g id="counters"></g>
+        <g id="seals"></g>
+        <g id="moundG"></g>
+        <g id="spadeW"></g>
+        <g id="bagW"></g>
+        <g id="hourW"></g>
+        <g id="flyers"></g>
+        <g id="hookFx"></g>
+      </svg>
+      <div id="lblFive" class="label c" style="top:470px;font-size:36px">TO ONE · FIVE TALENTS</div>
+      <div id="lblTwo" class="label c" style="top:470px;font-size:36px">TO ANOTHER · TWO</div>
+      <div id="lblOne" class="label c" style="top:470px;font-size:36px">TO ANOTHER · ONE</div>
+      <div id="lblTrade" class="label c" style="top:470px;font-size:40px">TRADED</div>
+      <div id="lblOther5" class="label c" style="top:470px;font-size:36px">OTHER FIVE · 5 → 10</div>
+      <div id="lblGain" class="label c" style="top:470px;font-size:40px">GAINED</div>
+      <div id="lblOther2" class="label c" style="top:470px;font-size:36px">OTHER TWO · 2 → 4</div>
+      <div id="lblDig" class="label c warn" style="top:470px;font-size:36px">DUG IN THE EARTH</div>
+      <div id="lblHid" class="label c warn" style="top:470px;font-size:40px">HIDDEN</div>
+      <div id="lblLong" class="label c" style="top:470px;font-size:38px">A LONG TIME</div>
+      <div id="lblReck" class="label c" style="top:470px;font-size:36px">THE LORD RECKONS</div>
+      <div id="lblWell" class="label c" style="top:470px;font-size:40px">WELL DONE</div>
+      <div id="lblGood" class="label c" style="top:470px;font-size:36px">GOOD AND FAITHFUL</div>
+      <div id="lblTheOne" class="label c warn" style="top:470px;font-size:40px">THE ONE</div>
+      <div id="lblAfraid" class="label c warn" style="top:470px;font-size:40px">"I WAS AFRAID"</div>
+      <div id="lblTaken" class="label c warn" style="top:470px;font-size:34px">TAKEN · GIVEN TO THE TEN</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  const $ = id => document.getElementById(id);
+  const TX = [230, 540, 850], TY = 1000, BASE = 990, STEP = 14, SX = 44, CTY = 858;
+  const HOLE = [850, 1222], BAG = [540, 720];
+  // where each coin of each tray sits: [x offset, level]
+  const SLOTS = {
+    A: [[-SX,0],[-SX,1],[-SX,2],[-SX,3],[-SX,4],[SX,0],[SX,1],[SX,2],[SX,3],[SX,4]],
+    B: [[-SX,0],[-SX,1],[SX,0],[SX,1]],
+    C: [[0,0]]
+  };
+  window.EP19 = {TX, TY, BASE, STEP, SX, CTY, HOLE, BAG, SLOTS};
+
+  function coin(parent, x, y, id, s){
+    s = s || 1;
+    const o = mk("g", {transform:`translate(${x} ${y})`}, parent);
+    const g = mk("g", {id, opacity:0}, o);
+    mk("ellipse", {cx:0, cy:7*s, rx:37*s, ry:12*s, fill:"#8f6a04"}, g);
+    mk("rect", {x:-37*s, y:0, width:74*s, height:7*s, fill:"#b88a0c"}, g);
+    mk("ellipse", {cx:0, cy:0, rx:37*s, ry:12*s, fill:"url(#cGold)"}, g);
+    mk("ellipse", {cx:0, cy:0, rx:25*s, ry:7.5*s, fill:"none", stroke:"#a77b06", "stroke-opacity":.55, "stroke-width":2.2}, g);
+    mk("ellipse", {cx:-11*s, cy:-4*s, rx:12*s, ry:3*s, fill:"#fff", opacity:.4}, g);
+    return g;
+  }
+
+  // three pedestals with clay dishes: the three servants
+  ["A","B","C"].forEach((k, i) => {
+    const x = TX[i];
+    const o = mk("g", {transform:`translate(${x} ${TY})`}, $("trays"));
+    const t = mk("g", {id:"tray"+k, opacity:0}, o);
+    mk("ellipse", {cx:16, cy:150, rx:110, ry:20, fill:"url(#softSh)"}, t);
+    mk("path", {d:"M-78 8 L-78 132 Q0 160 78 132 L78 8 Z", fill:"url(#cPed)"}, t);
+    mk("path", {d:"M-78 8 L-78 132 Q0 160 78 132 L78 8 Z", fill:"url(#fp)"}, t);
+    mk("path", {d:"M-78 132 Q0 160 78 132", fill:"none", stroke:"#8a7650", "stroke-opacity":.45, "stroke-width":3}, t);
+    // dish
+    mk("ellipse", {cx:0, cy:14, rx:124, ry:34, fill:"#6e2618"}, t);
+    mk("ellipse", {cx:0, cy:4, rx:124, ry:34, fill:"url(#cPot)"}, t);
+    mk("ellipse", {cx:0, cy:4, rx:104, ry:25, fill:"#8a3420"}, t);
+    mk("ellipse", {cx:0, cy:7, rx:100, ry:22, fill:"url(#cEarth)", opacity:.55}, t);
+    const cg = mk("g", {id:"coins"+k}, t);
+    SLOTS[k].forEach((sl, j) => coin(cg, sl[0], BASE - TY - sl[1]*STEP, "c"+k+j));
+    if(k === "A") coin(cg, -SX, BASE - TY - 5*STEP, "cA10");
+    // the front lip of the dish over the lowest coins
+    mk("path", {d:"M-124 4 Q-124 38 0 38 Q124 38 124 4 Q118 30 0 30 Q-118 30 -124 4 Z", fill:"url(#cPot)"}, t);
+    mk("path", {d:"M-60 33 Q0 38 60 33", fill:"none", stroke:"#ffd2bf", "stroke-opacity":.35, "stroke-width":3, "stroke-linecap":"round"}, t);
+  });
+
+  // counters above each dish: a cream clay tile with the running count
+  ["A","B","C"].forEach((k, i) => {
+    const o = mk("g", {transform:`translate(${TX[i]} ${CTY})`}, $("counters"));
+    const c = mk("g", {id:"ct"+k, opacity:0}, o);
+    mk("ellipse", {cx:8, cy:44, rx:66, ry:9, fill:"url(#softSh)"}, c);
+    mk("rect", {x:-62, y:-38, width:124, height:76, rx:24, fill:"url(#cCream)"}, c);
+    mk("rect", {x:-62, y:-38, width:124, height:76, rx:24, fill:"url(#fp)"}, c);
+    mk("rect", {id:"ctBad"+k, x:-62, y:-38, width:124, height:76, rx:24, fill:"url(#cRed)", opacity:0}, c);
+    mk("rect", {id:"ctOk"+k, x:-70, y:-46, width:140, height:92, rx:30, fill:"none", stroke:"#f6c90e", "stroke-width":7, opacity:0}, c);
+    for(let n=0;n<=11;n++){
+      const tx = mk("text", {id:"n"+k+n, x:0, y:19, "text-anchor":"middle", "font-family":"Inter", "font-weight":800, "font-size":52, fill:"#5a2a0a", opacity:n===0?1:0}, c);
+      tx.textContent = n;
+    }
+  });
+
+  // gold clay seals of approval on the pedestal fronts
+  ["A","B"].forEach((k, i) => {
+    const o = mk("g", {transform:`translate(${TX[i]} ${TY + 78})`}, $("seals"));
+    const s = mk("g", {id:"seal"+k, opacity:0}, o);
+    mk("path", {d:"M-22 20 L-30 62 L-14 52 L-4 66 L0 24 Z", fill:"url(#cRed)"}, s);
+    mk("path", {d:"M22 20 L30 62 L14 52 L4 66 L0 24 Z", fill:"url(#cRed)"}, s);
+    mk("circle", {r:40, fill:"#8f6a04", cy:4}, s);
+    mk("circle", {r:40, fill:"url(#cGold)"}, s);
+    mk("circle", {r:30, fill:"none", stroke:"#a77b06", "stroke-opacity":.6, "stroke-width":3}, s);
+    mk("path", {d:"M-16 0 L-4 13 L18 -12", fill:"none", stroke:"#fffaf0", "stroke-width":9, "stroke-linecap":"round", "stroke-linejoin":"round"}, s);
+  });
+
+  // the hole in the earth, its dirt pile, and the mound that covers it
+  const ho = mk("g", {transform:`translate(${HOLE[0]} ${HOLE[1]})`}, $("holeG"));
+  mk("ellipse", {id:"hole", cx:0, cy:0, rx:62, ry:18, fill:"url(#cHole)", opacity:0}, ho);
+  const pile = mk("g", {id:"dirt", opacity:0}, ho);
+  [[-92,4,20],[-74,-6,18],[-104,-8,14],[-86,-18,12]].forEach(b => mk("ellipse", {cx:b[0], cy:b[1], rx:b[2], ry:b[2]*.75, fill:"url(#cEarth)"}, pile));
+  const mo = mk("g", {transform:`translate(${HOLE[0]} ${HOLE[1] + 8}) scale(1.25)`}, $("moundG"));
+  const mound = mk("g", {id:"mound", opacity:0}, mo);
+  mk("path", {d:"M-74 0 Q-60 -52 0 -56 Q60 -52 74 0 Q0 14 -74 0 Z", fill:"url(#cEarth)"}, mound);
+  mk("path", {d:"M-74 0 Q-60 -52 0 -56 Q60 -52 74 0 Q0 14 -74 0 Z", fill:"url(#fp)"}, mound);
+  mk("ellipse", {cx:-18, cy:-38, rx:24, ry:7, fill:"#fff2d8", opacity:.3}, mound);
+  [[-30,-40,-14],[0,-54,4],[28,-42,16]].forEach((b, k) => {
+    const tw = mk("g", {transform:`translate(${b[0]} ${b[1] + 4})`}, mound);
+    const tf = mk("g", {id:"tuft"+k}, tw);
+    mk("path", {d:`M-6 0 Q-10 -22 -4 -30 Q-2 -14 2 0 Z`, fill:"url(#cGreen)", transform:`rotate(${b[2]})`}, tf);
+    mk("path", {d:`M0 0 Q4 -26 12 -32 Q8 -14 6 0 Z`, fill:"url(#cGreen)", transform:`rotate(${b[2]})`}, tf);
+  });
+  // the coin dug back out of the earth (taken to the ten)
+  coin($("flyers"), HOLE[0], HOLE[1] - 4, "dugCoin");
+
+  // a clay spade
+  const sp0 = mk("g", {transform:`translate(${HOLE[0] + 96} ${HOLE[1] - 8})`}, $("spadeW"));
+  const sp = mk("g", {id:"spade", opacity:0}, sp0);
+  mk("ellipse", {cx:6, cy:6, rx:34, ry:8, fill:"url(#softSh)"}, sp);
+  mk("rect", {x:-6, y:-170, width:12, height:130, rx:6, fill:"url(#cPole)"}, sp);
+  mk("rect", {x:-24, y:-186, width:48, height:16, rx:8, fill:"url(#cPole)"}, sp);
+  mk("path", {d:"M-26 -46 L26 -46 L24 -6 Q0 14 -24 -6 Z", fill:"url(#cStone)", stroke:"#6b5d4b", "stroke-opacity":.4, "stroke-width":2}, sp);
+
+  // the lord's money bag
+  const bo = mk("g", {transform:`translate(${BAG[0]} ${BAG[1]})`}, $("bagW"));
+  const bag = mk("g", {id:"bag", opacity:0}, bo);
+  mk("ellipse", {cx:10, cy:78, rx:86, ry:14, fill:"url(#softSh)"}, bag);
+  const bb = mk("g", {id:"bagBody"}, bag);
+  mk("path", {d:"M-34 -40 Q-80 0 -76 40 Q-70 80 0 80 Q70 80 76 40 Q80 0 34 -40 Z", fill:"url(#cEarth)"}, bb);
+  mk("path", {d:"M-34 -40 Q-80 0 -76 40 Q-70 80 0 80 Q70 80 76 40 Q80 0 34 -40 Z", fill:"url(#fp)"}, bb);
+  mk("ellipse", {cx:-30, cy:10, rx:18, ry:30, fill:"#fff2d8", opacity:.22}, bb);
+  mk("path", {d:"M-38 -40 Q0 -30 38 -40 L44 -60 Q0 -48 -44 -60 Z", fill:"url(#cPot)"}, bb);
+  mk("ellipse", {cx:0, cy:-62, rx:46, ry:12, fill:"#5a2a0a"}, bb);
+  mk("ellipse", {cx:-10, cy:-66, rx:22, ry:7, fill:"url(#cGold)"}, bb);
+  mk("ellipse", {cx:16, cy:-64, rx:20, ry:6, fill:"url(#cGold)"}, bb);
+
+  // a clay hourglass: a long time
+  const hw = mk("g", {transform:"translate(540 724)"}, $("hourW"));
+  const hg = mk("g", {id:"hour", opacity:0}, hw);
+  mk("ellipse", {cx:10, cy:92, rx:84, ry:12, fill:"url(#softSh)"}, hg);
+  const hgi = mk("g", {id:"hourIn"}, hg);
+  mk("path", {d:"M-52 -78 Q-50 -10 -8 0 Q-50 10 -52 78 L52 78 Q50 10 8 0 Q50 -10 52 -78 Z", fill:"#fff8e6", opacity:.45, stroke:"#fffaf0", "stroke-opacity":.7, "stroke-width":3}, hgi);
+  const st = mk("g", {id:"sandTop"}, hgi);
+  mk("path", {d:"M-44 -60 L44 -60 Q40 -16 0 -4 Q-40 -16 -44 -60 Z", fill:"url(#cGold)"}, st);
+  const sb = mk("g", {id:"sandBot"}, hgi);
+  mk("path", {d:"M-48 74 Q-30 20 0 16 Q30 20 48 74 Z", fill:"url(#cGold)"}, sb);
+  mk("rect", {id:"sandStream", x:-3, y:-4, width:6, height:76, rx:3, fill:"#f6c90e"}, hgi);
+  mk("rect", {x:-70, y:-96, width:140, height:22, rx:11, fill:"url(#cPole)"}, hgi);
+  mk("rect", {x:-70, y:74, width:140, height:22, rx:11, fill:"url(#cPole)"}, hgi);
+  mk("rect", {x:-62, y:-76, width:10, height:152, rx:5, fill:"url(#cPole)"}, hgi);
+  mk("rect", {x:52, y:-76, width:10, height:152, rx:5, fill:"url(#cPole)"}, hgi);
+
+  // hook: the coin that is kept safe under a clay dome, and lost anyway
+  const pc0 = mk("g", {}, $("hookFx"));
+  coin(pc0, TX[2], BASE, "hookCoin");
+  const lid0 = mk("g", {transform:`translate(${TX[2]} ${TY + 6})`}, $("hookFx"));
+  const lid = mk("g", {id:"lid", opacity:0}, lid0);
+  mk("path", {d:"M-112 0 Q-108 -118 0 -122 Q108 -118 112 0 Q0 20 -112 0 Z", fill:"url(#cStone)"}, lid);
+  mk("path", {d:"M-112 0 Q-108 -118 0 -122 Q108 -118 112 0 Q0 20 -112 0 Z", fill:"url(#fp)"}, lid);
+  mk("ellipse", {cx:-40, cy:-80, rx:26, ry:12, fill:"#fff", opacity:.3}, lid);
+  mk("circle", {cx:0, cy:-134, r:16, fill:"url(#cStone)"}, lid);
+  mk("ellipse", {id:"lossRing", cx:TX[2], cy:TY + 6, rx:150, ry:60, fill:"none", stroke:"#d9735a", "stroke-width":8, "stroke-dasharray":"18 12", opacity:0}, $("hookFx"));
+})();
+K.run(function(tl, K){
+  const at = K.at, T = {}, P = K.EP.paper, G = window.EP19;
+  T.three = at("Three servants"); T.money = at("lord's money"); T.plays = at("plays it safe"); T.safe = at("safe"); T.loses = at("loses it");
+  T.toOne = at("To one"); T.five = at("five talents"); T.to2 = at("To another"); T.two = at("two");
+  T.to1 = at("To another", {nth:2}); T.one = at("one", {from:T.to1});
+  T.fiveTr = at("Five trades"); T.trades = at("trades"); T.makes = at("makes other five"); T.other5 = at("other five");
+  T.twoG = at("Two gains"); T.gains = at("gains"); T.other2 = at("other two");
+  T.oneD = at("One digs"); T.digs = at("digs"); T.earth = at("earth"); T.hides = at("hides it");
+  T.after = at("After a long"); T.longT = at("long time"); T.lord = at("the lord comes"); T.reckon = at("reckon");
+  T.well = at("Well done"); T.good = at("good and faithful"); T.faith = at("faithful"); T.servant = at("servant");
+  T.theOne = at("The one", {from:T.servant}); T.afraid = at("I was afraid"); T.afr = at("afraid", {from:T.servant});
+  T.take = at("Take the talent"); T.talent = at("talent", {from:T.take}); T.him = at("him");
+  const hookOff = K.EP.hookOff;
+  K.camera(tl, [[0, T.toOne, 1, 1.04], [T.toOne, T.fiveTr, 1.0, 1.05, 0, -10], [T.fiveTr, T.oneD, 1.02, 1.07, 0, -20],
+                [T.oneD, T.after, 1.04, 1.1, -10, -40], [T.after, T.well, 1.0, 1.05], [T.well, T.theOne, 1.02, 1.07, 0, -16],
+                [T.theOne, P + .6, 1.04, 1.1, -20, -44]]);
+  const pop = (sel, t, st, d) => tl.fromTo(sel, {opacity:0, scaleX:1.35, scaleY:.25, transformOrigin:"50% 100%"},
+    {opacity:1, scaleX:1, scaleY:1, transformOrigin:"50% 100%", duration:d||.6, ease:"elastic.out(1,.5)", stagger:st||0, immediateRender:false}, t);
+  const sw = (lbl, t, prev) => { if(prev) K.hide(tl, prev, t - .12, {}, .14); K.show(tl, lbl, t, {y:14}, .3); };
+  const squash = (sel, t, k) => tl.to(sel, {scaleY:k||.8, scaleX:2-(k||.8), transformOrigin:"50% 100%", duration:.09, yoyo:true, repeat:1, ease:"power2.out"}, t);
+  // counters: one text per value, shown with sets so seeking is exact
+  const setNum = (k, n, t) => {
+    for(let i=0;i<=11;i++) tl.set("#n"+k+i, {opacity:i===n?1:0}, t);
+    tl.fromTo("#ct"+k, {scale:1}, {scale:1.16, transformOrigin:"50% 50%", duration:.1, yoyo:true, repeat:1, ease:"power2.out", immediateRender:false}, t);
+  };
+  // a coin flying from (fx,fy) in scene coordinates into its slot
+  const fly = (id, home, from, t, d) => {
+    d = d || .5; const dx = from[0] - home[0], dy = from[1] - home[1];
+    tl.set(id, {x:dx, y:dy, opacity:0}, 0);
+    tl.set(id, {opacity:1}, t);
+    tl.to(id, {x:0, duration:d, ease:"power1.inOut"}, t);
+    tl.fromTo(id, {y:dy}, {y:dy - 90, duration:d*.4, ease:"power2.out", immediateRender:false}, t);
+    tl.to(id, {y:0, duration:d*.6, ease:"power2.in"}, t + d*.4);
+    squash(id, t + d, .7);
+    return t + d;
+  };
+  const slotXY = (k, j) => { const i = "ABC".indexOf(k), sl = G.SLOTS[k][j]; return [G.TX[i] + sl[0], G.BASE - sl[1]*G.STEP]; };
+  const bagMouth = [G.BAG[0], G.BAG[1] - 70];
+
+  // hook: three dishes, the lord's money, a coin kept safe under a dome ... and gone
+  tl.fromTo("#ground", {opacity:0, scaleY:.6, transformOrigin:"50% 100%"}, {opacity:1, scaleY:1, duration:.6, ease:"back.out(1.6)"}, .05);
+  pop("#trayA,#trayB,#trayC", Math.max(.1, T.three - .1), .16, .7);
+  tl.fromTo("#bag", {opacity:0, y:-300}, {opacity:1, y:0, duration:.6, ease:"bounce.out", immediateRender:false}, T.money - .2);
+  const hcHome = [G.TX[2], G.BASE];
+  fly("#hookCoin", hcHome, bagMouth, T.plays - .15, .55);
+  tl.fromTo("#lid", {opacity:0, y:-260}, {opacity:1, y:0, duration:.35, ease:"power2.in", immediateRender:false}, T.safe - .2);
+  squash("#lid", T.safe + .15, .8);
+  tl.to("#lid", {x:-5, duration:.06, yoyo:true, repeat:5}, T.loses - .25);
+  tl.set("#hookCoin", {opacity:0}, T.loses);
+  tl.to("#lid", {y:-150, opacity:0, duration:.45, ease:"power2.out"}, T.loses + .05);
+  tl.fromTo("#lossRing", {opacity:0, scale:.6, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)", immediateRender:false}, T.loses + .2);
+  tl.to("#lossRing", {scale:1.08, duration:.25, yoyo:true, repeat:1, ease:"sine.inOut"}, T.loses + .6);
+  tl.to("#trayC", {x:-6, duration:.06, yoyo:true, repeat:5}, T.loses + .25);
+  K.hide(tl, "#lossRing", T.toOne - .1, {}, .3);
+
+  // the gifts: five, two, one, each counted onto its dish
+  const give = (k, n, t, lbl, prev) => {
+    sw(lbl, Math.max(t.lbl, hookOff + .45), prev);
+    pop("#ct"+k, t.lbl, 0, .5);
+    for(let j=0;j<n;j++){
+      squash("#bagBody", t.num + j*.11, .86);
+      const land = fly("#c"+k+j, slotXY(k, j), bagMouth, t.num + j*.11, .5);
+      setNum(k, j + 1, land);
+    }
+  };
+  give("A", 5, {lbl:T.toOne, num:T.five}, "#lblFive");
+  give("B", 2, {lbl:T.to2, num:T.two}, "#lblTwo", "#lblFive");
+  give("C", 1, {lbl:T.to1, num:T.one}, "#lblOne", "#lblTwo");
+  // the bag is empty
+  tl.to("#bagBody", {scaleY:.45, scaleX:1.25, transformOrigin:"50% 100%", duration:.35, ease:"power2.in"}, T.one + .75);
+  tl.to("#bag", {opacity:0, y:40, duration:.35}, T.fiveTr - .2);
+
+  // five trades and makes other five
+  sw("#lblTrade", T.fiveTr, "#lblOne");
+  for(let j=0;j<5;j++) tl.to("#cA"+j, {y:-26, duration:.16, yoyo:true, repeat:3, ease:"sine.out"}, T.fiveTr + j*.07);
+  tl.to("#trayA", {rotation:-2, transformOrigin:"50% 100%", duration:.18, yoyo:true, repeat:3, ease:"sine.inOut"}, T.trades);
+  sw("#lblOther5", T.makes, "#lblTrade");
+  for(let j=5;j<10;j++){
+    const [x, y] = slotXY("A", j);
+    const t = T.other5 - .15 + (j-5)*.13;
+    tl.set("#cA"+j, {y:-260, opacity:0}, 0); tl.set("#cA"+j, {opacity:1}, t);
+    tl.to("#cA"+j, {y:0, duration:.42, ease:"bounce.out"}, t);
+    setNum("A", j + 1, t + .3);
+  }
+
+  // two gains other two
+  sw("#lblGain", T.twoG, "#lblOther5");
+  for(let j=0;j<2;j++) tl.to("#cB"+j, {y:-26, duration:.16, yoyo:true, repeat:3, ease:"sine.out"}, T.twoG + j*.08);
+  tl.to("#trayB", {rotation:2, transformOrigin:"50% 100%", duration:.18, yoyo:true, repeat:3, ease:"sine.inOut"}, T.gains);
+  sw("#lblOther2", T.other2, "#lblGain");
+  for(let j=2;j<4;j++){
+    const t = T.other2 - .1 + (j-2)*.15;
+    tl.set("#cB"+j, {y:-260, opacity:0}, 0); tl.set("#cB"+j, {opacity:1}, t);
+    tl.to("#cB"+j, {y:0, duration:.42, ease:"bounce.out"}, t);
+    setNum("B", j + 1, t + .3);
+  }
+
+  // one digs in the earth and hides it
+  sw("#lblDig", T.oneD, "#lblOther2");
+  tl.fromTo("#spade", {opacity:0, y:-200}, {opacity:1, y:0, duration:.4, ease:"bounce.out", immediateRender:false}, T.oneD);
+  for(let k=0;k<3;k++){
+    tl.to("#spade", {rotation:-28, x:-24, y:10, transformOrigin:"50% 100%", duration:.16, ease:"power2.in"}, T.digs + k*.36);
+    tl.to("#spade", {rotation:0, x:0, y:0, duration:.18, ease:"power2.out"}, T.digs + .16 + k*.36);
+  }
+  tl.fromTo("#hole", {opacity:0, scale:.2, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.7, ease:"power2.out", immediateRender:false}, T.digs + .1);
+  pop("#dirt", T.digs + .2, 0, .6);
+  sw("#lblHid", T.hides, "#lblDig");
+  // the single coin hops out of its dish and drops into the hole
+  const cC = slotXY("C", 0), hy = G.HOLE[1] - 4 - cC[1];
+  tl.to("#cC0", {x:60, y:-110, duration:.3, ease:"power2.out"}, T.hides - .25);
+  tl.to("#cC0", {x:0, y:hy, duration:.32, ease:"power2.in"}, T.hides + .05);
+  tl.to("#cC0", {scale:.7, opacity:0, duration:.2}, T.hides + .37);
+  pop("#mound", T.hides + .4, 0, .6);
+  tl.set("#hole", {opacity:0}, T.hides + .7);
+  tl.to("#mound", {scaleY:.86, scaleX:1.08, transformOrigin:"50% 100%", duration:.12, yoyo:true, repeat:3}, T.hides + .9);
+  tl.to("#spade", {rotation:20, opacity:0, x:60, duration:.4, ease:"power2.in"}, T.hides + .9);
+  K.hide(tl, "#dirt", T.hides + 1.0, {scale:.4}, .3);
+  tl.to("#ctC", {opacity:.55, duration:.3}, T.hides + .5);
+  tl.set(["#tuft0","#tuft1","#tuft2"], {scale:0, transformOrigin:"50% 100%"}, 0);
+
+  // after a long time: the hourglass runs, grass grows on the mound
+  sw("#lblLong", T.after, "#lblHid");
+  pop("#hour", T.after - .1, 0, .6);
+  tl.fromTo("#sandTop", {scaleY:1, transformOrigin:"50% 100%"}, {scaleY:.05, duration:T.lord - T.after, ease:"none", immediateRender:false}, T.after + .2);
+  tl.fromTo("#sandBot", {scaleY:.15, transformOrigin:"50% 100%"}, {scaleY:1, duration:T.lord - T.after, ease:"none"}, T.after + .2);
+  tl.to("#hourIn", {rotation:180, transformOrigin:"50% 50%", duration:.5, ease:"back.inOut(1.4)"}, T.lord - .1);
+  ["#tuft0","#tuft1","#tuft2"].forEach((s, k) => tl.to(s, {scale:1, duration:.6, ease:"elastic.out(1,.5)"}, T.longT + k*.25));
+  tl.to("#trayA,#trayB", {y:-6, duration:.3, yoyo:true, repeat:1, ease:"sine.inOut"}, T.longT + .4);
+
+  // the lord comes to reckon: each count is checked in turn
+  sw("#lblReck", T.lord, "#lblLong");
+  K.hide(tl, "#hour", T.reckon - .1, {y:-40}, .35);
+  ["A","B","C"].forEach((k, i) => {
+    const t = T.lord + .35 + i*.4;
+    tl.fromTo("#ctOk"+k, {opacity:0, scale:.7, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.3, ease:"back.out(2)", immediateRender:false}, t);
+    tl.to("#ct"+k, {scale:1.18, transformOrigin:"50% 50%", duration:.14, yoyo:true, repeat:1}, t);
+    tl.to("#ctOk"+k, {opacity:0, duration:.25}, t + .55);
+  });
+  tl.to("#ctC", {opacity:1, duration:.3}, T.reckon + .4);
+
+  // well done, good and faithful servant
+  sw("#lblWell", T.well, "#lblReck");
+  tl.fromTo("#sealA", {opacity:0, scale:2.2, rotation:-30, transformOrigin:"50% 50%"}, {opacity:1, scale:1, rotation:0, duration:.45, ease:"back.out(2.2)", immediateRender:false}, T.well + .05);
+  tl.to("#ctOkA", {opacity:1, duration:.25}, T.well + .1);
+  sw("#lblGood", T.good, "#lblWell");
+  tl.fromTo("#sealB", {opacity:0, scale:2.2, rotation:30, transformOrigin:"50% 50%"}, {opacity:1, scale:1, rotation:0, duration:.45, ease:"back.out(2.2)", immediateRender:false}, T.good + .05);
+  tl.to("#ctOkB", {opacity:1, duration:.25}, T.good + .1);
+  const coinsAB = []; for(let j=0;j<10;j++) coinsAB.push("#cA"+j); for(let j=0;j<4;j++) coinsAB.push("#cB"+j);
+  tl.to(coinsAB.join(","), {y:-18, duration:.14, yoyo:true, repeat:1, ease:"sine.out", stagger:.035}, T.faith);
+  tl.to("#sealA,#sealB", {rotation:8, duration:.2, yoyo:true, repeat:3, ease:"sine.inOut"}, T.servant);
+
+  // the one: "I was afraid"
+  sw("#lblTheOne", T.theOne, "#lblGood");
+  tl.to("#trayA,#trayB,#ctA,#ctB,#sealA,#sealB", {opacity:.5, duration:.35}, T.theOne);
+  tl.to("#ctBadC", {opacity:.9, duration:.3}, T.theOne + .2);
+  tl.to("#mound", {y:-8, duration:.15, yoyo:true, repeat:1}, T.theOne + .3);
+  sw("#lblAfraid", T.afraid, "#lblTheOne");
+  tl.to("#trayC,#mound", {x:-5, duration:.05, yoyo:true, repeat:13, ease:"none"}, T.afr);
+  tl.to("#ctC", {scale:.88, transformOrigin:"50% 50%", duration:.2, yoyo:true, repeat:1}, T.afr + .1);
+
+  // take the talent from him: dug out, carried to the one with ten
+  sw("#lblTaken", T.take, "#lblAfraid");
+  tl.to("#trayA,#ctA,#sealA", {opacity:1, duration:.3}, T.take);
+  tl.to("#mound", {scaleY:0, scaleX:1.3, transformOrigin:"50% 100%", duration:.25, ease:"power2.in"}, T.take);
+  const dHome = [G.HOLE[0], G.HOLE[1] - 4], aTop = [G.TX[0] - G.SX, G.BASE - 5*G.STEP];
+  tl.set("#dugCoin", {opacity:1}, T.take + .1);
+  tl.fromTo("#dugCoin", {y:30}, {y:-250, duration:.3, ease:"power2.out", immediateRender:false}, T.take + .1);
+  setNum("C", 0, T.take + .2);
+  const tF = T.take + .4, dF = Math.max(.35, Math.min(.55, P - .15 - tF));
+  tl.to("#dugCoin", {x:aTop[0] - dHome[0], duration:dF, ease:"power1.inOut"}, tF);
+  tl.to("#dugCoin", {y:-300, duration:dF*.4, ease:"power2.out"}, tF);
+  tl.to("#dugCoin", {y:aTop[1] - dHome[1], duration:dF*.6, ease:"power2.in"}, tF + dF*.4);
+  tl.set("#dugCoin", {opacity:0}, tF + dF); tl.set("#cA10", {opacity:1}, tF + dF);
+  squash("#cA10", tF + dF, .7);
+  setNum("A", 11, tF + dF);
+});

@@ -1,0 +1,292 @@
+<!-- @config -->
+{"no":18,
+ "hook_html":"Old records that look<br>like foolishness",
+ "turn_at":"Small means","turn_html":"Small means.<br>Great things.<br><em>Keep doing</em> <em>the small thing.</em>","turn_size":80,"turn_hl":"Keep doing the small thing",
+ "question_at":"What small thing are you","question":"What small thing are you about to quit because it looks like nothing?",
+ "ref":"ALMA 37 : 1–8","send":"Send this to someone doing the small things every day.",
+ "theme":{"beam":"255,244,222"}}
+<!-- @css -->
+/* paper_cutout story palette: warm paper, layered cut shapes, soft drop shadows (styles/build_b.py) */
+#bg{background:radial-gradient(1100px 1200px at 50% 38%, #f1e6d4 0%, #e9dcc9 55%, #dccab0 100%)}
+.beam{display:none}
+#vignette{background:radial-gradient(900px 1300px at 50% 40%, rgba(0,0,0,0) 55%, rgba(74,46,24,.28) 100%)}
+#grain{opacity:.07}
+#header{color:#7a5418;opacity:1}
+#header span{background:#9c7a2f}
+#mark{color:rgba(74,46,24,.62)}
+/* hook card on a dark cut-paper panel so the cream type reads on the light page */
+#hook{z-index:5;background:#33241a;padding:46px 30px 44px;border-radius:8px;box-shadow:0 16px 30px rgba(58,36,22,.38), 0 3px 0 #4a3424 inset}
+#hook .big{font-size:84px}
+/* labels: darker ink for the light paper */
+.label{color:#6e4810}
+.label.warn{color:#a8432c}
+#world,#front{position:absolute;left:0;top:0}
+#plates,#qtag,#steps > g,#clasp,#q1,#q2,#q3,#tower,#cap1,#count,#pages > g,#daily,#sheen,
+#lblHelaman,#lblTake,#lblKeep,#lblDown,#lblSuppose,#lblFool,#lblSmall,#lblGreat,#lblMemory,#lblDaily{opacity:0}
+<!-- @html -->
+      <svg id="world" class="obj" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <filter id="cut" x="-15%" y="-15%" width="130%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="g"/>
+            <feComposite in="SourceGraphic" in2="g" operator="arithmetic" k1="0" k2="1" k3="-.08" k4="0" result="tex"/><feDropShadow in="tex" dx="6" dy="12" stdDeviation="7" flood-color="#3a2416" flood-opacity=".35"/></filter>
+          <filter id="cutHi" x="-20%" y="-20%" width="140%" height="150%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="5" result="n"/><feColorMatrix in="n" type="saturate" values="0" result="g"/>
+            <feComposite in="SourceGraphic" in2="g" operator="arithmetic" k1="0" k2="1" k3="-.08" k4="0" result="tex"/><feDropShadow in="tex" dx="10" dy="22" stdDeviation="12" flood-color="#3a2416" flood-opacity=".38"/></filter>
+          <clipPath id="faceClip"><rect x="-150" y="-108" width="300" height="200" rx="14"/></clipPath>
+        </defs>
+        <!-- back layers: a record room, layered arch, shelf pillars, a stone ledge -->
+        <g id="back">
+          <path d="M40 1240 L40 560 L130 520 L130 1240 Z" fill="#d9c2a3" filter="url(#cut)"/>
+          <path d="M1040 1240 L1040 560 L950 520 L950 1240 Z" fill="#d9c2a3" filter="url(#cut)"/>
+          <path d="M160 1240 L160 650 Q160 390 540 390 Q920 390 920 650 L920 1240 Z" fill="#f4eadb" filter="url(#cut)"/>
+          <path d="M215 1240 L215 670 Q215 455 540 455 Q865 455 865 670 L865 1240 Z" fill="#e8d6bb" filter="url(#cut)"/>
+          <path d="M270 1240 L270 700 Q270 525 540 525 Q810 525 810 700 L810 1240 Z" fill="#dcc5a4" filter="url(#cut)"/>
+          <g fill="#c9ad86" filter="url(#cut)"><rect x="52" y="700" width="66" height="14"/><rect x="52" y="880" width="66" height="14"/><rect x="52" y="1060" width="66" height="14"/>
+            <rect x="962" y="700" width="66" height="14"/><rect x="962" y="880" width="66" height="14"/><rect x="962" y="1060" width="66" height="14"/></g>
+          <g fill="#a9764d"><rect x="60" y="652" width="16" height="48"/><rect x="80" y="660" width="14" height="40"/><rect x="98" y="648" width="14" height="52"/>
+            <rect x="60" y="836" width="14" height="44"/><rect x="78" y="830" width="18" height="50"/><rect x="972" y="652" width="16" height="48"/><rect x="992" y="662" width="14" height="38"/>
+            <rect x="970" y="832" width="18" height="48"/><rect x="992" y="840" width="16" height="40"/><rect x="1008" y="828" width="12" height="52"/><rect x="66" y="1014" width="16" height="46"/><rect x="980" y="1010" width="16" height="50"/></g>
+          <path d="M-10 1200 L1090 1200 L1090 1275 L-10 1275 Z" fill="#a98a6a" filter="url(#cut)"/>
+          <path d="M-10 1200 L1090 1200 L1090 1212 L-10 1212 Z" fill="#c4a785"/>
+        </g>
+
+        <!-- generation steps: the records go down from one to the next -->
+        <g id="steps"></g>
+
+        <!-- small and simple: a tower of tiny plates, and its count -->
+        <g transform="translate(540 1196)"><g id="build"><g id="tower" filter="url(#cut)"></g>
+        <g id="cap1" filter="url(#cutHi)">
+          <path d="M-206 -462 L206 -462 L190 -434 L-190 -434 Z" fill="#c9962f"/>
+          <rect x="-196" y="-490" width="392" height="30" rx="8" fill="#e9c46a"/>
+          <rect x="-196" y="-490" width="392" height="8" rx="4" fill="#f6dc93"/>
+        </g></g></g>
+        <g transform="translate(888 760)"><g id="count">
+          <g filter="url(#cut)"><rect x="-96" y="-80" width="192" height="170" rx="10" fill="#fffaf0"/></g>
+          <text id="cntN" x="0" y="20" text-anchor="middle" font-family="Lora" font-weight="700" font-size="84" fill="#7a4a12">1</text>
+          <text x="0" y="62" text-anchor="middle" font-family="Inter" font-weight="800" font-size="20" letter-spacing="5" fill="#8a6a3a">PIECES</text>
+        </g></g>
+
+        <!-- enlarged the memory: pages spread out from the plates -->
+        <g transform="translate(540 930)"><g id="pages"></g></g>
+
+        <!-- the brass plates -->
+        <g transform="translate(540 930)"><g id="plates"></g></g>
+        <g transform="translate(540 930)"><g id="clasp" filter="url(#cut)">
+          <path d="M-168 -40 L168 -40 L168 0 L-168 0 Z" fill="#7a4a2e"/>
+          <rect x="-168" y="-40" width="336" height="10" fill="#9a6440"/>
+          <rect x="-30" y="-58" width="60" height="76" rx="8" fill="#e9c46a"/><circle cx="0" cy="-20" r="12" fill="#7a5a1e"/>
+        </g></g>
+
+        <!-- "?" tags: it may look like foolishness -->
+        <g transform="translate(760 720)"><g id="qtag">
+          <path d="M0 -150 L-6 0" stroke="#7a4a2e" stroke-width="4" fill="none"/>
+          <g filter="url(#cut)"><path d="M-56 0 L56 0 L56 110 L0 140 L-56 110 Z" fill="#fffaf0"/></g>
+          <circle cx="0" cy="18" r="7" fill="#d8c09f"/>
+          <text x="0" y="112" text-anchor="middle" font-family="Lora" font-weight="700" font-size="88" fill="#a8432c">?</text>
+        </g></g>
+        <g transform="translate(250 720)"><g id="q1" filter="url(#cutHi)"><text x="0" y="0" text-anchor="middle" font-family="Lora" font-weight="700" font-size="200" fill="#b5452f">?</text></g></g>
+        <g transform="translate(846 760)"><g id="q2" filter="url(#cutHi)"><text x="0" y="0" text-anchor="middle" font-family="Lora" font-weight="700" font-size="150" fill="#c9644a">?</text></g></g>
+        <g transform="translate(830 1150)"><g id="q3" filter="url(#cutHi)"><text x="0" y="0" text-anchor="middle" font-family="Lora" font-weight="700" font-size="120" fill="#a8432c">?</text></g></g>
+
+        <!-- the turn: small pieces become a day-by-day card -->
+        <g transform="translate(540 930)"><g id="daily">
+          <g filter="url(#cutHi)"><rect x="-250" y="-280" width="500" height="560" rx="34" fill="#264653"/></g>
+          <rect x="-222" y="-252" width="444" height="504" rx="18" fill="#fffaf0"/>
+          <text x="0" y="-186" text-anchor="middle" font-family="Inter" font-weight="800" font-size="38" letter-spacing="5" fill="#264653">EVERY DAY</text>
+          <g id="days"></g>
+        </g></g>
+      </svg>
+
+      <!-- the ledge front: a dark paper band that carries the captions -->
+      <svg id="front" class="obj" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <rect x="-20" y="1272" width="1120" height="690" fill="#3a281c"/>
+        <g filter="url(#cut)"><path d="M-20 1262 L1100 1262 L1100 1960 L-20 1960 Z" fill="#3a281c"/></g>
+        <path d="M-20 1262 L1100 1262 L1100 1272 L-20 1272 Z" fill="#5a3d29"/>
+        <g stroke="#45301f" stroke-width="3" fill="none" opacity=".9">
+          <path d="M0 1560 Q300 1540 540 1566 T1080 1552"/><path d="M0 1640 Q360 1660 620 1630 T1080 1646"/><path d="M0 1730 Q260 1712 520 1740 T1080 1724"/>
+        </g>
+      </svg>
+
+      <div id="lblHelaman" class="label c" style="top:470px;font-size:40px">MY SON HELAMAN</div>
+      <div id="lblTake" class="label c" style="top:470px;font-size:40px">TAKE THE RECORDS</div>
+      <div id="lblKeep" class="label c" style="top:470px;font-size:44px">KEEP THEM</div>
+      <div id="lblDown" class="label c" style="top:470px;font-size:40px">HAND THEM DOWN</div>
+      <div id="lblSuppose" class="label c warn" style="top:470px;font-size:40px">YE MAY SUPPOSE</div>
+      <div id="lblFool" class="label c warn" style="top:470px;font-size:44px">FOOLISHNESS?</div>
+      <div id="lblSmall" class="label c" style="top:470px;font-size:40px">SMALL AND SIMPLE</div>
+      <div id="lblGreat" class="label c" style="top:470px;font-size:44px">GREAT THINGS</div>
+      <div id="lblMemory" class="label c" style="top:470px;font-size:38px">ENLARGED THE MEMORY</div>
+      <div id="lblDaily" class="label c" style="top:470px;font-size:36px">ONE SMALL THING A DAY</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  // the stack of engraved brass plates (fixed offsets, no randomness)
+  const plates = document.getElementById("plates");
+  for(let k=0;k<5;k++){
+    const g = mk("g", {id:"pl"+k, transform:`translate(${k%2 ? 5 : -5} ${-k*16})`}, plates);
+    const s = mk("g", {filter:"url(#cut)"}, g);
+    mk("rect", {x:-150, y:-100, width:300, height:200, rx:14, fill:"#a87b2c"}, s);
+    mk("rect", {x:-150, y:-108, width:300, height:200, rx:14, fill:k===4 ? "#e3b552" : "#d9a944"}, s);
+    mk("rect", {x:-150, y:-108, width:300, height:16, rx:8, fill:"#f2d27e"}, g);
+    for(let r=0;r<3;r++){
+      mk("circle", {cx:-122, cy:-60 + r*50, r:13, fill:"none", stroke:"#7a5a1e", "stroke-width":6}, g);
+      mk("circle", {cx:-122, cy:-60 + r*50, r:5, fill:"#6b4a16"}, g);
+    }
+  }
+  // engraving on the top plate, and a moving glint clipped to its face
+  const top = document.getElementById("pl4");
+  const eng = mk("g", {id:"engr", stroke:"#8a6424", "stroke-width":6, "stroke-linecap":"round", fill:"none"}, top);
+  for(let k=0;k<6;k++){ const y = -72 + k*25; mk("path", {class:"eline", d:`M-88 ${y} L${118 - (k*37)%70} ${y}`}, eng); }
+  const sg = mk("g", {"clip-path":"url(#faceClip)"}, top);
+  mk("path", {id:"sheen", d:"M-60 -140 L0 -140 L-80 140 L-140 140 Z", fill:"#fff6d8", opacity:0}, sg);
+
+  // generation steps going down to the right
+  const steps = document.getElementById("steps");
+  for(let i=0;i<4;i++){
+    const x = 60 + i*240, y = 830 + i*100;
+    const g = mk("g", {id:"st"+i}, steps);
+    const s = mk("g", {filter:"url(#cut)"}, g);
+    mk("rect", {x, y, width:240, height:1262 - y, fill:i%2 ? "#9c6b45" : "#a9774f"}, s);
+    mk("rect", {id:"lip"+i, x, y, width:240, height:20, fill:"#c89466"}, g);
+    const t = mk("text", {x:x + 120, y:y + 80, "text-anchor":"middle", "font-family":"Inter", "font-weight":800, "font-size":26, "letter-spacing":4, fill:"#f4e6cc"}, g);
+    t.textContent = "GEN " + (i+1);
+  }
+  // the tower of small pieces: 10 wide, 12 high, laid bottom row first
+  const tower = document.getElementById("tower"), cols = ["#e9c46a", "#d9a944", "#c99a3e", "#f0d58c"];
+  for(let r=0;r<12;r++) for(let c=0;c<10;c++){
+    const n = r*10 + c, g = mk("g", {id:"pc"+n, class:"pc"}, tower);
+    const x = -180 + c*36, y = -36 - r*36;
+    mk("rect", {x, y, width:34, height:34, rx:4, fill:cols[(c*3 + r*5) % 4]}, g);
+    mk("rect", {x:x + 7, y:y + 15, width:12 + (n*7)%10, height:4, rx:2, fill:"#8a6424"}, g);
+  }
+  // pages of the memory: an inner fan and an outer ring
+  const pages = document.getElementById("pages");
+  for(let i=0;i<16;i++){
+    const g = mk("g", {id:"pg"+i}, pages);
+    const s = mk("g", {filter:"url(#cut)"}, g);
+    mk("rect", {x:-70, y:-92, width:140, height:184, rx:6, fill:i%3===1 ? "#f6ecd8" : "#fffaf0"}, s);
+    for(let k=0;k<5;k++) mk("rect", {x:-50, y:-64 + k*28, width:72 + ((i + k)*23)%30, height:6, rx:3, fill:"#b59a6a"}, g);
+  }
+  // the day card: a grid of small squares that fill with checks
+  const days = document.getElementById("days");
+  for(let k=0;k<20;k++){
+    const c = k%5, r = Math.floor(k/5), x = -180 + c*76, y = -130 + r*84;
+    const g = mk("g", {id:"dy"+k, class:"dy"}, days);
+    mk("rect", {x, y, width:56, height:56, rx:10, fill:"#e9c46a"}, g);
+    mk("path", {d:`M${x+12} ${y+30} L${x+24} ${y+42} L${x+44} ${y+16}`, fill:"none", stroke:"#264653", "stroke-width":7, "stroke-linecap":"round", "stroke-linejoin":"round"}, g);
+  }
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {}, P = K.EP.paper, hookOff = K.EP.hookOff;
+  T.hands = at("hands"); T.set = at("a set of"); T.old = at("old records"); T.says = at("and says"); T.look = at("look like");
+  T.fool1 = at("foolishness"); T.my = at("My son"); T.helaman = at("Helaman"); T.take = at("take the records");
+  T.keep = at("Keep them"); T.hand = at("hand them down"); T.down = at("down"); T.gen = at("generation"); T.another = at("another");
+  T.ye = at("Ye may suppose"); T.suppose = at("suppose"); T.this = at("this is"); T.fool2 = at("foolishness", {nth:2}); T.inme = at("in me");
+  T.but = at("But by small"); T.small = at("small", {from:T.but}); T.simple = at("simple"); T.things = at("things", {from:T.simple});
+  T.great = at("great things"); T.brought = at("brought to pass"); T.these = at("These records"); T.enlarged = at("enlarged");
+  T.memory = at("memory"); T.people = at("this people");
+  tl.fromTo("#hook", {opacity:0}, {opacity:1, duration:.15, ease:"none", immediateRender:true}, .05);
+  K.camera(tl, [[0, T.ye - .2, 1, 1.05], [T.ye - .2, T.but - .1, 1.0, 1.045], [T.but - .1, T.these - .1, 1.0, 1.05], [T.these - .1, P + .6, 1.01, 1.06]]);
+
+  const lbl = (sel, t, tOff) => { K.show(tl, sel, t, {y:14}, .3); if(tOff) K.hide(tl, sel, tOff, {}, .2); };
+  const glint = t => tl.fromTo("#sheen", {opacity:.75, x:-120}, {opacity:.75, x:320, duration:.6, ease:"power2.inOut", immediateRender:false}, t);
+
+  // hook: the old plates are handed over, engraved, and tagged with a question
+  tl.set("#plates", {opacity:1}, .1);
+  tl.fromTo("#plates > g", {opacity:0, y:"-=200", rotation:(i) => i%2 ? 6 : -6, transformOrigin:"50% 50%"},
+    {opacity:1, y:"+=200", rotation:0, duration:.45, ease:"back.out(1.5)", stagger:.09, immediateRender:false}, .1);
+  tl.fromTo("#plates", {x:-300, rotation:-6}, {x:0, rotation:0, duration:.8, ease:"back.out(1.2)", immediateRender:false}, T.hands - .1);
+  tl.to("#plates > g", {y:(i) => "-=" + i*10, duration:.35, ease:"back.out(2)", stagger:.04}, T.set);
+  K.draw(tl, ".eline", T.old, .7, 220);
+  glint(T.old + .3);
+  tl.to("#plates", {rotation:3, duration:.25, yoyo:true, repeat:1, ease:"sine.inOut", transformOrigin:"50% 100%"}, T.says);
+  tl.fromTo("#qtag", {opacity:0, y:-260, rotation:0}, {opacity:1, y:0, duration:.45, ease:"back.out(1.6)", immediateRender:false}, T.look - .25);
+  tl.fromTo("#qtag", {rotation:0}, {rotation:12, duration:.3, yoyo:true, repeat:3, ease:"sine.inOut", transformOrigin:"50% 0%", immediateRender:false}, T.fool1);
+
+  // my son Helaman, take the records: steps rise, the plates move to the top step
+  tl.to("#qtag", {y:"+=520", rotation:30, opacity:0, duration:.55, ease:"power3.in"}, T.my - .1);
+  lbl("#lblHelaman", Math.max(T.my, hookOff + .05), T.take - .1);
+  tl.to("#plates", {y:-40, scale:1.06, duration:.5, ease:E, transformOrigin:"50% 50%"}, T.helaman);
+  glint(T.helaman + .3);
+  tl.fromTo("#steps > g", {opacity:0, y:520}, {opacity:1, y:0, duration:.6, ease:"back.out(1.1)", stagger:.12, immediateRender:false}, T.take - .3);
+  lbl("#lblTake", T.take, T.keep - .1);
+  const pos = i => ({x:180 + i*240 - 540, y:830 + i*100 - 50 - 930});
+  tl.to("#plates", {x:pos(0).x, y:pos(0).y, scale:.5, duration:.7, ease:K.IO}, T.take + .2);
+  // keep them: a strap and clasp close over the stack
+  lbl("#lblKeep", T.keep, T.hand - .1);
+  tl.set("#clasp", {x:pos(0).x, y:pos(0).y + 4, scale:.5, transformOrigin:"50% 50%"}, 0);
+  tl.fromTo("#clasp", {opacity:0, scaleX:0}, {opacity:1, scaleX:.5, duration:.35, ease:"back.out(1.6)", immediateRender:false}, T.keep);
+  tl.to("#lip0", {fill:"#e9c46a", duration:.3}, T.keep + .15);
+  // hand them down: the plates go down from step to step, each step lights up
+  lbl("#lblDown", T.hand, T.ye - .15);
+  const hop = (t, i) => {
+    const p = pos(i), q = pos(i-1);
+    tl.to("#plates,#clasp", {x:p.x, duration:.45, ease:"power1.inOut"}, t);
+    tl.to("#plates", {keyframes:[{y:q.y - 40, duration:.18, ease:"power2.out"}, {y:p.y, duration:.27, ease:"bounce.out"}]}, t);
+    tl.to("#clasp", {keyframes:[{y:q.y - 36, duration:.18, ease:"power2.out"}, {y:p.y + 4, duration:.27, ease:"bounce.out"}]}, t);
+    tl.to("#lip"+i, {fill:"#e9c46a", duration:.25}, t + .4);
+  };
+  hop(T.down - .1, 1); hop(T.gen - .1, 2); hop(T.another - .1, 3);
+  glint(T.another + .55);
+  tl.to("#steps > g", {y:"-=8", duration:.14, yoyo:true, repeat:1, stagger:.1, ease:"sine.inOut"}, K.end("another") + .25);
+  tl.to("#plates", {rotation:-4, duration:.3, yoyo:true, repeat:1, ease:"sine.inOut", transformOrigin:"50% 100%"}, K.end("another") + .75);
+
+  // ye may suppose this is foolishness in me: steps sink, question marks gather
+  tl.to("#clasp", {opacity:0, duration:.25}, T.ye - .3);
+  tl.to("#steps > g", {y:"+=620", duration:.6, ease:"power3.in", stagger:.06}, T.ye - .2);
+  tl.to("#plates", {x:0, y:0, scale:1, rotation:0, duration:.7, ease:"back.out(1.2)"}, T.ye - .05);
+  lbl("#lblSuppose", T.ye, T.fool2 - .1);
+  tl.fromTo("#q1", {opacity:0, scale:1.8, rotation:-20, transformOrigin:"50% 50%"}, {opacity:1, scale:1, rotation:-10, duration:.4, ease:"back.out(1.8)", immediateRender:false}, T.suppose);
+  tl.to("#plates", {x:12, duration:.06, yoyo:true, repeat:5, ease:"none"}, T.this);
+  tl.set("#qtag", {x:0, y:-260, rotation:0}, T.this);
+  tl.to("#qtag", {opacity:1, y:0, duration:.45, ease:"back.out(1.6)"}, T.this);
+  lbl("#lblFool", T.fool2, T.but - .1);
+  tl.fromTo("#q2", {opacity:0, scale:1.8, rotation:20, transformOrigin:"50% 50%"}, {opacity:1, scale:1, rotation:12, duration:.4, ease:"back.out(1.8)", immediateRender:false}, T.fool2);
+  tl.fromTo("#q3", {opacity:0, scale:1.8, transformOrigin:"50% 50%"}, {opacity:1, scale:1, rotation:-6, duration:.4, ease:"back.out(1.8)", immediateRender:false}, T.fool2 + .35);
+  tl.to("#q1,#q2,#q3", {rotation:"+=10", duration:.25, yoyo:true, repeat:1, ease:"sine.inOut", stagger:.1}, T.inme);
+  tl.to("#qtag", {rotation:14, duration:.3, yoyo:true, repeat:1, ease:"sine.inOut", transformOrigin:"50% 0%"}, K.end("me") + .2);
+  glint(K.end("me") + .45);
+
+  // but by small and simple things: the questions fall away, tiny pieces build a tower
+  tl.to("#q1,#q2,#q3,#qtag", {y:"+=700", rotation:"+=40", opacity:0, duration:.6, ease:"power3.in", stagger:.05}, T.but - .1);
+  tl.to("#plates", {y:-60, scale:.3, opacity:0, duration:.5, ease:"power2.in"}, T.but);
+  lbl("#lblSmall", T.small, T.great - .1);
+  tl.set("#tower", {opacity:1}, T.small - .05);
+  tl.set(".pc", {opacity:0}, 0);
+  tl.fromTo("#pc4", {opacity:0, y:-500, scale:3, transformOrigin:"50% 50%"}, {opacity:1, y:0, scale:1, duration:.4, ease:"back.out(1.4)", immediateRender:false}, T.small);
+  tl.fromTo("#pc5", {opacity:0, y:-500, scale:3, transformOrigin:"50% 50%"}, {opacity:1, y:0, scale:1, duration:.4, ease:"back.out(1.4)", immediateRender:false}, T.simple);
+  tl.fromTo("#count", {opacity:0, scale:.6, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.35, ease:"back.out(2)", immediateRender:false}, T.simple);
+  const rest = [];
+  for(let n=0;n<120;n++) if(n!==4 && n!==5) rest.push("#pc"+n);
+  const span = T.brought - T.things;
+  tl.fromTo(rest.join(","), {opacity:0, y:"-=160"}, {opacity:1, y:"+=160", duration:.28, ease:"back.out(1.6)", stagger:(span - .1)/118, immediateRender:false}, T.things);
+  const cn = document.getElementById("cntN"), cv = {v:1}, upd = () => { cn.textContent = Math.round(cv.v); };
+  tl.fromTo(cv, {v:1}, {v:2, duration:.02, ease:"none", onUpdate:upd, immediateRender:false}, T.simple);
+  tl.fromTo(cv, {v:2}, {v:120, duration:span + .18, ease:"none", onUpdate:upd, immediateRender:false}, T.things);
+  lbl("#lblGreat", T.great, T.these - .1);
+  tl.fromTo("#cap1", {opacity:0, y:-400}, {opacity:1, y:0, duration:.4, ease:"power3.in", immediateRender:false}, T.brought - .1);
+  tl.to("#tower,#cap1", {y:"+=8", duration:.08, yoyo:true, repeat:1}, T.brought + .3);
+  tl.to("#count", {scale:1.15, duration:.2, yoyo:true, repeat:1, ease:"sine.inOut"}, T.brought + .3);
+  tl.to("#tower,#cap1", {scaleY:1.04, duration:.3, yoyo:true, repeat:1, ease:"sine.inOut", transformOrigin:"50% 100%"}, K.end("pass") - .1);
+
+  // these records enlarged the memory: the plates come back, pages spread out from them
+  tl.to("#build", {y:-300, scale:.25, opacity:0, duration:.55, ease:"power2.in", transformOrigin:"50% 50%"}, T.these - .15);
+  tl.to("#count", {opacity:0, scale:.5, duration:.3}, T.these - .15);
+  tl.fromTo("#plates", {opacity:0, x:0, y:300, scale:.6}, {opacity:1, x:60, y:-20, scale:.8, duration:.6, ease:"back.out(1.3)", immediateRender:false}, T.these);
+  glint(T.these + .55);
+  lbl("#lblMemory", T.enlarged, P - .4);
+  for(let i=0;i<16;i++){
+    const inner = i < 6, a = inner ? (-150 + i*60) : (-168 + (i-6)*37.3);
+    const rx = inner ? 250 : 380, ry = inner ? 200 : 290, rad = a*Math.PI/180;
+    const px = 60 + Math.round(Math.sin(rad)*rx*(inner ? 1 : .95)), py = -20 - Math.round(Math.cos(rad)*ry);
+    const t0 = inner ? T.enlarged + i*.07 : T.memory + (i-6)*.06;
+    tl.fromTo("#pg"+i, {opacity:0, x:60, y:-20, scale:.3, rotation:0}, {opacity:1, x:Math.max(-430, Math.min(430, px)), y:Math.max(-330, Math.min(250, py)), scale:inner ? .9 : .7, rotation:(i%2 ? 8 : -8), duration:.5, ease:"back.out(1.3)", immediateRender:false}, t0);
+  }
+  tl.to("#pages > g", {rotation:"+=6", duration:.3, yoyo:true, repeat:1, stagger:.02, ease:"sine.inOut"}, T.people);
+
+  // the turn: the small pieces become one small thing a day
+  const tp = P - .4;
+  tl.to("#plates,#pages", {scale:(i, el) => gsap.getProperty(el, "scale")*.2, opacity:0, duration:.3, ease:"power2.in", transformOrigin:"50% 50%"}, tp);
+  tl.fromTo("#daily", {opacity:0, scaleX:0, rotation:-6, transformOrigin:"50% 50%"}, {opacity:1, scaleX:1, rotation:0, duration:.4, ease:"back.out(1.4)", immediateRender:false}, tp + .1);
+  tl.fromTo(".dy", {opacity:0, scale:.3, transformOrigin:"50% 50%"}, {opacity:1, scale:1, duration:.2, stagger:.03, ease:"back.out(2)", immediateRender:false}, tp + .3);
+  lbl("#lblDaily", tp + .05);
+});

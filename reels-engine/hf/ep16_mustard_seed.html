@@ -1,0 +1,343 @@
+<!-- @config -->
+{"no":16,
+ "hook_html":"The kingdom of heaven<br>in the least of seeds",
+ "turn_at":"Big things start","turn_html":"Big things start too small to notice. <em>Plant it anyway.</em>","turn_size":80,"turn_hl":"Plant it anyway",
+ "question_at":"What are you not planting","question":"What are you not planting because it looks too small?",
+ "ref":"MATTHEW 13 : 31–32","send":"Send this to someone who thinks their start is too small."}
+<!-- @css -->
+/* ink wash (styles/build_fix.py ink_wash): rice paper #efe8d8, sumi ink, one red accent (the seed) */
+#inkbg,#capband{position:absolute;inset:0;pointer-events:none}
+#inkbg{clip-path:circle(0px at 540px 900px)}
+#inkbg canvas{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:540px 900px}
+#capband{opacity:0}
+#hook{z-index:3}
+.label{color:#1b1b1d}
+.label.warn{color:#c4583f}
+#lblGrain,#lblTakes,#lblSown,#lblLeast,#lblGrown,#lblGreat,#lblTree,#lblBirds,#lblLodge,#count,#countSub{opacity:0}
+#hookSeed,#hookRing,#seedG,#ensoS,#under,#ground,#furrows,#mound,#lineup,#sprout,#sproutLv,#sprout2,#sprout2Lv,#herbs,#trunk,#branches,#foliage,#birds{opacity:0}
+#count{position:absolute;left:0;right:0;top:1096px;text-align:center;font:700 104px/1 Lora;color:#1b1b1d}
+#countSub{position:absolute;left:0;right:0;top:1212px;text-align:center;font:800 26px/1 Inter;letter-spacing:.34em;color:#5a5650}
+<!-- @html -->
+      <svg id="scene" class="obj" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920">
+        <defs>
+          <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <filter id="wash" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="22" xChannelSelector="R" yChannelSelector="G" result="d"/><feGaussianBlur in="d" stdDeviation="2.4"/></filter>
+          <linearGradient id="soil" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1a1a1c" stop-opacity=".62"/><stop offset=".5" stop-color="#1a1a1c" stop-opacity=".36"/><stop offset="1" stop-color="#1a1a1c" stop-opacity=".12"/></linearGradient>
+          <radialGradient id="seedRed" cx=".38" cy=".34" r=".7"><stop offset="0" stop-color="#e08468"/><stop offset=".55" stop-color="#c4583f"/><stop offset="1" stop-color="#9c3826"/></radialGradient>
+        </defs>
+        <!-- hook (on navy): one tiny cream seed inside a thin ring -->
+        <circle id="hookRing" cx="540" cy="900" r="120" fill="none" stroke="#f4ecd8" stroke-width="3" stroke-opacity=".55"/>
+        <ellipse id="hookSeed" cx="540" cy="900" rx="8" ry="7" fill="#f4ecd8"/>
+        <!-- the field -->
+        <g id="under"><path d="M-60 1064 Q200 1056 420 1062 Q540 1068 700 1060 Q900 1054 1140 1064 L1140 1280 L-60 1280 Z" fill="url(#soil)" filter="url(#wash)"/></g>
+        <g id="furrows"></g>
+        <!-- the red mustard seed (drawn at the origin, moved with gsap) -->
+        <g id="seedG"></g>
+        <g id="ground"></g>
+        <path id="mound" d="M492 1066 Q540 1030 588 1066" fill="none" stroke="#141416" stroke-width="10" stroke-linecap="round" filter="url(#rough)"/>
+        <path id="ensoS" d="M676 851 C706 931 640 1031 540 1033 C430 1035 364 961 372 891 C380 811 460 761 548 765 C620 769 664 805 680 839" fill="none" stroke="#1a1a1c" stroke-width="16" stroke-linecap="round" filter="url(#rough)" opacity=".85"/>
+        <!-- least of all seeds: a line-up, big to small -->
+        <g id="lineup"></g>
+        <!-- it grows -->
+        <g id="herbs"></g>
+        <path id="sprout" d="M540 1062 C534 1024 548 990 540 950" fill="none" stroke="#141416" stroke-width="7" stroke-linecap="round" filter="url(#rough)"/>
+        <g id="sproutLv"></g>
+        <path id="sprout2" d="M540 954 C534 918 548 884 540 846" fill="none" stroke="#141416" stroke-width="6" stroke-linecap="round" filter="url(#rough)"/>
+        <g id="sprout2Lv"></g>
+        <g id="foliage"></g>
+        <g id="trunk"></g>
+        <g id="branches"></g>
+        <g id="birds"></g>
+      </svg>
+      <div id="lblGrain" class="label c" style="top:470px">A GRAIN OF MUSTARD SEED</div>
+      <div id="lblTakes" class="label c" style="top:470px">A MAN TAKES IT</div>
+      <div id="lblSown" class="label c" style="top:470px">SOWN IN HIS FIELD</div>
+      <div id="lblLeast" class="label c warn" style="top:470px">LEAST OF ALL SEEDS</div>
+      <div id="lblGrown" class="label c" style="top:470px">WHEN IT IS GROWN</div>
+      <div id="lblGreat" class="label c" style="top:470px">GREATEST AMONG HERBS</div>
+      <div id="lblTree" class="label c" style="top:470px">BECOMETH A TREE</div>
+      <div id="lblBirds" class="label c" style="top:470px">THE BIRDS OF THE AIR</div>
+      <div id="lblLodge" class="label c" style="top:470px">LODGE IN THE BRANCHES</div>
+      <div id="count">0</div>
+      <div id="countSub">BIRDS LODGED</div>
+<!-- @js -->
+(function(){
+  const NS = "http://www.w3.org/2000/svg", INK = "#141416";
+  const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(parent) parent.appendChild(el); return el; };
+  const $ = id => document.getElementById(id);
+  let seed = 16; const rng = () => (seed = (seed*16807) % 2147483647, (seed-1)/2147483646);
+
+  /* --- ink-wash paper: port of the ink_wash shader (value-noise fbm ridges, wet wash, dry brush, mist), drawn once --- */
+  const h = (x,y) => { const s = Math.sin(x*127.1 + y*311.7)*43758.5453; return s - Math.floor(s); };
+  const n2 = (x,y) => { const ix=Math.floor(x), iy=Math.floor(y); let fx=x-ix, fy=y-iy; fx=fx*fx*(3-2*fx); fy=fy*fy*(3-2*fy);
+    const a=h(ix,iy), b=h(ix+1,iy), c=h(ix,iy+1), d=h(ix+1,iy+1); return a+(b-a)*fx + (c-a)*fy + (a-b-c+d)*fx*fy; };
+  const fbm = (x,y,o) => { let s=0, a=.5; for(let i=0;i<(o||5);i++){ s+=a*n2(x,y); x=x*2.03+1.7; y=y*2.03+9.2; a*=.5; } return s; };
+  const ridge = (x,sd,sh) => Math.pow(Math.abs(Math.sin(x*1.3+sd)),sh)*.55 + fbm(x*2.2,sd,4)*.55 + Math.pow(Math.abs(Math.sin(x*3.1+sd*2)),sh*1.4)*.18;
+  const W = 270, H = 480, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const X = cv.getContext("2d"), img = X.createImageData(W, H), px = img.data;
+  const tops = [0,1,2].map(L => { const r = []; for(let i=0;i<W;i++){ const x = (i/W)*.5625*(1.1+L*.4) + L*3.7; r.push(.468 + ridge(x, L*5.3+1, 2+L)*(.07+L*.018) - L*.012); } return r; });
+  for(let j=0;j<H;j++) for(let i=0;i<W;i++){
+    const u = i/W*.5625, y = 1 - j/H;
+    let pr = .965 - fbm(u*30, y*20, 3)*.025 - fbm(u*14, y*14, 4)*.05, pg = .925 - fbm(u*30, y*20, 3)*.025 - fbm(u*14, y*14, 4)*.05, pb = .845 - fbm(u*14+3, y*14, 3)*.05;
+    let ink = 0;
+    for(let L=0;L<3;L++){
+      const x = u*(1.1+L*.4) + L*3.7, top = tops[L][i], d = top - y;
+      if(d <= -.004) continue;
+      const edge = Math.min(1, (d+.004)/.008);
+      const wet = fbm(x*4, y*3+L, 4);
+      const body = Math.exp(-d*(34-L*7))*(.75+.4*wet);
+      let dens = (.10+L*.08)*edge*Math.min(1, body);
+      dens *= 1 - .4 + .4*(.55+.9*fbm(x*30, y*90, 3));
+      const m = .474 - y; dens *= 1 - .85*Math.max(0, Math.min(1, 1 - Math.abs(m - .02)/.03));
+      ink = ink + (1-ink)*dens;
+    }
+    const k = (j*W+i)*4;
+    px[k] = 255*(pr*(1-ink) + .07*ink); px[k+1] = 255*(pg*(1-ink) + .07*ink); px[k+2] = 255*(pb*(1-ink) + .08*ink); px[k+3] = 255;
+  }
+  X.putImageData(img, 0, 0);
+  const big = document.createElement("canvas"); big.width = 1080; big.height = 1920; const B = big.getContext("2d");
+  B.imageSmoothingEnabled = true; B.drawImage(cv, 0, 0, 1080, 1920);
+  for(let i=0;i<5200;i++){ B.fillStyle = `rgba(110,88,56,${(rng()*.06).toFixed(3)})`; B.fillRect(rng()*1080, rng()*1920, 2+rng()*34, 1); }
+  for(let i=0;i<1600;i++){ B.fillStyle = `rgba(255,255,255,${(rng()*.18).toFixed(3)})`; B.fillRect(rng()*1080, rng()*1920, 1, 1+rng()*3); }
+  const vg = B.createRadialGradient(540, 860, 520, 540, 860, 1250); vg.addColorStop(0, "rgba(90,70,40,0)"); vg.addColorStop(1, "rgba(90,70,40,.20)");
+  B.fillStyle = vg; B.fillRect(0, 0, 1080, 1920);
+  const bgWrap = document.createElement("div"); bgWrap.id = "inkbg"; bgWrap.appendChild(big);
+  const stage = $("stage"); stage.parentNode.insertBefore(bgWrap, stage);
+
+  /* --- sumi band behind the captions (keeps cream captions readable on paper) --- */
+  const band = document.createElement("canvas"); band.width = 1080; band.height = 1920; const C = band.getContext("2d");
+  C.fillStyle = "rgba(20,20,22,.86)"; C.beginPath();
+  for(let x=-20;x<=1100;x+=20) C.lineTo(x, 1300 + Math.sin(x*.013)*7 + Math.sin(x*.047+1)*4);
+  for(let x=1100;x>=-20;x-=20) C.lineTo(x, 1508 + Math.sin(x*.011+2)*8 + Math.sin(x*.053)*4);
+  C.closePath(); C.fill();
+  for(let i=0;i<220;i++){ const y = 1290 + rng()*228, x0 = -40 + rng()*300, len = 700 + rng()*500; C.strokeStyle = `rgba(20,20,22,${(.10+rng()*.22).toFixed(3)})`; C.lineWidth = 1 + rng()*3.5; C.beginPath(); C.moveTo(x0, y); C.lineTo(x0+len, y + (rng()-.5)*6); C.stroke(); }
+  const bw = document.createElement("div"); bw.id = "capband"; bw.appendChild(band); stage.parentNode.insertBefore(bw, stage.nextSibling);
+
+  /* --- brush helpers --- */
+  function taper(pts, w){ // filled stroke that swells in the middle, like the style's brush helper
+    const L = [], R = [];
+    for(let i=0;i<pts.length;i++){
+      const a = pts[Math.max(0,i-1)], b = pts[Math.min(pts.length-1,i+1)], dx = b[0]-a[0], dy = b[1]-a[1], l = Math.hypot(dx,dy)||1;
+      const u = i/(pts.length-1), ww = w*(.15 + .85*Math.sin(u*Math.PI)) * (.85 + .3*h(i, w));
+      L.push([pts[i][0] - dy/l*ww/2, pts[i][1] + dx/l*ww/2]); R.push([pts[i][0] + dy/l*ww/2, pts[i][1] - dx/l*ww/2]);
+    }
+    return "M" + L.map(p => p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L") + " L" + R.reverse().map(p => p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" L") + " Z";
+  }
+  const q = (p0, c, p1, u) => [(1-u)*(1-u)*p0[0] + 2*(1-u)*u*c[0] + u*u*p1[0], (1-u)*(1-u)*p0[1] + 2*(1-u)*u*c[1] + u*u*p1[1]];
+  function leaf(parent, x, y, len, ang, op){ // a brush leaf: pointed, swelling
+    const g = mk("g", {transform:`translate(${x} ${y}) rotate(${ang})`}, parent);
+    mk("path", {d:`M0 0 Q${len*.45} ${-len*.32} ${len} 0 Q${len*.45} ${len*.26} 0 0 Z`, fill:INK, opacity:op||.9, filter:"url(#rough)"}, g);
+    return g;
+  }
+
+  // the mustard seed, big: red, ink-rimmed, with a sheen
+  const sg = $("seedG");
+  mk("ellipse", {cx:0, cy:0, rx:66, ry:58, fill:"url(#seedRed)"}, sg);
+  mk("ellipse", {cx:0, cy:0, rx:66, ry:58, fill:"none", stroke:INK, "stroke-width":6, filter:"url(#rough)"}, sg);
+  mk("path", {d:"M-38 -22 Q-24 -42 4 -44", fill:"none", stroke:"#f7e6d6", "stroke-width":8, "stroke-linecap":"round", opacity:.75}, sg);
+  mk("ellipse", {cx:30, cy:30, rx:8, ry:5, fill:INK, opacity:.7, transform:"rotate(-30 30 30)"}, sg);
+
+  // ground: a long dry brush line + grass ticks
+  const gpts = []; for(let x=-60;x<=1140;x+=30) gpts.push([x, 1062 + Math.sin(x*.009)*5 + Math.sin(x*.031+2)*2.5]);
+  mk("path", {d:taper(gpts, 14), fill:INK, filter:"url(#rough)", opacity:.9}, $("ground"));
+  for(let i=0;i<24;i++){ const x = 24 + i*44 + (i%3)*9; if(x > 470 && x < 610) continue; const hh = 18 + (i*17)%26, lean = ((i*29)%20) - 10;
+    mk("path", {class:"tick", d:taper([[x,1064],[x+lean*.4,1064-hh*.5],[x+lean,1064-hh]], 5), fill:INK, opacity:.7, filter:"url(#rough)"}, $("ground")); }
+  // furrows: rows of the field, wider as they come near
+  [[1100, 760, 9], [1146, 880, 11], [1198, 1000, 13], [1252, 1120, 15]].forEach(([y, w, s], i) => {
+    const pts = []; for(let k=0;k<=16;k++){ const x = 540 - w/2 + w*k/16; pts.push([x, y + Math.sin(k*.9+i)*2.5]); }
+    mk("path", {class:"fw", d:taper(pts, s), fill:INK, opacity:.55, filter:"url(#rough)"}, $("furrows"));
+  });
+
+  // least of all seeds: almond, bean, acorn, wheat, lentil, mustard (red)
+  const lu = $("lineup"), LY = 770;
+  const seeds = [
+    {x:140, d:(g)=>{ mk("path", {d:"M-56 0 Q-20 -34 52 -6 Q58 0 52 6 Q-20 34 -56 0 Z", fill:"#8a7a66", stroke:INK, "stroke-width":5, filter:"url(#rough)"}, g); mk("path", {d:"M-40 0 Q0 -6 40 0", fill:"none", stroke:INK, "stroke-width":2.5, opacity:.6}, g); }, mm:"25 MM"},
+    {x:310, d:(g)=>{ mk("path", {d:"M-42 -10 Q-38 -34 0 -30 Q40 -28 42 0 Q40 30 0 30 Q-18 30 -16 12 Q-14 0 -30 4 Q-46 6 -42 -10 Z", fill:"#5a4f45", stroke:INK, "stroke-width":5, filter:"url(#rough)"}, g); }, mm:"18 MM"},
+    {x:470, d:(g)=>{ mk("ellipse", {cx:0, cy:8, rx:28, ry:32, fill:"#9a8a70", stroke:INK, "stroke-width":5, filter:"url(#rough)"}, g); mk("path", {d:"M-34 -10 Q0 -40 34 -10 Q0 -2 -34 -10 Z", fill:INK, filter:"url(#rough)"}, g); mk("path", {d:"M0 -26 L2 -40", stroke:INK, "stroke-width":4}, g); }, mm:"15 MM"},
+    {x:620, d:(g)=>{ mk("ellipse", {cx:0, cy:0, rx:24, ry:11, fill:"#b49a6c", stroke:INK, "stroke-width":4, filter:"url(#rough)"}, g); mk("path", {d:"M-16 0 L16 0", stroke:INK, "stroke-width":2.5, opacity:.7}, g); }, mm:"6 MM"},
+    {x:760, d:(g)=>{ mk("ellipse", {cx:0, cy:0, rx:12, ry:10, fill:"#7c705e", stroke:INK, "stroke-width":3.5}, g); }, mm:"3 MM"},
+    {x:900, d:(g)=>{ mk("ellipse", {cx:0, cy:0, rx:5, ry:4.5, fill:"#c4583f", stroke:INK, "stroke-width":1.5}, g); }, mm:"1 MM", red:true}
+  ];
+  seeds.forEach((s, i) => {
+    const g = mk("g", {id:"ls"+i, transform:`translate(${s.x} ${LY})`}, lu); const inner = mk("g", {class:"lsIn"}, g); s.d(inner);
+    mk("text", {id:"lm"+i, x:s.x, y:LY+92, "font-family":"Inter", "font-weight":800, "font-size":24, "letter-spacing":3, "text-anchor":"middle", fill:s.red ? "#c4583f" : "#5a5650"}, lu).textContent = s.mm;
+  });
+  mk("circle", {id:"leastRing", cx:900, cy:LY, r:40, fill:"none", stroke:"#c4583f", "stroke-width":7, "stroke-linecap":"round", filter:"url(#rough)", transform:`rotate(-80 900 ${LY})`}, lu);
+
+  // sprout leaves
+  leaf($("sproutLv"), 540, 952, 46, -150); leaf($("sproutLv"), 540, 952, 46, -30);
+  leaf($("sprout2Lv"), 540, 848, 54, -140); leaf($("sprout2Lv"), 540, 848, 54, -40);
+  leaf($("sprout2Lv"), 541, 905, 42, -165); leaf($("sprout2Lv"), 539, 895, 42, -15);
+
+  // herbs of the field: small plants, all shorter than the grown one
+  [110, 190, 270, 360, 720, 800, 880, 965].forEach((x, i) => {
+    const hh = 60 + (i*23)%40, g = mk("g", {class:"herb"}, $("herbs"));
+    mk("path", {d:`M${x} 1064 Q${x+((i%2)?6:-6)} ${1064-hh*.5} ${x} ${1064-hh}`, fill:"none", stroke:INK, "stroke-width":4, "stroke-linecap":"round", filter:"url(#rough)"}, g);
+    for(let k=0;k<3;k++){ const yy = 1064 - hh*(.35 + k*.25), side = (k+i)%2 ? 1 : -1; leaf(g, x, yy, 18 + (2-k)*4, side > 0 ? -30 : -150, .8); }
+  });
+
+  // the tree: trunk, branches by brush, ink-wash foliage
+  mk("path", {d:"M498 1066 Q520 1020 522 960 Q524 880 530 806 L552 806 Q556 880 560 960 Q562 1020 584 1066 Q540 1056 498 1066 Z", fill:INK, filter:"url(#rough)"}, $("trunk"));
+  mk("path", {d:"M498 1066 Q470 1072 446 1070 M584 1066 Q612 1074 636 1070", fill:"none", stroke:INK, "stroke-width":7, "stroke-linecap":"round", filter:"url(#rough)"}, $("trunk"));
+  const BR = [
+    [[536,902],[430,862],[300,772],16], [[544,880],[660,842],[790,752],16], [[536,842],[470,782],[400,676],12],
+    [[544,834],[620,772],[690,668],12], [[540,830],[550,720],[540,606],11], [[534,960],[400,946],[250,908],13], [[546,952],[690,940],[838,894],13]
+  ];
+  BR.forEach(([p0, c, p1, w], i) => {
+    mk("path", {class:"br", d:`M${p0[0]} ${p0[1]} Q${c[0]} ${c[1]} ${p1[0]} ${p1[1]}`, fill:"none", stroke:INK, "stroke-width":w, "stroke-linecap":"round", filter:"url(#rough)"}, $("branches"));
+    const m = q(p0, c, p1, .62);
+    [[p1, -1], [m, 1]].forEach(([s, sd], k) => {
+      const dx = p1[0] - p0[0], tx = s[0] + (dx > 20 ? 1 : dx < -20 ? -1 : (k ? 1 : -1))*(44 - k*8), ty = s[1] - 40 + k*6;
+      mk("path", {class:"tw", d:`M${s[0]} ${s[1]} Q${(s[0]+tx)/2} ${s[1]-12} ${tx} ${ty}`, fill:"none", stroke:INK, "stroke-width":5, "stroke-linecap":"round", filter:"url(#rough)"}, $("branches"));
+    });
+  });
+  const FO = [[300,760,120],[420,690,110],[540,620,120],[680,680,115],[790,748,120],[255,890,100],[835,876,100],[540,740,140],[420,820,100],[660,810,100]];
+  FO.forEach(([x, y, r], i) => {
+    mk("ellipse", {class:"fo", cx:x, cy:y, rx:r, ry:r*.7, fill:INK, opacity:.16 + (i%3)*.04, filter:"url(#wash)"}, $("foliage"));
+    for(let k=0;k<7;k++){ const a = k*0.9 + i, rr = r*(.35 + ((k*37+i*11)%50)/100); leaf($("foliage"), x + Math.cos(a)*rr, y + Math.sin(a)*rr*.6, 20, (k*67+i*29)%360, .75).setAttribute("class", "lf"); }
+  });
+
+  // birds of the air: flying pose (two wing frames) and perched pose
+  const perch = [ [0,.74], [1,.74], [2,.78], [3,.8], [6,.82] ];
+  perch.forEach(([bi, u], i) => {
+    const [p0, c, p1] = BR[bi], p = q(p0, c, p1, u), dir = p1[0] < 540 ? -1 : 1;
+    const g = mk("g", {id:"bd"+i}, $("birds"));
+    g.dataset.px = p[0]; g.dataset.py = p[1] - 6; g.dataset.dir = dir;
+    const fl = mk("g", {class:"fly"}, g);
+    const wa = mk("g", {class:"wA"}, fl), wb = mk("g", {class:"wB"}, fl);
+    mk("path", {d:taper([[-34,-14],[-16,-12],[0,0]], 8) + taper([[0,0],[16,-12],[34,-14]], 8), fill:INK}, wa);
+    mk("path", {d:taper([[-32,12],[-16,6],[0,0]], 8) + taper([[0,0],[16,6],[32,12]], 8), fill:INK}, wb);
+    mk("ellipse", {cx:0, cy:0, rx:8, ry:5, fill:INK}, fl);
+    const pc = mk("g", {class:"perch", transform:`scale(${-dir} 1)`}, g);
+    mk("path", {d:"M-22 -14 Q-8 -30 12 -20 Q20 -14 14 -6 Q0 2 -20 -4 L-36 -2 L-24 -10 Z", fill:INK, filter:"url(#rough)"}, pc);
+    mk("circle", {cx:14, cy:-24, r:8, fill:INK}, pc);
+    mk("path", {d:"M21 -25 L30 -22 L21 -20 Z", fill:INK}, pc);
+    mk("path", {d:"M-4 -2 L-6 6 M4 -3 L4 6", stroke:INK, "stroke-width":2.5}, pc);
+  });
+})();
+K.run(function(tl, K){
+  const at = K.at, E = K.E, T = {}, P = K.EP.paper;
+  T.kingdom = at("kingdom"); T.least0 = at("least of all seeds"); T.seeds0 = at("seeds");
+  T.grain = at("grain"); T.mustard = at("mustard"); T.seedDot = at("seed", {from:T.mustard});
+  T.man = at("man"); T.takes = at("takes"); T.sows = at("sows"); T.in = at("in his field"); T.field = at("field");
+  T.it2 = at("It is the least"); T.least2 = at("least", {from:T.it2}); T.all2 = at("all", {from:T.it2}); T.seeds2 = at("seeds", {from:T.it2});
+  T.but = at("But when"); T.grown = at("grown"); T.itIs = at("it is the greatest"); T.greatest = at("greatest"); T.herbs = at("herbs");
+  T.and = at("and becometh"); T.becometh = at("becometh"); T.tree = at("tree");
+  T.andB = at("And the birds"); T.birds = at("birds"); T.air = at("air"); T.come = at("come"); T.lodge = at("lodge"); T.branches = at("branches");
+  K.camera(tl, [[0, T.grain, 1, 1.03], [T.grain, T.it2, 1.0, 1.07, 0, -10], [T.it2, T.but, 1.0, 1.05], [T.but, P + .6, 1.0, 1.07, 0, -14]]);
+
+  // 1. hook on navy: a ring draws, one tiny seed drops into it on "least"
+  tl.set("#hookRing", {opacity:1}, T.kingdom);
+  K.draw(tl, "#hookRing", T.kingdom, 1.0, 760);
+  K.show(tl, "#hookSeed", T.least0, {y:-140}, .45);
+  tl.to("#hookSeed", {scale:1.6, transformOrigin:"50% 50%", duration:.18, yoyo:true, repeat:1, ease:"sine.inOut"}, T.seeds0);
+
+  // 2. "A grain of mustard seed": the paper bleeds out from the seed; the seed, magnified, in red
+  tl.to("#inkbg", {clipPath:"circle(1400px at 540px 900px)", duration:.9, ease:"power2.in"}, T.grain - .25);
+  tl.fromTo("#inkbg canvas", {scale:1}, {scale:1.05, duration:P - T.grain, ease:"none"}, T.grain);
+  tl.to("#capband", {opacity:1, duration:.5}, T.grain);
+  tl.to("#vignette", {opacity:0, duration:.8}, T.grain - .2);
+  tl.to("#header", {color:"#8a6a26", duration:.6}, T.grain);
+  tl.to("#mark", {color:"rgba(30,28,24,.6)", duration:.6}, T.grain);
+  tl.to("#hookSeed,#hookRing", {opacity:0, duration:.3}, T.grain + .1);
+  tl.set("#seedG", {x:540, y:900, transformOrigin:"50% 50%"}, 0);
+  tl.fromTo("#seedG", {opacity:0, scale:.12}, {opacity:1, scale:1, duration:.7, ease:"back.out(1.6)", immediateRender:false}, T.grain);
+  K.show(tl, "#lblGrain", T.grain + .2, {y:14}, .35);
+  tl.set("#ensoS", {opacity:.85}, T.mustard);
+  K.draw(tl, "#ensoS", T.mustard, .8, 820);
+  tl.to("#seedG", {rotation:14, duration:.35, yoyo:true, repeat:1, ease:"sine.inOut"}, T.seedDot);
+  tl.to("#ensoS", {scale:1.06, transformOrigin:"50% 50%", duration:.35, yoyo:true, repeat:1, ease:"sine.inOut"}, T.seedDot + .1);
+
+  // 3. "A man takes it, and sows it in his field": real size, lifted, the field drawn, dropped in, covered
+  K.hide(tl, "#lblGrain", T.man - .2, {}, .2);
+  K.hide(tl, "#ensoS", T.man - .1, {scale:1.15}, .35);
+  tl.to("#seedG", {scale:.12, y:760, duration:.6, ease:"power2.inOut"}, T.man);
+  K.show(tl, "#lblTakes", T.takes, {y:14}, .35);
+  K.show(tl, "#ground", T.takes, {y:20}, .5);
+  tl.fromTo("#ground .tick", {scaleY:0, transformOrigin:"50% 100%"}, {scaleY:1, transformOrigin:"50% 100%", duration:.35, stagger:.02, ease:E, immediateRender:false}, T.takes + .2);
+  tl.fromTo("#under", {opacity:0, clipPath:"inset(0 0 100% 0)"}, {opacity:1, clipPath:"inset(0 0 0% 0)", duration:.6, ease:E, immediateRender:false}, T.takes + .3);
+  tl.set("#furrows", {opacity:1}, T.takes + .4);
+  tl.fromTo("#furrows .fw", {scaleX:0, transformOrigin:"50% 50%"}, {scaleX:1, transformOrigin:"50% 50%", duration:.5, stagger:.18, ease:E, immediateRender:false}, T.takes + .4);
+  K.hide(tl, "#lblTakes", T.sows - .2, {}, .2);
+  K.show(tl, "#lblSown", T.sows, {y:14}, .35);
+  tl.to("#seedG", {y:1066, duration:.4, ease:"power2.in"}, T.sows);
+  tl.set("#mound", {opacity:1}, T.field);
+  K.draw(tl, "#mound", T.field, .4, 140);
+  tl.to("#seedG", {opacity:0, duration:.2}, T.field + .35);
+  tl.to("#furrows .fw", {y:"+=6", duration:.3, stagger:.12, yoyo:true, repeat:1, ease:"sine.inOut"}, T.field + .45);
+
+  // 4. "It is the least of all seeds": a line-up, big to small; the red one is the least
+  K.hide(tl, "#lblSown", T.it2 - .2, {}, .2);
+  tl.to("#under,#furrows,#mound", {opacity:.3, duration:.4}, T.it2 - .1);
+  tl.set("#lineup", {opacity:1}, T.it2);
+  for(let i=0;i<6;i++){ const t0 = T.it2 + (T.seeds2 - T.it2)*i/6;
+    K.show(tl, "#ls"+i, t0, {y:-40}, .3); K.show(tl, "#lm"+i, t0 + .1, {y:10}, .25); }
+  K.show(tl, "#lblLeast", T.least2, {y:14}, .35);
+  tl.set("#leastRing", {opacity:1}, T.seeds2);
+  K.draw(tl, "#leastRing", T.seeds2, .5, 260);
+  tl.to("#ls0,#ls1,#ls2,#ls3,#ls4,#lm0,#lm1,#lm2,#lm3,#lm4", {opacity:.3, duration:.4}, T.seeds2 + .6);
+  tl.to("#ls5 .lsIn", {scale:1.8, transformOrigin:"50% 50%", duration:.3, yoyo:true, repeat:1, ease:"sine.inOut"}, T.seeds2 + .6);
+  tl.to("#leastRing", {scale:1.12, transformOrigin:"50% 50%", duration:.3, yoyo:true, repeat:1, ease:"sine.inOut"}, (T.seeds2 + .6 + T.but)/2 + .2);
+
+  // 5. "But when it is grown": it sprouts, outgrows the herbs, becomes a tree
+  K.hide(tl, "#lblLeast", T.but - .2, {}, .2);
+  K.hide(tl, "#lineup", T.but - .15, {y:-20}, .3);
+  tl.to("#under,#furrows,#mound", {opacity:1, duration:.4}, T.but);
+  K.show(tl, "#lblGrown", T.but + .15, {y:14}, .35);
+  tl.set("#sprout", {opacity:1}, T.but);
+  K.draw(tl, "#sprout", T.but, T.grown - T.but + .1, 130);
+  K.show(tl, "#sproutLv", T.grown, {scale:.3, y:10}, .4);
+  tl.set("#herbs", {opacity:1}, T.itIs);
+  tl.fromTo("#herbs .herb", {opacity:0, scaleY:0, transformOrigin:"50% 100%"}, {opacity:1, scaleY:1, transformOrigin:"50% 100%", duration:.35, stagger:.05, ease:E, immediateRender:false}, T.itIs);
+  K.hide(tl, "#lblGrown", T.greatest - .2, {}, .2);
+  K.show(tl, "#lblGreat", T.greatest, {y:14}, .35);
+  tl.set("#sprout2", {opacity:1}, T.greatest);
+  K.draw(tl, "#sprout2", T.greatest, .5, 130);
+  K.show(tl, "#sprout2Lv", T.greatest + .35, {scale:.3, y:10}, .4);
+  tl.to("#herbs", {opacity:.5, duration:.4}, T.herbs);
+  tl.to("#sproutLv,#sprout2Lv", {rotation:4, transformOrigin:"50% 100%", duration:.3, yoyo:true, repeat:1, ease:"sine.inOut"}, T.herbs);
+  // becometh a tree
+  K.hide(tl, "#lblGreat", T.and - .15, {}, .2);
+  K.show(tl, "#lblTree", T.becometh, {y:14}, .35);
+  tl.to("#under,#furrows,#mound", {opacity:0, duration:.5}, T.and);
+  tl.to("#sprout,#sproutLv,#sprout2,#sprout2Lv", {opacity:0, duration:.3}, T.and + .3);
+  tl.fromTo("#trunk", {opacity:0, scaleY:.15, transformOrigin:"50% 100%"}, {opacity:1, scaleY:1, transformOrigin:"50% 100%", duration:.7, ease:E, immediateRender:false}, T.and);
+  tl.set("#branches", {opacity:1}, T.becometh);
+  tl.set("#branches .br", {strokeDasharray:340, strokeDashoffset:340}, 0);
+  tl.to("#branches .br", {strokeDashoffset:0, duration:.45, stagger:.09, ease:E}, T.becometh);
+  tl.set("#branches .tw", {strokeDasharray:80, strokeDashoffset:80}, 0);
+  tl.to("#branches .tw", {strokeDashoffset:0, duration:.3, stagger:.03, ease:E}, T.becometh + .5);
+  tl.set("#foliage", {opacity:1}, T.tree);
+  tl.fromTo("#foliage .fo", {opacity:0, scale:.5, transformOrigin:"50% 50%"}, {opacity:.2, scale:1, transformOrigin:"50% 50%", duration:.6, stagger:.07, ease:E, immediateRender:false}, T.tree);
+  tl.fromTo("#foliage .lf", {opacity:0}, {opacity:.75, duration:.12, stagger:.008, immediateRender:false}, T.tree + .2);
+  tl.to("#herbs", {opacity:.85, duration:.3}, T.tree + .4);
+
+  // 6. "the birds of the air come and lodge in the branches": brush birds fly in and land, one by one
+  K.hide(tl, "#lblTree", T.birds - .2, {}, .2);
+  K.show(tl, "#lblBirds", T.birds, {y:14}, .35);
+  K.show(tl, "#count,#countSub", T.birds, {y:16}, .35);
+  tl.set("#birds", {opacity:1}, T.andB);
+  tl.set(".perch", {opacity:0}, 0);
+  tl.set(".wB", {opacity:0}, 0);
+  tl.to(".wA", {opacity:0, duration:.12, ease:"steps(1)", yoyo:true, repeat:Math.ceil((P - T.andB)/.12) + 2}, T.andB - .5);
+  tl.to(".wB", {opacity:1, duration:.12, ease:"steps(1)", yoyo:true, repeat:Math.ceil((P - T.andB)/.12) + 2}, T.andB - .5);
+  const land = [];
+  for(let i=0;i<5;i++){
+    const el = document.getElementById("bd"+i), px = +el.dataset.px, py = +el.dataset.py, dir = +el.dataset.dir;
+    const tLand = T.andB + .55 + (T.branches + .4 - T.andB - .55)*i/4; land.push(tLand);
+    tl.set("#bd"+i, {x:dir > 0 ? 1180 : -100, y:py - 260 + i*30, opacity:1}, 0);
+    tl.to("#bd"+i, {x:px, duration:.75, ease:"power1.out"}, tLand - .75);
+    tl.to("#bd"+i, {y:py, duration:.75, ease:"sine.in"}, tLand - .75);
+    tl.set("#bd"+i+" .fly", {opacity:0}, tLand);
+    tl.set("#bd"+i+" .perch", {opacity:1}, tLand);
+    tl.fromTo("#bd"+i+" .perch", {y:-6}, {y:0, duration:.2, ease:"bounce.out", immediateRender:false}, tLand);
+  }
+  tl.set("#bd0,#bd1,#bd2,#bd3,#bd4", {opacity:0}, 0);
+  for(let i=0;i<5;i++) tl.set("#bd"+i, {opacity:1}, land[i] - .75);
+  const cnt = {t:land[0] - .3}, cel = document.getElementById("count");
+  tl.to(cnt, {t:land[4] + .1, duration:land[4] + .4 - land[0], ease:"none", onUpdate:() => { cel.textContent = land.filter(x => x <= cnt.t + 1e-3).length; }}, land[0] - .3);
+  land.forEach(t => tl.to("#count", {scale:1.14, duration:.12, yoyo:true, repeat:1, ease:"sine.inOut"}, t));
+  K.hide(tl, "#lblBirds", T.lodge - .2, {}, .2);
+  K.show(tl, "#lblLodge", T.lodge, {y:14}, .35);
+  tl.to("#foliage", {rotation:1.2, transformOrigin:"50% 100%", duration:.5, yoyo:true, repeat:1, ease:"sine.inOut"}, land[4] + .1);
+});
